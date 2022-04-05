@@ -4,7 +4,7 @@
 
 By Alexis Brignoni
 
-Profile: [https://linqapp.com/abrignoni](https://user-images.githubusercontent.com/28718987/161664557-e72d881c-b61b-427c-b8d3-26d8d7477763.png)
+Profile: [https://linqapp.com/abrignoni](https://linqapp.com/abrignoni)
 
 ## The Artisanal Approach
 

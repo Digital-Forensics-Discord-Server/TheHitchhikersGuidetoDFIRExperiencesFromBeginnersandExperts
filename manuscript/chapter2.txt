@@ -1,1 +1,62 @@
-# Chapter 2
+#  Most Common Data Stores in Mobile Forensics
+
+<img src="https://user-images.githubusercontent.com/28718987/161664557-e72d881c-b61b-427c-b8d3-26d8d7477763.png" width="100" height="100" />
+
+By Alexis Brignoni
+
+Online presence: [https://linqapp.com/abrignoni](https://linqapp.com/abrignoni)
+
+## The Artisanal Approach
+
+Most mobile forenisc examinations involve the use of third party tools to extract and decode information stored whitin targeted devices. What happens when the tool presents little to nothing of what is expected? What to do when the targeted app seems to not exist as far as the tool is concerned?
+
+A big part of digital forensics involves what I call The Artisanal Approach. The Oxford Languages dictionary defines artisanal as: 
+		
+		ar·ti·san·al
+		/ärˈtēzən(ə)l/
+		adjective
+		- relating to or characteristic of an artisan.
+		"artisanal skills"
+		- (of a product, especially food or drink) made in a traditional or non-mechanized way.
+		"artisanal cheeses"
+		
+This is just a long way of saying that we will rely have to manually identify the relevant data stores. The approach has 3 steps.
+
+1. Locate the relevant apps.
+2. Identify the data stores for the app and extract meaningful items.
+3. Report generation.
+
+On this chapter we will focus mostly on step number two. We will discuss what type of data stores are mostly seen in mobile forensics and suggest cost effective (i.e. cheap) solutions to traige these sources. Let's dive in.
+
+## Locate Relevant Apps
+
+The mobile forensics world is divided, mainly, between two dominant operating systems. These are Google's Android and Apple's iOS operating systems. As such both will organize things in vastly different ways within their file systems. This chapter will present examples from a full file system extraction view of Android and iOS devices. Even when working from a different type of extraction the main concepts, and the handling of data stores, will be the same. For details on mobile extraction types and their differences see here: [https://privacyinternational.org/long-read/3256/technical-look-phone-extraction](https://privacyinternational.org/long-read/3256/technical-look-phone-extraction)
+
+Is is important to note that this chapter will touch on the most common locations and types of data needed for analysis. It is not an all encompasing guide to mobile forensics nor does it intend to be so. Without further ado let's dive in.
+
+### Relevant Apps in Android
+In Adroid devices the apps keep most user generated data in the following directory:
+
+	/data/data/
+
+As seen in figure 1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
+
+<img width="365" alt="figure 1" src="https://user-images.githubusercontent.com/28718987/162046213-9f7cce84-767b-4f81-bf0d-82e188f6a0f5.png"> 
+
+Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://user-images.githubusercontent.com/28718987/162047421-6cf00abc-b101-4a60-b9e7-58cf4c38fefb.png">
+
+The bundle ID is located in the URL at the top of the page.
+
+	https://play.google.com/store/apps/details?id=com.discord&hl=en_US&gl=US
+
+Let's look at TikTok.
+
+<img width="920" alt="Screen Shot 2022-04-06 at 2 21 53 PM" src="https://user-images.githubusercontent.com/28718987/162047835-30915faa-49be-424e-a8c4-e54a7f15ee23.png">
+
+Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all. 
+
+	https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US&gl=US
+	
+By changing the Google Play store URLs to the possibly unknown bundle IDs found on the target extraction one can determine the common app name for it.

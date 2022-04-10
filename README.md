@@ -15,6 +15,4 @@ This is a proof of concept and a great first step for providing a different meth
 
 ## When will it be done?
 
-Sometime this year (2022) for sure. The writing and editing process will be fully transparent to the public! Stay tuned!
-
-
+Sometime this year (2022) for sure. Hopefully by end of the summer? Regardless, the writing and editing process will be fully transparent to the public! Check out the [Milestones](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/milestones) to see where we're at. Stay tuned!

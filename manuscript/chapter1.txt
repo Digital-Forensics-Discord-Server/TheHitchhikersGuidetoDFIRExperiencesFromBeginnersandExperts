@@ -1,6 +1,6 @@
 # History of the Digital Forensics Discord Server
 
-[DigitalForensicsDiscordServerLogoByKevinPagano](DFDSLogo.png)
+![DigitalForensicsDiscordServerLogoByKevinPagano](DFDSLogo.png)
 
 ## Introduction
 

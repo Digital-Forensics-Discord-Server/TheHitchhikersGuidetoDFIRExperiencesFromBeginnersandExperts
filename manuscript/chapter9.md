@@ -7,12 +7,15 @@
 By [Kevin Pagano](https://twitter.com/KevinPagano3) | [Stark 4N6](https://startme.stark4n6.com)
 
 ## **What is a CTF?**
+
 The origins of CTF or “Capture The Flag” were found on the playground. It was (still is?) an outdoor game where teams had to run into the other teams zones and physically capture a flag (typically a handkerchief) and return it back to their own base without getting tagged by the opposing team. In the information security realm it has come to mean a slightly different competition.
 
-**Why am I qualified to talk about CTFs?**
+## Why am I qualified to talk about CTFs?
+
 Humble brag time. I’ve played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR Lethal Forensicator coins from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I’ve also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I’ve competed in on [my personal blog](https://ctf.stark4n6.com).
 
-**Types of CTFs**
+## Types of CTFs
+
 Two of the most common information security types of CTF competitions are “**Jeopardy**” style and “**Attack and Defense**” style.
 
 “**Jeopardy**” style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
@@ -56,6 +59,7 @@ Other software vendors have started to create their own as well to engage with t
 Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you’d like as well as allow them to host your next live event. 
 
 ![enter image description here](https://i.ibb.co/SdqWtZw/blueyard.png)
+
 ***Figure 3: CyberDefenders website***
 
 Another fairly exhaustive list of other past challenges and evidence can be found hosted on [**AboutDFIR**](https://aboutdfir.com/education/challenges-ctfs/).
@@ -99,36 +103,36 @@ If evidence is provided ahead of the competition make sure to spend some time ge
 
 I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTF's:
 
-**General Analysis:**
+**General Analysis**
 - Autopsy
 - Bulk Extractor
 - DB Browser for SQLite
 - FTK Imager
 -  Hindsight
 
-**Chromebook:**
+**Chromebook**
  - cLEAPP
 
 **Ciphers**
  - CyberChef
  - dcode.fr
 
-**Google Takeout / Returns:**
+**Google Takeout / Returns**
  - RLEAPP
 
-**Mac:**
+**Mac**
  - mac_apt
  - plist Editor - iCopyBot
 
-**Malware/PE:**
+**Malware/PE**
  - PEStudio
  - PPEE (puppy)
 
-**Memory/RAM:**
+**Memory/RAM**
  - MemProcFS
  - Volatility
 
-**Mobile Devices:**
+**Mobile Devices**
  - ALEAPP
  - Andriller
  - APOLLO
@@ -136,11 +140,11 @@ I'm a Windows user through and through so I cannot offer much advise from a Mac 
  - iBackupBot
  - iLEAPP
 
-**Network:**
+**Network**
  - NetworkMiner
  - Wireshark
 
-**Windows Analysis:**
+**Windows Analysis**
  - Eric Zimmerman tools / KAPE 
  - USB Detective
 

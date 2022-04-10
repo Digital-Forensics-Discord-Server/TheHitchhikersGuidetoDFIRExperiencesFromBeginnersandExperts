@@ -35,17 +35,17 @@ The mobile forensics world is divided, mainly, between two dominant operating sy
 Is is important to note that this chapter will touch on the most common locations and types of data needed for analysis. It is not an all encompasing guide to mobile forensics nor does it intend to be so. Without further ado let's dive in.
 
 ### Relevant Apps in Android
-In Adroid devices the apps keep most user generated data in the following directory:
+In Android devices the apps keep most user generated data in the following directory:
 
 	/data/data/
 
 As seen in figure 1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
 
-<img width="365" alt="figure 1" src="https://user-images.githubusercontent.com/28718987/162046213-9f7cce84-767b-4f81-bf0d-82e188f6a0f5.png"> 
+<img width="365" alt="figure 1" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.41.50%20PM.png?raw=true"> 
 
 Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://user-images.githubusercontent.com/28718987/162047421-6cf00abc-b101-4a60-b9e7-58cf4c38fefb.png">
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.23.04%20PM.png?raw=true">
 
 The bundle ID is located in the URL at the top of the page.
 
@@ -53,10 +53,74 @@ The bundle ID is located in the URL at the top of the page.
 
 Let's look at TikTok.
 
-<img width="920" alt="Screen Shot 2022-04-06 at 2 21 53 PM" src="https://user-images.githubusercontent.com/28718987/162047835-30915faa-49be-424e-a8c4-e54a7f15ee23.png">
+<img width="920" alt="Screen Shot 2022-04-06 at 2 21 53 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.21.53%20PM.png?raw=true">
 
 Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all. 
 
 	https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US&gl=US
 	
 By changing the Google Play store URLs to the possibly unknown bundle IDs found on the target extraction one can determine the common app name for it.
+
+It is of note that apps also save data to additional locations within the Android device. Look for targeted bundle ID direcotries in the following locations:
+
+	/data/media/
+	/MNT/ or /NONAME/
+
+As you navigate the contents of these directories you will find relevant stores that can contain user generated data. 
+
+### Relevant apps in iOS
+
+In iOS devices user generated data can be found in the following directories:
+
+	/private/var/containers/Bundle/Application/*GUID directory*/
+	/private/var/mobile/Containers/Shared/AppGroup/*GUID directory*/
+	/private/var/mobile/Containers/Data/PluginKitPlugin/*GUID directory*/
+
+Notice the \*GUID directory* at the end of the paths. These will be subsituted with a corresponding global unique identifier. See the following example: 
+
+	A72DDBEE-8EEE-4868-9E5A-769B078781EA
+	
+These values can change constantly due to app installs, updates, and uninstalls. Unlike Android devices iOS bundle IDs are not part of the application directory paths therefore it is impossible to identify applications of interest visually by bundle ID names.
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%204.58.01%20PM.png?raw=true">
+
+How can then we take these GUID named directories and linked them to the corresponding bundle IDs?
+
+###Option 1: applicationState.db
+This data store is a SQLite database that contains information for all currently installed appications. We will discuss SQLite databases in the next section. The database is located here:
+
+	/private/var/mobile/Library/FrontBoard/applicationState.db
+	
+The exemplar data in the following image is from Josh Hickman's test iOS images. These can be found here: 
+https://thebinaryhick.blog/public_images/
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.11.30%20PM.png?raw=true">
+
+The tool used for this output is iLEAPP and can be found here: https://github.com/abrignoni/iLEAPP
+
+
+Notice how the database can provide the bundle ID, the app name, and the corresponding GUID values within the paths.
+
+###Option 2: iTunesMetadata.plist & BundleMetadata.plist
+These data stores are property lists (plist) and will be discussed in the next section. The files reside in each /private/var/containers/Bundle/Application/\*GUID directory*/ folder per app. It contains a wealth of information regarding the app for each folder.
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.24.01%20PM.png?raw=true">
+
+###Option3: .com.apple.mobile\_container_manager.metadata.plist
+Like the previous option the data store is a plist. The plist is contained in the /private/var/mobile/Containers/Shared/AppGroup/\*GUID directory\*/ and /private/var/mobile/Containers/Data/PluginKitPlugin/\*GUID directory*/ folders. Notice the period at the start of the plist filename. If using a macOS for analisys make sure to enable the view hidden files options in order to not miss them.
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.35.52%20PM.png?raw=true">
+
+As discussed previously bundle IDs might not be anywhere close to their commercial or well known app names. The following URL has a useful database of iOS bundle IDs and corresponding app names: 
+
+	https://offcornerdev.com/bundleid.html
+	
+See the following output for Snapchat.
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.40.22%20PM.png?raw=true">
+
+## Common Data Stores in Mobile Forensics
+
+We have identified the locations where user generated data, by app, can be stored both in Android and iOS. Now we look at what file structures are involved. Let's start with the current king of mobile data storage.
+
+### SQLite Relational Databases

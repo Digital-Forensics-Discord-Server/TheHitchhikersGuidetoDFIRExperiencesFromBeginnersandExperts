@@ -108,7 +108,7 @@ I'm a Windows user through and through so I cannot offer much advise from a Mac 
 - Bulk Extractor
 - DB Browser for SQLite
 - FTK Imager
--  Hindsight
+- Hindsight
 
 **Chromebook**
  - cLEAPP

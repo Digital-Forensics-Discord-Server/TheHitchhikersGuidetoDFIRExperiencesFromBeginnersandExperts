@@ -86,7 +86,7 @@ These values can change constantly due to app installs, updates, and uninstalls.
 
 How can then we take these GUID named directories and linked them to the corresponding bundle IDs?
 
-###Option 1: applicationState.db
+### Option 1: applicationState.db
 This data store is a SQLite database that contains information for all currently installed appications. We will discuss SQLite databases in the next section. The database is located here:
 
 	/private/var/mobile/Library/FrontBoard/applicationState.db
@@ -101,12 +101,12 @@ The tool used for this output is iLEAPP and can be found here: https://github.co
 
 Notice how the database can provide the bundle ID, the app name, and the corresponding GUID values within the paths.
 
-###Option 2: iTunesMetadata.plist & BundleMetadata.plist
+### Option 2: iTunesMetadata.plist & BundleMetadata.plist
 These data stores are property lists (plist) and will be discussed in the next section. The files reside in each /private/var/containers/Bundle/Application/\*GUID directory*/ folder per app. It contains a wealth of information regarding the app for each folder.
 
 <img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.24.01%20PM.png?raw=true">
 
-###Option3: .com.apple.mobile\_container_manager.metadata.plist
+### Option3: .com.apple.mobile\_container_manager.metadata.plist
 Like the previous option the data store is a plist. The plist is contained in the /private/var/mobile/Containers/Shared/AppGroup/\*GUID directory\*/ and /private/var/mobile/Containers/Data/PluginKitPlugin/\*GUID directory*/ folders. Notice the period at the start of the plist filename. If using a macOS for analisys make sure to enable the view hidden files options in order to not miss them.
 
 <img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.35.52%20PM.png?raw=true">

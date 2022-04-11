@@ -124,3 +124,51 @@ See the following output for Snapchat.
 We have identified the locations where user generated data, by app, can be stored both in Android and iOS. Now we look at what file structures are involved. Let's start with the current king of mobile data storage.
 
 ### SQLite Relational Databases
+
+SQLite is the most used database engine in the world. It is a relation database. A simple way of thinking about them is by imagining a set of spreadsheets that have things in common. For this example we will use DB Browser for SQLite as our tool to access SQLite databases. It can be downloaded here: [https://sqlitebrowser.org/](https://sqlitebrowser.org/)
+
+SQLite databases usually have the .sqlite or .db extension but that might not always be the case. What is always the case is that if you open a suspected SQLite database with a hex or text editor you will see 'SQLite format 3' at the start of the file. This is known as the file header and it is a sure fire way of confirming you are dealing with a SQLite database.
+
+Using DB Browser for SQLite we will open a database named test.db for analysis. It is a simple database consisting of two spredsheets of data, tables in SQLite parlance. By using the Browse Data the content of these tables can be seen.
+
+Customers Table
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.17.32%20PM.png?raw=true">
+
+Addresses Table
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.17.45%20PM.png?raw=true">
+
+These tables record the customer's names and addresses. A customer can have one or more addresses in the addresses table. How to we know what addresses correspond to what customer? Notice how the customerID column in the Customers table identifies each customer uniquely. This is called a Primary Key. These same values can be found in the Addresses table under AddressID. When that is the case they are know as a Foreign Keys. The purpose of a foreign key is to identify that row of data as being part of (relational) to the primary key. We can match the customer with the correct address by finding tprimary key in the Customers table and match it with the same foreign key in the Addresses table.
+
+To tell the database to match customers to addresses we use a set of commmands called Structured Query Language (SQL). We will tell the database to gives us all columns from both tables where the CustomerID in the customer's table is the same as the AddressID in the addresses table.
+
+`SELECT * 
+FROM Customers, Addresses
+where CustomerID = AddressID`
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.31.22%20PM.png?raw=true">
+
+Each customer has been match with the proper address or addresses. Notice the asterisk after the SELECT command, it means we want all columns that are responsive to the query. SQL allows us to really narrow down how much data we want from the database. If I want obtain only the addresses that are related to Alexis Brignoni we would query the database the followingt way:
+
+`SELECT *
+FROM Addresses
+INNER JOIN Customers
+ON CustomerID = AddressID
+WHERE CustomerID = 1`
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.57.58%20PM.png?raw=true">
+
+The last query uses an inner join. These are the most common way of putting together data from two or more tables. An inner join will return rows from multiple tables when a condition is met. In our example we wanted all the data and only the data for CustomerID number 1.
+
+SQLite databases can be pretty large with many tables and a multitude of primary and foreign keys to keep track of. Thankfully there are plenty of online resources on structured query language and with a little of patience and practice anyone can be able to pull relevant data out of these databases.
+
+As we examine these databases we have to take into account temporary files SQLite uses as it works. These are write-ahead log and roll-back journal files. These files, if available, will have the same name as the database with either a -wal or -journal extension.
+
+<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%202.18.34%20PM.png?raw=true">
+
+These temporary files might contain data not found in the database and will require examination with tools that support their forensic review. An athoritative book on the subject can be found here: [SQLite Forensics by Paul Anderson](https://www.amazon.com/SQLite-Forensics-Paul-Sanderson/dp/1980293074)
+
+
+
+### JSON - Java Script Object Notation

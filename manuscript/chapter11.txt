@@ -1,1 +1,53 @@
+# Setting Up a Law Enforcement Digital Forensics Laboratory
 
+by Jason Wilkins MCFE, 3CE 
+
+## Executive Cooperation
+
+### The necessity of executive cooperation
+
+### Making your case to executive leadership
+
+### Open communication and trust
+
+## Physical Requirements
+
+### Physical security and accessibility
+
+### Floor plans
+
+## Selecting Tools
+
+### Network Requirements
+
+### Selecting forensic workstations
+
+### Selecting forensic software
+
+### Selecting peripheral equipment
+
+### Planning for Disaster
+
+## Certification and Training
+
+### Why should you get certified?
+
+### Where to find training
+
+### Creating a training plan for your lab
+
+## Accreditation, Policy, and Procedure
+
+### Accreditation requirements
+
+### Budgeting for the lab
+
+### Duties and responsibilities
+
+### Privacy Policy
+
+### Standard Operating Procedures
+
+### **Chapter Summary**
+
+### **Key Terms**

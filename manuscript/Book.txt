@@ -1,5 +1,4 @@
 introduction.txt
-MarkdownExamples.txt
 authors.txt
 chapter1.txt
 chapter2.txt
@@ -11,3 +10,8 @@ chapter7.txt
 chapter8.txt
 chapter9.txt
 chapter10.txt
+chapter11.txt
+chapter12.txt
+chapter13.txt
+chapter14.txt
+MarkdownExamples.txt

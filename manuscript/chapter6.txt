@@ -1,5 +1,5 @@
-# Heading goes here
+# Chapter 6
 
 ## Subheading goes here
 
-Content goes here
+Content goes here. Remember, only what is put here is parsed by Leanpub to generate the PDF/MOBI/EPUB files.

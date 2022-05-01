@@ -4,11 +4,11 @@
 
 Special thanks to Kevin Pagano for creating the logo for the Digital Forensics Discord Server!
 
-# History of the Digital Forensics Discord Server
+## History of the Digital Forensics Discord Server
 
 I felt it was prudent to choose this topic for this project because very few others could provide as in depth of an account on the history of the Digital Forensics Discord Server. More to come in this section.
 
-## Beginnings in IRC
+### Beginnings in IRC
 
 Long before the Digital Forensics Discord Server came to be, there existed a channel on an [IRC](https://en.wikipedia.org/wiki/Internet_Relay_Chat) network called [freenode](https://en.wikipedia.org/wiki/Freenode). The channel was called `#mobileforensics`. This channel had its humble beginnings on a Google Group ran by Bob Elder of [TeelTech](https://www.teeltech.com/), called the [Physical and RAW Mobile Forensics Group](https://groups.google.com/g/physical-mobile-forensics/about?pli=1), which still exists today. In order to gain access to this Google Group, one had to have attended a TeelTech training in the past. It was, and continues to be, a phenomenal resource for those of us in Law Enforcement trying to navigate the waters of mobile forensic acquisitions. 
 
@@ -20,7 +20,7 @@ Throughout the next year and a half, a small contingent of people totaling anywh
 
 I recall utilizing an application called [HexChat](https://hexchat.github.io/) to access this IRC channel. I'd have HexChat open at all times along with my everyday workflow of software applications to perform my duties as a Detective. For those reading this who have not used IRC before, know that's its nowhere near as feature rich as Discord. Discord is much more modern and IRC has been around since the "early days" of the internet as we know it today. I bring this up because often we needed to share pictures with each other as an exhibit for a problem we were encountering during the acquisition or decoding process of a mobile device.
 
-## Move to Discord
+### Move to Discord
 
 Truthfully, I had forgotten this detail I'm about to share but one of the moderators reminded me of it a couple of years ago and it all came back to me. One of the main catalysts for moving from IRC was the fact that I was really annoyed with having to upload a picture to imgur and share the link on the IRC channel as it seemed inefficient and the process grew stale for me. I had created a Discord account back in September 2016 to join various special interest servers so I had a fair amount of exposure to Discord's capabilities prior to the birthdate of the Digital Forensics Discord Server, which is March 26th, 2018. 
 
@@ -28,17 +28,17 @@ I recall having aspirations for a move to Discord months prior to March 2018. Fo
 
 I was reminded that the major push to move to Discord came from me mostly surrounding the image uploading process combined with the positive experiences I had with the platform in my personal life via special interest servers from September 2016 to March 2018. The call to move to Discord was met with nearly unanimous approval from members of the IRC channel. As a result, the Mobile Forensics Discord Server was created!
 
-## Mobile Forensics Discord Server -> Digital Forensics Discord Server
+### Mobile Forensics Discord Server -> Digital Forensics Discord Server
 
 The Mobile Forensics Discord Server enjoyed great success and rapid growth throughout its first year of existence. The server's growth was entirely driven by word of mouth and advertising on various Google Groups. The list of channels maintained in the server were driven by member requests which quickly expanded outside of mobile devices. Over time, it became increasingly apparent that branding the server as a Mobile Forensics server did not fully encompass the needs of the DFIR community. To the best of my research, the Mobile Forensics Discord Server was rebranded to the Digital Forensics Discord Server sometime around February 2019.
 
 Since then, multiple channels have been added, renamed, and removed at the request of members.
 
-## Member Growth
+### Member Growth
 
 Throughout the 4 years (as of this writing), the Digital Forensics Discord Server has undergone substantial growth. Below are some major membership milestones that were mined from Announcements I made in the `#announcements` channel over time. 
 
-### Major Milestones
+#### Major Milestones
 
 | Date | # of Members |
 |---|---|
@@ -68,7 +68,7 @@ Throughout the 4 years (as of this writing), the Digital Forensics Discord Serve
 | 1/29/2022 | 9000 |
 | 3/26/2022 | 9500 |
 
-## Hosting the Magnet Virtual Summit 2020
+### Hosting the Magnet Virtual Summit 2020
 
 In early 2020, shortly after the COVID-19 pandemic began, I was approached by representatives from Magnet Forensics inquiring about the possibility of providing a centralized location for attendees of the Magnet Virtual Summit 2020 to chat during presentations. Enthusiastically, we accepted the idea and began to plan the logistics of hosting what likely would become a large influx of members. I seem to recall nearly 1500 members joining during the month long Magnet Virtual Summit 2020.
 
@@ -77,11 +77,11 @@ In retrospect, it's clear that this was one of the first indicators that the ser
 
 SANS DFIR Virtual Summit 2020 went virtual
 
-## Community Engagement Within the Server
+### Community Engagement Within the Server
 
 vendors and customers
 
-## Impact on the DFIR community
+### Impact on the DFIR community
 
 solo cop up in alaska who's nearest fellow examiner is 3 hours away
 
@@ -163,7 +163,7 @@ Countries with roles assigned for Law Enforcement personnel (as of May 2022):
 
 To save you from counting, that's 70 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 36% of those! 
 
-## Future
+### Future
 
 The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. 
 

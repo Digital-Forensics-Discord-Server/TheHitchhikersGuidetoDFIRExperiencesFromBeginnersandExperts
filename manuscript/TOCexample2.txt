@@ -1,4 +1,4 @@
-# Chapter #
+# Chapter number goes here
 
 ## Chapter Title
 

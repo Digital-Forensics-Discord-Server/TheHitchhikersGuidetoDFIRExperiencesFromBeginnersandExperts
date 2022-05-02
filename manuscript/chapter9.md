@@ -70,16 +70,18 @@ So at the end of the day, why should YOU (yes, YOU, the reader) play a CTF? Well
 
 ### For Sport
 
-Growing up I’ve always been a competitive person, especially playing sports like baseball and basketball, CTF’s are no different. There is a rush of excitement (at least for me) competing against other like-minded practitioners or analysts to see how you stack up. I personally like to problem solve and to be challenged which is part of the reason why I enjoy playing.
+Growing up I’ve always been a competitive person, especially playing sports like baseball and basketball, CTF’s are no different. There is a rush of excitement (at least for me) competing against other like-minded practitioners or analysts to see how you stack up. You can even be anonymous while playing. Part of the fun is coming up with a creative handle / username to compete with. It also keeps the commentary and your competitors on their toes.
+
+I personally like to problem solve and to be challenged which is part of the reason why I enjoy playing.
 
 ### For Profit
 
-I put profit in quotations because many may construe that as a compensation type objective. While many CTF challenges do have prizes such as challenge coins or swag (like awesome branded clothing) that’s not completely the profit I’m talking about here. The profit is the knowledge you gain from playing. I’ve done competitions where I never knew how to analyze memory dumps at all and I learned at least the basics of where to look for evidence and new techniques to try later on in real world scenarios.
+I put profit in quotations because many may construe that as a compensation type objective. While many CTF challenges do have prizes such as challenge coins or swag ( awesome branded clothing anyone?!) that’s not completely the profit I’m talking about here. The profit is the knowledge you gain from playing. I’ve done competitions where I never knew how to analyze memory dumps at all and I learned at least the basics of where to look for evidence and new techniques to try later on in real world scenarios.
 
 > "Commit yourself to lifelong learning. The most valuable asset you'll
 > ever have is your mind and what you put into it." - Albert Einstein
 
-The knowledge you gain from the “practice” will inevitably help you in the future, it's just a matter of time.
+The knowledge you gain from the “practice” will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
 
 ## Toss a Coin in the Tip Jar
 
@@ -104,49 +106,49 @@ If evidence is provided ahead of the competition make sure to spend some time ge
 I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTF's:
 
 **General Analysis**
-- Autopsy
-- Bulk Extractor
-- DB Browser for SQLite
-- FTK Imager
-- Hindsight
+- [Autopsy](https://www.autopsy.com/)
+- [Bulk Extractor](https://github.com/simsong/bulk_extractor)
+- [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
+- [FTK Imager](https://www.exterro.com/ftk-imager#:~:text=FTK%C2%AE%20Imager%20is%20a,(FTK%C2%AE)%20is%20warranted.)
+- [Hindsight](https://dfir.blog/hindsight/)
 
 **Chromebook**
- - cLEAPP
+ - [cLEAPP](https://github.com/markmckinnon/cLeapp)
 
 **Ciphers**
- - CyberChef
- - dcode.fr
+ - [CyberChef](https://gchq.github.io/CyberChef/)
+ - [dcode.fr](https://www.dcode.fr/en)
 
 **Google Takeout / Returns**
- - RLEAPP
+ - [RLEAPP](https://github.com/abrignoni/RLEAPP)
 
 **Mac**
- - mac_apt
- - plist Editor - iCopyBot
+ - [mac_apt](https://github.com/ydkhatri/mac_apt)
+ - [plist Editor - iCopyBot](http://www.icopybot.com/plist-editor.htm)
 
 **Malware/PE**
- - PEStudio
- - PPEE (puppy)
+ - [PEStudio](https://www.winitor.com/)
+ - [PPEE (puppy)](https://www.mzrst.com/)
 
 **Memory/RAM**
- - MemProcFS
- - Volatility
+ - [MemProcFS](https://github.com/ufrisk/MemProcFS)
+ - [Volatility](https://www.volatilityfoundation.org/releases)
 
 **Mobile Devices**
- - ALEAPP
- - Andriller
- - APOLLO
- - ArtEx
- - iBackupBot
- - iLEAPP
+ - [ALEAPP](https://github.com/abrignoni/ALEAPP)
+ - [Andriller](https://github.com/den4uk/andriller)
+ - [APOLLO](https://github.com/mac4n6/APOLLO)
+ - [ArtEx](https://www.doubleblak.com/software.php?id=8)
+ - [iBackupBot](http://www.icopybot.com/itunes-backup-manager.htm)
+ - [iLEAPP](https://github.com/abrignoni/iLEAPP)
 
 **Network**
- - NetworkMiner
- - Wireshark
+ - [NetworkMiner](https://www.netresec.com/?page=NetworkMiner)
+ - [Wireshark](https://www.wireshark.org/)
 
 **Windows Analysis**
- - Eric Zimmerman tools / KAPE 
- - USB Detective
+ - [Eric Zimmerman tools / KAPE](https://ericzimmerman.github.io/#!index.md)
+ - [USB Detective](https://usbdetective.com/)
 
 This whole list could be expanded way further but this is the majority of the go-to's in my toolkit.
 

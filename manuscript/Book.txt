@@ -14,4 +14,6 @@ chapter11.txt
 chapter12.txt
 chapter13.txt
 chapter14.txt
+TOCexample1.txt
+TOCexample2.txt
 MarkdownExamples.txt

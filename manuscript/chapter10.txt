@@ -1,4 +1,4 @@
-# Getting into digital forensics
+# Chapter 10 - Getting into Digital Forensics
 
 ![DFIRScience Logo](https://dfir.science/assets/images/logos/icons/android-chrome-512x512.png)
 

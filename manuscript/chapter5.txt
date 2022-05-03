@@ -1,4 +1,4 @@
-# Chapter 5 heading goes here
+# Chapter 5 - Chapter Title Goes Here
 
 ## Subheading goes here
 

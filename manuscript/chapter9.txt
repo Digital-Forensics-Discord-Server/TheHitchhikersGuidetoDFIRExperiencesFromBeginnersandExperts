@@ -1,4 +1,4 @@
-# Gamification of DFIR: Playing CTF's
+# Chapter 9 - Gamification of DFIR: Playing CTF's
 
 <img src="https://user-images.githubusercontent.com/48143894/162533767-1d6eca8a-98c7-446b-a970-807bd3deb588.png" width="200" />
 

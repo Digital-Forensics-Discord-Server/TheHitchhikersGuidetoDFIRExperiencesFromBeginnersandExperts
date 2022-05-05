@@ -9,7 +9,7 @@ User data such as internet history, images, videos, emails, messages etc fall un
 
 However, System Data like artifacts that help support some view of truth, or determine how closely a transpired event is to the evidence, are not that simple to manually parse with forensic soundess, which is why oftentimes forensicators rely on well-known parsing tools either commercial or opensource.
 
-[![Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Chapter16_EDvsDF.png)](https://www.amazon.com/Discovery-Introduction-Digital-Evidence-DVD/dp/1111310645)
+![16.1 - Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Chapter16_EDvsDF.png)
 
 And that is the main difference between E-Discovery & Digital Forensics depending on the categorization of data alone. Both follow different procedures and have different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
@@ -21,7 +21,8 @@ Which brings us to parsing. We often go around throwing the term  while working 
 
 Generally, it is some feature or underlying mechanism of the main operating system installed on the device. Parsing tools are written to accurately mimic those functions of the operating system which make the raw data stored on the hardware, human readable.
 
-[![Attr: Kapooht, CC BY-SA 3.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/b/b7/Role_of_an_Operating_System.svg)](https://creativecommons.org/licenses/by-sa/3.0)
+{height: "30%"}
+![16.2 - Attr: Kapooht, CC BY-SA 3.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/b/b7/Role_of_an_Operating_System.svg)
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of  computer data and how it is being presented.
 
@@ -30,11 +31,13 @@ Understand the operating system as an abstraction level between the end-user and
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
-[![Attr: Original by losmilzo on imgur, modified here as text removal](Chapter16_Truth.jpg)](https://imgur.com/gallery/obWzGjY)
+{width: "40%"}
+![16.3 - Attr: Original by losmilzo on imgur, modified here as text removal](Chapter16_Truth.jpg)
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
-[![Attr: By stux on pixabay](Chapter16_Puzzle.png)](https://pixabay.com/vectors/puzzle-multicoloured-coloured-3155663/)
+{width: "40%"}
+![16.4 - Attr: By stux on pixabay](Chapter16_Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.
 
@@ -48,13 +51,19 @@ However, note that this "rule", if you will, is only applicaple to a more broad 
 This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view.
 
 ### Registry
+
 ### Prefetch
+
 ### Shellbags
+
 ### Jumplists & LNK files
+
 ### SRUM
+
 ### $MFT
+
 ### $130
+
 ### \$LogFile
+
 ### hiberfil.sys
-
-

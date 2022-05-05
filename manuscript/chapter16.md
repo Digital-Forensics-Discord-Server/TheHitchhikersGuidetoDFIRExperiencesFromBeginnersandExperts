@@ -1,5 +1,5 @@
 # Chapter 16 - Artifacts as Evidence
----
+
 ## Types of Artifacts
 Digital Forensics is a six phase process including Preparation, Identification, Collection, Preservation, Analysis and Reporting.
 
@@ -13,7 +13,6 @@ However, System Data like artifacts that help support some view of truth, or det
 
 And that is the main difference between E-Discovery & Digital Forensics depending on the categorization of data alone. Both follow different procedures and have different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
----
 ## What is Parsing?
 Which brings us to parsing. We often go around throwing the term  while working with a variety of artifacts;
 "Parse this, parse that", but what does it mean in the real sense? To understand the parsing methodology, tools & techniques, we must be familiar with the origin of the handling of the data being parsed. What I mean by that is how was the data originally meant to be handled. What was it's structure by design. How can it be replicated.
@@ -24,7 +23,6 @@ Generally, it is some feature or underlying mechanism of the main operating syst
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of  computer data and how it is being presented.
 
----
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
@@ -40,7 +38,6 @@ As a result of a codependency of the artifacts on drawing correlations to some e
 
 However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation and will generally be handled by the lawyers. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone does not mean it's admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces of the puzzle.
 
----
 ## Examples
 This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view.
 

@@ -20,7 +20,7 @@ Which brings us to parsing. We often go around throwing the term  while working 
 
 Generally, it is some feature or underlying mechanism of the main operating system installed on the device. Parsing tools are written to accurately mimic those functions of the operating system which make the raw data stored on the hardware, human readable.
 
-<img width="503" alt="Computer_Structure" src="https://user-images.githubusercontent.com/28131554/166871680-d302e610-3775-4ff9-99a2-f70b610ad795.png">
+<img width="500" alt="Computer_Structure" src="https://user-images.githubusercontent.com/28131554/166871680-d302e610-3775-4ff9-99a2-f70b610ad795.png">
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of  computer data and how it is being presented.
 
@@ -28,7 +28,7 @@ Understand the operating system as an abstraction level between the end-user and
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
-![Truth](https://user-images.githubusercontent.com/28131554/166871678-2bd07780-ceaa-4fbd-bd44-b3685076f4a4.jpg)
+<img width="500" alt="Truth" src="https://user-images.githubusercontent.com/28131554/166871678-2bd07780-ceaa-4fbd-bd44-b3685076f4a4.jpg">
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 

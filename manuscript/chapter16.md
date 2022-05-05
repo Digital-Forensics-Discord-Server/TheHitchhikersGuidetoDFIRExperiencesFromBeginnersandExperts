@@ -32,7 +32,7 @@ You will come across an ocean of different artifacts in your investigations, but
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
-![Puzzle](https://user-images.githubusercontent.com/28131554/166871682-7dfe4e29-8d76-45b2-b5cd-62b7ce7a60d6.png)
+<img width="500" alt="Puzzle" src="https://user-images.githubusercontent.com/28131554/166871682-7dfe4e29-8d76-45b2-b5cd-62b7ce7a60d6.png">
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.
 

@@ -1,6 +1,7 @@
 # Chapter 16 - Artifacts as Evidence
 
 ## Types of Artifacts
+
 Digital Forensics is a six phase process including Preparation, Identification, Collection, Preservation, Analysis and Reporting.
 
 Analysis is a major phase where in forensicators discover different types of artifacts ranging from plain metadata to complex evidence of execution and residual traces. The vast gap between the difficulty to retrieve or reconstruct evidence determines the fine line between E-discovery and Digital Forensics.
@@ -16,6 +17,7 @@ And that is the main difference between E-Discovery & Digital Forensics dependin
 * * *
 
 {pagebreak}
+
 ## What is Parsing?
 Which brings us to parsing. We often go around throwing the term  while working with a variety of artifacts;
 "Parse this, parse that", but what does it mean in the real sense? To understand the parsing methodology, tools & techniques, we must be familiar with the origin of the handling of the data being parsed. What I mean by that is how was the data originally meant to be handled. What was it's structure by design. How can it be replicated.
@@ -54,6 +56,7 @@ You can easily remember both of these cycles by drawing an analogy between elect
 * * *
 
 {pagebreak}
+
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
@@ -74,6 +77,7 @@ However, note that this "rule", if you will, is only applicaple to a more broad 
 * * *
 
 {pagebreak}
+
 ## Examples
 This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view. We won't be getting into the technical specifics on parsing or extraction, but the significance of those artifacts on a higher level. Such as what does it offer, proove and deny. And what is it's forensic value.
 

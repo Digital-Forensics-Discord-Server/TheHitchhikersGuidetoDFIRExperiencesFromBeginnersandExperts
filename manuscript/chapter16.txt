@@ -26,17 +26,41 @@ Generally, it is some feature or underlying mechanism of the main operating syst
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of  computer data and how it is being presented.
 
+Before parsing the artifacts and diving deep into analysis, you must fully understand how files are generally handled by an operating system. As mentioned earlier, an operating system is just a very sophisticated piece of software written by the manufacturers to provide an abstraction level between the complexities of hardware interactions and the user.
+
+In the context of file handling, operating systems either *store* files or *execute* files. Both of which requires different types of memory. Also note that *storing* files requires access to a storage media such as HDDs, SSDs and Flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
+
+As you might already know, computers or any electronic computing device for that matter, primarily utilize two types of memory:
+* **RAM (Random Access Memory):**
+Volatile memory, only works for the time power is supplied. Used for assisting execution of applications/software by the processor of the device.
+* **ROM (Read Only Memory):**
+Non-volatile memory, retains data even when not in use. Used for storing the application files for a larger period of time.
+
+There are many sub-types of both RAM & ROM but only the fundamental difference between them is concerned here.
+Now let's quickly look at the timeline of an application lifecycle in 2 stages:
+
+* **Production Cycle:**
+An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
+* **Execution Cycle:**
+Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
+
+You can easily remember both of these cycles by drawing an analogy between electronic memory and the human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
+* **Short-term (Working memory):**
+For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
+* **Long-term (Recalling memory):**
+At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+
 * * *
 
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
-{width: "40%"}
+{width: "50%"}
 ![16.3 - Attr: Original by losmilzo on imgur, modified here as text removal](Chapter16_Truth.jpg)
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
-{width: "40%"}
+{width: "50%"}
 ![16.4 - Attr: By stux on pixabay](Chapter16_Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.
@@ -48,22 +72,36 @@ However, note that this "rule", if you will, is only applicaple to a more broad 
 * * *
 
 ## Examples
-This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view.
+This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view. We won't be getting into the technical specifics on parsing or extraction, but the significance of those artifacts on a higher level. Such as what does it offer, proove and deny. And what is it's forensic value.
 
 ### Registry
+Windows registry is a heirarchical database used by the Windows operating system to store it's settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities and other residual traces.
 
-### Prefetch
+Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
+
+There are some important hive files with rich forensic value:
+* **System Hive Files:**
+	* SAM (Security Account Manager) - User account information such as hashed passwords, account metadata including last login timestamp, login counts, account creation timestamp, group information etc.
+	* SYSTEM - File execution times (Evidence of Execution), USB devices connected (Evidence of Removable Media), local timezone, last shutdown time etc.
+	* SOFTWARE - Information about both user and system software. Operating System information such as version, build, name & install timestamp. Last logged on user, network connections, IP addresses, IO devices etc
+	* SECURITY - Information about security measures and policies in place for the system.
+* **User Specific Hive Files:**
+	* Amcache.hve - Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp and SHA-1 hashes.
+	* ntuser.dat - Information about autostart applications, searched terms used anywhere in the operating system, recently accessed files, run queries, last execution times of applications etc.
+	* UsrClass.dat - Information about user specific shellbags, covered in the next section.
 
 ### Shellbags
 
+### Prefetch
+
 ### Jumplists & LNK files
 
-### SRUM
+### SRUDB.dat
 
 ### $MFT
 
 ### $130
 
-### \$LogFile
+### $LogFile
 
 ### hiberfil.sys

@@ -2,7 +2,7 @@
 
 ## Setting Up a Law Enforcement Digital Forensics Laboratory
 
-{width: 30%, float: left}
+{width: 30%}
 ![](Ch11/DoRkMoDe.png)
 
 [By Jason Wilkins MCFE, 3CE](https://twitter.com/TheJasonWilkins)

@@ -39,13 +39,13 @@ In Android devices the apps keep most user generated data in the following direc
 
 	/data/data/
 
-As seen in figure 1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
+As seen in figure 2.1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
 
-<img width="365" alt="figure 1" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.41.50%20PM.png?raw=true"> 
+<img width="365" alt="2.1" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot1.png"> 
 
 Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.23.04%20PM.png?raw=true">
+<img width="913" alt="2.2" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot2.png">
 
 The bundle ID is located in the URL at the top of the page.
 
@@ -53,7 +53,7 @@ The bundle ID is located in the URL at the top of the page.
 
 Let's look at TikTok.
 
-<img width="920" alt="Screen Shot 2022-04-06 at 2 21 53 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-06%20at%202.21.53%20PM.png?raw=true">
+<img width="920" alt="2.3" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot3.png">
 
 Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all. 
 
@@ -82,7 +82,7 @@ Notice the \*GUID directory* at the end of the paths. These will be subsituted w
 	
 These values can change constantly due to app installs, updates, and uninstalls. Unlike Android devices iOS bundle IDs are not part of the application directory paths therefore it is impossible to identify applications of interest visually by bundle ID names.
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%204.58.01%20PM.png?raw=true">
+<img width="913" alt="2.4" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot4.png">
 
 How can then we take these GUID named directories and linked them to the corresponding bundle IDs?
 
@@ -94,7 +94,7 @@ This data store is a SQLite database that contains information for all currently
 The exemplar data in the following image is from Josh Hickman's test iOS images. These can be found here: 
 https://thebinaryhick.blog/public_images/
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.11.30%20PM.png?raw=true">
+<img width="913" alt="2.5" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot5.png">
 
 The tool used for this output is iLEAPP and can be found here: https://github.com/abrignoni/iLEAPP
 
@@ -104,12 +104,12 @@ Notice how the database can provide the bundle ID, the app name, and the corresp
 ### Option 2: iTunesMetadata.plist & BundleMetadata.plist
 These data stores are property lists (plist) and will be discussed in the next section. The files reside in each /private/var/containers/Bundle/Application/\*GUID directory*/ folder per app. It contains a wealth of information regarding the app for each folder.
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.24.01%20PM.png?raw=true">
+<img width="913" alt="2.6" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot6.png">
 
 ### Option3: .com.apple.mobile\_container_manager.metadata.plist
 Like the previous option the data store is a plist. The plist is contained in the /private/var/mobile/Containers/Shared/AppGroup/\*GUID directory\*/ and /private/var/mobile/Containers/Data/PluginKitPlugin/\*GUID directory*/ folders. Notice the period at the start of the plist filename. If using a macOS for analisys make sure to enable the view hidden files options in order to not miss them.
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.35.52%20PM.png?raw=true">
+<img width="913" alt="2.7" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot7.png">
 
 As discussed previously bundle IDs might not be anywhere close to their commercial or well known app names. The following URL has a useful database of iOS bundle IDs and corresponding app names: 
 
@@ -117,7 +117,7 @@ As discussed previously bundle IDs might not be anywhere close to their commerci
 	
 See the following output for Snapchat.
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-10%20at%205.40.22%20PM.png?raw=true">
+<img width="913" alt="2.8" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot8.png">
 
 ## Common Data Stores in Mobile Forensics
 
@@ -133,11 +133,11 @@ Using DB Browser for SQLite we will open a database named test.db for analysis. 
 
 Customers Table
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.17.32%20PM.png?raw=true">
+<img width="913" alt="2.9" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot9.png">
 
 Addresses Table
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.17.45%20PM.png?raw=true">
+<img width="913" alt="2.10" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot10.png">
 
 These tables record the customer's names and addresses. A customer can have one or more addresses in the addresses table. How to we know what addresses correspond to what customer? Notice how the customerID column in the Customers table identifies each customer uniquely. This is called a Primary Key. These same values can be found in the Addresses table under AddressID. When that is the case they are know as a Foreign Keys. The purpose of a foreign key is to identify that row of data as being part of (relational) to the primary key. We can match the customer with the correct address by finding tprimary key in the Customers table and match it with the same foreign key in the Addresses table.
 
@@ -147,7 +147,7 @@ To tell the database to match customers to addresses we use a set of commmands c
 FROM Customers, Addresses
 where CustomerID = AddressID`
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.31.22%20PM.png?raw=true">
+<img width="913" alt="2.11" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot11.png">
 
 Each customer has been match with the proper address or addresses. Notice the asterisk after the SELECT command, it means we want all columns that are responsive to the query. SQL allows us to really narrow down how much data we want from the database. If I want obtain only the addresses that are related to Alexis Brignoni we would query the database the followingt way:
 
@@ -157,7 +157,7 @@ INNER JOIN Customers
 ON CustomerID = AddressID
 WHERE CustomerID = 1`
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%201.57.58%20PM.png?raw=true">
+<img width="913" alt="2.12" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot12.png">
 
 The last query uses an inner join. These are the most common way of putting together data from two or more tables. An inner join will return rows from multiple tables when a condition is met. In our example we wanted all the data and only the data for CustomerID number 1.
 
@@ -165,7 +165,7 @@ SQLite databases can be pretty large with many tables and a multitude of primary
 
 As we examine these databases we have to take into account temporary files SQLite uses as it works. These are write-ahead log and roll-back journal files. These files, if available, will have the same name as the database with either a -wal or -journal extension.
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/Chapter%202/Screen%20Shot%202022-04-11%20at%202.18.34%20PM.png?raw=true">
+<img width="913" alt="2.13" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot13.png">
 
 These temporary files might contain data not found in the database and will require examination with tools that support their forensic review. An athoritative book on the subject can be found here: [SQLite Forensics by Paul Anderson](https://www.amazon.com/SQLite-Forensics-Paul-Sanderson/dp/1980293074)
 

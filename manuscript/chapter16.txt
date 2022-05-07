@@ -50,11 +50,12 @@ An application is a set of *programs*. A program is a set of *code* written by a
 Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
 
 You can easily remember both of these cycles by drawing an analogy between electronic memory and the human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
-* **Short-term (Working memory):**
-	For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
 
-* **Long-term (Recalling memory):**
-	At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+- **Short-term (Working memory):**
+For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
+
+- **Long-term (Recalling memory):**
+At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
 
 * * *
 
@@ -63,12 +64,12 @@ You can easily remember both of these cycles by drawing an analogy between elect
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
-{width: "60%"}
+{width: "70%"}
 ![16.3 - Attr: Original by losmilzo on imgur, modified here as text removal](Ch16/Truth.jpg)
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
-{width: "60%"}
+{width: "50%"}
 ![16.4 - Attr: By stux on pixabay](Ch16/Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.

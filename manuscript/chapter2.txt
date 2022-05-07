@@ -1,6 +1,7 @@
 # Chapter 2 - Most Common Data Stores in Mobile Forensics
 
-<img src="https://user-images.githubusercontent.com/28718987/161664557-e72d881c-b61b-427c-b8d3-26d8d7477763.png" width="100" height="100" />
+{width: 30%}
+![](https://user-images.githubusercontent.com/28718987/161664557-e72d881c-b61b-427c-b8d3-26d8d7477763.png)
 
 By Alexis Brignoni
 
@@ -39,13 +40,13 @@ In Adroid devices the apps keep most user generated data in the following direct
 
 	/data/data/
 
-As seen in figure 1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
+As seen in figure 2.1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
 
-<img width="365" alt="figure 1" src="https://user-images.githubusercontent.com/28718987/162046213-9f7cce84-767b-4f81-bf0d-82e188f6a0f5.png"> 
+![2.1 - Data directory](/Ch2/Screenshot1.png)
 
 Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 
 
-<img width="913" alt="Screen Shot 2022-04-06 at 2 23 04 PM" src="https://user-images.githubusercontent.com/28718987/162047421-6cf00abc-b101-4a60-b9e7-58cf4c38fefb.png">
+![2.2 - ](/Ch2/Screenshot2.png)
 
 The bundle ID is located in the URL at the top of the page.
 
@@ -53,10 +54,121 @@ The bundle ID is located in the URL at the top of the page.
 
 Let's look at TikTok.
 
-<img width="920" alt="Screen Shot 2022-04-06 at 2 21 53 PM" src="https://user-images.githubusercontent.com/28718987/162047835-30915faa-49be-424e-a8c4-e54a7f15ee23.png">
+![2.3 - ](/Ch2/Screenshot3.png)
 
 Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all. 
 
 	https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US&gl=US
 	
 By changing the Google Play store URLs to the possibly unknown bundle IDs found on the target extraction one can determine the common app name for it.
+
+It is of note that apps also save data to additional locations within the Android device. Look for targeted bundle ID direcotries in the following locations:
+
+	/data/media/
+	/MNT/ or /NONAME/
+
+As you navigate the contents of these directories you will find relevant stores that can contain user generated data. 
+
+### Relevant apps in iOS
+
+In iOS devices user generated data can be found in the following directories:
+
+	/private/var/containers/Bundle/Application/*GUID directory*/
+	/private/var/mobile/Containers/Shared/AppGroup/*GUID directory*/
+	/private/var/mobile/Containers/Data/PluginKitPlugin/*GUID directory*/
+
+Notice the \*GUID directory* at the end of the paths. These will be subsituted with a corresponding global unique identifier. See the following example: 
+
+	A72DDBEE-8EEE-4868-9E5A-769B078781EA
+	
+These values can change constantly due to app installs, updates, and uninstalls. Unlike Android devices iOS bundle IDs are not part of the application directory paths therefore it is impossible to identify applications of interest visually by bundle ID names.
+
+![2.4 - ](/Ch2/Screenshot4.png)
+How can then we take these GUID named directories and linked them to the corresponding bundle IDs?
+
+### Option 1: applicationState.db
+This data store is a SQLite database that contains information for all currently installed appications. We will discuss SQLite databases in the next section. The database is located here:
+
+	/private/var/mobile/Library/FrontBoard/applicationState.db
+	
+The exemplar data in the following image is from Josh Hickman's test iOS images. These can be found here: 
+https://thebinaryhick.blog/public_images/
+
+![2.5 - ](/Ch2/Screenshot5.png)
+
+The tool used for this output is iLEAPP and can be found here: https://github.com/abrignoni/iLEAPP
+
+
+Notice how the database can provide the bundle ID, the app name, and the corresponding GUID values within the paths.
+
+### Option 2: iTunesMetadata.plist & BundleMetadata.plist
+These data stores are property lists (plist) and will be discussed in the next section. The files reside in each /private/var/containers/Bundle/Application/\*GUID directory*/ folder per app. It contains a wealth of information regarding the app for each folder.
+
+![2.6 - ](/Ch2/Screenshot6.png)
+
+### Option3: .com.apple.mobile\_container_manager.metadata.plist
+Like the previous option the data store is a plist. The plist is contained in the /private/var/mobile/Containers/Shared/AppGroup/\*GUID directory\*/ and /private/var/mobile/Containers/Data/PluginKitPlugin/\*GUID directory*/ folders. Notice the period at the start of the plist filename. If using a macOS for analisys make sure to enable the view hidden files options in order to not miss them.
+
+![2.7 - ](/Ch2/Screenshot7.png)
+
+As discussed previously bundle IDs might not be anywhere close to their commercial or well known app names. The following URL has a useful database of iOS bundle IDs and corresponding app names: 
+
+	https://offcornerdev.com/bundleid.html
+	
+See the following output for Snapchat.
+
+![2.8 - ](/Ch2/Screenshot8.png)
+
+## Common Data Stores in Mobile Forensics
+
+We have identified the locations where user generated data, by app, can be stored both in Android and iOS. Now we look at what file structures are involved. Let's start with the current king of mobile data storage.
+
+### SQLite Relational Databases
+
+SQLite is the most used database engine in the world. It is a relation database. A simple way of thinking about them is by imagining a set of spreadsheets that have things in common. For this example we will use DB Browser for SQLite as our tool to access SQLite databases. It can be downloaded here: [https://sqlitebrowser.org/](https://sqlitebrowser.org/)
+
+SQLite databases usually have the .sqlite or .db extension but that might not always be the case. What is always the case is that if you open a suspected SQLite database with a hex or text editor you will see 'SQLite format 3' at the start of the file. This is known as the file header and it is a sure fire way of confirming you are dealing with a SQLite database.
+
+Using DB Browser for SQLite we will open a database named test.db for analysis. It is a simple database consisting of two spredsheets of data, tables in SQLite parlance. By using the Browse Data the content of these tables can be seen.
+
+Customers Table
+
+![2.9 - ](/Ch2/Screenshot9.png)
+
+Addresses Table
+
+![2.10 - ](/Ch2/Screenshot10.png)
+
+These tables record the customer's names and addresses. A customer can have one or more addresses in the addresses table. How to we know what addresses correspond to what customer? Notice how the customerID column in the Customers table identifies each customer uniquely. This is called a Primary Key. These same values can be found in the Addresses table under AddressID. When that is the case they are know as a Foreign Keys. The purpose of a foreign key is to identify that row of data as being part of (relational) to the primary key. We can match the customer with the correct address by finding tprimary key in the Customers table and match it with the same foreign key in the Addresses table.
+
+To tell the database to match customers to addresses we use a set of commmands called Structured Query Language (SQL). We will tell the database to gives us all columns from both tables where the CustomerID in the customer's table is the same as the AddressID in the addresses table.
+
+`SELECT * 
+FROM Customers, Addresses
+where CustomerID = AddressID`
+
+![2.11 - ](/Ch2/Screenshot11.png)
+
+Each customer has been match with the proper address or addresses. Notice the asterisk after the SELECT command, it means we want all columns that are responsive to the query. SQL allows us to really narrow down how much data we want from the database. If I want obtain only the addresses that are related to Alexis Brignoni we would query the database the followingt way:
+
+`SELECT *
+FROM Addresses
+INNER JOIN Customers
+ON CustomerID = AddressID
+WHERE CustomerID = 1`
+
+![2.12 - ](/Ch2/Screenshot12.png)
+
+The last query uses an inner join. These are the most common way of putting together data from two or more tables. An inner join will return rows from multiple tables when a condition is met. In our example we wanted all the data and only the data for CustomerID number 1.
+
+SQLite databases can be pretty large with many tables and a multitude of primary and foreign keys to keep track of. Thankfully there are plenty of online resources on structured query language and with a little of patience and practice anyone can be able to pull relevant data out of these databases.
+
+As we examine these databases we have to take into account temporary files SQLite uses as it works. These are write-ahead log and roll-back journal files. These files, if available, will have the same name as the database with either a -wal or -journal extension.
+
+![2.13 - ](/Ch2/Screenshot13.png)
+
+These temporary files might contain data not found in the database and will require examination with tools that support their forensic review. An athoritative book on the subject can be found here: [SQLite Forensics by Paul Anderson](https://www.amazon.com/SQLite-Forensics-Paul-Sanderson/dp/1980293074)
+
+
+
+### JSON - Java Script Object Notation

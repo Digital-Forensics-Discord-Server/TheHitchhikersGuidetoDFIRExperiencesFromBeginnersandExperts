@@ -1,6 +1,6 @@
 # Chapter 1 - History of the Digital Forensics Discord Server
 
-![DigitalForensicsDiscordServerLogoByKevinPagano](DFDSLogo.png)
+![](Ch1/DFDSLogo.png)
 
 Special thanks to Kevin Pagano for creating the logo for the Digital Forensics Discord Server!
 

@@ -4,7 +4,12 @@
 
 by Jason Wilkins MCFE, 3CE
 
-![Jason Wilkins Twitter](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/DoRkMoDe.png "Follow Me on Twitter!")
+{width: 30%}
+![](Ch11/DoRkMoDe.png)
+
+By Jason Wilkins
+
+[Follow Me on Twitter!](https://twitter.com/TheJasonWilkins)
 
 ## Executive Cooperation
 

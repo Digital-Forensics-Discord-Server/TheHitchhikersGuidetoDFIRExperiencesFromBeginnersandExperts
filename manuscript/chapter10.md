@@ -2,9 +2,9 @@
 
 # Chapter Ten - Getting into digital forensics
 
-![DFIRScience Logo](https://dfir.science/assets/images/logos/icons/android-chrome-512x512.png)
+<img alt="DFIRScience Logo" src="https://dfir.science/assets/images/logos/icons/android-chrome-512x512.png" width="100" height="100"/>
 
-By Joshua I. James [DFIR Science](https://dfir.science)
+By [Joshua I. James](https://www.youtube.com/c/DFIRScience) | [DFIR Science](https://dfir.science)
 
 v220405
 

@@ -1,6 +1,6 @@
 # History of the Digital Forensics Discord Server
 
-![DigitalForensicsDiscordServerLogoByKevinPagano](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/DFDSLogo.png?raw=true)
+![](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/blob/main/manuscript/resources/DFDSLogo.png?raw=true)
 
 Special thanks to Kevin Pagano for creating the logo for the Digital Forensics Discord Server!
 

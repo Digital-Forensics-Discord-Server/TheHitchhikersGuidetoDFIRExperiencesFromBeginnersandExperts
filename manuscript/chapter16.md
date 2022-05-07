@@ -9,7 +9,7 @@ User data such as internet history, images, videos, emails, messages etc fall un
 
 However, System Data like artifacts that help support some view of truth, or determine how closely a transpired event is to the evidence, are not that simple to manually parse with forensic soundess, which is why oftentimes forensicators rely on well-known parsing tools either commercial or opensource.
 
-![EDvsDF](https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Chapter16_EDvsDF.png)
+![EDvsDF](https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Ch16/EDvsDF.png)
 
 And that is the main difference between E-Discovery & Digital Forensics depending on the categorization of data alone. Both follow different procedures and have different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
@@ -50,11 +50,11 @@ At the opening stage in a game of chess, we consider the candidate moves widely 
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
-<img width="500" alt="Truth" src="https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Chapter16_Truth.jpg">
+<img width="500" alt="Truth" src="https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Ch16/Truth.jpg">
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
-<img width="500" alt="Puzzle" src="https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Chapter16_Puzzle.png">
+<img width="500" alt="Puzzle" src="https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Ch16/Puzzle.png">
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.
 

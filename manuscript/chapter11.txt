@@ -5,9 +5,7 @@
 {width: 30%}
 ![](Ch11/DoRkMoDe.png)
 
-by Jason Wilkins MCFE, 3CE
-
-[Follow Me on Twitter!](https://twitter.com/TheJasonWilkins)
+[By Jason Wilkins MCFE, 3CE](https://twitter.com/TheJasonWilkins)
 
 ## Executive Cooperation
 

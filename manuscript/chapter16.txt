@@ -43,21 +43,23 @@ As you might already know, computers or any electronic computing device for that
 	* Used for storing the application files for a larger period of time.
 
 There are many sub-types of both RAM & ROM but only the fundamental difference between them is concerned here.
-Now let's quickly look at the timeline of an application lifecycle in two stages:
+Now let's look at the lifecycle of an application in two stages:
 
 1. **Production Cycle:**
-An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
+	An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
 
 2. **Execution Cycle:**
-Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
+	Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
 
 You can easily remember both of these cycles by drawing an analogy between electronic memory and the human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
 
 1. **Short-term (Working memory):**
-For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
+	* For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position.
+	* This is calculative in nature. Calculation comes from present situation.
 
 2. **Long-term (Recalling memory):**
-At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+	* At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines.
+	* This is instinctive in nature. Instinct comes from past experiences.
 
 * * *
 

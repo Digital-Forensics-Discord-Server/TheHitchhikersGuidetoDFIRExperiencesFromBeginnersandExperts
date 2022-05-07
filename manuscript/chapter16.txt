@@ -34,27 +34,29 @@ In the context of file handling, operating systems either *store* files or *exec
 
 As you might already know, computers or any electronic computing device for that matter, primarily utilize two types of memory:
 
-- **RAM (Random Access Memory):**
-Volatile memory, only works for the time power is supplied. Used for assisting execution of applications/software by the processor of the device.
+1. **RAM (Random Access Memory):**
+	* Volatile memory, only works for the time power is supplied.
+	* Used for assisting execution of applications/software by the processor of the device.
 
-- **ROM (Read Only Memory):**
-Non-volatile memory, retains data even when not in use. Used for storing the application files for a larger period of time.
+2. **ROM (Read Only Memory):**
+	* Non-volatile memory, retains data even when not in use.
+	* Used for storing the application files for a larger period of time.
 
 There are many sub-types of both RAM & ROM but only the fundamental difference between them is concerned here.
 Now let's quickly look at the timeline of an application lifecycle in two stages:
 
-- **Production Cycle:**
+1. **Production Cycle:**
 An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
 
-- **Execution Cycle:**
+2. **Execution Cycle:**
 Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
 
 You can easily remember both of these cycles by drawing an analogy between electronic memory and the human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
 
-- **Short-term (Working memory):**
+1. **Short-term (Working memory):**
 For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
 
-- **Long-term (Recalling memory):**
+2. **Long-term (Recalling memory):**
 At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
 
 * * *
@@ -72,11 +74,9 @@ I always love to draw an analogy between the artifacts and the pieces of a puzzl
 {width: "50%"}
 ![16.4 - Attr: By stux on pixabay](Ch16/Puzzle.png)
 
-That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where the employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV camera footage around the premises, going back to the Identification phase in the digital forensics lifecycle, and so forth and so on.
+That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where an employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV footage around the premises, going back to the ***Identification*** phase in the digital forensics lifecycle, and so forth and so on.
 
-As a result of a codependency of the artifacts on drawing correlations to some external factor, they form a direct non-equivalence relation with evidence.
-
-However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation and will generally be handled by the lawyers. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone does not mean it's admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces of the puzzle.
+As a result of a codependency of the artifacts on drawing correlations to some external factor, they form a direct non-equivalence relation with evidence. However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone doesn't mean it's admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces of the puzzle.
 
 * * *
 

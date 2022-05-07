@@ -1,13 +1,11 @@
 # Chapter 11 - Chapter Title Goes Here
 
-# Setting Up a Law Enforcement Digital Forensics Laboratory
-
-by Jason Wilkins MCFE, 3CE
+## Setting Up a Law Enforcement Digital Forensics Laboratory
 
 {width: 30%}
 ![](Ch11/DoRkMoDe.png)
 
-By Jason Wilkins
+by Jason Wilkins MCFE, 3CE
 
 [Follow Me on Twitter!](https://twitter.com/TheJasonWilkins)
 

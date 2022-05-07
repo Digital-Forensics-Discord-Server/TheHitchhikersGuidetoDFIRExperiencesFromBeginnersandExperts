@@ -19,15 +19,11 @@ Two of the most common information security types of CTF competitions are “**J
 
 “**Jeopardy**” style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
 
-![](https://ctf.zone/img/jeopardy.png)
-
-***Figure 1: Jeopardy style CTF***
+![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
 
 “**Attack and Defense**” is more common in Red and Blue team environments where the Red team has to hack or attack a Blue team server. The Blue team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
 
-![](https://ctf.zone/img/attack_defense.png)
-
-***Figure 2: Attack and Defense CTF***
+![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
 
 Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
 
@@ -57,9 +53,7 @@ Other software vendors have started to create their own as well to engage with t
 
 Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you’d like as well as allow them to host your next live event. 
 
-![enter image description here](https://i.ibb.co/SdqWtZw/blueyard.png)
-
-***Figure 3: CyberDefenders website***
+![9.3 - CyberDefenders website](https://i.ibb.co/SdqWtZw/blueyard.png)
 
 Another fairly exhaustive list of other past challenges and evidence can be found hosted on [**AboutDFIR**](https://aboutdfir.com/education/challenges-ctfs/).
 
@@ -94,11 +88,9 @@ Each CTF rules may be different but if teams are allowed reach out to colleagues
 
 If evidence is provided ahead of the competition make sure to spend some time getting familiar with it. Process the evidence ahead of time so you aren't wasting time during the live competition waiting on machine time. Some of these events only last 2-3 hours so time is of the essence. This segues right into building out your analysis machine and your toolkit. Make sure that all your system updates are completed prior. The last thing you need is an errant Windows update to take down your system while you watch the spinning.
 
-![](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
+![9.4 - "This will take a while"](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
 
-***Figure 3: "This will take a while"***
-
- You may also consider making sure you have local admin access or at least the ability to turn of antivirus (if you are analyzing malware) to your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
+You may also consider making sure you have local admin access or at least the ability to turn of antivirus (if you are analyzing malware) to your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
 
 ### The Toolkit
 

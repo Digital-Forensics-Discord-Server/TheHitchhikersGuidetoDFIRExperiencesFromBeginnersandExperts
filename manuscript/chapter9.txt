@@ -1,6 +1,6 @@
 # Chapter 9 - Gamification of DFIR: Playing CTFs
 
-{width: 30%}
+{width: 30%, float: left}
 ![](https://user-images.githubusercontent.com/48143894/162533767-1d6eca8a-98c7-446b-a970-807bd3deb588.png)
 
 By [Kevin Pagano](https://twitter.com/KevinPagano3) | [Stark 4N6](https://startme.stark4n6.com)

@@ -2,7 +2,7 @@
 ![](resources/Ch3/chapter3.002.jpeg)
 
 By ApexPredator
-# Introduction
+## Introduction
 Malware has been around for as long as computers have been in common use. Any computer program that performs malicious activities is classified as malware. There are many types of malware ranging from sophisticated self-propagating worms, destructive logic bombs, ransomware, to harmless pranks. Everyone who regularly uses a computer will encounter malware at some point.
 
 This chapter will cover the basics of analyzing malware on an infected computer.  It is targeted towards beginners who are new to Digital Forensics and Incident Response (DFIR) and hobbyists. The goal of this chapter is to show someone unfamiliar with the basic concepts of malware analysis some Tactics, Techniques, and Procedures (TTPs) used to confirm that a computer is infected with malware and how to begin extracting Indicators of Compromise (IOCs). It will cover the use of basic tools. We will not cover intermediate or advanced topics such as reverse engineering malware to discover its purpose or how it works in this chapter.
@@ -19,7 +19,7 @@ One of my first instances of basic malware analysis was when I was in a situatio
 
 The site I found listed out additional IOCs which enabled me to check running processes to see that I had the malicious executable running. I was then able to kill the process with task manager. I was also able to review the registry with regedit and delete the registry key that was created by the malware to establish persistence. I was then able to notify the other users of the machine that it had malware running on it that steals information such as account credentials. The machine was then reimaged to ensure all of the malware was removed and the machine was back to a known good state. Next, we will cover some of the basic tools that you can use to perform the same type of simple analysis.
   
-# Basic Malware Analysis Tools
+## Basic Malware Analysis Tools
   
 This section covers free tools that can be used for basic malware analysis to identify if a machine has been infected with malware. You can use these tools to extract IOCs to share with the community or to include in an Incident Response report in a professional setting. We will start with built in tools that you probably already know and discuss how to use them for basic malware analysis.
 
@@ -83,7 +83,7 @@ Certutil is another tool built in to Windows that is useful for malware analysis
 
 An analyst can also use automated tools for analysis. A suspicious file can be uploaded to Virus Total (<https://www.virustotal.com/gui/home/upload>). Virus Total is an online system that will execute the file in a sandbox to attempt to determine if it is malicious or not. It will then provide file hashes and IOCs an analyst can use to identify the file. Virus Total also shares uploaded files with Antivirus vendors to use for building detection signature.
   
-# Basic Malware Analysis Walkthrough
+## Basic Malware Analysis Walkthrough
   
 It is time to do a walkthrough of a sample malware analysis now that you are familiar with some of the tools used for malware analysis and their capabilities. The walkthrough will show how to use some of the tools mentioned in this chapter. It will not use any tools not previously mentioned.
 

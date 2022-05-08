@@ -2,7 +2,9 @@
 ![](resources/Ch3/chapter3.002.jpeg)
 
 By ApexPredator
+  
 ## Introduction
+  
 Malware has been around for as long as computers have been in common use. Any computer program that performs malicious activities is classified as malware. There are many types of malware ranging from sophisticated self-propagating worms, destructive logic bombs, ransomware, to harmless pranks. Everyone who regularly uses a computer will encounter malware at some point.
 
 This chapter will cover the basics of analyzing malware on an infected computer.  It is targeted towards beginners who are new to Digital Forensics and Incident Response (DFIR) and hobbyists. The goal of this chapter is to show someone unfamiliar with the basic concepts of malware analysis some Tactics, Techniques, and Procedures (TTPs) used to confirm that a computer is infected with malware and how to begin extracting Indicators of Compromise (IOCs). It will cover the use of basic tools. We will not cover intermediate or advanced topics such as reverse engineering malware to discover its purpose or how it works in this chapter.

@@ -2,13 +2,15 @@
 ![](resources/Ch3/chapter3.002.jpeg)
 
 By ApexPredator
-# Introduction
+## Introduction
 Malware has been around for as long as computers have been in common use. Any computer program that performs malicious activities is classified as malware. There are many types of malware ranging from sophisticated self-propagating worms, destructive logic bombs, ransomware, to harmless pranks. Everyone who regularly uses a computer will encounter malware at some point.
 
 This chapter will cover the basics of analyzing malware on an infected computer.  It is targeted towards beginners who are new to Digital Forensics and Incident Response (DFIR) and hobbyists. The goal of this chapter is to show someone unfamiliar with the basic concepts of malware analysis some Tactics, Techniques, and Procedures (TTPs) used to confirm that a computer is infected with malware and how to begin extracting Indicators of Compromise (IOCs). It will cover the use of basic tools. We will not cover intermediate or advanced topics such as reverse engineering malware to discover its purpose or how it works in this chapter.
 
 The chapter will start with a little about my background and how I got started in the DFIR field. It then covers some free tools to use in basic malware analysis. The chapter culminates with a walkthrough of a canned analysis on a piece of malware. The walkthrough wraps up with recommendations on where to go next to progress to intermediate or advanced malware analysis.
-# How I Got Here
+  
+## How I Got Here
+  
 I started off working as a Systems Administrator and a Network Engineer. Most of my time was focused on Windows Active Directory networks. Over my career I shifted more and more towards a cybersecurity focus before eventually moving to full time cybersecurity. I completed a Master of Science in Cybersecurity and Information Assurance degree and a number of cybersecurity related certifications including OSCE3, OSCP, GXPN, GPEN, GWAPT, and GREM. The malware analysis portion of the job was one of the most interesting parts for me.
 
 I had numerous instances of friends and family asking me to figure out why their computer was acting weird long before moving in to cybersecurity and receiving formal training on malware analysis. I have had other cybersecurity professionals ask why it is not a waste of time to learn to build Microsoft Office macro-based payloads when Microsoft if making it harder for users to run the malicious code inside to which I always respond with “Never under estimate the users desire and ability to download and run anything sent to them.” People are going to download and execute malware at some point and if you are the IT expert then you will be asked to figure out what happened.
@@ -16,7 +18,9 @@ I had numerous instances of friends and family asking me to figure out why their
 One of my first instances of basic malware analysis was when I was in a situation that required using a computer shared by multiple people to access the internet. I erred on the paranoid side before using it to access any of my personal accounts and ran a network packet capture using Microsoft’s NetMon, which is a packet capture tool similar to WireShark. I noticed from the packet capture that the machine was communicating with a Chinese domain which appeared unusual. I then conducted a quick google search on the domain and found that it was associated with a piece of malware.
 
 The site I found listed out additional IOCs which enabled me to check running processes to see that I had the malicious executable running. I was then able to kill the process with task manager. I was also able to review the registry with regedit and delete the registry key that was created by the malware to establish persistence. I was then able to notify the other users of the machine that it had malware running on it that steals information such as account credentials. The machine was then reimaged to ensure all of the malware was removed and the machine was back to a known good state. Next, we will cover some of the basic tools that you can use to perform the same type of simple analysis.
-# Basic Malware Analysis Tools
+  
+## Basic Malware Analysis Tools
+  
 This section covers free tools that can be used for basic malware analysis to identify if a machine has been infected with malware. You can use these tools to extract IOCs to share with the community or to include in an Incident Response report in a professional setting. We will start with built in tools that you probably already know and discuss how to use them for basic malware analysis.
 
 Task Manager is a built in Windows tool that allows you to view running processes. You can use it to view running processes and how much resources they are using. On Windows 10 right click the task bar and select Task Manager from the menu to launch the Task Manager. On Windows 11 click the Windows Start Menu icon and type Task Manager to search for the Task Manager app.
@@ -78,7 +82,9 @@ Regshot is useful for determining what changes an application makes to the Windo
 Certutil is another tool built in to Windows that is useful for malware analysis. An analyst can use certutil to generate a hash of a file to compare it to a known malicious file hash. This can indicate if a file is malicious without having to execute it to investigate what it does. An analyst can use the hashes generated by cerutil as IOCs once a suspicious file is determined to be malicious thru analysis.
 
 An analyst can also use automated tools for analysis. A suspicious file can be uploaded to Virus Total (<https://www.virustotal.com/gui/home/upload>). Virus Total is an online system that will execute the file in a sandbox to attempt to determine if it is malicious or not. It will then provide file hashes and IOCs an analyst can use to identify the file. Virus Total also shares uploaded files with Antivirus vendors to use for building detection signature.
-# Basic Malware Analysis Walkthrough
+  
+## Basic Malware Analysis Walkthrough
+  
 It is time to do a walkthrough of a sample malware analysis now that you are familiar with some of the tools used for malware analysis and their capabilities. The walkthrough will show how to use some of the tools mentioned in this chapter. It will not use any tools not previously mentioned.
 
 In this scenario a user has reported to you that their machine has been running slow and acting “weird.” You have already conducted initial investigations by asking the user questions including: “When did the issues start?” “Did you download or install any new applications?” “Did you click any links or open any documents from untrusted sources?” The user states that they did not install any application recently but did review a Microsoft Word document sent from a customer.

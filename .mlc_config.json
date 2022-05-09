@@ -1,0 +1,17 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^https://placeholder.link"
+        }
+    ],
+    "timeout": "20s",
+    "retryOn429": true,
+    "retryCount": 5,
+    "fallbackRetryDelay": "30s",
+    "aliveStatusCodes": [
+        200,
+        403,
+        429,
+        0
+    ]
+}

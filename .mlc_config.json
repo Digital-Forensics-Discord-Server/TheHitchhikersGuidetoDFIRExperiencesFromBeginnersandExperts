@@ -1,10 +1,7 @@
-/* {
+{
     "ignorePatterns": [
         {
-            "pattern": "^https://github.com/brootware/Cyber-Security-University/generate"
-        },
-        {
-            "pattern": "^https://play.picoctf.org/practice/challenge/*"
+            "pattern": "^https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership"
         }
     ],
     "timeout": "20s",
@@ -16,4 +13,4 @@
         403,
         429
     ]
-} */
+}

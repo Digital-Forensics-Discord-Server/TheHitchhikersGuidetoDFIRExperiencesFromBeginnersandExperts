@@ -2,13 +2,13 @@
     "ignorePatterns": [
         {
             "pattern": "^https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership"
-        },
-        {
-            "pattern": "^https://www.dcode.fr/en"
-        },
-        {
-            "pattern": "^https://developer.android.com/studio/build/configure-app-module"
         }
+        // {
+        //     "pattern": "^https://www.dcode.fr/en"
+        // },
+        // {
+        //     "pattern": "^https://developer.android.com/studio/build/configure-app-module"
+        // }
     ],
     "timeout": "20s",
     "retryOn429": true,
@@ -17,6 +17,7 @@
     "aliveStatusCodes": [
         200,
         403,
-        429
+        429,
+        0
     ]
 }

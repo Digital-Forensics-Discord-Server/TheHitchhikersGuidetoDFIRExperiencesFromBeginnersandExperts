@@ -1,7 +1,7 @@
 {
     "ignorePatterns": [
         {
-            "pattern": "^https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership"
+            "pattern": "^https://placeholder.link"
         }
     ],
     "timeout": "20s",

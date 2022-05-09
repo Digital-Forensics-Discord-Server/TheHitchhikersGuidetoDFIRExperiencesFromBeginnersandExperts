@@ -109,7 +109,7 @@ I'm a Windows user through and through so I cannot offer much advise from a Mac 
 - [Autopsy](https://www.autopsy.com/)
 - [Bulk Extractor](https://github.com/simsong/bulk_extractor)
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
-- [FTK Imager](https://www.exterro.com/ftk-imager#:~:text=FTK%C2%AE%20Imager%20is%20a,(FTK%C2%AE)%20is%20warranted.)
+- [FTK Imager](https://www.exterro.com/ftk-imager)
 - [Hindsight](https://dfir.blog/hindsight/)
 
 **Chromebook**

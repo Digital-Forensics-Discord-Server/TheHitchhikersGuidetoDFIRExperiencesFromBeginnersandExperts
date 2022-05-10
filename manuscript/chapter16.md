@@ -45,7 +45,9 @@ You can easily remember both of these cycles by drawing an analogy between elect
 * **Short-term (Working memory):**
 For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
 * **Long-term (Recalling memory):**
-At the opening stage in a game of chess, we consider the candidate moves widely in a horizontol manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+At the opening stage in a game of chess, we consider the candidate moves widely in a horizontal manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+
+Understanding how an operating system parses the data from different sources, rather it be on-disk or in memory; helps identify, locate and efficiently retrieve different types of artifacts necessary for an investigation.
 
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
@@ -63,14 +65,14 @@ As a result of a codependency of the artifacts on drawing correlations to some e
 However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation and will generally be handled by the lawyers. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone does not mean it's admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces of the puzzle.
 
 ## Examples
-This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view. We won't be getting into the technical specifics on parsing or extraction, but the significance of those artifacts on a higher level. Such as what does it offer, proove and deny. And what is it's forensic value.
+This section will cover how some of the more uncommon artifacts can play into a case from the bird's eye view. We won't be getting into the technical specifics on parsing or extraction, but the significance of those artifacts on a higher level. Such as what does it offer, proove and deny. And what is it's forensic value. I suggest the readers to use these brief bits to spark curiosity about these important artifacts, and research on your own about locating and parsing of these artifacts.
 
 ### Registry
+___About:___
 Windows registry is a heirarchical database used by the Windows operating system to store it's settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities and other residual traces.
 
 Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
 
-There are some important hive files with rich forensic value:
 * **System Hive Files:**
 	* SAM (Security Account Manager) - User account information such as hashed passwords, account metadata including last login timestamp, login counts, account creation timestamp, group information etc.
 	* SYSTEM - File execution times (Evidence of Execution), USB devices connected (Evidence of Removable Media), local timezone, last shutdown time etc.
@@ -78,14 +80,53 @@ There are some important hive files with rich forensic value:
 	* SECURITY - Information about security measures and policies in place for the system.
 * **User Specific Hive Files:**
 	* Amcache.hve - Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp and SHA-1 hashes.
-	* ntuser.dat - Information about autostart applications, searched terms used anywhere in the operating system, recently accessed files, run queries, last execution times of applications etc.
+	* ntuser.dat - Information about autostart applications, searched terms used in windows explorer or internet explorer, recently accessed files, run queries, last execution times of applications etc.
 	* UsrClass.dat - Information about user specific shellbags, covered in the next section.
 
+___Significance:___
+* Identifying malware persistence which can lead to the discovery of IOCs.
+* Proving the presence of removable media in a particular time frame, which can further help with acquisition of the same.
+* Retrieving crackable user password hashes from the SAM and SYSTEM hives, which might help access the encrypted partitions if the password was reused.
+
 ### Shellbags
+___About:___
+Shellbags were introduced in Windows 7. It is a convenience feature that allows the operating system to remember Windows Explorer configuration for user folders and a folder's tree structure. Whenever a folder is created, selected, right-clicked, deleted, copied, renamed or opened, shellbag information will be generated. Depending on the Windows version, shellbag information can be stored in either ntuser.dat, UsrClass.dat or both.
+
+___Significance:___
+* Reconstructing the tree structure for deleted folders. Helpful in providing an idea of the files that used to exist when they cannot be carved from the unallocated space.
+* Disproving denial of content awareness. If a subject claims that they were simply not aware of something existent on their system, shellbags can disprove their claims with an obvious given that an exclusive usage of the machine was proven.
+
 ### Prefetch
+___About:___
+
+___Significance:___
+
 ### Jumplists & LNK files
+___About:___
+
+___Significance:___
+
 ### SRUDB.dat
+___About:___
+
+___Significance:___
+
 ### $MFT
+___About:___
+
+___Significance:___
+
 ### $130
+___About:___
+
+___Significance:___
+
 ### $LogFile
+___About:___
+
+___Significance:___
+
 ### hiberfil.sys
+___About:___
+
+___Significance:___

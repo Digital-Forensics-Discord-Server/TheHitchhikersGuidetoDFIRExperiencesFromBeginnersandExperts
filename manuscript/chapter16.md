@@ -28,24 +28,28 @@ Before parsing the artifacts and diving deep into analysis, you must fully under
 In the context of file handling, operating systems either *store* files or *execute* files. Both of which requires different types of memory. Also note that *storing* files requires access to a storage media such as HDDs, SSDs and Flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
 
 As you might already know, computers or any electronic computing device for that matter, primarily utilize two types of memory:
-* **RAM (Random Access Memory):**
-Volatile memory, only works for the time power is supplied. Used for assisting execution of applications/software by the processor of the device.
-* **ROM (Read Only Memory):**
-Non-volatile memory, retains data even when not in use. Used for storing the application files for a larger period of time.
+1. **RAM (Random Access Memory):**
+	* Volatile memory, only works for the time power is supplied.
+	* Used for assisting execution of applications/software by the processor of the device.
+2. **ROM (Read Only Memory):**
+	* Non-volatile memory, retains data even when not in use.
+	* Used for storing the application files for a larger period of time.
 
 There are many sub-types of both RAM & ROM but only the fundamental difference between them is concerned here.
-Now let's quickly look at the timeline of an application lifecycle in 2 stages:
+Now let's quickly look at the timeline of an application lifecycle in two stages:
 
-* **Production Cycle:**
-An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
-* **Execution Cycle:**
-Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
+1. **Production Cycle:**
+> An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
+2. **Execution Cycle:**
+> Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
 
 You can easily remember both of these cycles by drawing an analogy between electronic memory and the human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
-* **Short-term (Working memory):**
-For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position. This is calculative in nature. Calculation comes from present situation.
-* **Long-term (Recalling memory):**
-At the opening stage in a game of chess, we consider the candidate moves widely in a horizontal manner for many lines. This is instinctive in nature. Instinct comes from past experiences.
+1. **Short-term (Working memory):**
+	* For a game of chess, we calculate the moves deeply in a vertical manner for a specific line based on the current position.
+	* This is calculative in nature. Calculation comes from present situation.
+2. **Long-term (Recalling memory):**
+	* At the opening stage in a game of chess, we consider the candidate moves widely in a horizontal manner for many lines.
+	* This is instinctive in nature. Instinct comes from past experiences.
 
 Understanding how an operating system parses the data from different sources, rather it be on-disk or in memory; will help you identify, locate and efficiently retrieve different types of artifacts necessary for an investigation.
 
@@ -73,12 +77,13 @@ ___About:___
 
 * Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
 
-* **System Hive Files:**
+There are mainly two types of hive files:
+1. **System Hive Files:**
 	* SAM (Security Account Manager) - User account information such as hashed passwords, account metadata including last login timestamp, login counts, account creation timestamp, group information etc.
 	* SYSTEM - File execution times (Evidence of Execution), USB devices connected (Evidence of Removable Media), local timezone, last shutdown time etc.
 	* SOFTWARE - Information about both user and system software. Operating System information such as version, build, name & install timestamp. Last logged on user, network connections, IP addresses, IO devices etc
 	* SECURITY - Information about security measures and policies in place for the system.
-* **User Specific Hive Files:**
+2. **User Specific Hive Files:**
 	* Amcache.hve - Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp and SHA-1 hashes.
 	* ntuser.dat - Information about autostart applications, searched terms used in windows explorer or internet explorer, recently accessed files, run queries, last execution times of applications etc.
 	* UsrClass.dat - Information about user specific shellbags, covered in the next section.

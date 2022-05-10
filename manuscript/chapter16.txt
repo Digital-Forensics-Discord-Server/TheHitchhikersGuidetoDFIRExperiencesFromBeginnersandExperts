@@ -91,13 +91,14 @@ ___About:___
 
 * Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
 
-* **System Hive Files:**
+There are mainly two types of hive files:
+1. **System Hive Files:**
 	* SAM (Security Account Manager): User account information such as hashed passwords, account metadata including last login timestamp, login counts, account creation timestamp, group information etc.
 	* SYSTEM: File execution times (Evidence of Execution), USB devices connected (Evidence of Removable Media), local timezone, last shutdown time etc.
 	* SOFTWARE: Information about both user and system software. Operating System information such as version, build, name & install timestamp. Last logged on user, network connections, IP addresses, IO devices etc
 	* SECURITY: Information about security measures and policies in place for the system.
 
-* **User Specific Hive Files:**
+2. **User Specific Hive Files:**
 	* Amcache.hve: Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp and SHA-1 hashes.
 	* ntuser.dat: Information about autostart applications, searched terms used in windows explorer or internet explorer, recently accessed files, run queries, last execution times of applications etc.
 	* UsrClass.dat: Information about user specific shellbags, covered in the next section.

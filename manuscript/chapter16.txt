@@ -119,8 +119,6 @@ ___Significance:___
 * Disproving denial of content awareness. If a subject claims that they were simply not aware of something existent on their system, shellbags can disprove their claims with an obvious given that an exclusive usage of the machine was proven.
 * Getting partial information about the contents of removable media that were once mounted on the system.
 
-{pagebreak}
-
 ### Prefetch
 ___About:___
 * Prefetch was first introduced in Windows XP. It is a memory management feature which optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is a direct evidence of execution.
@@ -138,7 +136,7 @@ It has three working modes:
 | 3 | Application & Boot prefetching enabled |
 
 This value is set from the registry key:
-**HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters**
+**HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session\ Manager\\Memory Management\\PrefetchParameters**
 Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___

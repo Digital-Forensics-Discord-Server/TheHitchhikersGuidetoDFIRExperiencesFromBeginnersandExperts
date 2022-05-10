@@ -117,11 +117,31 @@ ___About:___
 ___Significance:___
 * Reconstructing the tree structure for deleted folders. Helpful in providing an idea of the files that used to exist when they cannot be carved from the unallocated space.
 * Disproving denial of content awareness. If a subject claims that they were simply not aware of something existent on their system, shellbags can disprove their claims with an obvious given that an exclusive usage of the machine was proven.
+* Getting partial information about the contents of removable media that were once mounted on the system.
 
 ### Prefetch
 ___About:___
+* Prefetch was first introduced in Windows XP. It is a memory management feature which optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is a direct evidence of execution.
+* We looked at the lifecycle of an application earlier, the prefetcher in Windows works in the same way. It studies the first ~10 seconds of an application launched and creates/updates the corresponding prefetch file, for faster loading speeds on the next execution.
+
+![16.5 - Working of Windows Prefetcher](Ch16/Prefetch.png)
+
+It has 3 working modes:
+| Value | Description |
+| :---: | :--- |
+| 0 | Disabled |
+| 1 | Application prefetching enabled |
+| 2 | Boot prefetching enabled |
+| 3 | Application & Boot prefetching enabled |
+
+This value is set from the registry key ```HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters```. Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___
+* Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in it's own prefetch file being generated.
+* Useful in identifying and hunting ransomware executed. Once identified, analysts can look for publicly available decryptors to retrieve encrypted files.
+* By studying files and directories referenced by an executable, analysts can identify malware families.
+* Application execution from removable media or deleted partitions can be identified from the volume information parsed.
+* Timestamps for last 8 executions and the run counter is useful for frequency analysis of malicious executables. Worms which would result into multiple prefetch files referencing the exact same resources is a prime example of this.
 
 ### Jumplists & LNK files
 ___About:___
@@ -138,7 +158,7 @@ ___About:___
 
 ___Significance:___
 
-### $130
+### $I30
 ___About:___
 
 ___Significance:___

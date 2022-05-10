@@ -1,7 +1,7 @@
 {
     "ignorePatterns": [
         {
-            "pattern": "^https://placeholder.link"
+            "pattern": "^https://www.exterro.com/ftk-imager"
         }
     ],
     "timeout": "20s",

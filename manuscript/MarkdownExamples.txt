@@ -23,6 +23,15 @@ You can add web links easily. Here is a link to the [Leanpub homepage](https://l
 
 When you are creating a web link, the part between the square brackets [ ] contains the words that people will see in your book, and the part in the round brackets ( ) is the web address you are linking to.
 
+## Definition Lists
+
+term 1
+: definition 1a
+: definition 1b
+
+term 2
+: definition 2
+
 ## Images
 
 You can add an image to your book in a similar way.

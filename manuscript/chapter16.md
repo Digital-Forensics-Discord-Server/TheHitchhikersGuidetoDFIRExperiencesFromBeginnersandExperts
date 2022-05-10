@@ -109,7 +109,7 @@ ___About:___
 
 * Prefetch was first introduced in Windows XP. It is a memory management feature which optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is a direct evidence of execution.
 * We looked at the lifecycle of an application earlier, the prefetcher in Windows works in the same way. It studies the first \~10 seconds of an application launched and creates/updates the corresponding prefetch file, for faster loading speeds on the next execution.
-* Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman), for [this](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) handy python script for the same.
+* Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman), for this handy [python script](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) for the same.
 
 ![Working of Windows Prefetcher](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch16/Prefetch.png)
 
@@ -122,7 +122,7 @@ It has three working modes:
 | 3 | Application & Boot prefetching enabled |
 
 This value is set from the registry key:
-`HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters`
+**HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters**
 Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___

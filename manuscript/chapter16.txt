@@ -126,7 +126,7 @@ ___About:___
 
 ![16.5 - Working of Windows Prefetcher](Ch16/Prefetch.png)
 
-It has 3 working modes:
+It has three working modes:
 | Value | Description |
 | :---: | :--- |
 | 0 | Disabled |
@@ -134,8 +134,8 @@ It has 3 working modes:
 | 2 | Boot prefetching enabled |
 | 3 | Application & Boot prefetching enabled |
 
-This value is set from the registry key:
-```HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters```.
+This value is set from the registry key
+```HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters```
 Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___

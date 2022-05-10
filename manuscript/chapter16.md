@@ -122,7 +122,7 @@ It has three working modes:
 | 3 | Application & Boot prefetching enabled |
 
 This value is set from the registry key:
-**HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters**
+`HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters`
 Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___
@@ -157,7 +157,7 @@ ___About:___
 
 ___Significance:___
 
-### $UsrJrnl
+### $UsnJrnl
 ___About:___
 
 ___Significance:___

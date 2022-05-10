@@ -134,14 +134,16 @@ It has 3 working modes:
 | 2 | Boot prefetching enabled |
 | 3 | Application & Boot prefetching enabled |
 
-This value is set from the registry key ```HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters```. Forensicators can refer to this key to check if prefetching is disabled.
+This value is set from the registry key:
+```HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters```.
+Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___
 * Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in it's own prefetch file being generated.
 * Useful in identifying and hunting ransomware executed. Once identified, analysts can look for publicly available decryptors to retrieve encrypted files.
 * By studying files and directories referenced by an executable, analysts can identify malware families.
 * Application execution from removable media or deleted partitions can be identified from the volume information parsed.
-* Timestamps for last 8 executions and the run counter is useful for frequency analysis of malicious executables. Worms which would result into multiple prefetch files referencing the exact same resources is a prime example of this.
+* Timestamps for last eight executions and the run counter is useful for frequency analysis of malicious executables. Worms which would result into multiple prefetch files referencing the exact same resources is a prime example of this.
 
 ### Jumplists & LNK files
 ___About:___

@@ -17,4 +17,5 @@ chapter14.txt
 chapter15.txt
 chapter16.txt
 references.txt
+errata.txt
 MarkdownExamples.txt

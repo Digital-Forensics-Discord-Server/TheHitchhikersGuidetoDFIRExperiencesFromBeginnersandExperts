@@ -11,7 +11,7 @@ This chapter is a beginner’s guide on how to crack passwords. While on the sur
 
 That being said, I do not condone, encourage, or support those who would use this information for malicious or illegal means. This paper will start with the fundamentals of hashing and end with showing how a strong password makes a substantial difference when attempting to crack complex passwords. 
 
-For those that need to legally access the data, there should be something in here for you. For those that wish to learn how to better secure their own data, there should be something in here for you as well. Let's get started!
+In digital forensics, the first challenge is to actually get the data in a state so that it can be analyzed. For those that need to legally access the data, there should be something in here for you. For those that wish to learn how to better secure their own data, there should be something in here for you as well. Let's get started!
 
 ## Password Hashes
 

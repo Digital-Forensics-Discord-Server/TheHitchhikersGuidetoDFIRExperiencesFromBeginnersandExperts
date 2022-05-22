@@ -126,9 +126,27 @@ Since we have already mentioned that the main weakness of a password is it's exi
 
 This is a good way to check if a password exists in a dictionary or wordlist, but if the password does not show up that does not mean it can't cracked with that dictionary, but an approprate rule would have to be added in order to mangle the wordlist in a way that would cause the password to be guessed by Hashcat. Still, since dictionary attacks are the most common and the fastest method of cracking a password, it is a good yet simple test to see if the password is a strong password or not.
 
+## Generating Custom Wordlists
+
+
+
+
+## Paring Down Custom Wordlists
+
+
+
+
+
+## Mangling Custom Wordlists
+
+
+
+
 ## Conclusion
 
 This has just been a brief dive into showing how easy it is to crack simple passwords and hopefully will show why strong passwords are so important. The Windows operating system uses a weak form of encryption for its passwords, and this is a place to start when trying to crack passwords for fun or security testing purposes. Even with strong encryption methods, a weak password will not be sufficient to safeguard the data. Knowing these methods are out there to defeat user passwords should show the user why it is so important to use strong passwords and why it is a bad idea to reuse passwords between accounts. A better understanding of the attack methods against passwords should encourage everyone to use better security practices to safeguard their data.
+
+
 
 ## References
 

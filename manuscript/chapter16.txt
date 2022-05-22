@@ -1,7 +1,23 @@
 # Chapter 16 - Artifacts as Evidence
 
-## Types of Artifacts
+## Forensic Science
+Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any of it's domain. That process is cyclical and goes something like this:
+
+* We make observations in nature.
+* We form an initial hypothesis about something.
+* We look for things that confirm or deny the formed hypothesis.
+* If we find something that denies it, we form a new hypothesis and go back to making observations.
+* If we find something that confirms it, we continue making new observations to extend our dataset and verify the hypothesis until the dataset is substantial in confirming it precisely and accurately. If we further find something that denies the original hypothesis, we form a new one repeating the process.
+
+![16.1 - Attr: GliderMaven, CC BY-SA 4.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
+
+Ultimately, the goal of any science is not to state things in absolutes, but in observations, experiment, procedure and conclusions. Even the fundamental laws of science begin with a basic foundation laid of assumptions.
+
+Much like any scientific field, forensics or criminalistics is a branch of science that deals with identifying, collecting and preserving evidence of a crime. It is not just identifying, collecting and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from it's true form.
+
 Digital Forensics is a six phase process including Preparation, Identification, Collection, Preservation, Analysis and Reporting.
+
+## Types of Artifacts
 
 Analysis is a major phase where in forensicators discover different types of artifacts ranging from plain metadata to complex evidence of execution and residual traces. The vast gap between the difficulty to retrieve or reconstruct evidence determines the fine line between E-discovery and Digital Forensics.
 
@@ -9,7 +25,7 @@ User data such as internet history, images, videos, emails, messages etc fall un
 
 However, System Data like artifacts that help support some view of truth, or determine how closely a transpired event is to the evidence, are not that simple to manually parse with forensic soundess, which is why oftentimes forensicators rely on well-known parsing tools either commercial or opensource.
 
-![16.1 - Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Ch16/EDvsDF.png)
+![16.2 - Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Ch16/EDvsDF.png)
 
 And that is the main difference between E-Discovery & Digital Forensics depending on the categorization of data alone. Both follow different procedures and have different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
@@ -24,7 +40,7 @@ Which brings us to parsing. We often go around throwing the term  while working 
 Generally, it is some feature or underlying mechanism of the main operating system installed on the device. Parsing tools are written to accurately mimic those functions of the operating system which make the raw data stored on the hardware, human readable.
 
 {height: 30%}
-![16.2 - Attr: Kapooht, CC BY-SA 3.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/b/b7/Role_of_an_Operating_System.svg)
+![16.3 - Attr: Kapooht, CC BY-SA 3.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/b/b7/Role_of_an_Operating_System.svg)
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of  computer data and how it is being presented.
 
@@ -69,12 +85,12 @@ Understanding how an operating system parses the data from different sources, ra
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
 
 {width: 70%}
-![16.3 - Attr: Original by losmilzo on imgur, modified here as text removal](Ch16/Truth.jpg)
+![16.4 - Attr: Original by losmilzo on imgur, modified here as text removal](Ch16/Truth.jpg)
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect, and try to paint the picture as unbiased and complete as possible.
 
 {width: 50%}
-![16.4 - Attr: By stux on pixabay](Ch16/Puzzle.png)
+![16.5 - Attr: By stux on pixabay](Ch16/Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case, where an employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information around the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime, was indeed the one that your artifacts claim. So you would then look for CCTV footage around the premises, going back to the ***Identification*** phase in the digital forensics lifecycle, and so forth and so on.
 

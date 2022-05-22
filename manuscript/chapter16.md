@@ -1,7 +1,23 @@
 # Chapter 16 - Artifacts as Evidence
 
-## Types of Artifacts
+## Forensic Science
+Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any of it's domain. That process is cyclical and goes something like this:
+
+* We make observations in nature.
+* We form an initial hypothesis about something.
+* We look for things that confirm or deny the formed hypothesis.
+* If we find something that denies it, we form a new hypothesis and go back to making observations.
+* If we find something that confirms it, we continue making new observations to extend our dataset and verify the hypothesis until the dataset is substantial in confirming it precisely and accurately. If we further find something that denies the original hypothesis, we form a new one repeating the process.
+
+![Law vs Theory](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
+
+Ultimately, the goal of any science is not to state things in absolutes, but in observations, experiment, procedure and conclusions. Even the fundamental laws of science begin with a basic foundation laid of assumptions.
+
+Much like any scientific field, forensics or criminalistics is a branch of science that deals with identifying, collecting and preserving evidence of a crime. It is not just identifying, collecting and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from it's true form.
+
 Digital Forensics is a six phase process including Preparation, Identification, Collection, Preservation, Analysis and Reporting.
+
+## Types of Artifacts
 
 Analysis is a major phase where in forensicators discover different types of artifacts ranging from plain metadata to complex evidence of execution and residual traces. The vast gap between the difficulty to retrieve or reconstruct evidence determines the fine line between E-discovery and Digital Forensics.
 

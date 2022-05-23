@@ -1,0 +1,3 @@
+# Contributors
+
+* brootware - thank you for helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!

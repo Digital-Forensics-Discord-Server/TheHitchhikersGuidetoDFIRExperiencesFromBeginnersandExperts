@@ -1,5 +1,6 @@
 introduction.txt
 authors.txt
+contributors.txt
 chapter1.txt
 chapter2.txt
 chapter3.txt

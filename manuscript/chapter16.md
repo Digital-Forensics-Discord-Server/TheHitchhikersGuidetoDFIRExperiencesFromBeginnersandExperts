@@ -1,7 +1,7 @@
 # Chapter 16 - Artifacts as Evidence
 
 ## Forensic Science
-Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any of it's domain. That process is cyclical and goes something like this:
+Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any of its domain. That process is cyclical and goes something like this:
 
 * We make observations in nature.
 * We form an initial hypothesis about something.
@@ -9,11 +9,13 @@ Before learning about artifacts as digital evidence, I'll preface this chapter w
 * If we find something that denies it, we form a new hypothesis and go back to making observations.
 * If we find something that confirms it, we continue making new observations to extend our dataset and verify the hypothesis until the dataset is substantial in confirming it precisely and accurately. If we further find something that denies the original hypothesis, we form a new one repeating the process.
 
+We never pollute this scientific process with biases or opinions. It is only credible as far as the fact finder's neutralness go. All scientists, trust observations and verified prior research, discarding all speculation.
+
 ![Law vs Theory](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
 
 Ultimately, the goal of any science is not to state things in absolutes, but in observations, experiment, procedure and conclusions. Even the fundamental laws of science begin with a basic foundation laid of assumptions.
 
-Much like any scientific field, forensics or criminalistics is a branch of science that deals with identifying, collecting and preserving evidence of a crime. It is not just identifying, collecting and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from it's true form.
+Much like any scientific field, forensics or criminalistics is a branch of science that deals with identifying, collecting and preserving evidence of a crime. It is not just identifying, collecting and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from its true form.
 
 Digital Forensics is a six phase process including Preparation, Identification, Collection, Preservation, Analysis and Reporting.
 
@@ -31,7 +33,7 @@ And that is the main difference between E-Discovery & Digital Forensics dependin
 
 ## What is Parsing?
 Which brings us to parsing. We often go around throwing the term  while working with a variety of artifacts;
-"Parse this, parse that", but what does it mean in the real sense? To understand the parsing methodology, tools & techniques, we must be familiar with the origin of the handling of the data being parsed. What I mean by that is how was the data originally meant to be handled. What was it's structure by design. How can it be replicated.
+"Parse this, parse that", but what does it mean in the real sense? To understand the parsing methodology, tools & techniques, we must be familiar with the origin of the handling of the data being parsed. What I mean by that is how was the data originally meant to be handled. What was its structure by design. How can it be replicated.
 
 Generally, it is some feature or underlying mechanism of the main operating system installed on the device. Parsing tools are written to accurately mimic those functions of the operating system which make the raw data stored on the hardware, human readable.
 
@@ -55,7 +57,7 @@ There are many sub-types of both RAM & ROM but only the fundamental difference b
 Now let's quickly look at the timeline of an application lifecycle in two stages:
 
 1. **Production Cycle:**
-> An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for it's execution cycle.
+> An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for its execution cycle.
 2. **Execution Cycle:**
 > Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.
 
@@ -70,7 +72,7 @@ You can easily remember both of these cycles by drawing an analogy between elect
 Understanding how an operating system parses the data from different sources, rather it be on-disk or in memory; will help you identify, locate and efficiently retrieve different types of artifacts necessary for an investigation.
 
 ## Artifact-Evidence Relation
-You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in it's entirety.
+You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in its entirety.
 
 <img width="500" alt="Truth" src="https://raw.githubusercontent.com/Nisarg12/CrowdsourcedDFIRBook/main/manuscript/resources/Ch16/Truth.jpg">
 
@@ -82,14 +84,14 @@ That being said, if you apply the additional knowledge from metadata, OSINT and 
 
 As a result of a codependency of the artifacts on drawing correlations to some external factor, they form a direct non-equivalence relation with evidence.
 
-However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation and will generally be handled by the lawyers. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone does not mean it's admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces of the puzzle.
+However, note that this "rule", if you will, is only applicaple to a more broad scope of the investigation and will generally be handled by the lawyers. In the more narrow scope as a forensicator, and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone does not mean its admissible evidence. Parse the artifact, make notes and document everything. Being forensically sound is more important than worrying about completing the entire puzzle. Because there will be no edge or corner pieces to it.
 
 ## Examples
-This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, but the significance of those artifacts at a much higher level. Such as what does it offer, prove and deny. And what is it's forensic value. I suggest the readers to use these brief bits to spark curiosity about these important artifacts, and research on your own about locating and parsing them.
+This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, but the significance of those artifacts at a much higher level. Such as what does it offer, prove and deny. And what is its forensic value. I suggest the readers to use these brief bits to spark their curiosity about these important artifacts, and research on their own about locating and parsing them.
 
 ### Registry
 ___About:___
-* Windows registry is a heirarchical database used by the Windows operating system to store it's settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities and other residual traces.
+* Windows registry is a heirarchical database used by the Windows operating system to store its settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities and other residual traces.
 
 * Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
 
@@ -142,7 +144,7 @@ This value is set from the registry key:
 Forensicators can refer to this key to check if prefetching is disabled.
 
 ___Significance:___
-* Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in it's own prefetch file being generated.
+* Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in its own prefetch file being generated.
 * Useful in identifying and hunting ransomware executed. Once identified, analysts can look for publicly available decryptors to retrieve encrypted files.
 * By studying files and directories referenced by an executable, analysts can identify malware families.
 * Application execution from removable media or deleted partitions can be identified from the volume information parsed.
@@ -151,14 +153,14 @@ ___Significance:___
 ### Jumplists & LNK files
 ___About:___
 * LNK files, or link files are the shortcuts that a user or an application creates for quick access to a file. LNK files themselves are rich in file metadata such as timestamps, file path, file hash, MAC address, volume information and volume serial numbers.
-* However, apart from the Recent Items and Start Menu folders, these LNK files are also found embedded by jumplists.
+* However, apart from the Recent Items and Start Menu folders, these LNK files are also found embedded in jumplists.
 * Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have a quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right click context menu which can be used to 'jump' to a induce a frequently used action.
 * There are two types of jumplists; automatic and custom. Automatic jumplists are those created automatically by Windows, based on the MRU and MFU items. Custom jumplists are those explicitly created by the user, like bookmarks in a browser or pinning files for instance.
 * Both categories of these jumplists provide rich information like modified, accessed and created timestamps and absolute file path of the original file.
 
 ___Significance:___
-* Useful to gain information on uninstalled applications and deleted files & applications ran and files opened from a removable media.
-* Again being a direct evidence of execution, it can be useful in timelining executed applications and opened files.
+* Useful to gain information on uninstalled applications and deleted files from the system & also applications ran and files opened from removable media.
+* Again, being a direct evidence of execution, it can be useful in timelining executed applications and opened files.
 * Useful to discover partial user history including URLs and bookmarks.
 
 ___Significance:___

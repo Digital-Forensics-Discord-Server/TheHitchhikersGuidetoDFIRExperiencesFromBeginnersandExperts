@@ -164,8 +164,16 @@ ___Significance:___
 
 ### Jumplists & LNK files
 ___About:___
+* LNK files, or link files are the shortcuts that a user or an application creates for quick access to a file. LNK files themselves are rich in file metadata such as timestamps, file path, file hash, MAC address, volume information and volume serial numbers.
+* However, apart from the Recent Items and Start Menu folders, these LNK files are also found embedded by jumplists.
+* Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have a quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right click context menu which can be used to 'jump' to a induce a frequently used action.
+* There are two types of jumplists; automatic and custom. Automatic jumplists are those created automatically by Windows, based on the MRU and MFU items. Custom jumplists are those explicitly created by the user, like bookmarks in a browser or pinning files for instance.
+* Both categories of these jumplists provide rich information like modified, accessed and created timestamps and absolute file path of the original file.
 
 ___Significance:___
+* Useful to gain information on uninstalled applications and deleted files & applications ran and files opened from a removable media.
+* Again being a direct evidence of execution, it can be useful in timelining executed applications and opened files.
+* Useful to discover partial user history including URLs and bookmarks.
 
 ### SRUDB.dat
 ___About:___

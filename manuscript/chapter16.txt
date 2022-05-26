@@ -179,8 +179,16 @@ ___Significance:___
 
 ### SRUDB.dat
 ___About:___
+* SRUDB.dat is an artifact resulting from a new feature introduced in Windows 8, called SRUM (System Resource Usage Monitor) which tracks and monitors different usage statistics of OS resources such as network data sent & received, process ownership, power management information, push notifications data and even applications which were in focus at times along with keyboard and mouse events as per a new [research](https://aboutdfir.com/app-timeline-provider-srum-database/).
+* It is capable of holding 30-60 days worth of tracking data at a time.
+* So far, we haven't looked at an artifact that has been able to indoubtedly map a particular process executed to a user. SRUDB.dat offers us this critical information directly. It is one of the most valuable artifacts due to the multidimensional applications of SRUM by the OS itself.
 
 ___Significance:___
+* Useful in mapping process to a user account. Especially useful in the scenarios of restricted scope of acquisition.
+* Useful in mapping a process to network activity such as bytes sent & received. Helpful in identifying data exfiltration incidents.
+* Useful in timelining and distinguishing network interfaces connected to, and hence potentially estimate the whereabouts of the machine if those networks were distanced farther away from one another.
+* Useful in analyzing power management information such as battery charge & discharge level.
+* Useful in stating awareness or lack thereof, of an application that would've been visible on screen at one point in time, and the interaction with it by the means of input devices.
 
 ### $MFT
 ___About:___

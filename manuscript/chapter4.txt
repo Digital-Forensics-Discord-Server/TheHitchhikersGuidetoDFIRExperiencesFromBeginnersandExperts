@@ -109,15 +109,15 @@ Go back to the command prompt and press the up arrow. Adding a rule to a diction
 
 ## Robust Encryption Methods
 
-Up to now we have only cracked an NTLM hash, but what about more robust encryption methods? Go to the Hashcat Example Hashes webpage (https://hashcat.net/wiki/doku.php?id=example_hashes) and search for “Bitlocker” that should be mode 22100. The resulting hash should be as follows: “$bitlocker$1$16$6f972989ddc209f1eccf07313a7266a2$1048576$12 
-$3a33a8eaff5e6f81d907b591$60$316b0f6d4cb445fb056f0e3e0633c41
-3526ff4481bbf588917b70a4e8f8075f5ceb45958a800b42cb7ff9b7f5e1
-7c6145bf8561ea86f52d3592059fb”. 
+Up to now we have only cracked an NTLM hash, but what about more robust encryption methods? Go to the Hashcat Example Hashes webpage (https://hashcat.net/wiki/doku.php?id=example_hashes) and search for “Bitlocker” that should be mode 22100. The resulting hash should be as follows: “$bitlocker$1$16$6f972989ddc209f1eccf07313a7266a2$1048576$12$
+3a33a8eaff5e6f81d907b591$60$316b0f6d4cb445fb056f0e3e0633c413
+526ff4481bbf588917b70a4e8f8075f5ceb45958a800b42cb7ff9b7f5e17
+c6145bf8561ea86f52d3592059fb”. 
 This is massive compared to the NTLM hash! Try it in Hashcat using the following command: 
-“hashcat.exe -a 3 -m 22100 $bitlocker$1$16$6f972989ddc209f1e
-ccf07313a7266a2$1048576$12$3a33a 8eaff5e6f81d907b591$60$316b
-0f6d4cb445fb056f0e3e0633c413526ff4481bbf588917b70a4e8f8075f5
-ceb45958a800b42cb7ff9b7f5e17c6145bf8561ea86f52d3592059fb” 
+“hashcat.exe -a 3 -m 22100 $bitlocker$1$16$6f972989ddc209f1eccf
+07313a7266a2$1048576$12$3a33a 8eaff5e6f81d907b591$60$316b0f6
+d4cb445fb056f0e3e0633c413526ff4481bbf588917b70a4e8f8075f5ceb
+45958a800b42cb7ff9b7f5e17c6145bf8561ea86f52d3592059fb” 
 without the quotes. The brute-force starts at four characters, because BitLocker originally required a minimum password length of four so Hashcat is smart enough to not waste time with trying less than four characters when attacking a BitLocker password. For my computer it shows an estimated time of 1 hours 19 minutes for just 4 characters! If I let it run and go to 5 characters, it shows it will take 2 days to just try 5 characters! Your computer may have different estimated times, but unless you have a really good gaming computer or are running Hashcat on a computer designed for mining cryptocurrency you are probably seeing similar numbers. Trying the same Bitlocker hash but just using a dictionary attack with no rules against the cyclone.hashesorg.hashkiller.combined dictionary shows an estimated time of 28 days!
 
 Knowing this means that if an NTLM hash was cracked using the cyclone.hashesorg.hashkiller.combined dictionary, it will take about a month at the most for the same Bitlocker password to be cracked  This time can be significantly reduced by using a computer with multiple GPUs like computers used for mining cryptocurrency. This is a really good reason to not have a password that comes standard in most dictionary attacks and shows why strong and complicated passwords are important.

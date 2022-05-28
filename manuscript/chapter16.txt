@@ -190,6 +190,28 @@ ___Significance:___
 * Useful in analyzing power management information such as battery charge & discharge level.
 * Useful in stating awareness or lack thereof, of an application that would've been visible on screen at one point in time, and the interaction with it by the means of input devices.
 
+### hiberfil.sys
+___About:___
+* hiberfil.sys was first introduced in Windows 2000. It is a file used by Windows for memory paging, at the time of hibernations or sleep cycles. It is also used in case of power failures.
+* Paging is a mechanism to store the current contents of the memory to disk, for later retrieving them and continue from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from a sleep states.
+* It uses the Xpress algorithm for compression. Volatility's imagecopy plugin can be used to convert this artifact to a raw memory image.
+
+___Significance:___
+* This is one of those artifacts which hops around its categorical type, and so this extra memory content can provide more information to your investigation.
+* To tackle accepting unfortunate shutdowns of locked devices in an investigation, one can retrieve this file at the time of disk forensics and get additional information by performing memory forensics on the converted file. This way we can retain partial volatile memory data.
+* May contain NTFS records, browsing history, index records, registry data and other useful information.
+
+### pagefile.sys
+___About:___
+* Similar to hiberfil.sys, pagefile.sys is a swapping file used by Windows to temporarily store new contents that were supposed to be loaded in the memory but could not due to insufficient space. When required amount of memory is freed, contents are transferred from this artifact back to the memory.
+* The only known methods to get some information from this artifact is using the string utility, a hex editor, and filtering using regex.
+* It can store chunks of data capping at 4kb in size.
+
+___Significance:___
+* Useful in hunting IOCs in malware cases.
+* Useful in carving smaller files that were meant to be loaded in the memory. Meaning it is evidence of access. If an image was successfully carved from this artifact, it means that it was opened, as it would have meant to be eventually loaded in the working memory of that device.
+* May contain NTFS records, browsing history, index records, registry data and other useful information.
+
 ### $MFT
 ___About:___
 
@@ -206,11 +228,6 @@ ___About:___
 ___Significance:___
 
 ### $UsnJrnl
-___About:___
-
-___Significance:___
-
-### hiberfil.sys
 ___About:___
 
 ___Significance:___

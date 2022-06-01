@@ -23,6 +23,7 @@ chapter15.txt
 chapter16.txt
 chapter17.txt
 chapter18.txt
+chapter19.txt
 references.txt
 errata.txt
 MarkdownExamples.txt

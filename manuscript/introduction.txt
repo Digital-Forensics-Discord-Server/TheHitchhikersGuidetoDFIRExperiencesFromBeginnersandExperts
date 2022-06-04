@@ -11,31 +11,37 @@ This book is purely a proof of concept that members of the Digital Forensics Dis
 	1. Crowdsourced
 	2. Open source
 	3. Self-published
-	4. Created using GitHub and Markua (Leabpub’s flavor of Markdown)
+	4. Created using GitHub and Markua (Leabpub's flavor of Markdown)
+	5. Accessible
 	6. Considering all the above, a legitimate DFIR resource
 	
-Before we go too much further, let’s breakdown each of the bullet points above. 
+Before we go too much further, let's breakdown each of the bullet points above. 
 
 ### Crowdsourced
 
-I simply love collaborating with people. I really enjoy when I can find people with the same mindset who just “get it” and all they want to do it move the ball forward on something greater than themselves. Everyone contributing to this book “gets it”, but that doesn’t mean if you’re reading this right now and you haven’t contributed to this book that you’re one of the ones who don’t “get it”. I personally think it means you haven’t found something that’s resonated with you yet or you’re just not at a point in your career or, more importantly, your life to where you’re able to make a name for yourself through the various methods of giving back to the DFIR community, and that’s okay. Ultimately, this book is greater than the sum of its parts and I’m thrilled to help provide the opportunity not only for myself but for others to collaborate with other members of the Digital Forensics Discord Server to create something truly community-driven from A-Z.
+I simply love collaborating with people. I really enjoy when I can find people with the same mindset who just "get it” and all they want to do it move the ball forward on something greater than themselves. Everyone contributing to this book "gets it", but that doesn't mean if you're reading this right now and you haven't contributed to this book that you're one of the ones who don't "get it”. I personally think it means you haven't found something that's resonated with you yet or you're just not at a point in your career or, more importantly, your life to where you're able to give back through the various methods of giving back to the DFIR community, and that's okay. Ultimately, this book is greater than the sum of its parts and I'm thrilled to help provide the opportunity not only for myself but for others to collaborate with other members of the Digital Forensics Discord Server to create something truly community-driven from idea to published book.
 
 ### Open source
 
-Ever since my first commit on GitHub back in May 2020, I’ve been hooked on contributing to open source projects. The ability for the community to see the process unfold from A-Z, including but not limited to the chapters being written, edited, and finalized for publication, is something I don’t think we’ve seen yet and I hope we see more of once this book is published and freely avaiable for anyone to consume. 
+Ever since my first commit on GitHub back in May 2020, I've been hooked on contributing to open source projects. The ability for the community to see the process unfold from A-Z, including but not limited to the chapters being written, edited, and finalized for publication, is something I don't think we've seen yet and I hope we see more of once this book is published and freely avaiable for anyone to consume. 
 
 ### Self-published
 
-Self-publishing allows for as much control as possible to the content creators. Being able to self-publish on Leanpub allows for flexibility for the content creators to modify the content at a moment’s notice without involving the red tape that is involved when dealing with a publisher. As a result, this book can be updated at any time with additional content until the authors deem the book to be complete and thus a sequel would be necessary. 
+Self-publishing allows for as much control as possible to the content creators. Being able to self-publish on Leanpub allows for flexibility for the content creators to modify the content at a moment's notice without involving the red tape that is involved when dealing with a publisher. As a result, this book can be updated at any time with additional content until the authors deem the book to be complete and thus a sequel would be necessary. 
 
 ### Created using GitHub and Markua (modified version of Markdown)
 
 This goes along with open source above. GitHub is a fantastic platform by which to contribute to open source projects. Markdown is commonly used on GitHub
 
+### Accessible
+
+This particular book will be freely available on Leanpub. It will never cost you anything. Share it far and wide!
+
 ### Considering all the above, a legitimate DFIR resource
 
-Frankly, this may not be at the level of a college textbook, but it’s also not meant to be. Again, this project is meant to provide a platform for previously unknown contributors in the DFIR community to provide the knowledge they’ve gained through research, experience, or otherwise. When one is passionate enough about a subject to where they’d volunteer to write a chapter for a book like this, enabling that person by giving them an opportunity to spread their wings and put themselves out there for others to benefit from is truly admirable. Any errata in the chapters of this book will be addressed as they are identified and since we control the publishing tempo, we (or you) can update the book at anytime.
+Frankly, this may not be at the level of a college textbook, but it's also not meant to be. Again, this project is meant to provide a platform for previously unknown contributors in the DFIR community to provide the knowledge they've gained through research, experience, or otherwise. When one is passionate enough about a subject to where they'd volunteer to write a chapter for a book like this, enabling that person by giving them an opportunity to spread their wings and put themselves out there for others to benefit from is an honor. Any errata in the chapters of this book will be addressed as they are identified and since we control the publishing tempo, we (or you) can update the book at anytime.
 
 ## Final Thoughts
 
-I don't think any of the co-authors listed on the cover of this book ever thought they would be a published author. I can certainly say that is the case for myself. What this project proved to me is that the barrier to do something as complicated as writing a book really isn't as complicated as it could be, mostly thanks to Leanpub. For all we know, the next major name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing down the path of knowledge sharing, content development, and overall world betterment. Only time will tell! Either way, I’m proud of all of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. 
+I don't think any of the co-authors listed on the cover of this book ever thought they would be a published author. I can certainly say that is the case for myself. What this project proved to me is that the barrier to do something as complicated as writing a book really isn't as complicated as it could be, mostly thanks to Leanpub. For all we know, the next major name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing down the path of knowledge sharing, content development, and overall world betterment. Only time will tell! Either way, I'm proud of all of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. In the end, the authors win, the other contributors win, and most importantly the community wins!
+

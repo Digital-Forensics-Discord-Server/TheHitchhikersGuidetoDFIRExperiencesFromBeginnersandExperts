@@ -1,4 +1,4 @@
-# Chapter 4 - I Have a Password Hash, Now What?
+# Chapter 4 - Password Cracking for Beginners
 
 {width: 30%}
 ![](https://user-images.githubusercontent.com/46549513/162606300-527e8cff-8c23-43d6-b06b-8b43fd7c82f2.png)
@@ -176,4 +176,3 @@ Patton, B. (2022, March 25). NTLM authentication: What it is and why you should 
 Picolet, J. (2019). Hash Crack: Password Cracking Manual (v3). Independently published.
 
 W34kp455. (2014). Weakpass. Weakpass. Retrieved May 12, 2022, from https://weakpass.com/
-

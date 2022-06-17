@@ -5,7 +5,7 @@ By ApexPredator
 # Introduction
 Malware has been around for as long as computers have been in common use. Any computer program that performs malicious activities is classified as malware. There are many types of malware ranging from sophisticated self-propagating worms, destructive logic bombs, ransomware, to harmless pranks. Everyone who regularly uses a computer will encounter malware at some point.
 
-This chapter will cover the basics of analyzing malware on an infected computer.  It is targeted towards beginners who are new to Digital Forensics and Incident Response (DFIR) and hobbyists. The goal of this chapter is to teach someone unfamiliar with the basic concepts of malware analysis some Tactics, Techniques, and Procedures (TTPs) used to confirm that a computer is infected with malware and how to begin extracting Indicators of Compromise (IOCs). It will cover the use of basic tools. We will not cover intermediate or advanced topics such as reverse engineering malware to discover its purpose or how it works in this chapter.
+This chapter will cover the basics of analyzing malware on an infected computer. It is targeted towards beginners who are new to Digital Forensics and Incident Response (DFIR) and hobbyists. The goal of this chapter is to teach someone unfamiliar with the basic concepts of malware analysis some Tactics, Techniques, and Procedures (TTPs) used to confirm that a computer is infected with malware and how to begin extracting Indicators of Compromise (IOCs). It will cover the use of basic tools. We will not cover intermediate or advanced topics such as reverse engineering malware to discover its purpose or how it works in this chapter.
 
 The chapter starts with an introduction to basic malware analysis. It then covers some free tools to use in basic malware analysis. The chapter culminates with a walkthrough of a canned analysis on a piece of malware. The walkthrough wraps up with recommendations on where to go next to progress to intermediate or advanced malware analysis.
 
@@ -57,7 +57,7 @@ Process Hacker is another great tool that performs similar functions to Task Man
 
 ![](resources/Ch3/chapter3.012.png)
 
-Process Hacker provides a ‘Services’ and ‘Network’ tab that offer similar functionality to the features covered under Task Manager and Process Explorer.  A malware analyst can use the ‘Services’ tab to search for suspicious services and review the details of the service. The ‘Network’ tab can be used to map running processes to active network connections and listening ports. Process Hacker is available for download at <https://processhacker.sourceforge.io/downloads.php>.
+Process Hacker provides a ‘Services’ and ‘Network’ tab that offer similar functionality to the features covered under Task Manager and Process Explorer. A malware analyst can use the ‘Services’ tab to search for suspicious services and review the details of the service. The ‘Network’ tab can be used to map running processes to active network connections and listening ports. Process Hacker is available for download at <https://processhacker.sourceforge.io/downloads.php>.
 
 ![](resources/Ch3/chapter3.013.png)
 
@@ -119,7 +119,7 @@ It is time to do a walkthrough of a sample malware analysis now that you are fam
 
 In this scenario a user has reported to you that their machine has been running slow and acting “weird.” You have already conducted initial investigations by asking the user questions including: “When did the issues start?” “Did you download or install any new applications?” “Did you click any links or open any documents from untrusted sources?” The user states that they did not install any application recently but did review a Microsoft Word document sent from a customer.
 
-We start our analysis with opening TCPView from the Sysinternals Suite to determine if we can quickly find any unusual processes communicating to remote sites. In this simple scenario we find that there is currently only one process, python.exe, communicating to a remote system.  We flag this as suspicious since python is not typically used in the manner for our fictious network. We then make a note of the port and IP for potential IOCs.
+We start our analysis with opening TCPView from the Sysinternals Suite to determine if we can quickly find any unusual processes communicating to remote sites. In this simple scenario we find that there is currently only one process, python.exe, communicating to a remote system. We flag this as suspicious since python is not typically used in the manner for our fictious network. We then make a note of the port and IP for potential IOCs.
 
 ![](resources/Ch3/chapter3.026.png)
 

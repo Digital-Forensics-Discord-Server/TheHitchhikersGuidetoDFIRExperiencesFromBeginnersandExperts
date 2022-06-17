@@ -48,7 +48,7 @@ Understand the operating system as an abstraction level between the end-user and
 
 Before parsing the artifacts and diving deep into analysis, you must fully understand how files are generally handled by an operating system. As mentioned earlier, an operating system is just a very sophisticated piece of software written by the manufacturers to provide an abstraction level between the complexities of hardware interactions and the user.
 
-In the context of file handling, operating systems either *store* files or *execute* files. Both of which requires different types of memory. Also note that *storing* files requires access to a storage media such as HDDs, SSDs and Flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
+In the context of file handling, operating systems either *store* files or *execute* files. Both of which requires different types of memory. Also note that *storing* files requires access to a storage media such as HDDs, SSDs and flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
 
 As you might already know, computers or any electronic computing device for that matter, primarily utilize two types of memory:
 
@@ -64,7 +64,7 @@ There are many sub-types of both RAM & ROM but only the fundamental difference b
 Now let's look at the lifecycle of an application in two stages:
 
 1. **Production Cycle:**
-An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for its execution cycle.
+An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher levelled languages that do not interact directly with machine level entities such as registers, buses, channels etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower levelled language which can interact directly with machine level entities. Finally, the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for its execution cycle.
 
 2. **Execution Cycle:**
 Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally it is discarded from the RAM.

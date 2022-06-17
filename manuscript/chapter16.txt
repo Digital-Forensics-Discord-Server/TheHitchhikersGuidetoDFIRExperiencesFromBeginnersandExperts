@@ -9,7 +9,7 @@ Before learning about artifacts as digital evidence, I'll preface this chapter w
 * If we find something that denies it, we form a new hypothesis and go back to making observations.
 * If we find something that confirms it, we continue making new observations to extend our dataset and verify the hypothesis until the dataset is substantial in confirming it precisely and accurately. If we further find something that denies the original hypothesis, we form a new one repeating the process.
 
-We never pollute this scientific process with biases or opinions. It is only credible as far as the fact finder's neutralness go. All scientists, trust observations and verified prior research, discarding all speculation.
+We never pollute this scientific process with biases or opinions. It is only credible as far as the fact finder's neutrality goes. All scientists, trust observations and verified prior research, discarding all speculation.
 
 ![16.1 - Attr: GliderMaven, CC BY-SA 4.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
 

@@ -88,7 +88,7 @@ solo cop up in alaska who's nearest fellow examiner is 3 hours away
 
 Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level.
 
-Countries with roles assigned for Law Enforcement personnel (as of May 2022):
+Countries with roles assigned for Law Enforcement personnel (as of June 2022):
 
 +--------------------+-------------+----------------------+
 | Albania            | Iceland     | Pakistan             |
@@ -141,7 +141,7 @@ Countries with roles assigned for Law Enforcement personnel (as of May 2022):
 +--------------------+-------------+----------------------+
 
 
-To save you from counting, that's 70 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 36% of those! 
+To save you from counting, that's 71 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 36% of those! 
 
 ### Future
 

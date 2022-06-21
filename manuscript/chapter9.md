@@ -22,13 +22,13 @@ Two of the most common information security types of CTF competitions are “**J
 
 ![](https://ctf.zone/img/jeopardy.png)
 
-***Figure 1: Jeopardy style CTF***
+***Figure 1: Jeopardy style CTF (Image via ctf.zone)***
 
 “**Attack and Defense**” is more common in Red and Blue team environments where the Red team has to hack or attack a Blue team server. The Blue team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
 
 ![](https://ctf.zone/img/attack_defense.png)
 
-***Figure 2: Attack and Defense CTF***
+***Figure 2: Attack and Defense CTF (Image via ctf.zone)***
 
 Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
 
@@ -167,5 +167,13 @@ Some CTF competitions have a built in hint system. If they don't count against y
 The last tip while playing is to write down your submissions, both the correct and incorrect ones. I can't tell you the amount of times I've entered the same answer wrongly into a question to eventually get points docked off my total. This will not only help you during the live CTF but afterwards if you are writing a blog on your walkthroughs.
 
 ### Strategies
+
+There are multiple strategies that you could use for attacking the questions during the competition. Usually they will be broken out into different categories by type of evidence such as Mobile / Computer / Network / Hunt. Some people prefer to try and finish all questions in one section before jumping to the next one. If you're really good at mobile forensics that may be a good strategy if you are less experieinced than other areas.
+
+Another potential strategy depends on how many points the questions are worth. Usually the more the points the harder the question. Some people prefer to try and get high point questions first to put large points on the scoreboard and put the pressure on other competitors. Others prefer to go for the lower point questions first and work their way up.
+
+My personal strategy is a combination of them all. I will typically go more towards the easy points first and work my way up from there but I will jump from different evidence categories once I get stuck for a time period. Depending on how much prework analysis has been done, I may have inferred references to areas that need to be analyzed so I may look at questions that I may already have answers for. At the end of the day it is up the whatever suits the player the best.
+
+And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means.
 
 ## Takeaways

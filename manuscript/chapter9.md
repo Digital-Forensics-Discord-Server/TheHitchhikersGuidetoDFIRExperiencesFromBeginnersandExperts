@@ -164,6 +164,8 @@ One thing that may seem silly but can help is to just ask questions. If you're s
 
 ![](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
 
+***Figure 4: "Don't Sweat It, Take the Hint"***
+
 Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to loosing 5 points for buying that hint.
 
 The last tip while playing is to write down your submissions, both the correct and incorrect ones. I can't tell you the amount of times I've entered the same answer wrongly into a question to eventually get points docked off my total. This will not only help you during the live CTF but afterwards if you are writing a blog on your walkthroughs.

@@ -153,7 +153,7 @@ Did you find a flag that appears to be a password? It's almost guaranteed that t
 
 One thing that may seem silly but can help is to just ask questions. If you're stumped on a question, talk to the organizer if you can, they may lead you in a direction that you didn't think of when you set off on a path of destruction.
 
-![](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
+![9.5 - Don't Sweat It, Take the Hint](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
 
 Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to loosing 5 points for buying that hint.
 

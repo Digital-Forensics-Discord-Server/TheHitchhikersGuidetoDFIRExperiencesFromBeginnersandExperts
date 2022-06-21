@@ -153,10 +153,22 @@ Did you find a flag that appears to be a password? It's almost guaranteed that t
 
 One thing that may seem silly but can help is to just ask questions. If you're stumped on a question, talk to the organizer if you can, they may lead you in a direction that you didn't think of when you set off on a path of destruction.
 
+![](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
+
 Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to loosing 5 points for buying that hint.
 
 The last tip while playing is to write down your submissions, both the correct and incorrect ones. I can't tell you the amount of times I've entered the same answer wrongly into a question to eventually get points docked off my total. This will not only help you during the live CTF but afterwards if you are writing a blog on your walkthroughs.
 
 ### Strategies
+
+There are multiple strategies that you could use for attacking the questions during the competition. Usually they will be broken out into different categories by type of evidence such as Mobile / Computer / Network / Hunt. Some people prefer to try and finish all questions in one section before jumping to the next one. If you're really good at mobile forensics that may be a good strategy if you are less experieinced than other areas.
+
+Another potential strategy depends on how many points the questions are worth. Usually the more the points the harder the question. Some people prefer to try and get high point questions first to put large points on the scoreboard and put the pressure on other competitors. Others prefer to go for the lower point questions first and work their way up.
+
+My personal strategy is a combination of them all. I will typically go more towards the easy points first and work my way up from there but I will jump from different evidence categories once I get stuck for a time period. Depending on how much prework analysis has been done, I may have inferred references to areas that need to be analyzed so I may look at questions that I may already have answers for.
+
+And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up the whatever suits the player the best.
+
+>"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
 
 ## Takeaways

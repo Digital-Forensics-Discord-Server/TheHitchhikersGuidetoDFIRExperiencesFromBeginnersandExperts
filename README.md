@@ -1,4 +1,6 @@
-# Crowdsourced DFIR Book (working title)
+# The Hitchhikers Guide to DFIR: Experiences From Beginners and Experts
+
+Check out the book on Leanpub [here](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts).
 
 ## What is this?
 

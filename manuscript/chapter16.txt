@@ -214,13 +214,28 @@ ___Significance:___
 
 ### $MFT
 ___About:___
+The next few artifacts, including this one, are a part of the NTFS file system - one of the most common file systems encountered when working with Windows OS.
+
+* MFT stands for Master File Table. It is a record of every file that exists or once existed on that particular file system. It also contains other information like path to that file, file size, file extension, MACB timestamps, system flags, whether it was copied or not etc.
+* Sometimes if the file size is small enough to be accomodated by the MFT entry, we can even retreive the resident data from the record entry itself. Typically a MFT entry is 1024 bytes long, and small files can very well be completely fitting in this range. It is known as MFT slack space.
+* 
 
 ___Significance:___
+* Files that were deleted, may still have an intact MFT record entry if not overwritten.
+* Useful in retreiving smaller files from the record itself and the file history on disk.
+* Important metadata like MACB timestamps can be obtained.
 
 ### $I30
 ___About:___
+* $I30 is called the index attribute of the NTFS file system. A $I30 file corresponding to each directory is maintained by the NTFS file system as the B-tree would be constantly balancing itself as different files are created or deleted.
+* $I30 is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the $Bitmap, $INDEX_ROOT and $INDEX_ALLOCATION. The 30 in its name comes from the offset for $FILE_NAME in a MFT record.
+* It keeps track of which files are in which directories, along with MACB timestamps and file location.
+* It also has slack space, similar to $MFT, but again for smaller files.
 
 ___Significance:___
+* Original timestamps for deleted files can be retreived.
+* Useful in detection of anti-forensic tools and timestomping as the timestamps are $FILE_NAME attribute timestamps which are not easily modifiable or accessible through the Windows API.
+* Important metadata like MACB timestamps can be obtained.
 
 ### $LogFile
 ___About:___

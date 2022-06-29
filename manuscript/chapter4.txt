@@ -35,7 +35,7 @@ One common method to extract an NTLM hash is to use Mimikatz, but it is widely r
 
 If the examiner is looking at an APFS encrypted volume from a Macbook, it is important to realize that the password for the encrypted volume is the same as the password used to log into the system. However, this hash uses a strong encryption method and will take much longer to crack as compared to an NTLM hash. To extract the hash, there are tools available like the one from user Banaanhangwagen on GitHub. https://github.com/Banaanhangwagen/apfs2hashcat. This will require using Linux to run the tool and extract the hash from a raw or .dd forensic image.
 
-Other strong encryption methods include Bitlocker, zipped or compressed files, and many more. Generally speaking, some smart person somewhere has found out how to extract the hash and has shared that information for that particular situation. The examiner needs to search for hash extraction of a particular make, model, file system, software version, or a combination of those and similar attributes. Also as a general rule, the hash is likely to be stored in plain text somewhere in the hex (the raw data) on an electronic device. If the examiner is willing to poke around and search the hex, they may be able to find the password hash assuming they are correctly decoding the hex. This is not a hard-fast rule by any means, as there are complex methods of preventing external access to protected memory areas. For example, I know of no known method at the time of writing this to extract a hash from a Chromebook even though it is possible to log into a Chromebook without it being connected to the internet, implying that a hash of the user’s password must be stored locally on the device.
+Other strong encryption methods include Bitlocker, zipped or compressed files, password protected Word documents, and many more. Generally speaking, some smart person somewhere has found out how to extract the hash and has shared that information for that particular situation. The examiner needs to search for hash extraction of a particular make, model, file system, software version, or a combination of those and similar attributes. Also as a general rule, the hash is likely to be stored in plain text somewhere in the hex (the raw data) on an electronic device. If the examiner is willing to poke around and search the hex, they may be able to find the password hash assuming they are correctly decoding the hex. This is not a hard-fast rule by any means, as there are complex methods of preventing external access to protected memory areas. For example, I know of no known method at the time of writing this to extract a hash from a Chromebook even though it is possible to log into a Chromebook without it being connected to the internet, implying that a hash of the user’s password must be stored locally on the device.
 
 ## Hash Identification
 
@@ -118,7 +118,7 @@ This is massive compared to the NTLM hash! Try it in Hashcat using the following
 07313a7266a2$1048576$12$3a33a 8eaff5e6f81d907b591$60$316b0f6
 d4cb445fb056f0e3e0633c413526ff4481bbf588917b70a4e8f8075f5ceb
 45958a800b42cb7ff9b7f5e17c6145bf8561ea86f52d3592059fb`
-The brute-force starts at four characters, because BitLocker originally required a minimum password length of four so Hashcat is smart enough to not waste time with trying less than four characters when attacking a BitLocker password. For my computer it shows an estimated time of 1 hours 19 minutes for just 4 characters! If I let it run and go to 5 characters, it shows it will take 2 days to just try 5 characters! Your computer may have different estimated times, but unless you have a really good gaming computer or are running Hashcat on a computer designed for mining cryptocurrency you are probably seeing similar numbers. Trying the same Bitlocker hash but just using a dictionary attack with no rules against the cyclone.hashesorg.hashkiller.combined dictionary shows an estimated time of 28 days!
+The brute-force starts at four characters, because BitLocker originally required a minimum password length of four so Hashcat is smart enough to not waste time with trying less than four characters when attacking a BitLocker password. For my computer, it shows an estimated time of 1 hours 19 minutes for just 4 characters! If I let it run and go to 5 characters, it shows it will take 2 days to just try 5 characters! Your computer may have different estimated times, but unless you have a really good gaming computer or are running Hashcat on a computer designed for mining cryptocurrency you are probably seeing similar numbers. Trying the same Bitlocker hash but just using a dictionary attack with no rules against the cyclone.hashesorg.hashkiller.combined dictionary shows an estimated time of 28 days!
 
 Knowing this means that if an NTLM hash was cracked using the cyclone.hashesorg.hashkiller.combined dictionary, it will take about a month at the most for the same Bitlocker password to be cracked. This time can be significantly reduced by using a computer with multiple GPUs like computers used for mining cryptocurrency. This is a really good reason to not have a password that comes standard in most dictionary attacks and shows why strong and complicated passwords are important.
 
@@ -156,9 +156,23 @@ Once we have chosen the deduplication method of our choice, it may be useful to 
 
 Finally, we may choose to only select potential passwords that are of a certain length. Grep can be very useful here. By using the following command `grep -x ‘.\{6,16\}’ WordList.txt > AndroidPWLength.txt` it will select only lines that are between 6 to 16 characters in length. By using the following command `grep -x -E -v ‘[0-9]+’ AndroidPWLength.txt > Alphanumeric.txt` it will exclude all PIN codes from the list and only select alphanumeric passwords.
 
-## Mangling Custom Wordlists
+## Additional Resources and Advanced Techniques
 
-Perhaps a tool is being used that does not allow for rules like Hashcat. If this is the case, the wordlist will need to be mangled in place before uploading the wordlist to the forensic tool. John the Ripper is another tool that is similar to Hashcat, but also allows for hash extraction, which will mangle wordlists in place like Hashcat’s rules work against static wordlists.
+**Mangling Wordlists In Place**
+
+Perhaps a tool is being used that does not allow for rules like Hashcat. If this is the case, the wordlist will need to be mangled in place before uploading the wordlist to the forensic tool. John the Ripper is another tool that is similar to Hashcat, which will mangle wordlists in place like Hashcat’s rules work against static wordlists.
+
+**John the Ripper**
+
+As previously mentioned, John the Ripper will mangle wordlists in place. It is also very useful for hash extraction to even start the process of cracking a password. John the Ripper can also be used instead of Hashcat to crack the actual hash, but where it really shines is hash extraction. More info on John the Ripper can be found on their website (https://www.openwall.com/john/).
+
+**Building Wordlists from RAM**
+
+While it is almost always required to have the admin password from a computer to acquire RAM, if RAM has been acquired on a system and it is needed to crack an additional password other than the known admin password, RAM can be a great resource to build a custom wordlist for that system. Once again, Linux is also a useful tool for this. The basic process is to use an uncompressed RAM capture and extract possible passwords by using the `strings` command to look for possible passwords. Linux can also deduplicate these possible passwords. An example command would look like `strings Memory_file | sort | uniq > RAMwordlist.txt` where 'Memory_file' is the name of the uncompressed memory image. Then the generated wordlist can be used in Hashcat just like a dictionary attack. For more info, check out a great video on the topic by DFIRScience (https://www.youtube.com/watch?v=lOTDevvqOq0&ab_channel=DFIRScience).
+
+**Combinator Attacks and More by 13Cubed**
+
+The 13Cubed YouTube channel has great information on how to concatenate words together to crack passwords that may consist of several words strung together. He also goes over some more advanced topics and concepts related to using Hashcat, check out the first of his two-part series on Hashcat (https://www.youtube.com/watch?v=EfqJCKWtGiU&ab_channel=13Cubed).
 
 ## Conclusion
 
@@ -168,6 +182,12 @@ This has just been a brief dive into showing how easy it is to crack simple pass
 ## References
 
 Cubrilovic, N. C. (2009, December 14). TechCrunch is part of the Yahoo family of brands. 	TechCrunch. Retrieved May 12, 2022, from 	https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-	passwords/
+
+Fast password cracking - Hashcat wordlists from RAM. (2022, June 15). YouTube. Retrieved June 22, 2022, from https://www.youtube.com/watch?v=lOTDevvqOq0&ab_channel=DFIRScience
+
+Introduction to Hashcat. (2017, July 20). YouTube. Retrieved June 22, 2022, from https://www.youtube.com/watch?v=EfqJCKWtGiU&ab_channel=13Cubed
+
+John the Ripper password cracker. (n.d.). John the Ripper. Retrieved June 22, 2022, from https://www.openwall.com/john/
 
 hashcat - advanced password recovery. (n.d.). Hashcat. Retrieved May 12, 2022, from https://hashcat.net/hashcat/
 

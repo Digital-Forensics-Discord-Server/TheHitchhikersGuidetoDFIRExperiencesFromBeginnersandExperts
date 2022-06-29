@@ -41,6 +41,14 @@ This particular book will be freely available on Leanpub. It will never cost you
 
 Frankly, this may not be at the level of a college textbook, but it's also not meant to be. Again, this project is intended to provide a platform for previously unknown contributors in the DFIR community to provide the knowledge they've gained through research, experience, or otherwise. When one is passionate enough about a subject to where they'd volunteer to write a chapter for a book like this, enabling that person to spread their wings and put themselves out there for others to benefit from is an honor. Any errata in the chapters of this book will be addressed as they are identified, and since we control the publishing tempo, we (or you) can update the book at any time.
 
+### Community Participation
+
+##### Voting for the Book Title
+
+https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4
+
+TODO: include 2 images of book results
+
 ## Final Thoughts
 
 I don't think any of the co-authors listed on the cover of this book ever thought they would be published authors. I can certainly say that is the case for myself. This project proved that the barrier to doing something as complicated as writing a book isn't as complex as it could be, primarily thanks to Leanpub. For all we know, the next prominent name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing the path of knowledge sharing, content development, and overall world betterment. Only time will tell! Either way, I'm proud of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. Ultimately, the authors win, the other contributors win, and most importantly, the community wins!

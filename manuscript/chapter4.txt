@@ -174,6 +174,11 @@ While it is almost always required to have the admin password from a computer to
 
 The 13Cubed YouTube channel has great information on how to concatenate words together to crack passwords that may consist of several words strung together. He also goes over some more advanced topics and concepts related to using Hashcat, check out the first of his two-part series on Hashcat (https://www.youtube.com/watch?v=EfqJCKWtGiU&ab_channel=13Cubed).
 
+**Crunch for Generating Random Wordlists**
+
+Crunch is a Kali Linux package that allows for the generation of wordlists using a predefined set of characters and only of a specific length. This can be useful if certian characters are known and if the length of the password is known. It is a bit simpler than using rules in Hashcat, it is easy to use, and it is quite useful for lists of only a few characters in length. From the terminal window on a Linux machine simply type the command `sudo apt install crunch` to install. The example on their home page shows the command `crunch 6 6 0123456789abcdef -o 6chars.txt` generating a list of all combinations and permutations of the all digits and the letters a-f and outputing the results to a file. See the following page for more info.
+(https://www.kali.org/tools/crunch/)
+
 ## Conclusion
 
 This has just been a brief dive into showing how easy it is to crack simple passwords and hopefully will show why strong passwords are so important. The Windows operating system uses a weak form of encryption for its passwords, and this is a place to start when trying to crack passwords for fun or security testing purposes. Even with strong encryption methods, a weak password will not be sufficient to safeguard the data. Knowing these methods are out there to defeat user passwords should show the user why it is so important to use strong passwords and why it is a bad idea to reuse passwords between accounts. A better understanding of the attack methods against passwords should encourage everyone to use better security practices to safeguard their data.
@@ -182,6 +187,8 @@ This has just been a brief dive into showing how easy it is to crack simple pass
 ## References
 
 Cubrilovic, N. C. (2009, December 14). TechCrunch is part of the Yahoo family of brands. 	TechCrunch. Retrieved May 12, 2022, from 	https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-	passwords/
+
+crunch | Kali Linux Tools. (2021, September 14). Kali Linux. Retrieved July 1, 2022, from https://www.kali.org/tools/crunch/
 
 Fast password cracking - Hashcat wordlists from RAM. (2022, June 15). YouTube. Retrieved June 22, 2022, from https://www.youtube.com/watch?v=lOTDevvqOq0&ab_channel=DFIRScience
 

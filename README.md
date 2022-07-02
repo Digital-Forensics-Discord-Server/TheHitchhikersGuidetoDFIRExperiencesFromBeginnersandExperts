@@ -18,3 +18,11 @@ This is a proof of concept and a great first step for providing a different meth
 ## When will it be done?
 
 Sometime this year (2022) for sure. Hopefully by end of the summer? Regardless, the writing and editing process will be fully transparent to the public! Check out the [Milestones](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/milestones) to see where we're at. Stay tuned!
+
+## ISBN Numbers
+
+| Format | ISBN |
+|---|---|
+| PDF | 979-8-9863359-0-2 |
+| ePub | 979-8-9863359-1-9 |
+| MOBI | 979-8-9863359-2-6 |

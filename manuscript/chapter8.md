@@ -1,5 +1,5 @@
-# Chapter Eight - De-Obfuscating PowerShell Payloads
-![](resources/Ch8/chapter8.001.png)
+# Chapter 8 - De-Obfuscating PowerShell Payloads
+![](resources/Ch3/chapter8.001.jpeg)
 
 By Tristram
 https://github.com/gh0x0st | @JDTristram | Tristram#2315
@@ -10,9 +10,7 @@ I have had the pleasure of working with many individuals within the cyber securi
 
 Regardless of which side you prefer to operate on, whether you're a penetration tester looking to put an organization’s security program to the test or a blue teamer looking to stomp on adversaries during every step of their desired campaign, we are ultimately on the same side. We are advisors to risk and we offer guidance on how to eliminate that risk; the difference is being how we respond.
 
-We are ultimately on the same team, operating as one entity to ensure the security and integrity of the organizations we serve the data that they protect. Part of how we work towards this common goal is through professional development and imparting our knowledge onto others.
-
-Projects such as this is an example of why our security community is strong. We care, we learn, we grow. Together, there is nothing that will stop us from being successful. 
+We are ultimately on the same team, operating as one entity to ensure the security and integrity of the organizations we serve the data that they protect. Part of how we work towards this common goal is through professional development and imparting our knowledge onto others. Projects such as this is an example of why our security community is strong. We care, we learn, we grow. Together, there is nothing that will stop us from being successful. 
 
 As an individual who is primarily a blue teamer with roots in penetration testing, I am looking to impart unto you some of the common scenarios that I have faced that I feel would help provide you the foundation and confidence you’re looking for to comfortably break down obfuscated PowerShell payloads.
 
@@ -24,9 +22,17 @@ Despite the technological advances this solution has provided system administrat
 
 One of the hurdles people will find when they use PowerShell for these types of activities is that the code will ultimately be accessible in plain text. While this is helpful for security researchers to learn from others and their published exploit code, it’s equally as helpful for security providers to reverse engineer and signature these payloads to prevent them from doing harm.
 
-For blue teamers, this is a good thing, however for penetration testers, as well as cyber criminals, this will directly impact their success. In an effort to obstruct the progress of security providers from being able to easily signature their payloads, they will introduce various levels of obfuscation to help hide their code in plain sight. 
+For blue teamers, this is a good thing, however for penetration testers, as well as cyber criminals, this will directly impact their success. In an effort to obstruct the progress of security providers from being able to easily signature their payloads, they will introduce various levels of obfuscation to help hide their code in plain sight. While this helps the red teamers, it unfortunately makes our job as blue teamers a bit more difficult. However, with a little bit of exposure to common obfuscation techniques and how they work, you will find that deobfuscating them is well within your grasp. 
 
-While this helps the red teamers, it unfortunately makes our job as blue teamers a bit more difficult. However, with a little bit of exposure to common obfuscation techniques and how they work, you will find that deobfuscating them is well within your grasp.
+Through this chapter, I am looking to expose you to the following obfuscation techniques and how you can de-obfuscate them.
+
+1. Base64 Encoded Commands
+2. Base64 Inline Expressions
+3. GZip Compression
+4. Invoke Operator
+5. String Reversing
+6. Replace Chaining
+7. ASCII Translation
 
 ## Stigma of Obfuscation
 
@@ -112,7 +118,7 @@ PS C:\> Write-Output "[*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec 
 [*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc 'VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'
 ```
 
-## Base64 Expressions
+## Base64 Inline Expressions
 
 This method is very similar to the technique that we saw previously, except instead of passing base64 encoded strings to the powershell.exe executable, we can embed base64 encoded strings directly into our scripts themselves. Let’s see an example of this in action.
 
@@ -301,7 +307,7 @@ Obfuscated Payload
 
 These scripts cannot be executed on their own in this format, they have to be placed back in their intended order. Because of this, you’ll typically see logic in place to reverse the string back to its intended order. However, if you don’t see that logic, then the string is likely intended to be reversed.
 
-## String Replacements
+## Replace Chaining
 
 Another method that PowerShell can use to manipulate strings is by replacing strings with other values, or removing them entirely. This can be used by using the Replace() method from a System.String object or by using the PowerShell -Replace operator.
 
@@ -370,7 +376,7 @@ In this chapter we walked through different types of PowerShell obfuscation tech
 
 It is important for us to keep in mind that these are not the only tricks that are available in the obfuscation trade. There are many tricks, both known and unknown to your fellow security researchers in this field that could be used at any time. With practice and experience, you’ll be able to de-obfuscate extremely obfuscated reverse shell payloads, such as this:
 
-![](resources/Ch8/chapter8.002.png)
+![](resources/Ch8/chapter8.002.jpeg)
 
 One of the best ways to stay ahead of the curve is to ensure that you have a solid understanding of PowerShell. I would recommend that you take a PowerShell programming course if you’re coming into this green. If you have some level of comfort with using PowerShell, I challenge you to use it even more. Find a workflow that's annoying to do manually and automate it. You can also take some time and even optimize some of your older scripts.
 

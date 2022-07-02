@@ -216,9 +216,9 @@ ___Significance:___
 ___About:___
 The next few artifacts, including this one, are a part of the NTFS file system - one of the most common file systems encountered when working with Windows OS.
 
-* MFT stands for Master File Table. It is a record of every file that exists or once existed on that particular file system. It also contains other information like path to that file, file size, file extension, MACB timestamps, system flags, whether it was copied or not etc.
+* MFT stands for Master File Table. It is a record of every file that exists or once existed on that particular file system.
+* It also contains other information like path to that file, file size, file extension, MACB timestamps, system flags, whether it was copied or not etc.
 * Sometimes if the file size is small enough to be accomodated by the MFT entry, we can even retreive the resident data from the record entry itself. Typically a MFT entry is 1024 bytes long, and small files can very well be completely fitting in this range. It is known as MFT slack space.
-* 
 
 ___Significance:___
 * Files that were deleted, may still have an intact MFT record entry if not overwritten.
@@ -237,12 +237,24 @@ ___Significance:___
 * Useful in detection of anti-forensic tools and timestomping as the timestamps are $FILE_NAME attribute timestamps which are not easily modifiable or accessible through the Windows API.
 * Important metadata like MACB timestamps can be obtained.
 
-### $LogFile
-___About:___
-
-___Significance:___
-
 ### $UsnJrnl
 ___About:___
+* The NTFS file system has a journaling mechanism, which logs all the transactions performed in the file system as a contingency plan for system failures and crashes. This transaction data is contained in the $UsnJrnl attribute file.
+* $UsnJrnl, read as USN Journal, is the main artifact which contains two alternate data streams namely $Max and $J, out of which $J is highly of interest for forensicators. It contains critical data such as if a file was overwritten, truncated, extended, created, closed or deleted along with the corresponding timestamp for that file update action.
+* $UsnJrnl tracks high-level changes to the file system, like file creation, deletion, renaming data etc.
 
 ___Significance:___
+* Useful to support or deny timestamp metadata. Potential evidence of deleted and renamed files. i.e. evidence of existence.
+* The slack space for this artifact isn't managed at all, so additional data could be carved. Since it only keeps the data for some days, carving can be potentially useful for deleted records.
+* Tracks changes to files and directories with reason for the change.
+
+### $LogFile
+___About:___
+* This is yet another artifact used by the NTFS for journaling. Only difference is $LogFile is concerned with changes made to the MFT and not the entire NTFS file system itself. Meaning it may directly contain data that was changed, similarly to how $MFT sometimes stores the files if they're small enough.
+* These 4 artifacts, in bunch can say a lot about an event or a transaction while performing file system forensics.
+* $LogFile tracks low-level changes to the file system, like data which was changed.
+
+___Significance:___
+* Detect anti-forensic attempts targeted on the $MFT since $LogFile contains changes made to it.
+* Tracks changes made to $MFT metadata such as MACB timestamps.
+* Could help reconstruct a chronological list of transactions done to the files on the file system.

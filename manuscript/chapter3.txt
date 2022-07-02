@@ -1,4 +1,4 @@
-# Chapter Three - Basic Malware Analysis
+# Chapter 3 - Basic Malware Analysis
 ![](resources/Ch3/chapter3.002.jpeg)
 
 By ApexPredator

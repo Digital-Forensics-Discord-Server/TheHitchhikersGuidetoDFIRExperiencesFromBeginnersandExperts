@@ -1,5 +1,379 @@
-# Chapter 8 - Chapter Title Goes Here
+# Chapter Eight - De-Obfuscating PowerShell Payloads
+![](resources/Ch3/chapter8.001.jpeg)
 
-## Subheading goes here
+By Tristram
+https://github.com/gh0x0st | @JDTristram | Tristram#2315
 
-Content goes here. Remember, only what is put here is parsed by Leanpub to generate the PDF/MOBI/EPUB files.
+## Introduction
+
+I have had the pleasure of working with many individuals within the cyber security field, belonging to both the blue and red teams respectively.
+
+Regardless of which side you prefer to operate on, whether you're a penetration tester looking to put an organization’s security program to the test or a blue teamer looking to stomp on adversaries during every step of their desired campaign, we are ultimately on the same side. We are advisors to risk and we offer guidance on how to eliminate that risk; the difference is being how we respond.
+
+We are ultimately on the same team, operating as one entity to ensure the security and integrity of the organizations we serve the data that they protect. Part of how we work towards this common goal is through professional development and imparting our knowledge onto others.
+
+Projects such as this is an example of why our security community is strong. We care, we learn, we grow. Together, there is nothing that will stop us from being successful. 
+
+As an individual who is primarily a blue teamer with roots in penetration testing, I am looking to impart unto you some of the common scenarios that I have faced that I feel would help provide you the foundation and confidence you’re looking for to comfortably break down obfuscated PowerShell payloads.
+
+## What Are We Dealing With?
+
+PowerShell is a powerful scripting language that has eased the process of managing Windows systems. These management capabilities have evolved over years as PowerShell has expanded from its exclusive Windows roots and has become accessible on other systems such as macOS and Linux. 
+
+Despite the technological advances this solution has provided system administrators over the years, it has also provided penetration testers and cyber criminals similar opportunities to be successful. This success resonates with proof of concept exploit code for major vulnerabilities such as what we saw with PrintNightmare / CVE-2021-34527 (https://github.com/nemo-wq/PrintNightmare-CVE-2021-34527).
+
+One of the hurdles people will find when they use PowerShell for these types of activities is that the code will ultimately be accessible in plain text. While this is helpful for security researchers to learn from others and their published exploit code, it’s equally as helpful for security providers to reverse engineer and signature these payloads to prevent them from doing harm.
+
+For blue teamers, this is a good thing, however for penetration testers, as well as cyber criminals, this will directly impact their success. In an effort to obstruct the progress of security providers from being able to easily signature their payloads, they will introduce various levels of obfuscation to help hide their code in plain sight. 
+
+While this helps the red teamers, it unfortunately makes our job as blue teamers a bit more difficult. However, with a little bit of exposure to common obfuscation techniques and how they work, you will find that deobfuscating them is well within your grasp.
+
+## Stigma of Obfuscation
+
+While Obfuscation in essence is a puzzle of sorts and with every puzzle, all you need is time. It’s important to understand that obfuscation is not an end all be all solution to preventing payloads from being signatured. If you continue to use the same obfuscated payload or obfuscation technique, it will eventually get busted. 
+
+This reality can cause debates in the security community on it’s overall effectiveness, but it’s important for us to understand that obfuscation serves two purposes for red teams:
+
+Bypass various signature based detections from anti-virus solutions as well as AMSI
+To buy time in the event the payload is successful, but later discovered by a blue team
+
+The process of bypassing security solutions is a trivial process, but where the gap typically exists is with the second bullet when we are responding to incidents involving these payloads. 
+
+Let’s put this into perspective with a commonly experienced scenario:
+
+Assume we are a penetration tester and we are performing an assessment against an organization. We managed to obtain a list of valid email addresses and decided to try to launch a phishing campaign. With this phishing campaign, we emailed the staff a word document that contains a macro that launches a remote hosted PowerShell script that contains a reverse shell and neither the document or script is flagged by any known anti-virus. 
+
+At some point the user reports the email and we launch our phishing assessment procedures and identify that the user did in fact open the email and got pwned. 
+
+From the firewall logs we are able to see where they connected to and were able to plug the hole. Continuing our incident response procedures, we follow up on the embed payload to ensure that it doesn’t include another logic that does anything else that we don’t already know about, such as mechanisms where it has a more than one remote address it can reach out to in the event one gets discovered.
+
+As the penetration tester, we coded contingencies for this very scenario so that our payload does in fact use more than one remote address. To ensure our extra effort doesn’t get steam rolled, we obfuscated our payload so the blue team would have to spend extra time lifting the veil, buying us more time to hopefully move laterally through the network, away from the point of entry.
+
+This is the barrier that must be able to be avoided within a reasonable amount of time so that we can ensure that the threat we have evicted from our network stays evicted. As a blue teamer, if you’re exposed to a complicated or unfamiliar obfuscation technique, then chances are you may move onto something else or spend too much time trying to uncover its secrets.
+
+To help overcome this obstacle, we will step through various obfuscation techniques, including how they’re generated and how you can deobfuscate them.
+
+## Word of Caution
+
+It goes without saying that when dealing with PowerShell payloads that are malicious or otherwise suspicious then you should avoid trying to dissect these payloads on your production machine. No one wants to be responsible for a breach or get compromised themselves because they accidentally executed a piece of code that they did not understand.
+
+A good practice is to always have a sandbox solution on standby. You can use a local sandbox, such as a virtual machine, that has no connected network adapters, or at least configured on an entirely separate internet connection that contains no sensitive assets on the network.
+
+In addition to this, being sure you have enough storage for snapshots is very useful. This way if you accidentally compromise your sandbox, or want to get it back to a known-working state, then you can simply revert it and continue where you left off.
+
+## Base64 Encoded Commands
+
+One of the first methods to obfuscate powershell payloads utilized a provided feature of the powershell.exe executable itself. Specifically, this executable supports the -EncodedCommand parameter that accepts a base64 encoded string. Once called, powershell would decode the string and execute the code therein. 
+
+While this is trivial to decode, it was a method that was enhanced with additional optional parameters.
+
+These optional parameters can also be called using partial names so long as it's unambiguous, which is a common practice with this particular launcher. This is arguably the most popular approach and is also one of the easiest to discover when reviewing the logs. 
+
+Let's take a look at the following payload of this technique and break it down.
+
+```powershell
+powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc 'VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'
+```
+
+At a quick glance we can clearly see that powershell.exe is being called directly with 5 parameters being passed using partial names. We can look at the help file for this by running `powershell -help.. 
+
+Let's break down these parameters:
+
+| Partial Parameter | Full Parameter | Description |
+| :---------------------- | :------------------- | : —---------- | 
+| -NoP |-NoProfile | Does not load the Windows PowerShell profile |
+| -NonI | -NonInteractive | Does not present an interactive prompt to the user. |
+| -W Hidden | -WindowStyle | Sets the window style to Normal, Minimized, Maximized or Hidden. |
+| -Exec Bypass | -ExecutionPolicy Bypass |  Sets the default execution policy for the current | session |
+| -Enc | -EncodedCommand  | Accepts a base-64-encoded string version of a command.
+    
+With our newfound understanding of the parameters in play, we now break down exactly what’s happening when this gets called, specifically, this session will launch unrestricted as a hidden window.
+
+Now that we understand the behavior of the PowerShell process when executed, our next step is to identify the encoded payload that’s being executed behind the scenes. Decoding base64 is a trivial process, but we can accomplish this by using PowerShell to decode the string for this.
+ 
+Keep in mind that running this method will not execute any underlying code by itself.
+
+```powershell
+PS C:\> $Bytes = [Convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA')
+PS C:\> $Command = [System.Text.Encoding]::Unicode.GetString($Bytes)
+PS C:\> Write-Output "[*] Decoded Command >> $Command"
+[*] Decoded Command >> Write-Output "Obfuscated Payload"
+```
+
+Running this method has revealed a simple payload, which was expected based on the size of the base 64 encoded string.If it was significantly larger, we could safely assume that that payload would be larger. 
+
+You can replicate this obfuscation technique for decoding practice using this snippet to encode a simple one-liner, or even expand to more complex scripts.
+
+```powershell
+PS C:\> $Command = 'Write-Output "Obfuscated Payload"'
+PS C:\> $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Command)
+PS C:\> $Base64 = [Convert]::ToBase64String($Bytes)
+PS C:\> Write-Output "[*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc '$Base64'"
+[*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc 'VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'
+```
+
+## Base64 Expressions
+
+This method is very similar to the technique that we saw previously, except instead of passing base64 encoded strings to the powershell.exe executable, we can embed base64 encoded strings directly into our scripts themselves. Let’s see an example of this in action.
+
+```powershell
+PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
+```
+
+The majority of most obfuscation techniques for powershell payloads are simply just different string manipulation techniques. In the scheme of things, strings on their own are not a risk or executable on their own, but rely on a launcher to take the string and treat it as executable code. 
+
+In the above sample, let’s observe the three letter command, namely iex, which is an alias for the Invoke-Expression cmdlet. The Invoke-Expression cmdlet accepts a string which is then executed as a command. 
+
+To put this into perspective, we will create a variable called $String that will store the value `Get-Service’. If we pass this variable to Invoke-Expression, we will see a list of services output to the console as if we simply ran `Get-Service`.
+
+```powershell
+PS C:\> $String = 'Get-Service'
+PS C:\> Invoke-Expression $String
+
+Status   Name               DisplayName                           
+------   ----               -----------                           
+Stopped  AarSvc_b0e91cc     Agent Activation Runtime_b0e91cc      
+Stopped  AJRouter           AllJoyn Router Service                
+Stopped  ALG                Application Layer Gateway Service 
+…SNIP…
+```
+
+Returning to our obfuscated sample, we know that the payload is essentially built into two components:
+
+The launcher (iex)
+The base64 decoder (string / command)
+
+Once the base64 decoder runs, it will return a string. By passing this as an argument to iex, it will essentially execute the resulting string from the base64 decoder. We can omit the iex, and simply execute the decoder to reveal the underlying string.
+
+```powershell
+PS C:\> ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
+Write-Output "Obfuscated Payload"
+```
+
+This has revealed our obfuscated payload as `Write-Output "Obfuscated Payload"`. If we were to include `iex`, our resulting string would be executed
+
+```powershell
+PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
+Obfuscated Payload
+```
+You are going to find that in most of the obfuscated scripts you’ll come across, you’ll be met with Invoke-Expression, its alias or an obfuscated representation of either. Remember, a plain string cannot be executed without a launcher.
+
+You can replicate this obfuscation technique for decoding practice using this snippet to encode a simple one-liner, or even expand to more complex scripts.
+
+```powershell
+PS C:\> $Command = 'Write-Output "Obfuscated Payload"'
+PS C:\> $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Command)
+PS C:\> $Base64 = [Convert]::ToBase64String($Bytes)
+PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
+```
+
+## GZip Compression
+
+A relatively successful obfuscation technique is built around compressing byte streams. Similar to how we can compress files on disk to make them smaller, we can also compress payloads and store and execute them from within a script.
+
+This technique was quite successful once it started being utilized because of its relative difficulty of breaking down the underlying code to reveal the intended payload. Let’s see an example of this.
+
+```powershell
+$PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=");$ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length));iex(New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
+```
+
+Depending on your familiarity with .NET classes, there are some unfamiliar or potentially intimidating components displayed in this code example. Additionally, we see a slightly ambiguous technique where a multiline payload is converted into an effective one-liner denoted by the use of semicolons `;`.  
+
+Let’s try to make this code a little easier to read by entering new lines where we see semicolons.
+
+```powershell
+PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=")
+PS C:\> $ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length))
+PS C:\> iex(New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).readtoend()
+```
+
+Great, this is now a bit easier for us to read. If this is our first time seeing this, we’d likely think the easy win is with looking at the decoded base64 string that’s stored in the first variable, let’s try it.
+
+```powershell
+PS C:\> [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=")
+31
+139
+8
+0
+…SNIP...
+```
+
+This revealed a byte array. Even if we converted the byte array to a string by using `System.Text.Encoding]::ASCII.GetString()`, it would still leave us just as confused. One of the benefits of this technique is that some security providers decode these strings automatically, but in this case, it wouldn’t necessarily reveal anything immediately signaturable on its own.
+
+```powershell
+PS C:\> [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA="))
+?      
+/?,I??/-)(-QP?OJ+-NN,IMQH???OLQ ?g}?! 
+```
+
+Let’s keep looking at the payload. If you remember from before, when we see iex, or invoke-expression, then it’s executing a resulting string. 
+
+With this in mind, look at  how iex is followed by a grouping operator `()` which contains a set of expressions. This tells us that iex ultimately executes the resulting code from the inner expressions.
+
+If we simply remove iex, and execute the remaining code, we’ll see the resulting code that is being executed.
+
+```powershell
+PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=")
+PS C:\> $ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length))
+PS C:\> (New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
+
+Write-Output "Obfuscated Payload"
+```
+
+Fantastic, by ultimately making a readability adjustment followed by removing an iex command, we have torn down a seemingly complicated payload and revealed our obfuscated payload.
+
+You can replicate this obfuscation technique for decoding practice using this snippet to encode a simple one-liner, or even expand to more complex scripts.
+
+```powershell
+# Generator
+$command = 'Write-Output "Try Harder"'
+
+## ByteArray
+$byteArray = [System.Text.Encoding]::ASCII.GetBytes($command)
+
+## GzipStream
+[System.IO.Stream]$memoryStream = New-Object System.IO.MemoryStream
+[System.IO.Stream]$gzipStream = New-Object System.IO.Compression.GzipStream $memoryStream, ([System.IO.Compression.CompressionMode]::Compress)
+$gzipStream.Write($ByteArray, 0, $ByteArray.Length)
+$gzipStream.Close()
+$memoryStream.Close()
+[byte[]]$gzipStream = $memoryStream.ToArray()
+
+## Stream Encoder
+$encodedGzipStream = [System.Convert]::ToBase64String($gzipStream)
+
+## Decoder Encoder
+[System.String]$Decoder = '$decoded = [System.Convert]::FromBase64String("<Base64>");$ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length));iex(New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).readtoend()'
+[System.String]$Decoder = $Decoder -replace "<Base64>", $encodedGzipStream
+
+# Launcher
+$decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQCimqVPBILEpJLVICAGWcSyMZAAAA")
+$ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length))
+Invoke-Expression (New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
+```
+
+## Invoke Operator
+
+At this point we have found that a common pitfall in obfuscating powershell commands is the glaringly obvious usage of the Invoke-Expression cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
+
+PowerShell supports the usage of what's called the `Invoke Operator`, which is seen as `&` within the scripting language. The behavior of this operator is similar to that of Invoke-Express where it will execute a given string. 
+
+There is something special about this operator where it has an edge on Invoke-Expression, which is that you can chain call operators in the pipeline. For example, the following three commands are all valid and will return the same thing:
+
+```powershell
+PS C:\> Get-Service | Where-Object {$_.Status -eq 'Running'}
+PS C:\> Invoke-Expression 'Get-Service' | Where-Object {$_.Status -eq 'Running'}
+PS C:\> & 'Get-Service' | & 'Where-Object' {$_.Status -eq 'Running'
+```
+
+Its inclusion in a complex payload can be a little tricky though as it isn’t compatible when used with commands that include parameters.  We can put this into perspective with the following example where the first command is valid and the second will throw an error.
+
+```powershell
+PS C:\> & 'Get-Service' -Name ALG
+PS C:\> & 'Get-Service -Name ALG'
+& : The term 'Get-Service -Name ALG' is not recognized as the name of a cmdlet
+```
+
+Because of this behavior you’re more than likely to see this being used to obfuscate cmdlets themselves. We can see this in practice by replacing the cmdlets in our compression example from before.
+
+```powershell
+PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=");$ms = (&'New-Object' System.IO.MemoryStream($decoded,0,$decoded.Length));&'iex'(&'New-Object' System.IO.StreamReader(&'New-Object' System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
+``` 
+
+## String Reversing
+
+One of the benefits of PowerShell is its ability to interact with and manipulate data, such as strings. This opens the door to crafting payloads that are confusing to look at, which can be a very effective stall tactic to slow us down from breaking down their payloads.
+
+One such tactic that can be deployed is string reversing. This is when the characters of a string are stored in a reverse order, such as the below example.
+
+```powershell
+PS C:\> $Normal = 'Write-Output "Obfuscated Payload"'
+PS C:\> $Reversed = '"daolyaP detacsufbO" tuptuO-etirW'
+```
+
+When we encounter these scenarios, we can typically re-reverse these strings by hand, or programmatically. 
+
+```powershell
+PS C:\> $Reversed = '"daolyaP detacsufbO" tuptuO-etirW'
+PS C:\> iex $((($Reversed.length - 1)..0 | ForEach-Object {$Reversed[$_]}) -join '')
+Obfuscated Payload
+```
+
+These scripts cannot be executed on their own in this format, they have to be placed back in their intended order. Because of this, you’ll typically see logic in place to reverse the string back to its intended order. However, if you don’t see that logic, then the string is likely intended to be reversed.
+
+## String Replacements
+
+Another method that PowerShell can use to manipulate strings is by replacing strings with other values, or removing them entirely. This can be used by using the Replace() method from a System.String object or by using the PowerShell -Replace operator.
+
+```powershell
+PS C:\> iex('Write-Input "Obfuscated Payload"' -replace "Input","Output")
+Obfuscated Payload
+
+PS C:\> iex('Write-Input "Obfuscated Payload"'.replace("Input","Output"))
+Obfuscated Payload
+```
+
+It’s a very common practice for us to see payloads that use string replacements, but keep in mind that you could see these replace statements chained in ways that will increase its complexity.
+
+```powershell
+PS C:\> iex $(iex '''Write-Intup "0bfuscated Payload"''.replace("Input","0utput")'.Replace('tup','put')).replace("'","").replace('0','O')
+Obfuscated Payload
+```
+
+When dealing with these replace operations, pay very close attention to your IDE. You look closely, you’ll see that one of the replace statements is the color of a string, which means that in that position, it’s indeed a string and not a method invocation. It’s very common for people to manually do the search and replacements of these, but if you do so out of order, you could inadvertently break the script logic.
+
+## ASCII Translation
+
+When we view strings we are seeing them in a format that we understand, their character values. These character values also have binary representation of the character that your computer will understand. For example, we know that the ASCII value of the character a is 97. To the benefit of some, so does PowerShell out of the box.
+
+We can see this understanding directly from the console through type casting.
+
+```powershell
+PS C:\> [byte][char]'a'
+97
+
+PS C:\> [char]97
+a
+```
+
+What this allows red teamers to do is to add a level of complexity by replacing any arbitrary character values and convert them into their ASCII derivative. We can see in practice by using our inline base64 expression from before.
+
+```powershell
+PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String($([char]86+[char]119+[char]66+[char]121+[char]65+[char]71+[char]107+[char]65+[char]100+[char]65+[char]66+[char]108+[char]65+[char]67+[char]48+[char]65+[char]84+[char]119+[char]66+[char]49+[char]65+[char]72+[char]81+[char]65+[char]99+[char]65+[char]66+[char]49+[char]65+[char]72+[char]81+[char]65+[char]73+[char]65+[char]65+[char]105+[char]65+[char]69+[char]56+[char]65+[char]89+[char]103+[char]66+[char]109+[char]65+[char]72+[char]85+[char]65+[char]99+[char]119+[char]66+[char]106+[char]65+[char]71+[char]69+[char]65+[char]100+[char]65+[char]66+[char]108+[char]65+[char]71+[char]81+[char]65+[char]73+[char]65+[char]66+[char]81+[char]65+[char]71+[char]69+[char]65+[char]101+[char]81+[char]66+[char]115+[char]65+[char]71+[char]56+[char]65+[char]89+[char]81+[char]66+[char]107+[char]65+[char]67+[char]73+[char]65)))))
+Obfuscated Payload
+```
+
+When you see these types of payloads, be sure to pay close attention to your IDE. If they are not color coded to that of a string, then that means that PowerShell will automatically translate them to their intended value during invocation. You can view their actual value the same way by selecting them and running the selected code. 
+
+```powershell
+PS C:\> $([char]86+[char]119+[char]66+[char]121+[char]65+[char]71+[char]107+[char]65+[char]100+[char]65+[char]66+[char]108+[char]65+[char]67+[char]48+[char]65+[char]84+[char]119+[char]66+[char]49+[char]65+[char]72+[char]81+[char]65+[char]99+[char]65+[char]66+[char]49+[char]65+[char]72+[char]81+[char]65+[char]73+[char]65+[char]65+[char]105+[char]65+[char]69+[char]56+[char]65+[char]89+[char]103+[char]66+[char]109+[char]65+[char]72+[char]85+[char]65+[char]99+[char]119+[char]66+[char]106+[char]65+[char]71+[char]69+[char]65+[char]100+[char]65+[char]66+[char]108+[char]65+[char]71+[char]81+[char]65+[char]73+[char]65+[char]66+[char]81+[char]65+[char]71+[char]69+[char]65+[char]101+[char]81+[char]66+[char]115+[char]65+[char]71+[char]56+[char]65+[char]89+[char]81+[char]66+[char]107+[char]65+[char]67+[char]73+[char]65)
+VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA
+```
+
+These types of techniques can also be mix-matched so you're using a combination of both characters and ASCII values within the same string.
+
+```powershell
+PS C:\> iex "Write-Output $([char]34+[char]79+[char]98+[char]102+[char]117+[char]115+[char]99+[char]97+[char]116+[char]101+[char]100+[char]32+[char]80+[char]97+[char]121+[char]108+[char]111+[char]97+[char]100+[char]34)"
+Obfuscated Payload
+```
+
+We can use the following generator as a means to create the above-scenario for practice.
+
+```powershell
+$String = 'Write-Output "Obfuscated Payload"'
+'$(' + (([int[]][char[]]$String | ForEach-Object { "[char]$($_)" }) -join '+') + ')'
+```
+
+## Wrapping Up
+
+In this chapter we walked through different types of PowerShell obfuscation techniques that are frequently leveraged in the wild and how we can step through them to successfully de-obfuscate them. 
+
+It is important for us to keep in mind that these are not the only tricks that are available in the obfuscation trade. There are many tricks, both known and unknown to your fellow security researchers in this field that could be used at any time. With practice and experience, you’ll be able to de-obfuscate extremely obfuscated reverse shell payloads, such as this:
+
+![](resources/Ch8/chapter8.002.jpeg)
+
+One of the best ways to stay ahead of the curve is to ensure that you have a solid understanding of PowerShell. I would recommend that you take a PowerShell programming course if you’re coming into this green. If you have some level of comfort with using PowerShell, I challenge you to use it even more. Find a workflow that's annoying to do manually and automate it. You can also take some time and even optimize some of your older scripts.
+
+Never stop challenging yourself. Go the extra mile, stand up and stand strong. Keep moving forward and you’ll be in a position where you’ll be able to help others grow in the domains that you once found yourself struggling with.
+
+Tristram

@@ -26,4 +26,3 @@ chapter18.txt
 chapter19.txt
 references.txt
 errata.txt
-MarkdownExamples.txt

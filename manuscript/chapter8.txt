@@ -1,4 +1,4 @@
-# Chapter Eight - De-Obfuscating PowerShell Payloads
+# Chapter 8 - De-Obfuscating PowerShell Payloads
 ![](resources/Ch3/chapter8.001.jpeg)
 
 By Tristram

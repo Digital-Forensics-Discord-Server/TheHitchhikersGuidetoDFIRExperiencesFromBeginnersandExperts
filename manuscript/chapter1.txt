@@ -69,24 +69,29 @@ Throughout the 4 years (as of this writing), the Digital Forensics Discord Serve
 | 3/26/2022 | 9500 |
 | 6/29/2022 | 10000 |
 
-### Hosting the Magnet Virtual Summit 2020
+### Hosting the 2020 Magnet Virtual Summit
 
 In early 2020, shortly after the COVID-19 pandemic began, I was approached by representatives from Magnet Forensics inquiring about the possibility of providing a centralized location for attendees of the Magnet Virtual Summit 2020 to chat during presentations. Enthusiastically, we accepted the idea and began to plan the logistics of hosting what likely would become a large influx of members. I seem to recall nearly 1500 members joining during the month long Magnet Virtual Summit 2020.
 
-In retrospect, it's clear that this was one of the first indicators that the server had "made it" in the eyes of the community.
-
-SANS DFIR Virtual Summit 2020 went virtual
+In retrospect, it's clear that this was one of the first indicators that the server had "made it" in the eyes of the community. Not only was the 2020 Magnet Virtual Summit as massive success in many ways, but I also strongly feel its success influenced other conferences and entities to go virtual as well as adopt Discord for the means of communication for attendees. For instance, the SANS 2020 DFIR Summit hosted a Discord server for their attendees a couple months after the 2020 Magnet Virtual Summit hosted on the Digital Forensics Discord Server. I would like to think of the 2020 Magnet Virtual Summit as a proof of concept in collaboration and communication between conference staff, presenters, and attendees that succeeded beyond our expectations and influenced in one way or another how conferences were virtualized in 2020 and beyond. 
 
 ### Community Engagement Within the Server
 
-vendors and customers
+One of the biggest divides that the Digital Forensics Discord Server was able to bridge was that between customers and vendors. I recall spending a lot of time emailing every vendor I knew of to provide representation in the server due to untapped potential in customer and vendor communications that simply didn’t exist at the time. 4 years into the life of the server, multiple representatives from multiple digital forensic software vendors are mainstays in the respective channels related to their products providing an unprecedented amount of instant feedback between the customer and the vendor. Historically, support was provided by email via a ticketing system, a vendor’s forum, or another means that lacked the instant feedback mechanism that Discord provides. Not only are customers able to interact directly with digital forensic software vendors employees that can provide meaningful answers to help move a case forward, but they can also receive product feedback and observe interactions between examiners (aka their customers) and better understand how their respective product(s) can improve to better server those using their products. 
+
+I know I have no possible way to quantify this statement, but I would like to think overall there has been a net positive influence on commonly utilized digital forensic software as a result of this direct interaction with the customer base within the Digital Forensic Discord Server’s channels. 
 
 ### Impact on the DFIR community
 
-solo cop up in alaska who's nearest fellow examiner is 3 hours away
+In this section, I want to share some unique stories from people who have joined the Digital Forensics Discord Server and what impact it has had on them. 
 
+One of the earliest stories I can remember is from someone who identified themselves as a detective in Alaska. Specifically, this person stated they worked at a police department in a remote part of Alaska and they were a one-man digital forensics team. They did not have another technically savvy person to run ideas past that was less than 3 hours away from them by car. Upon joining the Digital Forensics Discord Server, they stated that the community provided exactly what they needed as prior to joining the server they were operating solo with no one to bounce ideas off of when challenges arose in their investigations. When I was a detective, I had at least 2 other people in my office to run ideas past or ensure I wasn’t forgetting something simple whenever I ran into a roadblock in my analysis. I simply cannot imagine having my closest support being over 3 hours away from me. I can only imagine the feeling of isolation. This person stated the the Digital Forensics Discord Server was a game changer for them in that it provided something they so desperately needed: support!
 
-Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level.
+Another story I can think of was more recent in that someone from a country I had never expected to have to make a Law Enforcement role for had joined the server. Someone posted in the ‘#role-assignment‘ channel stating they were a police officer in Iraq. In a prior life, I was in the United State Marine Corps and I had actually served a combat tour in Iraq in the infantry back in 2006-2007. Never in a million years would I have imagined that someone from Iraq serving in Law Enforcement would join the Digital Forensics Discord Server. To this day, this person is the only one occupying the ‘Law Enforcement [Iraq]‘ role, but I have to say particularly for me that this person joining the server was a “coming full circle” moment for me. I engaged in conversation with this individual and asked for updates on how the country was doing and it really warmed my heart, in all honesty. I’ve met so many wonderful people in that country during my 7 month deployment and to think that the country is in a place to where they’re catching up with the 70 other countries who have roles within the server was something that put a smile on my face and still does to this day. 
+
+### Law Enforcement Personnel
+
+Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level.
 
 Countries with roles assigned for Law Enforcement personnel (as of June 2022):
 
@@ -140,11 +145,10 @@ Countries with roles assigned for Law Enforcement personnel (as of June 2022):
 | Grenada            | Norway      |                      |
 +--------------------+-------------+----------------------+
 
-
 To save you from counting, that's 71 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 36% of those! 
 
 ### Future
 
 The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. 
 
-For those who are new to administering Discord servers, one important thing to know is that only the member who is assigned as the Server Owner can delete the server. Currently, that person is me, Andrew Rathbun. In the interest of ensuring the Digital Forensics Discord Server lives far beyond all of us (assuming Discord is still around by that time), I've established a paper trail for any other moderators to follow should anything happen to me to where I will never be able to log back in to Discord. This paper trail will require a lot of effort and coordination with family members/friends of mine to access my password vault and many other necessary items in order to [Transfer Ownership](https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership) so that the server can live on without any administrative hiccups.
+For those who are new to administering Discord servers, one important thing to know is that only the member who is assigned as the Server Owner can delete the server. Currently, that person is me, Andrew Rathbun. In the interest of ensuring the Digital Forensics Discord Server lives far beyond all of us (assuming Discord is still around by that time), I've established a paper trail for any other moderators to follow should anything happen to me to where I will never be able to log back in to Discord. This paper trail will require a lot of effort and coordination with family members/friends of mine to access my password vault and many other necessary items in order to [Transfer Ownership](https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership) so that the server can live on without any administrative hiccups. In the unfortunate event that I can no longer log back into Discord, a OneNote page has been shared with other moderators providing breadcrumbs to obtain the necessary information to transfer ownership to another moderator so the server can be properly taken care of. 

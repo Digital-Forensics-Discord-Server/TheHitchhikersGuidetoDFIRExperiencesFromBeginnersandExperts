@@ -3,3 +3,5 @@
 Author bios go here
 
 ApexPredator - After many years at the top of the Systems Adminstration food chain the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working its way to the top while possesing a MS in Cybersecurity and Information Assurance degree and numerous certifications including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH, and GSEC. Always on the hunt for more prey it spends its free time playing around with malware analysis and exploit dvelopment.
+
+Tristram - An avid blue team leader helping to secure the healthcare industry. Depsite being blue team focused, I bring to my team's table a set of offensive security skillsets to bring the enemy mindset to the table in order to identify gaps and validate existing controls. 

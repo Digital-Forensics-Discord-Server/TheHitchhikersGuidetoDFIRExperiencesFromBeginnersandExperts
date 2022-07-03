@@ -1,5 +1,8 @@
 # Chapter 16 - Artifacts as Evidence
 
+By Nisarg Suthar
+[GitHub](https://github.com/Nisarg12) | [@nisargsuthar12](https://twitter.com/nisargsuthar12) | Nisarg#6698
+
 ## Forensic Science
 Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any domain. That process is cyclical and goes something like this:
 

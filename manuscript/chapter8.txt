@@ -260,11 +260,11 @@ Invoke-Expression (New-Object System.IO.StreamReader(New-Object System.IO.Compre
 
 ## Invoke Operator
 
-At this point we have found that a common pitfall in obfuscating PowerShell commands is the glaringly obvious usage of the Invoke-Expression cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
+At this point we have found that a common pitfall in obfuscating PowerShell commands is the glaringly obvious usage of the `Invoke-Expression` cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
 
-PowerShell supports the usage of what's called the `Invoke Operator`, which is seen as `&` within the scripting language. The behavior of this operator is similar to that of Invoke-Express where it will execute a given string. 
+PowerShell supports the usage of what's called the `Invoke Operator`, which is seen as `&` within the scripting language. The behavior of this operator is similar to that of `Invoke-Express` where it will execute a given string. 
 
-There is something special about this operator where it has an edge on Invoke-Expression, which is that you can chain call operators in the pipeline. For example, the following three commands are all valid and will return the same thing:
+There is something special about this operator where it has an edge on `Invoke-Expression`, which is that you can chain call operators in the pipeline. For example, the following three commands are all valid and will return the same thing:
 
 ```powershell
 PS C:\> Get-Service | Where-Object {$_.Status -eq 'Running'}
@@ -280,7 +280,7 @@ PS C:\> & 'Get-Service -Name ALG'
 & : The term 'Get-Service -Name ALG' is not recognized as the name of a cmdlet
 ```
 
-Because of this behavior you’re more than likely to see this being used to obfuscate cmdlets themselves. We can see this in practice by replacing the cmdlets in our compression example from before.
+Because of this behavior, you’re more than likely to see this being used to obfuscate cmdlets themselves. We can see this in practice by replacing the cmdlets in our compression example from before.
 
 ```powershell
 PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=");$ms = (&'New-Object' System.IO.MemoryStream($decoded,0,$decoded.Length));&'iex'(&'New-Object' System.IO.StreamReader(&'New-Object' System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
@@ -288,7 +288,7 @@ PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvL
 
 ## String Reversing
 
-One of the benefits of PowerShell is its ability to interact with and manipulate data, such as strings. This opens the door to crafting payloads that are confusing to look at, which can be a very effective stall tactic to slow us down from breaking down their payloads.
+One of the benefits of PowerShell is its ability to interact with and manipulate data, including but not limited to strings. This opens the door to crafting payloads that are confusing to look at, which can be a very effective stall tactic to slow us down from breaking down their payloads.
 
 One such tactic that can be deployed is string reversing. This is when the characters of a string are stored in a reverse order, such as the below example.
 
@@ -309,7 +309,7 @@ These scripts cannot be executed on their own in this format, they have to be pl
 
 ## Replace Chaining
 
-Another method that PowerShell can use to manipulate strings is by replacing strings with other values, or removing them entirely. This can be used by using the Replace() method from a System.String object or by using the PowerShell -Replace operator.
+Another method that PowerShell can use to manipulate strings is by replacing strings with other values, or removing them entirely. This can be used by using the `Replace()` method from a `System.String` object or by using the PowerShell `-Replace` operator.
 
 ```powershell
 PS C:\> iex('Write-Input "Obfuscated Payload"' -replace "Input","Output")
@@ -326,7 +326,7 @@ PS C:\> iex $(iex '''Write-Intup "0bfuscated Payload"''.replace("Input","0utput"
 Obfuscated Payload
 ```
 
-When dealing with these replace operations, pay very close attention to your IDE. You look closely, you’ll see that one of the replace statements is the color of a string, which means that in that position, it’s indeed a string and not a method invocation. It’s very common for people to manually do the search and replacements of these, but if you do so out of order, you could inadvertently break the script logic.
+When dealing with these replace operations, pay very close attention to your integrated development environment (IDE). You look closely, you’ll see that one of the replace statements is the color of a string, which means that in that position, it’s indeed a string and not a method invocation. It’s very common for people to manually do the search and replacements of these, but if you do so out of order, you could inadvertently break the script logic.
 
 ## ASCII Translation
 

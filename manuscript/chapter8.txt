@@ -2,11 +2,11 @@
 ![](Ch3/chapter8.001.jpeg)
 
 By Tristram
-https://github.com/gh0x0st | @JDTristram | Tristram#2315
+[GitHub](https://github.com/gh0x0st) | [@JDTristram](https://twitter.com/jdtristram) | Tristram#2315
 
 ## Introduction
 
-I have had the pleasure of working with many individuals within the cyber security field, belonging to both the blue and red teams respectively.
+I have had the pleasure of working with many individuals within the cyber security field, belonging to both the blue and red teams, respectively.
 
 Regardless of which side you prefer to operate on, whether you're a penetration tester looking to put an organization’s security program to the test or a blue teamer looking to stomp on adversaries during every step of their desired campaign, we are ultimately on the same side. We are advisors to risk and we offer guidance on how to eliminate that risk; the difference is being how we respond.
 
@@ -69,7 +69,7 @@ In addition to this, being sure you have enough storage for snapshots is very us
 
 ## Base64 Encoded Commands
 
-One of the first methods to obfuscate powershell payloads utilized a provided feature of the powershell.exe executable itself. Specifically, this executable supports the -EncodedCommand parameter that accepts a base64 encoded string. Once called, powershell would decode the string and execute the code therein. 
+One of the first methods to obfuscate PowerShell payloads utilized a provided feature of the powershell.exe executable itself. Specifically, this executable supports the -EncodedCommand parameter that accepts a base64 encoded string. Once called, PowerShell would decode the string and execute the code therein. 
 
 While this is trivial to decode, it was a method that was enhanced with additional optional parameters.
 
@@ -126,7 +126,7 @@ This method is very similar to the technique that we saw previously, except inst
 PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
 ```
 
-The majority of most obfuscation techniques for powershell payloads are simply just different string manipulation techniques. In the scheme of things, strings on their own are not a risk or executable on their own, but rely on a launcher to take the string and treat it as executable code. 
+The majority of most obfuscation techniques for PowerShell payloads are simply just different string manipulation techniques. In the scheme of things, strings on their own are not a risk or executable on their own, but rely on a launcher to take the string and treat it as executable code. 
 
 In the above sample, let’s observe the three letter command, namely iex, which is an alias for the Invoke-Expression cmdlet. The Invoke-Expression cmdlet accepts a string which is then executed as a command. 
 
@@ -260,7 +260,7 @@ Invoke-Expression (New-Object System.IO.StreamReader(New-Object System.IO.Compre
 
 ## Invoke Operator
 
-At this point we have found that a common pitfall in obfuscating powershell commands is the glaringly obvious usage of the Invoke-Expression cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
+At this point we have found that a common pitfall in obfuscating PowerShell commands is the glaringly obvious usage of the Invoke-Expression cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
 
 PowerShell supports the usage of what's called the `Invoke Operator`, which is seen as `&` within the scripting language. The behavior of this operator is similar to that of Invoke-Express where it will execute a given string. 
 

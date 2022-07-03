@@ -104,13 +104,13 @@ As a result of the codependency of the artifacts on drawing correlations to some
 * * *
 
 ## Examples
-This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, but the significance of those artifacts is at a much higher level. Such as what it offers, proves, and denies. And what is its forensic value? I suggest the readers use these brief bits to spark their curiosity about these important artifacts and research on their own about locating and parsing them.
+This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, rather the significance of those artifacts at a much higher level, including what it offers, proves, and denies. Additionally, what is its forensic value? I suggest the readers use these brief bits to spark their curiosity about these important artifacts and research on their own about locating and parsing them.
 
 ### Registry
 ___About:___
-* Windows registry is a hierarchical database used by the Windows operating system to store its settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities, and other residual traces.
+* The Windows Registry is a hierarchical database used by the Windows operating system to store its settings and configurations. Additionally, it also stores some user data pertaining to user applications, activities, and other residual traces.
 
-* Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
+* The Registry is structured with what are called Hives or Hive Keys (HK) at the top-most level. Each hive contains numerous keys. A key can contain multiple sub-keys. And sub-keys contain fields with their values.
 
 There are mainly two types of hive files:
 1. **System Hive Files:**
@@ -121,11 +121,11 @@ There are mainly two types of hive files:
 
 2. **User Specific Hive Files:**
 	* Amcache.hve: Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp, and SHA-1 hashes.
-	* ntuser.dat: Information about autostart applications, searched terms used in windows explorer or internet explorer, recently accessed files, run queries, last execution times of applications, etc.
+	* ntuser.dat: Information about autostart applications, searched terms used in Windows Explorer or Internet Explorer, recently accessed files, run queries, last execution times of applications, etc.
 	* UsrClass.dat: Information about user-specific shellbags is covered in the next section.
 
 ___Significance:___
-* Identifying malware persistence which can lead to the discovery of IOCs.
+* Identifying malware persistence which can lead to the discovery of Indicators of Compromise (IOCs).
 * Proving the presence of removable media in a particular time frame, which can further help with the acquisition of the same.
 * Retrieving crackable user password hashes from the SAM and SYSTEM hives, which might help access the encrypted partitions if the password was reused.
 
@@ -144,7 +144,7 @@ ___Significance:___
 ___About:___
 * Prefetch was first introduced in Windows XP. It is a memory management feature which optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is a direct evidence of execution.
 * We looked at the lifecycle of an application earlier, the prefetcher in Windows works in the same way. It studies the first ~10 seconds of an application launched and creates/updates the corresponding prefetch file, for faster loading speeds on the next execution.
-* Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman), for this handy [python script](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) for the same.
+* Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman) for this handy [Python script](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) for the same.
 
 ![16.5 - Working of Windows Prefetcher](Ch16/Prefetch.png)
 
@@ -171,9 +171,9 @@ ___Significance:___
 ___About:___
 * LNK files, or link files are the shortcuts that a user or an application creates for quick access to a file. LNK files themselves are rich in file metadata such as timestamps, file path, file hash, MAC address, volume information and volume serial numbers.
 * However, apart from the Recent Items and Start Menu folders, these LNK files are also found embedded in jumplists.
-* Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have a quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right click context menu which can be used to 'jump' to a induce a frequently used action.
+* Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have a quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right click context menu which can be used to 'jump' to induce a frequently used action.
 * There are two types of jumplists; automatic and custom. Automatic jumplists are those created automatically by Windows, based on the MRU and MFU items. Custom jumplists are those explicitly created by the user, like bookmarks in a browser or pinning files for instance.
-* Both categories of these jumplists provide rich information like modified, accessed and created timestamps and absolute file path of the original file.
+* Both categories of these jumplists provide rich information like modified, accessed and created timestamps, and absolute file path of the original file.
 
 ___Significance:___
 * Useful to gain information on uninstalled applications and deleted files from the system & also applications ran and files opened from removable media.
@@ -184,7 +184,7 @@ ___Significance:___
 ___About:___
 * SRUDB.dat is an artifact resulting from a new feature introduced in Windows 8, called SRUM (System Resource Usage Monitor) which tracks and monitors different usage statistics of OS resources such as network data sent & received, process ownership, power management information, push notifications data and even applications which were in focus at times along with keyboard and mouse events as per a new [research](https://aboutdfir.com/app-timeline-provider-srum-database/).
 * It is capable of holding 30-60 days worth of tracking data at a time.
-* So far, we haven't looked at an artifact that has been able to indoubtedly map a particular process executed to a user. SRUDB.dat offers us this critical information directly. It is one of the most valuable artifacts due to the multidimensional applications of SRUM by the OS itself.
+* So far, we haven't looked at an artifact that has been able to undoubtedly map a particular process executed to a user. SRUDB.dat offers us this critical information directly. It is one of the most valuable artifacts due to the multidimensional applications of SRUM by the OS itself.
 
 ___Significance:___
 * Useful in mapping process to a user account. Especially useful in the scenarios of restricted scope of acquisition.
@@ -197,12 +197,12 @@ ___Significance:___
 ___About:___
 * hiberfil.sys was first introduced in Windows 2000. It is a file used by Windows for memory paging, at the time of hibernations or sleep cycles. It is also used in case of power failures.
 * Paging is a mechanism to store the current contents of the memory to disk, for later retrieving them and continue from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from a sleep states.
-* It uses the Xpress algorithm for compression. Volatility's imagecopy plugin can be used to convert this artifact to a raw memory image.
+* It uses the Xpress algorithm for compression. Volatility's `imagecopy` plugin can be used to convert this artifact to a raw memory image.
 
 ___Significance:___
 * This is one of those artifacts which hops around its categorical type, and so this extra memory content can provide more information to your investigation.
 * To tackle accepting unfortunate shutdowns of locked devices in an investigation, one can retrieve this file at the time of disk forensics and get additional information by performing memory forensics on the converted file. This way we can retain partial volatile memory data.
-* May contain NTFS records, browsing history, index records, registry data and other useful information.
+* May contain NTFS records, browsing history, index records, registry data, and other useful information.
 
 ### pagefile.sys
 ___About:___
@@ -231,7 +231,7 @@ ___Significance:___
 ### $I30
 ___About:___
 * $I30 is called the index attribute of the NTFS file system. A $I30 file corresponding to each directory is maintained by the NTFS file system as the B-tree would be constantly balancing itself as different files are created or deleted.
-* $I30 is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the $Bitmap, $INDEX_ROOT and $INDEX_ALLOCATION. The 30 in its name comes from the offset for $FILE_NAME in a MFT record.
+* $I30 is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the `$Bitmap`, `$INDEX_ROOT` and `$INDEX_ALLOCATION`. The 30 in its name comes from the offset for $FILE_NAME in a MFT record.
 * It keeps track of which files are in which directories, along with MACB timestamps and file location.
 * It also has slack space, similar to $MFT, but again for smaller files.
 
@@ -247,7 +247,7 @@ ___About:___
 * $UsnJrnl tracks high-level changes to the file system, like file creation, deletion, renaming data etc.
 
 ___Significance:___
-* Useful to support or deny timestamp metadata. Potential evidence of deleted and renamed files. i.e. evidence of existence.
+* Useful to support or deny timestamp metadata. Potential evidence of deleted and renamed files. i.e., evidence of existence.
 * The slack space for this artifact isn't managed at all, so additional data could be carved. Since it only keeps the data for some days, carving can be potentially useful for deleted records.
 * Tracks changes to files and directories with reason for the change.
 

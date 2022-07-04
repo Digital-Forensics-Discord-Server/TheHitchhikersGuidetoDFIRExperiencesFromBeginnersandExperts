@@ -118,7 +118,7 @@ Antiscan.me (<https://antiscan.me/>) is another option an analyst can use to ana
 
 ![](resources/Ch3/chapter3.025.png)
 
-# Basic Malware Analysis Walkthrough
+## Basic Malware Analysis Walkthrough
 It is time to do a walkthrough of a sample malware analysis now that you are familiar with some of the tools used for malware analysis and their capabilities. The walkthrough will teach how to use some of the tools mentioned in this chapter. It will not use any tools not previously mentioned.
 
 In this scenario a user has reported to you that their machine has been running slow and acting "weird". You have already conducted initial investigations by asking the user questions including: "When did the issues start?", "Did you download or install any new applications?", and "Did you click any links or open any documents from untrusted sources?" The user states that they did not install any application recently but did review a Microsoft Word document sent from a customer.
@@ -209,6 +209,8 @@ We can include automated analysis by uploading the document to VirusTotal to det
 
 ![](resources/Ch3/chapter3.046.png)
 
+## Analysis Wrap-Up
+
 We have now completed analyzing the system to verify that it is infected with malware. We determined what the malware does and we have extracted IOCs to implement in our defensive tools to detect future infection attempts. The machine will need to be reimaged before returning it to the user for use to ensure all malware has been eradicated. It is important to ensure a forensic image is taken before reimaging the system if evidence preservation is needed to legal cases or future investigations. To recap our IOCs:
 
 - Downloader macro in document title `Doc1.docm`
@@ -223,6 +225,8 @@ We have now completed analyzing the system to verify that it is infected with ma
 - `Bdw.py` downloaded from `maliciousdomain.cn`
 - `Bdw.py` reverse shell to IP 192.168.163.128 (`maliciousdomain.cn`)
 - `Bdw.py` reverse shell on port 8443
+
+## Conclusion
 
 This was a simple example of how to conduct basic malware analysis. The tools and techniques discussed in this scenario can be used in a real-world scenario to determine if a machine is infected with malware and extract some IOCs. The malicious files used for this scenario and a copy of the walkthrough can be found on my GitHub (<https://github.com/ApexPredator-InfoSec/Basic-Malware-Analysis>). You will need a system with netcat to receive the reverse shell as well as fakedns (<https://github.com/SocialExploits/fakedns/blob/main/fakedns.py>) to simulate a DNS server to direct the `malicousdomain.cn` calls to your attacker machine.
 

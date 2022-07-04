@@ -52,21 +52,21 @@ The Strings tab is another great feature that allows you to list the strings emb
 
 ![](resources/Ch3/chapter3.010.png)
 
-Process Hacker is another great tool that performs similar functions to Task Manager and Process Explorer. It will provide you the same level or process details and group the processes in a parent/child process layout like Process Explorer. Right clicking a process in Process Hacker allows you to terminate a process just like in Task Manager and Process Explorer. Right clicking and selecting `Send to` provided an option to send the process executable or dll to VirusTotal similar to Process Explorer.
+System Informer, formerly Process Hacker,  is another great tool that performs similar functions to Task Manager and Process Explorer. It will provide you the same level or process details and group the processes in a parent/child process layout like Process Explorer. Right clicking a process in System Informer allows you to terminate a process just like in Task Manager and Process Explorer. Right clicking and selecting `Send to` provided an option to send the process executable or dll to VirusTotal similar to Process Explorer.
 
 ![](resources/Ch3/chapter3.011.png)
 
-Process Hacker includes a Modules tab when right clicking and selecting properties on a process. This Modules tab lists all of the modules loaded and in use by the process. This is helpful for finding additional IOCs or identifying malicious dll files used by a suspicious process.
+System Informer includes a Modules tab when right clicking and selecting properties on a process. This Modules tab lists all of the modules loaded and in use by the process. This is helpful for finding additional IOCs or identifying malicious dll files used by a suspicious process.
 
 ![](resources/Ch3/chapter3.012.png)
 
-Process Hacker provides `Services` and `Network` tabs that offer similar functionality to the features covered under Task Manager and Process Explorer. A malware analyst can use the `Services` tab to search for suspicious services and review the details of the service. The `Network` tab can be used to map running processes to active network connections and listening ports. Process Hacker is available for download at <https://processhacker.sourceforge.io/downloads.php>.
+System Informer provides `Services` and `Network` tabs that offer similar functionality to the features covered under Task Manager and Process Explorer. A malware analyst can use the `Services` tab to search for suspicious services and review the details of the service. The `Network` tab can be used to map running processes to active network connections and listening ports. System Informer is available for download at https://github.com/winsiderss/systeminformer.
 
 ![](resources/Ch3/chapter3.013.png)
 
 ![](resources/Ch3/chapter3.014.png)
 
-[Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon), or Procmon, is another tool included in the Sysinternals Suite that is useful for monitoring processes. Procmon goes beyond the process information provided by Task Manager, Process Explorer, or Process Hacker. It details every action taken by the process allowing in-depth analysis of suspicious or malicious processes. Procmon will quickly overload an analyst with data unless filters are used to filter out the noise. It enables an analyst to find IOCs and understand what actions the malware has taken on the system.
+[Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon), or Procmon, is another tool included in the Sysinternals Suite that is useful for monitoring processes. Procmon goes beyond the process information provided by Task Manager, Process Explorer, or System Informer. It details every action taken by the process allowing in-depth analysis of suspicious or malicious processes. Procmon will quickly overload an analyst with data unless filters are used to filter out the noise. It enables an analyst to find IOCs and understand what actions the malware has taken on the system.
 
 ![](resources/Ch3/chapter3.015.png)
 
@@ -100,7 +100,7 @@ Regedit is another useful tool built in to Windows. Regedit gives the ability to
 
 ![](resources/Ch3/chapter3.021.png)
 
-Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded from <https://github.com/Seabreg/Regshot>.
+Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded from <https://github.com/Seabreg/Regshot>. Regshot is not longer maintained. Nirsoft is an alternative to provide register comparrisons and is still being maintained. Nirsoft can be found at <https://www.nirsoft.net/utils/registry_changes_view.html>. The malware analysis protion of this chapter will still use Regshot.
 
 ![](resources/Ch3/chapter3.022.png)
 
@@ -133,7 +133,7 @@ We can verify this using the other tools covered early as well. `Netstat -ano` l
 
 ![](resources/Ch3/chapter3.028.png)
 
-Process Explorer can also be used to verify the findings. Right clicking on `python.exe`, selecting Properties, and then selecting the TCP/IP tab lists the connection to 192.168.163.128:8443. Process Hacker provides another easy means to find the unusual connection and correlate it to the `python.exe` process by selecting the Network tab.
+Process Explorer can also be used to verify the findings. Right clicking on `python.exe`, selecting Properties, and then selecting the TCP/IP tab lists the connection to 192.168.163.128:8443. System Informer provides another easy means to find the unusual connection and correlate it to the `python.exe` process by selecting the Network tab.
 
 ![](resources/Ch3/chapter3.029.png)
 

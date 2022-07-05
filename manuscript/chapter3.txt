@@ -100,7 +100,7 @@ Regedit is another useful tool built in to Windows. Regedit gives the ability to
 
 ![](resources/Ch3/chapter3.021.png)
 
-Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded from <https://github.com/Seabreg/Regshot>. Regshot is not longer maintained. Nirsoft is an alternative to provide register comparrisons and is still being maintained. Nirsoft can be found at <https://www.nirsoft.net/utils/registry_changes_view.html>. The malware analysis protion of this chapter will still use Regshot.
+Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded from <https://github.com/Seabreg/Regshot>. However, Regshot is no longer being actively maintained. NirSoft provides an alternative to Regshot that is capable of handling registry comparisons. NirSoft's RegistryChangesView can be found at <https://www.nirsoft.net/utils/registry_changes_view.html>. The malware analysis portion of this chapter will still use Regshot.
 
 ![](resources/Ch3/chapter3.022.png)
 

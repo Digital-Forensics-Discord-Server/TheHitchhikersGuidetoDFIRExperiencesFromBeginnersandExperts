@@ -1,12 +1,10 @@
 # Chapter 5 - Mobile Application Analysis at Scale
 <p align="center">
 <img src="https://static.wixstatic.com/media/3b47d0_3ff0961d0c234c1dbc5998ec09ecbfcd~mv2_d_2425_2400_s_4_2.gif" width="300" />
+Author: s3raph
+[GitHub](https://github.com/s3raph-x00/) | [Website](s3raph.com)
 </p>
 	
-Author: s3raph
-
-[GitHub](https://github.com/s3raph-x00/) | [Website](s3raph.com)
-
 ## Overview:
 
 This chapter provides a cursory overview of android application analysis through automated and manual methods followed by a methodology of adjusting to scale.

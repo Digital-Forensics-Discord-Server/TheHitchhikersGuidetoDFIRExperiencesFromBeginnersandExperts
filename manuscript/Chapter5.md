@@ -19,8 +19,10 @@ Unlike Windows systems, the sandbox nature of the devices (assuming they aren’
 	
 If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most application analysis tools typically are setup to do automated analysis of individual applications. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both static and dynamic analysis. Installation of this tool is fairly easy and the developers has robust documentation. 
 
-	(Please Refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment: 
-
+<blockquote>
+(Please Refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment: 
+</blockquote>
+	
 ```
 sudo apt-get install git python3.8 openjdk-8-jdk python3-dev python3-venv python3-pip build-essential libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev wkhtmltopdf
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
@@ -30,8 +32,10 @@ sudo ./setup.sh
 
 <Image 1>
 
-	If you plan on installing this on a VM please note that the dynamic analysis is not really supported and would likely be buggy as it would be virtualizing Android within a virtualized environment. Personally, I use my own virtualized environment separate from MobSF which will be discussed later.
-
+<blockquote>
+!!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported and would likely be buggy as it would be virtualizing Android within a virtualized environment. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed later. !!!
+</blockquote>
+	
 <Image 2>
 
 Once installed you can run it with the following simple command within the MobSF directory < Mobile-Security-Framework-MobSF>.

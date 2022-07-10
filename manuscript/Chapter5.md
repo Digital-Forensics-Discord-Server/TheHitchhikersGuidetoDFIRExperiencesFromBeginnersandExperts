@@ -30,7 +30,7 @@ cd Mobile-Security-Framework-MobSF
 sudo ./setup.sh
 ```
 
-<Image 1>
+![](resources/Ch5/1.png)<Image 1>
 
 <blockquote>
 !!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported and would likely be buggy as it would be virtualizing Android within a virtualized environment. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed later. !!!

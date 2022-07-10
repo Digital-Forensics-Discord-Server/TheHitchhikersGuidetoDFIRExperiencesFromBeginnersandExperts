@@ -30,13 +30,13 @@ cd Mobile-Security-Framework-MobSF
 sudo ./setup.sh
 ```
 
-![](resources/Ch5/1.png)<Image 1>
+![](resources/Ch5/1.png)
 
 <blockquote>
 !!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported and would likely be buggy as it would be virtualizing Android within a virtualized environment. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed later. !!!
 </blockquote>
 	
-<Image 2>
+![](resources/Ch5/2.png)
 
 Once installed you can run it with the following simple command within the MobSF directory < Mobile-Security-Framework-MobSF>.
 
@@ -52,59 +52,59 @@ Additionally, you can specify the listening address and listening port as MobSF 
 
 Example post run:
 
-<Image 3>
+![](resources/Ch5/3.png)
 
 Access to the hosted webpage with your favorite browser shows the following webpage:
 
-<Image 4>
+![](resources/Ch5/4.png)
 
 From here you can upload the binary just like Virustotal:
 
-<Image 5>
+![](resources/Ch5/5.png)
 
 From here most times the webpage will time out so click “Recent Scans” which shows the following:
 
-<Image 6>
+![](resources/Ch5/6.png)
 
 Because we are in a VM, the dynamic report will be unavailable but the static report has the primary details for initial triaging of the application. After a bit and depending on the size of the application, the report will be ready for analysis:
 
-<Image 7>
+![](resources/Ch5/7.png)
 
 Now for analysis of malware, there are a number of websites hosting samples for analysis but I have typically found vx-underground.org fairly robust. 
 
-<Image 8>
+![](resources/Ch5/8.png)
 
 The malware needs to be extracted with the password “infected” and renamed with the extension .apk. The scan by MobSF showed the following details:
 
-<Image 9>
+![](resources/Ch5/9.png)
 
 Note that there are two options to view either a Static Report or Dynamic Report. Because we are in a virtual machine, there will not be an available Dynamic report. The Static Report shows the following information:
 
-<Image 10>
+![](resources/Ch5/10.png)
 
 Outside of the calculated hashes, the actual information needed is further down:
 
-<Image 11>
+![](resources/Ch5/11.png)
 
 The section in the above right shows that MobSF stored the decompiled Java code that can be referenced later. The section below shows the signing certificate has an unusual xuhang string in almost all of the issuer information. Next section is interest is related to the requested permissions:
 
-<Image 12>
+![](resources/Ch5/12.png)
 
 Permissions such as “MOUNT_UNMOUNT_FILESYSTEMS” for what appears to be a game looks incredibly unusual. 
 
 Other sections of interest include various API functions that could potentially indicate capabilities.
 
-<Image 13>
+![](resources/Ch5/13.png)
 
 For example, clicking on the “com/g/bl.java” shows the following code segment:
 
-<Image 14>
+![](resources/Ch5/14.png)
 
 Generally speaking, the function to pass commands to “/system/bin/sh” should be scrutinized and typically is indicative of malicious intent. This isn’t always the case as applications that provide system functionality typically use sh as a means to use native Android OS tools such as ping. 
 
 Another area of concern is the collection and sending of sensitive device information to include the IMSI and wireless MAC address:
 
-<Image 15>
+![](resources/Ch5/15.png)
 
 While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies. 
 
@@ -112,35 +112,35 @@ While the functions and information accessed appear malicious, it would be prude
 
 Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using JADX (https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into JAVA source code. The source code for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs to be compiled within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 
-<Image 16>
+![](resources/Ch5/16.png)
 
 Whether malicious or not, most Android applications have some level of obfuscation. In this case, the major programmatic functionality is not obfuscated but the names of the classes (a, b, c, etc.) do not have significant meaning:
 
-<Image 17>
+![](resources/Ch5/17.png)
 
 One area that can be manually checked is the APK signature:
 
-<Image 18>
+![](resources/Ch5/18.png)
 
 This obviously matched what MobSF had reported.
 
 Another area for manual analysis is the AndroidManifest.XML file stored within the Resources folder structure:
 
-<Image 19>
+![](resources/Ch5/19.png)
 
 Here we see the same significant number of permissions along with some third-party application app keys which appear toe be directly associated to the following GitHub: https://github.com/angcyo/umeng. Interestingly, the following topic on Alibaba cloud references both the WRITE_EXTERNAL_STORAGE permission as required to dynamically update APKs using UMENG and the associated APPKEY: https://topic.alibabacloud.com/a/use-umeng-to-automatically-update-apk-and-umeng-apk_1_21_32538466.html:
 
-<Image 20>
+![](resources/Ch5/20.png)
 
 This obviously has the implication, if true, that even if there is not malicious logic baked directly into the application during analysis that it could be manipulated at a later time. Beyond this is out of scope for the write up but this portion of analysis is important to highlight the need for manual analysis and need to read contextual clues.
 
 While usually successful, it should be noted that JADX cannot always decompile the compiled code to JAVA and any errors should be parsed to ensure that the uncompiled code does not have any malicious logic. The following screenshot shows a typical de-compilation error:
 
-<Image 21>
+![](resources/Ch5/21.png)
 
 The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. Hard coded references to /system/bin/sh, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
 
-<Image 22>
+![](resources/Ch5/22.png)
 
 I would recommend enabling searching within comments as sometimes additional functionality using external APIs and websites are simply commented out but otherwise accessible.
 

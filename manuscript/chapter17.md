@@ -31,17 +31,57 @@ Duplicators are used to perform the following functions:
 
 ### Using a Live USB 
 
-In scenario's in which it is not feasible to get access to phyical media, a Live USB might provide an alternative. A Live USB contains an operatiing system which can be booted during the boot phase of a computer. While it is still neccessary to take a server or service offline it is not required to open it up and take a hard drive. Similarily, continuous miniturization means that some SSD's can no longer be removed from a motherboard.
+In scenario's in which it is not feasible to get access to phyical media, a Live USB might provide an alternative. A Live USB contains an operating system which can be booted during the boot phase of a computer. In order for a live USB to function it is required to interupt the boot cycle of a computer and select the boot from USB option. Manufactuers have different hotkeys to access this functionality. Note that it is also possible to boot from a CD/DVD in a similar manner, in that case, select the CD/DVD option.  While it is still neccessary to take a server or service offline it is not required to open it up and take a hard drive. Similarily, continuous miniturization means that some SSD's can no longer be removed from a motherboard. 
 
-An example of a forensic Live USB environment is **Sumuri Paladin Edge**. This Live USB environment is available free of charge at their website. In addition to imaging the entire disk it also allows you to convert images, find specific files,extract unallocated space and interface with network shares.
+Luckily there are a number of free Live USB tools that can be used to circumvent these limitations and acquire forensic images. One of the most well known tools is **CAINE** (Computer Aided Investigative Environment)  (www.caine-live.net). CAINE is a Linux live environment and mounts any discovered drives as read-only by default to ensure the forensic integrity of the disks. It provides GUI-based tools for the following operations:
+
+
+
+- Imaging of a disk (Guymager)
+- Disk Image Mounter (Xmount)
+- DDrescue 
+- Enabling write operations
+- Mounting remote file systems across a network
+
+
+
+In addition to its disk imaging tools, it provides a forensic environment which can be used to perform most forensic operations including accessing various filesystems, recover data, performing memory analysis and other operations.
+
+% Screenshot
+
+Another example of a forensic Live USB environment is **Sumuri Paladin Edge**. This Live USB environment is available free of charge at their website (www.sumuri.com). In addition to imaging the entire disk it also allows you to convert images, find specific files,extract unallocated space and interface with network shares.
 
 <img src="/Users/guus/Desktop/Screen Shot 2022-06-06 at 14.27.05.png" style="zoom:50%;" />   
+
+ It is recommended to have a Live USB option within your lab at all times and to equip your forensicators with USB drives in case of onsite client emergencies. 
 
 
 
 ### Disk imaging on Windows and Linux 
 
+Situations might occur when a particular system cannot be turned off. There are various ways to perform a forensic acquisition depending on the operating system. 
 
+#### Windows 
+
+**FTK Imager** (https://www.exterro.com/forensic-toolkit) is a well-known tool to perform disk acquisitions on a Windows host. It is part of the FTK forensic suite developed by Exterro. However the imager is also available free of charge. FTK Imager can either be installed on the host operating system or it can be used in a "lite" mode. Lite mode is prefferable as no changes are performed on the disk, however be aware that it affects RAM memory.
+
+FTK Imager can be used to perform the following operations:
+
+- Disk acquisitions (both physical and logical)
+- Memory acquisitions
+- Acquisitions of the Windows Registry
+- Browse the filesystem and select relevant files/folders
+
+The following steps can be used  to create a "Lite" version which runs in memory. These steps are based on the official guide provided by Exterro to the forensic community:
+
+- Install FTK Imager on another workstation
+- Insert a USB drive
+- Copy the installation folder to the USB-drive
+- Perform a hashing operation to ensure file integrity is in order
+
+#### Linux
+
+%dcfldd and dc3dd
 
 ### Creating a remote disk image
 
@@ -59,22 +99,14 @@ An example of a forensic Live USB environment is **Sumuri Paladin Edge**. This L
 
 ### Background 
 
-While the disk forensics focus on forensic artifacts from files and folders, more pertinent information can also be readily available on a computer's memory. A computer's memory, called Random Access Memory or RAM for short, is used to carry out all active tasks of a computer. 
-
-%% What is in the computer;'s memory?
-
-
-
-As such it contains a wealth of artifacts not readily available through other means. For instance:
-
-
+While the disk forensics focus on forensic artifacts from files and folders, more pertinent information can also be readily available on a computer's memory. A computer's memory, called Random Access Memory or RAM for short, is used to carry out all active tasks of a computer. As such it contains a wealth of artifacts not readily available through other means. For instance:
 
 - A list of active and (potentially) recently terminated processes
 - Active network connections
 - Entered system commands
 - Open file handles
 
-In order to collect this information an application will generally perform a memory dump. A memory dump is exactly what it sounds like, the contents of the RAM extracted to a disk. Be aware that as the size of the RAM increases, an equivalent amount of disk space should be readily available for storage. Furthermore, the RAM does not remain in stasis while the extraction takes place. It will continue to perform tasks and will continue to change for the duration of the RAM dump. 
+In order to collect this information an application will  perform a memory dump. A memory dump is exactly what it sounds like, the contents of the RAM extracted to a disk. Be aware that as the size of the RAM increases, an equivalent amount of disk space should be readily available for storage. Furthermore, the RAM does not remain in stasis while the extraction takes place. It will continue to perform tasks and will continue to change for the duration of the RAM dump. 
 
 ### How to dump memory
 

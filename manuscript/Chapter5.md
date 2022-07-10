@@ -18,7 +18,7 @@ This chapter provides a cursory overview of android application analysis through
 Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. 
 Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t or can’t be easily rooted), makes it a little more difficult gain an initial foothold without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application) or through getting a user to install a malicious application. A given Android phone typically has around 60-100+ applications installed at a given time. This includes system applications maintained by Google, Device applications such as with Huawei or Samsung, and network provider applications such as with Sprint or Verizon. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., Use of Qualcomm Debugger functionality).
 
-## Automated Analysis:
+## Part 1 - Automated Analysis:
 	
 If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most application analysis tools typically are setup to do automated analysis of individual applications. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both static and dynamic analysis. Installation of this tool is fairly easy and the developers has robust documentation. 
 
@@ -111,7 +111,7 @@ Another area of concern is the collection and sending of sensitive device inform
 
 While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies. 
 
-## Manual Analysis:
+## Part 2 - Manual Analysis:
 
 Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using JADX (https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into JAVA source code. The source code for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs to be compiled within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 

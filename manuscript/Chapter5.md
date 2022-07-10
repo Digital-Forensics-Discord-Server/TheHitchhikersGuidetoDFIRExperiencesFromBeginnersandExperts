@@ -6,7 +6,7 @@
 Author: s3raph
 </h3>
 <h3 align="center">
-[GitHub](https://github.com/s3raph-x00/) | [Website](s3raph.com)
+https://github.com/s3raph-x00/ | s3raph.com
 </h3>
 	
 ## Overview:

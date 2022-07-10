@@ -8,23 +8,25 @@ Author: s3raph
 
 ## Overview:
 
-	This chapter provides a cursory overview of android application analysis through automated and manual methods followed by a methodology of adjusting to scale.
+This chapter provides a cursory overview of android application analysis through automated and manual methods followed by a methodology of adjusting to scale.
 
 ## Introduction:
 
-	Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. 
+Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. 
 Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t or can’t be easily rooted), makes it a little more difficult gain an initial foothold without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application) or through getting a user to install a malicious application. A given Android phone typically has around 60-100+ applications installed at a given time. This includes system applications maintained by Google, Device applications such as with Huawei or Samsung, and network provider applications such as with Sprint or Verizon. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., Use of Qualcomm Debugger functionality).
 
 ## Automated Analysis:
 	
-	If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most application analysis tools typically are setup to do automated analysis of individual applications. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both static and dynamic analysis. Installation of this tool is fairly easy and the developers has robust documentation. 
+If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most application analysis tools typically are setup to do automated analysis of individual applications. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both static and dynamic analysis. Installation of this tool is fairly easy and the developers has robust documentation. 
 
 	(Please Refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment: 
 
-| sudo apt-get install git python3.8 openjdk-8-jdk python3-dev python3-venv python3-pip build-essential libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev wkhtmltopdf
-| git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
-| cd Mobile-Security-Framework-MobSF
-| sudo ./setup.sh
+```
+sudo apt-get install git python3.8 openjdk-8-jdk python3-dev python3-venv python3-pip build-essential libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev wkhtmltopdf
+git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
+cd Mobile-Security-Framework-MobSF
+sudo ./setup.sh
+```
 
 <Image 1>
 
@@ -34,12 +36,16 @@ Unlike Windows systems, the sandbox nature of the devices (assuming they aren’
 
 Once installed you can run it with the following simple command within the MobSF directory < Mobile-Security-Framework-MobSF>.
 
-> ./run.sh
+```
+./run.sh
+```
 
 Additionally, you can specify the listening address and listening port as MobSF starts its own web server for user interaction. The default setting will be used if the command is started without arguments:
 
-> 0.0.0.0:8000
-	
+```
+0.0.0.0:8000
+```
+
 Example post run:
 
 <Image 3>

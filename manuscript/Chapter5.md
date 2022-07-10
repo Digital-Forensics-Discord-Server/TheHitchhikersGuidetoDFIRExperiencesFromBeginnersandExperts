@@ -2,10 +2,12 @@
 <p align="center">
 <img src="https://static.wixstatic.com/media/3b47d0_3ff0961d0c234c1dbc5998ec09ecbfcd~mv2_d_2425_2400_s_4_2.gif" width="300" />
 </p>	
-<h1 align="center">
+<h3 align="center">
 Author: s3raph
+</h3>
+<h3 align="center">
 [GitHub](https://github.com/s3raph-x00/) | [Website](s3raph.com)
-</h1>
+</h3>
 	
 ## Overview:
 

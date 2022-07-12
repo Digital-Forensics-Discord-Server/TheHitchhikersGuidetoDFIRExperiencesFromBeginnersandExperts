@@ -163,7 +163,7 @@ Once you have the appropriate image file (vmdk, bin, img, etc.), you can create 
 
 ![](resources/Ch5/23.png)
 
-elect Disk Image or VM file as seen below:
+Select Disk Image or VM file as seen below:
 
 ![](resources/Ch5/24.png)
 

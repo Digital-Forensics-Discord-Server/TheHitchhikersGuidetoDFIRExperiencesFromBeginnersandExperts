@@ -153,6 +153,93 @@ So far, we have covered the bare basics of using MobSF to analyze an APK as well
 
 ## Part 3 - Using Autopsy, Jadx, and Python to Scrap and Parse Android Applications at Scale:
 
+The last scenario isn’t a hypothetical one, it is one that I had to adjust and adapt methodology for. To start with the forensic analysis, you need to have an Android image to work with. If you have one saved from a test device using Cellebrite that can be used to test and develop the solution at scale. If you don’t, you can simply pull a virtual machine from osboxes.org (https://www.osboxes.org/android-x86/). Keep in mind there are significant differences between x86 and ARM architectures and Android versions so don’t be hyper specific in file locations and file names. 
+
 <blockquote>
-Working
+Pro-Tip: Using an Android VM (either from osboxes.org or another source) along with a host-only network adapter can allow you to capture and manipulate network traffic (including some SSL encrypted traffic) by using your brand of network collection (Security Onion or simple WireShark) and a MiTM proxy with SSLStrip (BetterCap). Combined with code injection tool with memory reading capabilities (Frida) this can be the foundation of more advanced dynamic analysis methodologies.
 </blockquote>
+
+Once you have the appropriate image file (vmdk, bin, img, etc.), you can create a new case within autopsy:
+
+![](resources/Ch5/23.png)
+
+elect Disk Image or VM file as seen below:
+
+![](resources/Ch5/24.png)
+
+Select the appropriate image file:
+
+![](resources/Ch5/25.png)
+
+Select the appropriate Ingest Modules (you can leave this default for now; we will come back here).
+
+![](resources/Ch5/26.png)
+
+Continue through the default options till the data source is ingested as seen below:
+
+![](resources/Ch5/27.png)
+
+At this point we have the basic test and development case setup. Now it is time to start developing a solution to the problem of scale. The first portion of the problem is to find a relatively simple and automated solution to pull APK files from data sources. Autopsy has a specific capability that it allows you to use specifically designed Python plugins to automate such tasks. By using public examples (such as https://github.com/markmckinnon/Autopsy-Plugins), I modified one of the simpler Python scripts to search for and flag files with the .apk extension (amongst others):
+
+![](resources/Ch5/28.png)
+
+<blockquote>
+*Please Note* In the script referenced above is a hardcoded file location to pull the found files to. This must be modified to match your system. Dynamically pulling the folder location appeared too difficult at the time due to Autopsy using modified Python methods that are cross compiled into JAVA (things get weird). Additionally, the following wiki (http://www.sleuthkit.org/autopsy/docs/api-docs/4.9.0/) hasn't really been updated so a significant amount of testing is needed.  To aid in your troubleshooting, the location of the log file can be accessed by going to the case folder:
+</blockquote>
+
+![](resources/Ch5/29.png)
+
+Going to the log folder:
+
+![](resources/Ch5/30.png)
+
+Finally, opening one of the plain text log files:
+
+![](resources/Ch5/31.png)
+
+Unfortunately, this file is locked while Autopsy is running and you must close Autopsy to view any associated error.
+
+Once a python script has been developed and tested, you have to manually add in the python plugin to the appropriate folder. A simple link can be accessed from the menu option below:
+
+![](resources/Ch5/32.png)
+
+To add the python plugin, you simply move an appropriate named folder structure containing the python modules into the directory:
+
+![](resources/Ch5/33.png)
+
+Now simply restart Autopsy and right click the data source you wish to run the plugin against:
+
+![](resources/Ch5/34.png)
+
+Similar to before, if all is well a new option should be present:
+
+![](resources/Ch5/35.png)
+
+Now simply click “Deselect All” (since they have already run) and click your custom tool. If you are using a barebones osboxes VM it would be prudent to add some various APKs. Once the module finished running you should see the following:
+
+![](resources/Ch5/36.png)
+
+So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionality:
+
+![](resources/Ch5/37.png)
+
+The following code section shows the functionality of running JADX and dumping the output to the case_extract folder:
+
+![](resources/Ch5/38.png)
+
+This script works by iteratively going through the case_extract/apk folder structure and attempts to be fairly fault tolerant in the case of incorrect file extension or file corruption. 
+
+Beyond the simple JADX decompiling functionality, additional functions can be added by analyzing the code sections of the decompiled APK using REGEX:
+
+![](resources/Ch5/39.png)
+
+The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis.
+
+Besides JADX it also incorporates JAVA keytool if JAVA JDK is present and some manual methods using OpenSSL if not:
+
+![](resources/Ch5/40.png)
+
+The methods aren't perfect and unfortunately more testing across a number of different certification implementations are needed. Despite this, It is similar to the automated single analysis using MobSF and manual analysis with JADX which allows for larger scale analysis of APK signatures.
+
+This script is far from perfect or complete, but foundationally provided the basic methodology to extract any specific information desired for large scale analysis. The usage of Splunk becomes useful in this context as the data contained in the text files can be ingested and parsed allowing for analysis in granular file changes in the embedded APK, addition of URLs and IP addresses, and other anomalies that can be developed at scale. This writeup does not go into extensive detail into the capability but hopefully with this writeup and given enough time, REGEX, and data you can scale the application analysis methodology to suit your needs.
+

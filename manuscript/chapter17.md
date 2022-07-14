@@ -96,8 +96,6 @@ Virtual machines have become commonplace in the IT industry, in short allowing a
 qemu-img convert -f vmdk -O raw image.vmdk image.img
 ‘’’
 
-### Creating a remote disk image
-
 
 ## Memory forensics 
 
@@ -112,12 +110,12 @@ While the disk forensics focus on forensic artifacts from files and folders, mor
 
 In order to collect this information an application will  perform a memory dump. A memory dump is exactly what it sounds like, the contents of the RAM extracted to a disk. Be aware that as the size of the RAM increases, an equivalent amount of disk space should be readily available for storage. Furthermore, the RAM does not remain in stasis while the extraction takes place. It will continue to perform tasks and will continue to change for the duration of the RAM dump. 
 
-## Windows
+### Windows
 
 
 Performing a memory dump on Windows can be performed by multiple tools. FTK Imager was already mentioned in the previous section. An alternative to FTK Imager in this regard is the utility **DumpIt** (https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt). DumpIt can be used without installation on the host system. The directory it is launched from also doubles as the destination directory. Take this into consideration before performing a memory dump. 
 
-## Linux
+### Linux
 
 There is no single version of Linux, every single distribution has its own intricacies and (minor) differences. A tool was needed that can perform a memory dump independent of installed kernels, packages or other dependencies. Microsoft actively develops **AVML** (https://github.com/microsoft/avml). AVML can be used to perform a memory dump and also has a few tricks of its own. AVML supports compression of memory dumps to decrease the amount of required disk space as well as uploads to a Microsoft Azure Blob store
 
@@ -136,7 +134,7 @@ avml —compress output.lime.compressed
 For a full set of commands please refer to the GitHub development page. 
 
 
-## Virtual Machines
+### Virtual Machines
 
 The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are neccessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility. 
 

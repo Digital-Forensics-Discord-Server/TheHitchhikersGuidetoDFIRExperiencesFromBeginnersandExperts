@@ -47,11 +47,8 @@ Luckily there are a number of free Live USB tools that can be used to circumvent
 
 In addition to its disk imaging tools, it provides a forensic environment which can be used to perform most forensic operations including accessing various filesystems, recover data, performing memory analysis and other operations.
 
-% Screenshot
 
 Another example of a forensic Live USB environment is **Sumuri Paladin Edge**. This Live USB environment is available free of charge at their website (www.sumuri.com). In addition to imaging the entire disk it also allows you to convert images, find specific files,extract unallocated space and interface with network shares.
-
-<img src="/Users/guus/Desktop/Screen Shot 2022-06-06 at 14.27.05.png" style="zoom:50%;" />   
 
  It is recommended to have a Live USB option within your lab at all times and to equip your forensicators with USB drives in case of onsite client emergencies. 
 
@@ -81,7 +78,6 @@ The following steps can be used  to create a "Lite" version which runs in memory
 
 #### Linux
 
-%dcfldd and dc3dd
 
 Linux historically has an integrated utility capable of copying files called **dd**. dd can also be used for disk imaging, however it was not build with forensics in mind. A duo of utilities is available to perform forensic disk imaging, the tools are called **dcfldd** and **dc3dd**. Both tools can be used to perform disk imaging, their main advantage over dd is integrated hashing support for various hashing algorithms. 
 

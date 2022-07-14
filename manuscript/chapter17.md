@@ -10,7 +10,7 @@ While a complete discussion about file systems is outside the scope of this chap
 
 Once a disk image has been created it is possible to calculate its checksum. A checksum can be used to verify the integrity of a disk image. This is of paramount importance during a forensic investigation. Evidence will always need to be retrieved from other systems. Calculating a checksum at both ends, the source and destination file(s), will ensure that no anomalies are present. When a checksum matches at both ends, this means that no anomalies are present, the contents of the file match exactly and can be used in a forensic investigation. In order to create a checksum, a hash is created.  A hash is a mathematical, one-way calculation, performed by a specific algorithm. The MD5 and SHA1 algorithms are commonly used in the forensic community although other algorithms can be used as well. 
 
-After validation of the checksum, the created image will be ready to use in an investigation. Forensic investigation suites will use the disk image as a basis for the investigation, allowing an forensicator to browse the file system for pertinent files and other forensic artifacts. Post-processing will also occur in many forensic suites, automatically parsing popular artifacts, thereyby making investigation easier. 
+After validation of the checksum, the created image will be ready to use in an investigation. Forensic investigation suites will use the disk image as a basis for the investigation, allowing an forensicator to browse the file system for pertinent files and other forensic artifacts. Post-processing will also occur in many forensic suites, automatically parsing popular artifacts, thereby making investigation easier. 
 
 ## Creating a disk image
 
@@ -83,23 +83,31 @@ The following steps can be used  to create a "Lite" version which runs in memory
 
 %dcfldd and dc3dd
 
+Linux historically has an integrated utility capable of copying files called **dd**. dd can also be used for disk imaging, however it was not build with forensics in mind. A duo of utilities is available to perform forensic disk imaging, the tools are called **dcfldd** and **dc3dd**. Both tools can be used to perform disk imaging, their main advantage over dd is integrated hashing support for various hashing algorithms. 
+
+All three utilities utilize the available Linux block devices in /dev/ to perform a physical disk image capture. A few examples are included below. **Be warned that these tools can and will destroy evidence if used incorrectly**
+
+
+
+### Virtual machines
+
+Virtual machines have become commonplace in the IT industry, in short allowing an organization to scale resources without purchasing additional hardware. The use of virtual machines is also advantageous for imaging purposes. A client can offer to send the virtual hard drive files for forensic investigation. After performing the customary hashing procedures these files can then be converted if necessary . FTK Imager supports conversion of VMDK files to any other FTK image format, which in turn can be used by a forensic program or forensic suite. 
+
+**qemu-img** can be used to convert various hard drive image formats to raw dd format. An example covering the conversion of a vmdk file is included below. 
+
+‘’’
+
+qemu-img convert -f vmdk -O raw image.vmdk image.img
+‘’’
+
 ### Creating a remote disk image
-
-
-
-## Disk image formats
-
-
-
-
-
 
 
 ## Memory forensics 
 
 ### Background 
 
-While the disk forensics focus on forensic artifacts from files and folders, more pertinent information can also be readily available on a computer's memory. A computer's memory, called Random Access Memory or RAM for short, is used to carry out all active tasks of a computer. As such it contains a wealth of artifacts not readily available through other means. For instance:
+While the disk forensics focus on forensic artifacts from files and folders, more pertinent information can also be readily available within a computer's memory. A computer's memory, called Random Access Memory or RAM for short, is used to carry out all active tasks of a computer. As such it contains a wealth of artifacts not available through other means. For instance:
 
 - A list of active and (potentially) recently terminated processes
 - Active network connections
@@ -108,11 +116,32 @@ While the disk forensics focus on forensic artifacts from files and folders, mor
 
 In order to collect this information an application will  perform a memory dump. A memory dump is exactly what it sounds like, the contents of the RAM extracted to a disk. Be aware that as the size of the RAM increases, an equivalent amount of disk space should be readily available for storage. Furthermore, the RAM does not remain in stasis while the extraction takes place. It will continue to perform tasks and will continue to change for the duration of the RAM dump. 
 
-### How to dump memory
+## Windows
 
 
+Performing a memory dump on Windows can be performed by multiple tools. FTK Imager was already mentioned in the previous section. An alternative to FTK Imager in this regard is the utility **DumpIt** (https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt). DumpIt can be used without installation on the host system. The directory it is launched from also doubles as the destination directory. Take this into consideration before performing a memory dump. 
+
+## Linux
+
+There is no single version of Linux, every single distribution has its own intricacies and (minor) differences. A tool was needed that can perform a memory dump independent of installed kernels, packages or other dependencies. Microsoft actively develops **AVML** (https://github.com/microsoft/avml). AVML can be used to perform a memory dump and also has a few tricks of its own. AVML supports compression of memory dumps to decrease the amount of required disk space as well as uploads to a Microsoft Azure Blob store
+
+The standard usage of AVML is shown below:
+
+‘’’
+avml output.lime
+‘’’
+
+It is possible to generate a compressed image with the following command:
+
+‘’’
+avml —compress output.lime.compressed
+‘’’
+
+For a full set of commands please refer to the GitHub development page. 
+
+
+## Virtual Machines
 
 The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are neccessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility. 
-
 
 

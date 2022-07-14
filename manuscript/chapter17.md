@@ -81,9 +81,12 @@ The following steps can be used  to create a "Lite" version which runs in memory
 
 Linux historically has an integrated utility capable of copying files called **dd**. dd can also be used for disk imaging, however it was not build with forensics in mind. A duo of utilities is available to perform forensic disk imaging, the tools are called **dcfldd** and **dc3dd**. Both tools can be used to perform disk imaging, their main advantage over dd is integrated hashing support for various hashing algorithms. 
 
-All three utilities utilize the available Linux block devices in /dev/ to perform a physical disk image capture. A few examples are included below. **Be warned that these tools can and will destroy evidence if used incorrectly**
+All three utilities utilize the available Linux block devices in /dev/ to perform a physical disk image capture. An  example of dcfldd is included below. **Be warned that these tools can and will destroy evidence if used incorrectly**. in this particular instance a 976 MB USB stick was inserted and the block storage device sdb1 is used. In this case a MD5 hash is generated, the hash log is available in the home folder along with the image.
 
 
+'''
+dcfldd if=/dev/sdb1 conv=sync, noerror hash=md5 hashwindow=976M hashlog=/home/example/hash.txt hashconv=after of=/home/example/image.dd
+'''
 
 ### Virtual machines
 

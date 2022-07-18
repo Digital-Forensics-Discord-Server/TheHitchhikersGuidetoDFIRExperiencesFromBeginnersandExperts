@@ -1,6 +1,8 @@
 # Chapter 19 - Linux and Digital Forensics
 
 ## What is Linux?
+
+There are a plenty of resources on the
     - forensic perspective
     - what it's not
 

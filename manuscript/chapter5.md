@@ -16,11 +16,11 @@ This chapter provides a cursory overview of android application analysis through
 ## Introduction:
 
 Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. 
-Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t and/or can’t be easily rooted), makes it a little more difficult gain a deeper forensic image without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application) or through getting a user to install a malicious application (both of which would still require privilege escalation to root). A given Android phone typically has around 60-100+ applications installed at a given time with more recent phones being in the 100+ range. This includes system applications maintained by Google, Device applications such as with Huawei or Samsung, and network provider applications such as with Sprint or Verizon. Additionally, device manufacturers and network provides have agreements with various companies, such as Facebook, to preinstall the application during device provisioning. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., Use of Qualcomm Debugger functionality) or root access.
+Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t and/or can’t be easily rooted), makes it a little more difficult gain a deeper forensic image without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application), utilizing a debugging or built in adminsitrative function, or through installing an application with greater permissions (both methods would still require privilege escalation to root). A typical stock Android phone typically has at least between 60-100+ applications installed at a given time while recent phones have more than 100+. This includes system applications maintained by Google, Device applications such as with Huawei or Samsung, and network provider applications such as with Sprint, Vodafone, or Verizon. Additionally, device manufacturers and network provides typically have agreements with various companies, such as Facebook, to preinstall the application during device provisioning. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., Use of Qualcomm Debugger functionality) or root access.
 
 ## Part 1 - Automated Analysis:
 	
-If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most application analysis tools typically are developed to do automated analysis of individual applications with some ability to do a comparative analysis of two APKs. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both automated static and dynamic analysis. Installation of this tool is fairly easy and the developers has robust documentation. 
+If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most Android application analysis tools typically are developed to do automated analysis of individual applications with some ability to do a comparative analysis of two APKs. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both automated static and dynamic analysis. Installation of this tool is fairly easy and the developer has fairly robust documentation. 
 
 <blockquote>
 (Please Refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment: 
@@ -36,12 +36,12 @@ sudo ./setup.sh
 ![](resources/Ch5/1.png)
 
 <blockquote>
-!!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported and would likely be buggy as it would be virtualizing Android within a virtualized environment. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed later. !!!
+!!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported. If you were able to modify MobSF to run in a VM there is signficant probability of specific functionality failing to properly execute and any results would not be consistent or trustworthy. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed in another guide. !!!
 </blockquote>
 	
 ![](resources/Ch5/2.png)
 
-Once installed you can run it with the following simple command within the MobSF directory < Mobile-Security-Framework-MobSF>.
+Once installed, you can run MobSF with the following simple command within the MobSF directory <Mobile-Security-Framework-MobSF>.
 
 ```
 ./run.sh
@@ -61,19 +61,19 @@ Access to the hosted webpage with your favorite browser shows the following webp
 
 ![](resources/Ch5/4.png)
 
-From here you can upload the binary just like Virustotal:
+From here, you can upload the binary just like Virustotal:
 
 ![](resources/Ch5/5.png)
 
-From here most times the webpage will time out so click “Recent Scans” which shows the following:
+From here, most times the webpage will time out so click “Recent Scans” which shows the following:
 
 ![](resources/Ch5/6.png)
 
-Because we are in a VM, the dynamic report will be unavailable but the static report has the primary details for initial triaging of the application. After a bit and depending on the size of the application, the report will be ready for analysis:
+Because we are in a VM, the dynamic report will be unavailable but the static report has the primary details for initial triaging of the application. After a few minutes and depending on the size of the application, the report will be ready for analysis:
 
 ![](resources/Ch5/7.png)
 
-Now for analysis of malware, there are a number of websites hosting samples for analysis but I have typically found vx-underground.org fairly robust. 
+Now for analysis of malware, there are a number of websites hosting samples for training and tool development but I have typically found vx-underground.org fairly robust. 
 
 ![](resources/Ch5/8.png)
 
@@ -81,21 +81,21 @@ The malware needs to be extracted with the password “infected” and renamed w
 
 ![](resources/Ch5/9.png)
 
-Note that there are two options to view either a Static Report or Dynamic Report. Because we are in a virtual machine, there will not be an available Dynamic report. The Static Report shows the following information:
+There are two options to view either a Static Report or Dynamic Report. Because we are in a virtual machine, there will not be an available Dynamic report. The Static Report shows the following information:
 
 ![](resources/Ch5/10.png)
 
-Outside of the calculated hashes, the actual information needed is further down:
+Outside of the calculated hashes, the actual information needed for an assessment is further down:
 
 ![](resources/Ch5/11.png)
 
-The section in the above right shows that MobSF stored the decompiled Java code that can be referenced later. The section below shows the signing certificate has an unusual xuhang string in almost all of the issuer information. Next section is interest is related to the requested permissions:
+The section in the above right shows that MobSF stored the decompiled Java code which can be compared to the results and referenced later.The section below shows the signing certificate has an unusual xuhang string in almost all of the issuer information. The next section of interest is related to the requested permissions:
 
 ![](resources/Ch5/12.png)
 
 Permissions such as “MOUNT_UNMOUNT_FILESYSTEMS” for what appears to be a game looks incredibly unusual. 
 
-Other sections of interest include various API functions that could potentially indicate capabilities.
+Other sections of interest include various API functions that could potentially indicate application capabilities.
 
 ![](resources/Ch5/13.png)
 

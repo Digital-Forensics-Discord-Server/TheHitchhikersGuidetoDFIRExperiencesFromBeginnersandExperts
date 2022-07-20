@@ -6,41 +6,48 @@
 Author: s3raph
 
 [GitHub](https://github.com/s3raph-x00/) | [Website](s3raph.com)
-	
+
 ## Overview:
 
-This chapter provides a cursory overview of android application analysis through automated and manual methods followed by a methodology of adjusting to scale.
+This chapter provides a cursory overview of Android application analysis through automated and manual methods followed by a methodology of adjusting to scale.
 
 ## Introduction:
 
-Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. 
-Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t and/or can’t be easily rooted), makes it a little more difficult gain a deeper forensic image without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application), utilizing a debugging or built in adminsitrative function, or through installing an application with greater permissions (both methods would still require privilege escalation to root). A typical stock Android phone typically has at least between 60-100+ applications installed at a given time while recent phones have more than 100+. This includes system applications maintained by Google, Device applications such as with Huawei or Samsung, and network provider applications such as with Sprint, Vodafone, or Verizon. Additionally, device manufacturers and network provides typically have agreements with various companies, such as Facebook, to preinstall the application during device provisioning. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., Use of Qualcomm Debugger functionality) or root access.
+Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t and/or can’t be easily rooted), makes it a little more difficult gain a deeper forensic image without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application), utilizing a debugging or built in adminsitrative function, or through installing an application with greater permissions (both methods would still require privilege escalation to root). A typical stock Android phone typically has at least between 60-100+ applications installed at a given time while recent phones have more than 100+. This includes system applications maintained by Google, device/manufacturer applications such as with Huawei or Samsung, and network provider applications such as with Sprint, Vodafone, or Verizon. Additionally, device manufacturers and network provides typically have agreements with various companies, such as Facebook, to preinstall their application during device provisioning. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., use of Qualcomm Debugger functionality) or root access.
 
-## Part 1 - Automated Analysis:
-	
-If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most Android application analysis tools typically are developed to do automated analysis of individual applications with some ability to do a comparative analysis of two APKs. In this space, MobSF (https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both automated static and dynamic analysis. Installation of this tool is fairly easy and the developer has fairly robust documentation. 
+## Part 1 - Automated Analysis
 
-T> (Please Refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment: 
-	
+If during a forensic analysis you are lucky enough to get all of the Android applications resident on the system you are left with the problem of analyzing more than 100+ applications. Most Android application analysis tools typically are developed to do automated analysis of individual applications with some ability to do a comparative analysis of two APKs. In this space, [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) is considered one of the most popular application analysis tools. This tool does provide a method for dynamically generating an automated analysis of various APKs with varying level of success with both automated static and dynamic analysis. Installation of this tool is fairly easy and the developer has fairly robust documentation.
+
+T> (Please refer to: https://mobsf.github.io/docs/#/installation) for the most up to date instructions. The installation instructions following works at the moment:
+
+{line-numbers:false}
+```
     sudo apt-get install git python3.8 openjdk-8-jdk python3-dev python3-venv python3-pip build-essential libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev  zlib1g-dev wkhtmltopdf
     git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
     cd Mobile-Security-Framework-MobSF
     sudo ./setup.sh
+```
 
 ![](resources/Ch5/1.png)
 
-W> If you plan on installing this on a VM please note that the dynamic analysis is not really supported. If you were able to modify MobSF to run in a VM there is signficant probability of specific functionality failing to properly execute and any results would not be consistent or trustworthy. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed in another guide. !!!
+W> If you plan on installing this on a VM, please note that dynamic analysis is not really supported. If you were able to modify MobSF to run in a VM, there is signficant probability of specific functionality failing to properly execute and any results would not be consistent or trustworthy. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed in another guide.
 
-	
 ![](resources/Ch5/2.png)
 
 Once installed, you can run MobSF with the following simple command within the MobSF directory <Mobile-Security-Framework-MobSF>.
 
+{line-numbers:false}
+```
     ./run.sh
+```
 
 Additionally, you can specify the listening address and listening port as MobSF starts its own web server for user interaction. The default setting will be used if the command is started without arguments:
 
+{line-numbers:false}
+```
     0.0.0.0:8000
+```
 
 Example post run:
 
@@ -50,11 +57,11 @@ Access to the hosted webpage with your favorite browser shows the following webp
 
 ![](resources/Ch5/4.png)
 
-From here, you can upload the binary just like Virustotal:
+From here, you can upload the binary just like [VirusTotal](https://www.virustotal.com/gui/home/search):
 
 ![](resources/Ch5/5.png)
 
-From here, most times the webpage will time out so click “Recent Scans” which shows the following:
+From here, most times the webpage will time out so click `Recent Scans` which shows the following:
 
 ![](resources/Ch5/6.png)
 
@@ -62,11 +69,11 @@ Because we are in a VM, the dynamic report will be unavailable but the static re
 
 ![](resources/Ch5/7.png)
 
-Now for analysis of malware, there are a number of websites hosting samples for training and tool development but I have typically found vx-underground.org fairly robust. 
+Now for analysis of malware, there are a number of websites hosting samples for training and tool development but I have typically found [vx-underground.org](https://www.vx-underground.org/) fairly robust.
 
 ![](resources/Ch5/8.png)
 
-The malware needs to be extracted with the password “infected” and renamed with the extension .apk. The scan by MobSF showed the following details:
+The malware needs to be extracted with the password `infected` and renamed with the extension `.apk`. The scan by MobSF showed the following details:
 
 ![](resources/Ch5/9.png)
 
@@ -82,27 +89,27 @@ The section in the above right shows that MobSF stored the decompiled Java code 
 
 ![](resources/Ch5/12.png)
 
-Permissions such as “MOUNT_UNMOUNT_FILESYSTEMS” for what appears to be a game looks incredibly unusual. 
+Permissions such as `MOUNT_UNMOUNT_FILESYSTEMS` for what appears to be a game looks incredibly unusual.
 
 Other sections of interest include various API functions that could potentially indicate application capabilities.
 
 ![](resources/Ch5/13.png)
 
-For example, clicking on the “com/g/bl.java” shows the following code segment:
+For example, clicking on the `com/g/bl.java` shows the following code segment:
 
 ![](resources/Ch5/14.png)
 
-Generally speaking, the function to pass commands to “/system/bin/sh” should be scrutinized and typically is indicative of malicious intent. This isn’t always the case as applications that provide system functionality typically use sh as a means to use native Android OS tools such as ping. 
+Generally speaking, the function to pass commands to `/system/bin/sh` should be scrutinized and typically is indicative of malicious intent. This isn’t always the case as applications that provide system functionality typically use sh as a means to use native Android OS tools such as ping.
 
 Another area of concern is the collection and sending of sensitive device information to include the IMSI and wireless MAC address:
 
 ![](resources/Ch5/15.png)
 
-While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies. 
+While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies.
 
-## Part 2 - Manual Analysis:
+## Part 2 - Manual Analysis
 
-Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using JADX (https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into JAVA source code. The source code for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs to be compiled within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
+Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into Java source code. The source code for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs to be compiled within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 
 ![](resources/Ch5/16.png)
 
@@ -116,21 +123,21 @@ One area that can be manually checked is the APK signature:
 
 This obviously matched what MobSF had reported.
 
-Another area for manual analysis is the AndroidManifest.XML file stored within the Resources folder structure:
+Another area for manual analysis is the `AndroidManifest.XML` file stored within the Resources folder structure:
 
 ![](resources/Ch5/19.png)
 
-Here we see the same significant number of permissions along with some third-party application app keys which appear toe be directly associated to the following GitHub: https://github.com/angcyo/umeng. Interestingly, the following topic on Alibaba cloud references both the WRITE_EXTERNAL_STORAGE permission as required to dynamically update APKs using UMENG and the associated APPKEY: https://topic.alibabacloud.com/a/use-umeng-to-automatically-update-apk-and-umeng-apk_1_21_32538466.html:
+Here we see the same significant number of permissions along with some third-party application app keys which appear to be directly associated to the following GitHub repository: https://github.com/angcyo/umeng. Interestingly, the following topic on Alibaba cloud references both the `WRITE_EXTERNAL_STORAGE` permission as required to dynamically update APKs using UMENG and the associated APPKEY: https://topic.alibabacloud.com/a/use-umeng-to-automatically-update-apk-and-umeng-apk_1_21_32538466.html.
 
 ![](resources/Ch5/20.png)
 
 This obviously has the implication, if true, that even if there is not malicious logic baked directly into the application during analysis that it could be manipulated at a later time. Beyond this is out of scope for the write up but this portion of analysis is important to highlight the need for manual analysis and need to read contextual clues.
 
-While usually successful, it should be noted that JADX cannot always decompile the compiled code to JAVA and any errors should be parsed to ensure that the uncompiled code does not have any malicious logic. The following screenshot shows a typical de-compilation error:
+While usually successful, it should be noted that JADX cannot always decompile the compiled code to Java and any errors should be parsed to ensure that the uncompiled code does not have any malicious logic. The following screenshot shows a typical de-compilation error:
 
 ![](resources/Ch5/21.png)
 
-The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. Hard coded references to /system/bin/sh, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
+The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. Hard coded references to `/system/bin/sh`, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
 
 ![](resources/Ch5/22.png)
 
@@ -140,13 +147,13 @@ I would recommend enabling searching within comments as sometimes additional fun
 
 So far, we have covered the bare basics of using MobSF to analyze an APK as well as how to manually interrogate the same APK using JADX. In most malware mobile forensic investigations with physical access (not logical) most stock Android phones have more than 100+ APKs (including system applications, device manufacturer applications, network provider applications, and third-party applications) that could need to be analyzed. Devices in active usage could reach beyond 200+ APKs that could potentially need to be analyzed. 200+ APKs is a significant number of applications for a malware forensic analysis but the investigation could be completed using MobSF and JADX in a few weeks. The problem comes at scale by expanding the number of devices being analyzed. Now you may have 100+ devices, each with 100+ APKs that may or may not be the same version. This quickly becomes untenable which results in a need to develop or adapt mobile application analysis methodology to scale.
 
-## Part 3 - Using Autopsy, Jadx, and Python to Scrap and Parse Android Applications at Scale:
+## Part 3 - Using Autopsy, Jadx, and Python to Scrap and Parse Android Applications at Scale
 
-The last scenario isn’t a hypothetical one, it is one that I had to adjust and adapt methodology for. To start with the forensic analysis, you need to have an Android image to work with. If you have one saved from a test device using Cellebrite that can be used to test and develop the solution at scale. If you don’t, you can simply pull a virtual machine from osboxes.org (https://www.osboxes.org/android-x86/). Keep in mind there are significant differences between x86 and ARM architectures and Android versions so don’t be hyper specific in file locations and file names. 
+The last scenario isn’t a hypothetical one, it is one that I had to adjust and adapt methodology for. To start with the forensic analysis, you need to have an Android image to work with. If you have one saved from a test device using Cellebrite that can be used to test and develop the solution at scale. If you don’t, you can simply pull a virtual machine from [osboxes.org](https://www.osboxes.org/android-x86/). Keep in mind there are significant differences between x86 and ARM architectures and Android versions so don’t be hyper specific in file locations and file names.
 
-T> Pro-Tip: Using an Android VM (either from osboxes.org or another source) along with a host-only network adapter can allow you to capture and manipulate network traffic (including some SSL encrypted traffic) by using your brand of network collection (Security Onion or simple WireShark) and a MiTM proxy with SSLStrip (BetterCap). Combined with code injection tool with memory reading capabilities (Frida) this can be the foundation of more advanced dynamic analysis methodologies.
+T> Pro-Tip: Using an Android VM (either from osboxes.org or another source) along with a host-only network adapter can allow you to capture and manipulate network traffic (including some SSL encrypted traffic) by using your brand of network collection ([Security Onion](https://github.com/Security-Onion-Solutions/securityonion) or simple [WireShark](https://gitlab.com/wireshark/wireshark)) and a MiTM proxy with SSLStrip ([[BetterCap](https://github.com/bettercap/bettercap)). Combined with a code injection tool with memory reading capabilities ([Frida](https://github.com/frida/frida)) this can be the foundation of more advanced dynamic analysis methodologies.
 
-Once you have the appropriate image file (vmdk, bin, img, etc.), you can create a new case within autopsy:
+Once you have the appropriate image file (vmdk, bin, img, etc.), you can create a new case within Autopsy:
 
 ![](resources/Ch5/23.png)
 
@@ -162,15 +169,15 @@ Select the appropriate Ingest Modules (you can leave this default for now; we wi
 
 ![](resources/Ch5/26.png)
 
-Continue through the default options till the data source is ingested as seen below:
+Continue through the default options until the data source is ingested as seen below:
 
 ![](resources/Ch5/27.png)
 
-At this point we have the basic test and development case setup. Now it is time to start developing a solution to the problem of scale. The first portion of the problem is to find a relatively simple and automated solution to pull APK files from data sources. Autopsy has a specific capability that it allows you to use specifically designed Python plugins to automate such tasks. By using public examples (such as https://github.com/markmckinnon/Autopsy-Plugins), I modified one of the simpler Python scripts to search for and flag files with the .apk extension (amongst others):
+At this point we have the basic test and development case setup. Now it is time to start developing a solution to the problem of scale. The first portion of the problem is to find a relatively simple and automated solution to pull APK files from data sources. Autopsy has a specific capability that it allows you to use specifically designed Python plugins to automate such tasks. By using public examples (such as https://github.com/markmckinnon/Autopsy-Plugins), I modified one of the simpler Python scripts to search for and flag files with the `.apk` extension (amongst others):
 
 ![](resources/Ch5/28.png)
 
->C **Please Note** In the script referenced above is a hardcoded file location to pull the found files to. This must be modified to match your system. Dynamically pulling the folder location appeared too difficult at the time due to Autopsy using modified Python methods that are cross compiled into JAVA (things get weird). Additionally, the following wiki (http://www.sleuthkit.org/autopsy/docs/api-docs/4.9.0/) hasn't really been updated so a significant amount of testing is needed.  To aid in your troubleshooting, the location of the log file can be accessed by going to the case folder:
+>C **Please Note** In the script referenced above is a hardcoded file location to pull the found files to. This must be modified to match your system. Dynamically pulling the folder location appeared too difficult at the time due to Autopsy using modified Python methods that are cross compiled into Java (things get weird). Additionally, the following [wiki](http://www.sleuthkit.org/autopsy/docs/api-docs/4.9.0/) hasn't really been updated so a significant amount of testing is needed.  To aid in your troubleshooting, the location of the log file can be accessed by going to the case folder:
 
 ![](resources/Ch5/29.png)
 
@@ -184,11 +191,11 @@ Finally, opening one of the plain text log files:
 
 Unfortunately, this file is locked while Autopsy is running and you must close Autopsy to view any associated error.
 
-Once a python script has been developed and tested, you have to manually add in the python plugin to the appropriate folder. A simple link can be accessed from the menu option below:
+Once a Python script has been developed and tested, you have to manually add in the Python plugin to the appropriate folder. A simple link can be accessed from the menu option below:
 
 ![](resources/Ch5/32.png)
 
-To add the python plugin, you simply move an appropriate named folder structure containing the python modules into the directory:
+To add the Python plugin, you simply move an appropriate named folder structure containing the Python modules into the directory:
 
 ![](resources/Ch5/33.png)
 
@@ -200,7 +207,7 @@ Similar to before, if all is well a new option should be present:
 
 ![](resources/Ch5/35.png)
 
-Now simply click “Deselect All” (since they have already run) and click your custom tool. If you are using a barebones osboxes VM it would be prudent to add some various APKs. Once the module finished running you should see the following:
+Now simply click `Deselect All` (since they have already run) and click your custom tool. If you are using a barebones osboxes VM it would be prudent to add some various APKs. Once the module finished running you should see the following:
 
 ![](resources/Ch5/36.png)
 
@@ -208,11 +215,11 @@ So now we have a way to automate scraping of APK files, to continue now we need 
 
 ![](resources/Ch5/37.png)
 
-The following code section shows the functionality of running JADX and dumping the output to the case_extract folder:
+The following code section shows the functionality of running JADX and dumping the output to the `case_extract` folder:
 
 ![](resources/Ch5/38.png)
 
-This script works by iteratively going through the case_extract/apk folder structure and attempts to be fairly fault tolerant in the case of incorrect file extension or file corruption. 
+This script works by iteratively going through the `case_extract/apk` folder structure and attempts to be fairly fault tolerant in the case of incorrect file extension or file corruption.
 
 Beyond the simple JADX decompiling functionality, additional functions can be added by analyzing the code sections of the decompiled APK using REGEX:
 
@@ -220,7 +227,7 @@ Beyond the simple JADX decompiling functionality, additional functions can be ad
 
 The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis.
 
-Besides JADX it also incorporates JAVA keytool if JAVA JDK is present and some manual methods using OpenSSL if not:
+Besides JADX it also incorporates Java keytool if Java JDK is present and some manual methods using OpenSSL if not:
 
 ![](resources/Ch5/40.png)
 

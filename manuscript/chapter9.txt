@@ -97,11 +97,11 @@ You may also consider making sure you have local admin access or at least the ab
 I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTFs:
 
 **General Analysis**
-- [Autopsy](https://www.autopsy.com/)
-- [Bulk Extractor](https://github.com/simsong/bulk_extractor)
-- [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
-- [FTK Imager](https://www.exterro.com/ftk-imager)
-- [Hindsight](https://dfir.blog/hindsight/)
+ - [Autopsy](https://www.autopsy.com/)
+ - [Bulk Extractor](https://github.com/simsong/bulk_extractor)
+ - [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
+ - [FTK Imager](https://www.exterro.com/ftk-imager)
+ - [Hindsight](https://dfir.blog/hindsight/)
 
 **Chromebook**
  - [cLEAPP](https://github.com/markmckinnon/cLeapp)

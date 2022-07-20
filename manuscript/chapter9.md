@@ -183,3 +183,26 @@ And then there are the ones that are confident (sometimes too confident!). Some 
 >"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
 
 ## Takeaways
+
+What is it that you can takeaway from playing a CTF you ask? You may have different feelings on what you got out of playing CTF's but here are a few of my personal takeaways.
+
+### Documentation
+
+One of the things I enjoy doing after playing a CTF is to do blog writeups of solutions. If there are questions I didn't get to finish during the live competition I have a tendancy to go back and revisit to see if I can solve them properly. Once I have a majority of the answers I will start to write some blogs on how I solved the questions. Not only does this help me document my results for future usage but also helps with gaining experience in more technical writing. I can't tell you the many times that I've referenced my own posts in other competitions or in research as I go back to further dive into file system locations that I had never looked at before.
+
+Documentation is critical in a lot of aspects of an investigation so it only makes sense to write down your notes in case you need to reference where a specific artifact came from. The best part is that not all questions will be solved the same so I thoroughly enjoy reading other solver's thought process to get to the end result.
+
+### Challenge Yourself & Build Confidence
+
+I'm going to stress it again, playing CTF's will help you learn. For those that don't get to work with some of the different evidence files like Linux or network files will give you plenty to take home from analyzing them. Before playing the SANS NetWars I had rarely touched PCAP files let alone knew how to utilize Wireshark to pull out files or specific packets. Learning about Google Takeout exports has given me a new appreciation for what potential evidence can be found in the cloud and what may not be found directly on a mobile device. This has lead to me doing my own research and contributing back to the community in tools like RLEAPP and other open-source projects. These are just a few examples of getting out of your comfort zone and challenging yourself to learn about new tools and techniques.
+
+It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTF's and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
+
+![](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
+
+### Have Fun!
+
+The number one takeaway of playing CTF's is to have fun! These are meant to be a training exercise to stimulate the mind and to give you a break from your normal workload. Don't stress it, just keep learning. If you're in person, enjoy the comradery of other competitors and build your network. You never know who you may meet while playing and who you will harbour friendships with in the industry.
+
+I hope this chapter breathes new life into you playing CTF competitions. Good luck and see you all out their on the digital battlefields!
+

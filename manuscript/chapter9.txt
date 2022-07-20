@@ -7,51 +7,51 @@ By [Kevin Pagano](https://twitter.com/KevinPagano3) | [Stark 4N6](https://startm
 
 ## What is a CTF?
 
-The origins of CTF or “Capture The Flag” were found on the playground. It was (still is?) an outdoor game where teams had to run into the other teams zones and physically capture a flag (typically a handkerchief) and return it back to their own base without getting tagged by the opposing team. In the information security realm it has come to mean a slightly different competition.
+The origins of CTF or “Capture The Flag" were found on the playground. It was (still is?) an outdoor game where teams had to run into the other teams zones and physically capture a flag (typically a handkerchief) and return it back to their own base without getting tagged by the opposing team. In the information security realm it has come to mean a slightly different competition.
 
 ## Why am I qualified to talk about CTFs?
 
-Humble brag time. I’ve played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR Lethal Forensicator coins from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I’ve also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I’ve competed in on [my personal blog](https://ctf.stark4n6.com).
+Humble brag time. I've played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR [Lethal Forensicator coins](https://www.sans.org/digital-forensics-incident-response/coins/) from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I've also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I've competed in on [my personal blog](https://ctf.stark4n6.com).
 
 ## Types of CTFs
 
-Two of the most common information security types of CTF competitions are “**Jeopardy**” style and “**Attack and Defense**” style.
+Two of the most common information security types of CTF competitions are “**Jeopardy**" style and “**Attack and Defense**" style.
 
-“**Jeopardy**” style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
+“**Jeopardy**" style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
 
 ![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
 
-“**Attack and Defense**” is more common in Red and Blue team environments where the Red team has to hack or attack a Blue team server. The Blue team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
+“**Attack and Defense**" is more common in Red and Blue Team environments where the Red Team has to hack or attack a Blue Team server. The Blue Team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
 
 ![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
 
 Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
 
-For this chapter, I will go more in-depth regarding the “Jeopardy” style competitions, more specifically, forensics geared CTF competitions.
+For this chapter, I will go more in-depth regarding the “Jeopardy" style competitions, more specifically, forensics geared CTF competitions.
 
 ## Evidence Aplenty
 
-With forensics CTF’s, just like in real life, any type of device is game for being analyzed. In the ever growing landscape of data locations, it just provides us more places to look for clues to solve the problems. One of the more well known forensic CTF’s is the [SANS NetWars](https://www.sans.org/cyber-ranges/) tournaments. These are devised with 5 levels with each level being progressively harder than the last. In this competition you will have a chance to analysis evidence from:
+With forensics CTFs, just like in real life, any type of device is game for being analyzed. In the ever growing landscape of data locations, it just provides us more places to look for clues to solve the problems. One of the more well known forensic CTFs is the [SANS NetWars](https://www.sans.org/cyber-ranges/) tournaments. These are devised with 5 levels with each level being progressively harder than the last. In this competition you will have a chance to analysis evidence from:
 
- - Windows computer 
- - macOS computer 
- - Memory/RAM dump 
- - iOS dump 
+ - Windows computer
+ - macOS computer
+ - Memory/RAM dump
+ - iOS dump
  - Android dump
  - Network (PCAP/Netflow/Snort logs)
  - Malware samples
 
-You can see from the above list that you get a well rounded variety of types of evidence that you most likely will see in the field on the job. In other competitions I’ve played you could also come across Chromebooks or even Google Takeout and other cloud resources as they become more common. I have also seen some where they are more crypto based so working with different ciphers and hashes to determine the answers.
+You can see from the above list that you get a well rounded variety of types of evidence that you most likely will see in the field on the job. In other competitions I've played you could also come across Chromebooks or even Google Takeout and other cloud resources as they become more common. I have also seen some where they are more crypto based so working with different ciphers and hashes to determine the answers.
 
-## Who’s Hosting?
+## Who's Hosting?
 
-As previously mentioned, **SANS** is probably the most well known provider of a forensics CTF through their NetWars program. It isn’t cheap as a standalone, but is sometimes bundled with one of their training courses. You can sometimes see them hosted for free with other events such as OpenText’s enFuse conference.
+As previously mentioned, **SANS** is probably the most well known provider of a forensics CTF through their [NetWars](https://www.sans.org/cyber-ranges) program. It isn't cheap as a standalone, but is sometimes bundled with one of their training courses. You can sometimes see them hosted for free with other events such as OpenText's enFuse conference.
 
-As for others, **Magnet Forensics** has been hosting a CTF for the past 5 years in tandem with their user summit. This has been created by Jessica Hyde in collaboration with some students from Champlain College’s Digital Forensics Association. Some previous Magnet CTF’s were also created by Dave Cowen and Matthew Seyer for context.
+As for others, **Magnet Forensics** has been hosting a CTF for the past 5 years in tandem with their User Summit. This has been created by Jessica Hyde in collaboration with some students from Champlain College's Digital Forensics Association. Some previous Magnet CTFs were also created by Dave Cowen and Matthew Seyer, for context.
 
-Other software vendors have started to create their own as well to engage with the community. **Cellebrite** in the past 2 years has hosted virtual CTF competitions and **Belkasoft** has created and put out multiple CTFs the last 2 years. [**DFRWS**](https://dfrws.org/forensic-challenges/) hosts a yearly forensic challenge with past events covering evidence types such as Playstation 3 dumps, IoT (Internet of Things) acquisitions, mobile malware, and many others.
+Other software vendors have started to create their own as well to engage with the community. **Cellebrite** in the past 2 years has hosted virtual CTF competitions and **Belkasoft** has created and put out multiple [CTFs](https://belkasoft.com/ctf) the last 2 years. [**DFRWS**](https://dfrws.org/forensic-challenges/) hosts a yearly forensic challenge with past events covering evidence types such as Playstation 3 dumps, IoT (Internet of Things) acquisitions, mobile malware, and many others.
 
-Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you’d like as well as allow them to host your next live event. 
+Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you'd like as well as allow them to host your next live event.
 
 ![9.3 - CyberDefenders website](https://i.ibb.co/SdqWtZw/blueyard.png)
 
@@ -63,38 +63,38 @@ So at the end of the day, why should YOU (yes, YOU, the reader) play a CTF? Well
 
 ### For Sport
 
-Growing up I’ve always been a competitive person, especially playing sports like baseball and basketball, CTF’s are no different. There is a rush of excitement (at least for me) competing against other like-minded practitioners or analysts to see how you stack up. You can even be anonymous while playing. Part of the fun is coming up with a creative handle / username to compete with. It also keeps the commentary and your competitors on their toes.
+Growing up I've always been a competitive person, especially playing sports like baseball and basketball, CTFs are no different. There is a rush of excitement (at least for me) competing against other like-minded practitioners or analysts to see how you stack up. You can even be anonymous while playing. Part of the fun is coming up with a creative handle / username to compete with. It also keeps the commentary and your competitors on their toes.
 
 I personally like to problem solve and to be challenged which is part of the reason why I enjoy playing.
 
 ### For Profit
 
-I put profit in quotations because many may construe that as a compensation type objective. While many CTF challenges do have prizes such as challenge coins or swag ( awesome branded clothing anyone?!) that’s not completely the profit I’m talking about here. The profit is the knowledge you gain from playing. I’ve done competitions where I never knew how to analyze memory dumps at all and I learned at least the basics of where to look for evidence and new techniques to try later on in real world scenarios.
+I put profit in quotations because many may construe that as a compensation type objective. While many CTF challenges do have prizes such as challenge coins or swag (awesome branded clothing anyone?!) that's not completely the profit I'm talking about here. The profit is the knowledge you gain from playing. I've done competitions where I never knew how to analyze memory dumps at all and I learned at least the basics of where to look for evidence and new techniques to try later on in real world scenarios.
 
 > "Commit yourself to lifelong learning. The most valuable asset you'll
 > ever have is your mind and what you put into it." - Albert Einstein
 
-The knowledge you gain from the “practice” will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
+The knowledge you gain from the “practice" will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
 
 ## Toss a Coin in the Tip Jar
 
-I get asked all the time, "what are your keys to success playing CTFs?". That's probably a loaded question because there are many factors that can lead to good results. Here I will break down into sections that I feel can at least get you started on a path forward to winning your first CTF.
+I get asked all the time, "what are your keys to success playing CTFs?". That's probably a loaded question because there are many factors that can lead to good results. Here, I will break down into sections that I feel can at least get you started on a path forward to winning your first CTF.
 
 ### Tips for Playing - Prior
 
-First and foremost is the preparation phase. Like any task in life, it always helps to be prepared for the battle ahead. Having a sense of what is to come will help with your plan of attack. Do your research! If you know that a specific person created the CTF then take a look at their social media profiles. Often times they will release hints in some form or fashion, whether it is webinars they have shared or research papers or blog posts they have recently published. Don't over do it though, there could be red herrings amuck. You can also look at past CTF's they have created, seeing how questions were formulated before and what sort of locations they tend to lean on for flags. This is part of the reason why I personally do write-ups of past CTF's for future reference.
+First and foremost is the preparation phase. Like any task in life, it always helps to be prepared for the battle ahead. Having a sense of what is to come will help with your plan of attack. Do your research! If you know that a specific person created the CTF then take a look at their social media profiles. Often times they will release hints in some form or fashion, whether it is webinars they have shared or research papers or blog posts they have recently published. Don't over do it though, there could be red herrings amuck. You can also look at past CTFs they have created, seeing how questions were formulated before and what sort of locations they tend to lean on for flags. This is part of the reason why I personally do write-ups of past CTFs for future reference.
 
-Each CTF rules may be different but if teams are allowed reach out to colleagues or others to form a squad. Knowledge from multiple people well-versed in different topics can help in spreading out the workload especially if there are multiple forms of evidence to be analyzed. I would be remiss if I didn’t say that some of my winning efforts were with team members who helped pick up sections where I wasn't as strong. Your mileage may vary though, make sure to coordinate your efforts if you do join a team as to not waste time all working on the same questions.
+Each CTF rules may be different but sometimes teams are allowed reach out to colleagues or others to form a squad. Knowledge from multiple people well-versed in different topics can help in spreading out the workload especially if there are multiple forms of evidence to be analyzed. I would be remiss if I didn't say that some of my winning efforts were with team members who helped pick up sections where I wasn't as strong. Your mileage may vary though, make sure to coordinate your efforts if you do join a team as to not waste time all working on the same questions.
 
 If evidence is provided ahead of the competition make sure to spend some time getting familiar with it. Process the evidence ahead of time so you aren't wasting time during the live competition waiting on machine time. Some of these events only last 2-3 hours so time is of the essence. This segues right into building out your analysis machine and your toolkit. Make sure that all your system updates are completed prior. The last thing you need is an errant Windows update to take down your system while you watch the spinning.
 
 ![9.4 - "This will take a while"](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
 
-You may also consider making sure you have local admin access or at least the ability to turn of antivirus (if you are analyzing malware) to your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
+You may also consider making sure you have local admin access or at least the ability to turn off antivirus (if you are analyzing malware) on your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
 
 ### The Toolkit
 
-I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTF's:
+I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTFs:
 
 **General Analysis**
 - [Autopsy](https://www.autopsy.com/)
@@ -155,7 +155,7 @@ One thing that may seem silly but can help is to just ask questions. If you're s
 
 ![9.5 - Don't Sweat It, Take the Hint](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
 
-Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to loosing 5 points for buying that hint.
+Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to losing 5 points for buying that hint.
 
 The last tip while playing is to write down your submissions, both the correct and incorrect ones. I can't tell you the amount of times I've entered the same answer wrongly into a question to eventually get points docked off my total. This will not only help you during the live CTF but afterwards if you are writing a blog on your walkthroughs.
 
@@ -167,30 +167,30 @@ Another potential strategy depends on how many points the questions are worth. U
 
 My personal strategy is a combination of them all. I will typically go more towards the easy points first and work my way up from there but I will jump from different evidence categories once I get stuck for a time period. Depending on how much prework analysis has been done, I may have inferred references to areas that need to be analyzed so I may look at questions that I may already have answers for.
 
-And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up the whatever suits the player the best.
+And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up to whatever suits the player the best.
 
 >"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
 
 ## Takeaways
 
-What is it that you can takeaway from playing a CTF you ask? You may have different feelings on what you got out of playing CTF's but here are a few of my personal takeaways.
+What is it that you can takeaway from playing a CTF you ask? You may have different feelings on what you got out of playing CTFs but here are a few of my personal takeaways.
 
 ### Documentation
 
-One of the things I enjoy doing after playing a CTF is to do blog writeups of solutions. If there are questions I didn't get to finish during the live competition I have a tendancy to go back and revisit to see if I can solve them properly. Once I have a majority of the answers I will start to write some blogs on how I solved the questions. Not only does this help me document my results for future usage but also helps with gaining experience in more technical writing. I can't tell you the many times that I've referenced my own posts in other competitions or in research as I go back to further dive into file system locations that I had never looked at before.
+One of the things I enjoy doing after playing a CTF is to do blog writeups of solutions. If there are questions I didn't get to finish during the live competition I have a tendency to go back and revisit to see if I can solve them properly. Once I have a majority of the answers, I will start to write some blogs on how I solved the questions. Not only does this help me document my results for future usage but also helps with gaining experience in more technical writing. I can't tell you the many times that I've referenced my own posts in other competitions or in research as I go back to further dive into file system locations that I had never looked at before.
 
 Documentation is critical in a lot of aspects of an investigation so it only makes sense to write down your notes in case you need to reference where a specific artifact came from. The best part is that not all questions will be solved the same so I thoroughly enjoy reading other solver's thought process to get to the end result.
 
 ### Challenge Yourself & Build Confidence
 
-I'm going to stress it again, playing CTF's will help you learn. For those that don't get to work with some of the different evidence files like Linux or network files will give you plenty to take home from analyzing them. Before playing the SANS NetWars I had rarely touched PCAP files let alone knew how to utilize Wireshark to pull out files or specific packets. Learning about Google Takeout exports has given me a new appreciation for what potential evidence can be found in the cloud and what may not be found directly on a mobile device. This has lead to me doing my own research and contributing back to the community in tools like RLEAPP and other open-source projects. These are just a few examples of getting out of your comfort zone and challenging yourself to learn about new tools and techniques.
+I'm going to stress it again, playing CTFs will help you learn. For those that don't get to work with some of the different evidence files like Linux or network files will give you plenty to take home from analyzing them. Before playing SANS NetWars, I had rarely touched PCAP files let alone knew how to utilize Wireshark to pull out files or specific packets. Learning about Google Takeout exports has given me a new appreciation for what potential evidence can be found in the cloud and what may not be found directly on a mobile device. This has lead to me doing my own research and contributing back to the community in tools like [RLEAPP](https://github.com/abrignoni/rleapp) and other open-source projects. These are just a few examples of getting out of your comfort zone and challenging yourself to learn about new tools and techniques.
 
-It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTF's and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
+It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTFs and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
 
 ![9.6 - "I know kung-fu!"](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
 
 ### Have Fun!
 
-The number one takeaway of playing CTF's is to have fun! These are meant to be a training exercise to stimulate the mind and to give you a break from your normal workload. Don't stress it, just keep learning. If you're in person, enjoy the comradery of other competitors and build your network. You never know who you may meet while playing and who you will harbour friendships with in the industry.
+The number one takeaway of playing CTFs is to have fun! These are meant to be a training exercise to stimulate the mind and to give you a break from your normal workload. Don't stress it, just keep learning. If you're in person, enjoy the comradery of other competitors and build your network. You never know who you may meet while playing and who you will harbor friendships with in the industry.
 
-I hope this chapter breathes new life into you playing CTF competitions. Good luck and see you all out their on the digital battlefields!
+I hope this chapter breathes new life into you playing CTF competitions. Good luck and see you all out there on the digital battlefields!

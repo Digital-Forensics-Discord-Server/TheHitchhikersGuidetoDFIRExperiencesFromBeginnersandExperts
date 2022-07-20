@@ -97,7 +97,7 @@ If evidence is provided ahead of the competition make sure to spend some time ge
 
 ![](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
 
-***Figure 3: "This will take a while"***
+***Figure 4: "This will take a while"***
 
 You may also consider making sure you have local admin access or at least the ability to turn of antivirus (if you are analyzing malware) to your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
 
@@ -164,7 +164,7 @@ One thing that may seem silly but can help is to just ask questions. If you're s
 
 ![](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
 
-***Figure 4: "Don't Sweat It, Take the Hint"***
+***Figure 5: "Don't Sweat It, Take the Hint"***
 
 Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to loosing 5 points for buying that hint.
 
@@ -199,6 +199,8 @@ I'm going to stress it again, playing CTF's will help you learn. For those that 
 It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTF's and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
 
 ![](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
+
+***Figure 6: "I know kung-fu!"***
 
 ### Have Fun!
 

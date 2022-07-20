@@ -187,7 +187,7 @@ I'm going to stress it again, playing CTF's will help you learn. For those that 
 
 It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTF's and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
 
-![9.5 - "I know kung-fu!"](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
+![9.6 - "I know kung-fu!"](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
 
 ### Have Fun!
 

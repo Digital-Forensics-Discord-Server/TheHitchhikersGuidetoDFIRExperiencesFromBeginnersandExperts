@@ -1,5 +1,5 @@
 # Chapter 8 - De-Obfuscating PowerShell Payloads
-![](resources/Ch8/chapter8_001.jpeg)
+![](resources/Ch8/chapter8.001.png)
 
 By Tristram
 https://github.com/gh0x0st | @JDTristram | Tristram#2315
@@ -376,7 +376,7 @@ In this chapter we walked through different types of PowerShell obfuscation tech
 
 It is important for us to keep in mind that these are not the only tricks that are available in the obfuscation trade. There are many tricks, both known and unknown to your fellow security researchers in this field that could be used at any time. With practice and experience, you’ll be able to de-obfuscate extremely obfuscated reverse shell payloads, such as this:
 
-![](Ch8/chapter8.002.jpeg)
+![](Ch8/chapter8.002.png)
 
 One of the best ways to stay ahead of the curve is to ensure that you have a solid understanding of PowerShell. I would recommend that you take a PowerShell programming course if you’re coming into this green. If you have some level of comfort with using PowerShell, I challenge you to use it even more. Find a workflow that's annoying to do manually and automate it. You can also take some time and even optimize some of your older scripts.
 

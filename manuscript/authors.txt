@@ -2,11 +2,11 @@
 
 ## ApexPredator
 
-After many years at the top of the Systems Adminstration food chain the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working its way to the top while possesing a MS in Cybersecurity and Information Assurance degree and numerous certifications including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH, and GSEC. Always on the hunt for more prey it spends its free time playing around with malware analysis and exploit dvelopment.
+After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working its way to the top while possesing a MS in Cybersecurity and Information Assurance degree and numerous certifications including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH, and GSEC. Always on the hunt for more prey, it spends its free time playing around with malware analysis and exploit development.
 
 ## Tristram
 
-An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets in order identify gaps and validate existing controls.
+An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets in order to identify gaps and validate existing controls.
 
 ## Andrew Rathbun
 
@@ -22,9 +22,9 @@ Kevin is a regular competitor in the digital forensics CTF circuit.  He has won 
 
 In his spare time, Kevin likes to drink beers and design DFIR themed designs for stickers, clothing and other swag. You can find him lurking on Twitter (@KevinPagano3) and on the DFIR Discord (@Stark4N6).
 
-## name
+## John Haynes
 
-bio goes here
+John Haynes is a detective who also works with digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer. He is finishing up a Bachelor of Science in Computer Information Technology that he started in 2019 before being exposed to digital forensics. 
 
 ## name
 

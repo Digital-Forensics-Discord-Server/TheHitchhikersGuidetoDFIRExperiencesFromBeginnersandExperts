@@ -42,7 +42,7 @@ Once installed, you can run MobSF with the following simple command within the M
     ./run.sh
 ```
 
-Additionally, you can specify the listening address and listening port as MobSF starts its own web server for user interaction. The default setting will be used if the command is started without arguments:
+Additionally, you can specify the listening address and listening port as MobSF starts its own web server for user interaction. The following default setting will be used if the command is started without arguments:
 
 {line-numbers:false}
 ```
@@ -53,11 +53,11 @@ Example post run:
 
 ![](resources/Ch5/3.png)
 
-Access to the hosted webpage with your favorite browser shows the following webpage:
+Accessing the hosted webpage with your favorite browser shows the following webpage:
 
 ![](resources/Ch5/4.png)
 
-From here, you can upload the binary just like [VirusTotal](https://www.virustotal.com/gui/home/search):
+From here, you can upload the binary to the MobSF instance in your virtual machine:
 
 ![](resources/Ch5/5.png)
 
@@ -65,7 +65,7 @@ From here, most times the webpage will time out so click `Recent Scans` which sh
 
 ![](resources/Ch5/6.png)
 
-Because we are in a VM, the dynamic report will be unavailable but the static report has the primary details for initial triaging of the application. After a few minutes and depending on the size of the application, the report will be ready for analysis:
+Because we are in a VM, the dynamic report will be unavailable but the static report should provide the primary details for initial triage of the application. After a few minutes and depending on the size of the application, the report will be ready for analysis:
 
 ![](resources/Ch5/7.png)
 
@@ -109,21 +109,21 @@ While the functions and information accessed appear malicious, it would be prude
 
 ## Part 2 - Manual Analysis
 
-Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into Java source code. The source code for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs to be compiled within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
+Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into readable decomplied code. The source code and compiled releases for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 
 ![](resources/Ch5/16.png)
 
-Whether malicious or not, most Android applications have some level of obfuscation. In this case, the major programmatic functionality is not obfuscated but the names of the classes (a, b, c, etc.) do not have significant meaning:
+Whether malicious or not, most Android applications have some level of obfuscation. In this case, the major programmatic functionality is not obfuscated but the names of the classes (a, b, c, etc.) do not have significant meaning and can make initial analysis more difficult:
 
 ![](resources/Ch5/17.png)
 
-One area that can be manually checked is the APK signature:
+One area that should be checked is the APK signature and certificate details:
 
 ![](resources/Ch5/18.png)
 
-This obviously matched what MobSF had reported.
+This matches what MobSF had reported. It is possible to get differing results from different tools so double/triple checking relevant details is important.
 
-Another area for manual analysis is the `AndroidManifest.XML` file stored within the Resources folder structure:
+Another area for analysis is the `AndroidManifest.XML` file stored within the Resources folder structure:
 
 ![](resources/Ch5/19.png)
 
@@ -131,13 +131,13 @@ Here we see the same significant number of permissions along with some third-par
 
 ![](resources/Ch5/20.png)
 
-This obviously has the implication, if true, that even if there is not malicious logic baked directly into the application during analysis that it could be manipulated at a later time. Beyond this is out of scope for the write up but this portion of analysis is important to highlight the need for manual analysis and need to read contextual clues.
+This obviously has the implication, if true, that even if there is not malicious logic baked directly into the application during dynamic and static analysis that the application could be manipulated at any later time. Beyond this initial triage is out of scope for the write up but this portion of analysis is important to highlight the need for manual analysis and need to read contextual clues. Any automation should be validated and checked regardless of scaling.
 
 While usually successful, it should be noted that JADX cannot always decompile the compiled code to Java and any errors should be parsed to ensure that the uncompiled code does not have any malicious logic. The following screenshot shows a typical de-compilation error:
 
 ![](resources/Ch5/21.png)
 
-The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. Hard coded references to `/system/bin/sh`, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
+The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. The foundation begins at minimum with some of the above techniques (permissions and signatures) but also on basic threat hunting aspects such as searching for various exploitation techniques and indicators of compromise. In that sense, hard coded references to `/system/bin/sh`, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
 
 ![](resources/Ch5/22.png)
 

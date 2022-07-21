@@ -203,7 +203,7 @@ Once a python script has been developed and tested, you have to manually add in 
 
 ![](resources/Ch5/32.png)
 
-To add the python plugin, you simply move an appropriate named folder structure containing the python modules into the directory:
+To add the python plugin, you simply move an appropriate named folder structure containing the python modules into the following directory:
 
 ![](resources/Ch5/33.png)
 
@@ -219,7 +219,7 @@ Now simply click “Deselect All” (since they have already run) and click your
 
 ![](resources/Ch5/36.png)
 
-So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionality:
+So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation,I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionalities required for my use case:
 
 ![](resources/Ch5/37.png)
 
@@ -233,12 +233,12 @@ Beyond the simple JADX decompiling functionality, additional functions can be ad
 
 ![](resources/Ch5/39.png)
 
-The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis.
+The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis. There are other regex solutions to map out potential URLs which helps mitigate missing aspects of URL crafting.
 
-Besides JADX it also incorporates JAVA keytool if JAVA JDK is present and some manual methods using OpenSSL if not:
+Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning implmenetations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
 
 ![](resources/Ch5/40.png)
 
 The methods aren't perfect by any means and more testing across a number of different certificate implementations are needed. Despite this, It is similar to the automated single analysis using MobSF and manual analysis with JADX but also allows for larger scale analysis of APK signatures.
 
-This script is far from perfect or complete, but foundationally provided the basic methodology to extract any specific information desired for large scale analysis. The usage of Splunk becomes useful in this context as the data contained in the text files can be ingested and parsed allowing for analysis in areas such as granular file changes in the embedded APKs, addition of URLs and IP addresses, and other anomalies that can be analyzed at scale. This writeup does not go into extensive detail into every specific edge case but hopefully given enough time, effort, and data you can scale the application analysis methodology to suit your needs.
+This script is far from perfect or complete, but foundationally provided the basic methodology to extract specific information desired for large scale analysis. The usage of Splunk becomes useful in this context as the data contained in the text files can be ingested and parsed allowing for larger scale analysis in areas such as granular file changes in the embedded APKs, addition of URLs and IP addresses, and other anomalies. This writeup does not go into extensive detail into every specific use case but hopefully given enough time, effort, and data you can scale the application analysis methodology to suit your needs. Regardless of the implementation, Android APIs and APKs are changing frequently so ensure to retest solutions and manually spot check results to ensure it still fits the goal of the solution.

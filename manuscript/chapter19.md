@@ -111,8 +111,9 @@ Linux - not to mention the standard operating system utilities - makes
 it very much accessible to all levels of income.  No need for expensive
 licences or dongles to be able to do a full analysis or participate in
 training.  While it is true that many open source digital forensics utilities
-will compile and run natively on Windows,
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+will compile and run natively on Windows, the ability to run multiple
+copies of Linux, either on physical computers or virtual machines, still
+makes it an attractive alternative for learning.
 
 Many of the tools available for digital forensics on Linux are meant to
 be used with the command line interface (CLI).  To a beginner it can
@@ -126,19 +127,33 @@ allows you to concentrate on the results rather than an interface with
 multiple windows and views to sort through. Again this is a benefit for
 education specifically. There is no doubt that a forensic software suite
 that ingests, analyzes evidence and presents the results in a single
-step, is more *efficient*.  It just might not be the best way to learn.
+step, is more *efficient*.  But learning from the CLI with specific and
+very targeted output can be very powerful for students.
 
-
-
-    - free tools
-    - cli teaches "bits and bytes"
-    - online support (non vendor)
-     
 ### Free(dom)!
-    - flexibility to install as many times as you like
+
+Freedom and flexibility are just two of the many attributes that can
+help make linux a useful addition to you tool box.  
+
+First and formost of course, Linux is free.  As mentioned earlier, this
+means we can install it as many times on as many computers (or virtual
+machines) as we like.  You can use it as any sort of server while not
+tying up valuable budget resources on licensing. This goes for the
+forensic software as well.  You can install, copy, and share across
+multiple platforms and users, again without breaking the bank.
+
+For a practitioner learning the ins and outs of digital forensics, this
+can be very powerful.  You can install multiple copies of Linux across
+devices and virtual environments in a simple home lab 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+
+Linux provides unparralelled flexibility.  It will run on all forms of
+hardware, for laptops and desktops, to mobile devices and development
+hardware like the Raspberry pi, or 
     - lab setup
 
 ### Control
+    - 
     - granular control over devices, drivers, etc.
     - not as exlusive as it once was
     

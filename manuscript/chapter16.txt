@@ -38,7 +38,7 @@ User data such as internet history, images, videos, emails, messages, etc., fall
 
 However, System Data-like artifacts that help support some view of truth, or determine how closely a transpired event is to the evidence, are not that simple to manually parse with forensic soundness, which is why often times forensicators rely on well-known parsing tools, either commercial or open-source.
 
-![16.2 - Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Ch16/EDvsDF.png)
+![16.2 - Attr: Original from 6th slide in DVD included with E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown, modified here as text removal](Ch16/EDvsDF.png)
 
 And that is the main difference between E-Discovery & Digital Forensics, depending on the categorization of data alone. Both follow different procedures and have a different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region, whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
@@ -109,7 +109,7 @@ You will come across an ocean of different artifacts in your investigations, but
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect and try to paint the picture as unbiased and complete as possible.
 
 {width: 70%}
-![16.5 - Attr: By stux on pixabay](Ch16/Puzzle.png)
+![16.5 - Attr: By Stefan Schweihofer on Pixabay](Ch16/Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT, and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case where an employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information about the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime was indeed the one that your artifacts claim. So you would then look for CCTV footage around the premises, going back to the ***Identification*** phase in the Digital Forensics lifecycle, and so forth and so on.
 
@@ -162,7 +162,7 @@ ___About:___
 * We looked at the lifecycle of an application earlier, the prefetcher in Windows works in the same way. It studies the first ~10 seconds of an application launched and creates/updates the corresponding prefetch file, for faster loading speeds on the next execution.
 * Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman) for this handy [Python script](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) for the same.
 
-![16.5 - Working of Windows Prefetcher](Ch16/Prefetch.png)
+![16.6 - Working of Windows Prefetcher](Ch16/Prefetch.png)
 
 It has three working modes:
 | Value | Description |
@@ -279,3 +279,14 @@ ___Significance:___
 * Detect anti-forensic attempts targeted on the $MFT since $LogFile contains changes made to it.
 * Tracks changes made to $MFT metadata such as MACB timestamps.
 * Could help reconstruct a chronological list of transactions done to the files on the file system.
+
+## References:
+16.1 - Scientific law versus Scientific theories, by GliderMaven, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scientific_law_versus_Scientific_theories.png)
+
+16.2 - The relationship between e-discovery and digital forensics, from 6th slide in DVD included with [E-Discovery: An Introduction to Digital Evidence](https://www.amazon.com/Discovery-Introduction-Digital-Evidence-DVD/dp/1111310645), via [YouTube](https://www.youtube.com/watch?v=btfCf9Hylns)
+
+16.3 - Role of an Operating System, by Kapooht, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?curid=25825053)
+
+16.4 - Our perception of truth depends on our viewpoint 2.0, by (losmilzo)[https://imgur.com/user/losmilzo], via [Imgur](https://imgur.com/gallery/obWzGjY)
+
+16.5 - Puzzle Multicoloured Coloured, by [Stefan Schweihofer](https://pixabay.com/users/stux-12364/), under [Simplified Pixabay License](https://pixabay.com/service/license/), via Pixabay(https://pixabay.com/vectors/puzzle-multicoloured-coloured-3155663/)

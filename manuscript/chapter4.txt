@@ -181,7 +181,7 @@ This has just been a brief dive into showing how easy it is to crack simple pass
 
 ## References
 
-Cubrilovic, N. C. (2009, December 14). TechCrunch is part of the Yahoo family of brands. 	TechCrunch. Retrieved May 12, 2022, from 	https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-	passwords/
+Cubrilovic, N. C. (2009, December 14). TechCrunch is part of the Yahoo family of brands. 	TechCrunch. Retrieved May 12, 2022, from https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-	passwords/
 
 crunch | Kali Linux Tools. (2021, September 14). Kali Linux. Retrieved July 1, 2022, from https://www.kali.org/tools/crunch/
 

@@ -1,5 +1,8 @@
 # Chapter 16 - Artifacts as Evidence
 
+{width: 30%}
+![](https://avatars.githubusercontent.com/u/28131554?v=4)
+
 By [Nisarg Suthar](https://linktr.ee/NisargSuthar)
 
 ## Forensic Science
@@ -22,6 +25,8 @@ Much like any scientific field, 'forensics' or 'criminalistics' is a branch of s
 
 Digital Forensics is a six-phase process including Preparation, Identification, Collection, Preservation, Analysis, and Reporting.
 
+{pagebreak}
+
 ## Types of Artifacts
 
 Analysis is a major phase where forensicators discover different types of artifacts ranging from plain metadata to complex evidence of execution and residual traces. The vast gap between the difficulty of retrieving or reconstructing evidence determines the fine line between E-Discovery and Digital Forensics.
@@ -33,8 +38,6 @@ However, System Data-like artifacts that help support some view of truth, or det
 ![16.2 - Attr: Slide 6 from E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown](Ch16/EDvsDF.png)
 
 And that is the main difference between E-Discovery & Digital Forensics, depending on the categorization of data alone. Both follow different procedures and have a different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region, whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
-
-* * *
 
 {pagebreak}
 

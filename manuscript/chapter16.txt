@@ -14,9 +14,10 @@ Before learning about artifacts as digital evidence, I'll preface this chapter w
 * If we find something that denies it, we form a new hypothesis and go back to making observations.
 * If we find something that confirms it, we continue making new observations to extend our dataset and verify the hypothesis until the dataset is substantial in confirming it precisely and accurately. If we further find something that denies the original hypothesis, we form a new one by repeating the process.
 
+{pagebreak}
+
 We never pollute this scientific process with biases or opinions. It is only credible as far as the fact finder's neutrality goes. All scientists trust observations and verified prior research, discarding all speculation.
 
-{width: 70%}
 ![16.1 - Attr: GliderMaven, CC BY-SA 4.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
 
 Ultimately, the goal of any science is not to state things in absolutes but in observations, experiments, procedures, and conclusions. Even the fundamental laws of science begin with a basic foundation laid of assumptions.
@@ -24,6 +25,8 @@ Ultimately, the goal of any science is not to state things in absolutes but in o
 Much like any scientific field, 'forensics' or 'criminalistics' is a branch of science that deals with identifying, collecting, and preserving evidence of a crime. It is not just identifying, collecting, and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from its true form.
 
 Digital Forensics is a six-phase process including Preparation, Identification, Collection, Preservation, Analysis, and Reporting.
+
+* * *
 
 {pagebreak}
 
@@ -77,6 +80,8 @@ An application is a set of *programs*. A program is a set of *code* written by a
 2. **Execution Cycle:**
 Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally, it is discarded from the RAM.
 
+{pagebreak}
+
 You can easily remember both of these cycles by drawing an analogy between electronic memory and human memory. Here, I use chess as an example. Our brains, much like a computer, uses two types of memory:
 
 1. **Short-term (Working memory):**
@@ -90,6 +95,8 @@ You can easily remember both of these cycles by drawing an analogy between elect
 Understanding how an operating system parses the data from different sources, whether it is on disk or in memory, will help you identify, locate, and efficiently retrieve different types of artifacts necessary for an investigation.
 
 * * *
+
+{pagebreak}
 
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you with tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in its entirety.

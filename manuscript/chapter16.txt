@@ -101,14 +101,14 @@ Understanding how an operating system parses the data from different sources, wh
 ## Artifact-Evidence Relation
 You will come across an ocean of different artifacts in your investigations, but artifacts have a very strange relationship with what might potentially be considered evidence. Artifacts alone do not give you the absolute truth of an event. They provide you with tiny peepholes through which you can reconstruct and observe a part of the truth. In fact, one can never be sure if what they have is indeed the truth in its entirety.
 
-{width: 70%}
+{width: 100%}
 ![16.4 - Attr: Original by losmilzo on imgur, modified here as text removal](Ch16/Truth.jpg)
 
 {pagebreak}
 
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect and try to paint the picture as unbiased and complete as possible.
 
-{width: 50%}
+{width: 70%}
 ![16.5 - Attr: By stux on pixabay](Ch16/Puzzle.png)
 
 That being said, if you apply the additional knowledge from metadata, OSINT, and HUMINT to the parsed artifacts, you might have something to work with. For instance, say you were assigned an employee policy violation case where an employee was using their work device for illegally torrenting movies. Parsing the artifacts alone will give you information about the crime, but not as evidence. You would still need to prove that the face behind the keyboard at the time of the crime was indeed the one that your artifacts claim. So you would then look for CCTV footage around the premises, going back to the ***Identification*** phase in the Digital Forensics lifecycle, and so forth and so on.
@@ -137,6 +137,8 @@ There are mainly two types of hive files:
 	* Amcache.hve: Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp, and SHA-1 hashes.
 	* ntuser.dat: Information about autostart applications, searched terms used in Windows Explorer or Internet Explorer, recently accessed files, run queries, last execution times of applications, etc.
 	* UsrClass.dat: Information about user-specific shellbags is covered in the next section.
+
+{pagebreak}
 
 ___Significance:___
 * Identifying malware persistence which can lead to the discovery of Indicators of Compromise (IOCs).
@@ -173,6 +175,8 @@ It has three working modes:
 This value is set from the registry key:
 `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters`
 Forensicators can refer to this key to check if prefetching is disabled.
+
+{pagebreak}
 
 ___Significance:___
 * Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in its own prefetch file being generated.

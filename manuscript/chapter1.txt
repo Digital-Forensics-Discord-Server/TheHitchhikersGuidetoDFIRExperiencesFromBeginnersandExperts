@@ -98,7 +98,7 @@ Another story I can think of was more recent in that someone from a country I ha
 
 Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level.
 
-| Countries with roles | assigned for Law Enforcement personnel | (as of June 2022): |
+| Countries with roles assigned for Law Enforcement personnel (as of June 2022): |
 |---|---|---|
 | Albania            | Iceland     | Pakistan             |
 | Argentina          | India       | Netherlands          |

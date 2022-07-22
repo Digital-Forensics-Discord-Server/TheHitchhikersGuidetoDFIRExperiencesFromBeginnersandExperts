@@ -104,6 +104,8 @@ You will come across an ocean of different artifacts in your investigations, but
 {width: 70%}
 ![16.4 - Attr: Original by losmilzo on imgur, modified here as text removal](Ch16/Truth.jpg)
 
+{pagebreak}
+
 I always love to draw an analogy between the artifacts and the pieces of a puzzle, of which you're not certain to have the edge or the corner pieces. You gather what you can collect and try to paint the picture as unbiased and complete as possible.
 
 {width: 50%}
@@ -113,7 +115,7 @@ That being said, if you apply the additional knowledge from metadata, OSINT, and
 
 As a result of the codependency of the artifacts on drawing correlations to some external factor, they form a direct non-equivalence relation with evidence. However, note that this "rule", if you will, is only applicable to a more broad scope of the investigation. In the more narrow scope as a forensicator and for the scope of your final forensic report, artifacts are most critical. Just keep it in the back of your mind that encountering an artifact alone doesn't mean it's admissible evidence. Parse the artifact, make notes, and document everything. Being forensically sound is more important than worrying about completing the entire puzzle because there will be no edge or corner pieces to it.
 
-* * *
+{pagebreak}
 
 ## Examples
 This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, rather the significance of those artifacts at a much higher level, including what it offers, proves, and denies. Additionally, what is its forensic value? I suggest the readers use these brief bits to spark their curiosity about these important artifacts and research on their own about locating and parsing them.

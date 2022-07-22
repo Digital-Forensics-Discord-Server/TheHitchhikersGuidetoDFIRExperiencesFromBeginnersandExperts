@@ -1,8 +1,7 @@
 # Chapter 8 - De-Obfuscating PowerShell Payloads
 ![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch8/chapter8001.png)
 
-By Tristram
-https://github.com/gh0x0st | @JDTristram | Tristram#2315
+![By Tristram](https://github.com/gh0x0st) | @JDTristram | Tristram#2315
 
 ## Introduction
 

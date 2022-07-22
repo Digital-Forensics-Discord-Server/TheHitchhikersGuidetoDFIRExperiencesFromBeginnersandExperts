@@ -1,7 +1,7 @@
 # Chapter 16 - Artifacts as Evidence
 
 {width: 30%}
-![](https://avatars.githubusercontent.com/u/28131554)
+![](Ch16/NeverStopLearning.png)
 
 By [Nisarg Suthar](https://linktr.ee/NisargSuthar)
 

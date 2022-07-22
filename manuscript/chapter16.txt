@@ -1,7 +1,6 @@
 # Chapter 16 - Artifacts as Evidence
 
-By Nisarg Suthar
-[GitHub](https://github.com/Nisarg12) | [@nisargsuthar12](https://twitter.com/nisargsuthar12) | Nisarg#6698
+By [Nisarg Suthar](https://linktr.ee/NisargSuthar)
 
 ## Forensic Science
 Before learning about artifacts as digital evidence, I'll preface this chapter with the most fundamental definition of basic science. So what is Science? It is a field that follows a scientific process in any domain. That process is cyclical and goes something like this:
@@ -14,6 +13,7 @@ Before learning about artifacts as digital evidence, I'll preface this chapter w
 
 We never pollute this scientific process with biases or opinions. It is only credible as far as the fact finder's neutrality goes. All scientists trust observations and verified prior research, discarding all speculation.
 
+{width: 70%}
 ![16.1 - Attr: GliderMaven, CC BY-SA 4.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/7/7f/Scientific_law_versus_Scientific_theories.png)
 
 Ultimately, the goal of any science is not to state things in absolutes but in observations, experiments, procedures, and conclusions. Even the fundamental laws of science begin with a basic foundation laid of assumptions.
@@ -52,6 +52,8 @@ Understand the operating system as an abstraction level between the end-user and
 Before parsing the artifacts and diving deep into analysis, you must fully understand how files are generally handled by an operating system. As mentioned earlier, an operating system is just a very sophisticated piece of software written by the manufacturers to provide an abstraction level between the complexities of hardware interactions and the user.
 
 In the context of file handling, operating systems either *store* files or *execute* files. Both of which require different types of memory. Also, note that *storing* files requires access to a storage media such as HDDs, SSDs, and flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
+
+{pagebreak}
 
 As you might already know, computers, or any electronic computing device for that matter, primarily utilize two types of memory:
 

@@ -199,6 +199,70 @@ is not as exclusive to Linux as it once was.
     
 ### Cross Verification - An Alternate OS Approach
 
+All of the preceeding might come across as pushing Linux as a superior
+operating system for digital forensics.  That is most certainly not the
+intention. Rather, an effort has been made to point out the strengths of
+Linux in comparison to other platforms.  In reality, having Linux in your
+digital forensics arsenal is simply having access to a particularly
+powerful alternative tool.
+
+It is absolutely possible to utilize Linux as a primary digital forensic
+platform in today's laboratory environment. It is also a reality that
+providing timely and usable information for non-technical investigators
+and managers often means utilizing the reporting and data sharing
+functionalities available in modern forensic software suites that most
+often run under mainstream operating systems and not Linux.
+
+So where does Linux fit into a modern laboratory where reality and case
+load dictates the use of software suites with automated functionality?
+
+As an alternative operating system, Linux is often used to troubleshoot
+hardware issues where one platform either cannot detect or cannot access
+particular media.  Linux is well known for its ability to provide better
+diagnostic information and sometimes better detection for damaged or
+otherwise misbehaving devices.  When dealing with difficulties accessing
+a hard drive, for example, you will often hear the advice "connect it to
+a Linux box". Being able to directly monitor the kernel buffer and view
+the interactions between hardware and the kernel can be a great help in
+solving hardware issues.
+
+There is also the benefit of having a completely differnt operating
+system utilizing a different toolset to do cross verification of
+findings.  In some organizations, the cross verification of significant
+analyis results is a requirement.  Depending on the situation, it can
+make good sense even if not explicitly required.  Cross verification means that if a practitioner
+finds an artifact or draws a particular conclusion on a given piece of
+evidence then there needs to be a "confirmation" of that finding using a
+differnt tool or technique.  Consider the following simplified example:
+
+1. A forensic examiner extracts the "user created contents" (documents,
+   emails, etc.) from computer media and provides the data to an
+   investigator using a common Windows forensic software suite.
+2. The investigator identifies a particular document that can be
+   considered valuable to the case being investigated and requests a
+   report specific to that document.
+3. The forensic examiner provides a targeted report detailing the
+   document's properties - timestamps, ownership, where or how it
+   might have originated on the media, etc.
+4. The forensic examiner re-analyzes the specic document using a
+   completely different tool perhaps on a completely different operating
+   system (Linux in this case). Does the alternate tool identifty the same
+   location (physical disk location)?  Are the time stamps the same?  Is
+   the document meta data the same? Differences, if any, are
+   investigated and explained.  
+   
+The cross verification outlined above is overly simplifed, but it
+provides an outline of how Linux can be commonly employed in a
+laboratory environment dominated by Windows software and the need for
+efficient reporting.  Using a completely alternative operating system
+and unique open source tools to cross verify specific findings can help
+eliminate questions over automated processes and protects the veracity
+of the report.
+
+
+   
+
+
 
 
 

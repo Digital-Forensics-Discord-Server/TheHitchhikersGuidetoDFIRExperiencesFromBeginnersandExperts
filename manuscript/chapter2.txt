@@ -40,7 +40,7 @@ In Adroid devices the apps keep most user generated data in the following direct
 
 As seen in figure 2.1 there are folders within the data directory for each app on the device. These folders are named in reverse URL format and are known as bundle identifiers (IDs.) For details on bundle IDs in Android see here: [https://developer.android.com/studio/build/configure-app-module ](https://developer.android.com/studio/build/configure-app-module)
 
-{height: 90%}
+{height: 100%}
 ![2.1 - Data directory](/Ch2/Screenshot1.png)
 
 Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 

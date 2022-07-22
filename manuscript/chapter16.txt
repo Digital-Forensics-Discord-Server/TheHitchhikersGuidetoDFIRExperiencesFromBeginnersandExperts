@@ -217,6 +217,8 @@ ___About:___
 * Paging is a mechanism to store the current contents of the memory to disk, for later retrieving them and continue from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from a sleep states.
 * It uses the Xpress algorithm for compression. Volatility's `imagecopy` plugin can be used to convert this artifact to a raw memory image.
 
+{pagebreak}
+
 ___Significance:___
 * This is one of those artifacts which hops around its categorical type, and so this extra memory content can provide more information to your investigation.
 * To tackle accepting unfortunate shutdowns of locked devices in an investigation, one can retrieve this file at the time of disk forensics and get additional information by performing memory forensics on the converted file. This way we can retain partial volatile memory data.
@@ -279,6 +281,8 @@ ___Significance:___
 * Detect anti-forensic attempts targeted on the $MFT since $LogFile contains changes made to it.
 * Tracks changes made to $MFT metadata such as MACB timestamps.
 * Could help reconstruct a chronological list of transactions done to the files on the file system.
+
+{pagebreak}
 
 ## References:
 16.1 - Scientific law versus Scientific theories, by GliderMaven, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scientific_law_versus_Scientific_theories.png)

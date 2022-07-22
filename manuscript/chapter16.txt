@@ -1,7 +1,7 @@
 # Chapter 16 - Artifacts as Evidence
 
 {width: 30%}
-![](https://avatars.githubusercontent.com/u/28131554?s=400&u=8f475bbfc2effef4d270b7c7e9dd11819ce8fd3e&v=4)
+![](https://avatars.githubusercontent.com/u/28131554)
 
 By [Nisarg Suthar](https://linktr.ee/NisargSuthar)
 

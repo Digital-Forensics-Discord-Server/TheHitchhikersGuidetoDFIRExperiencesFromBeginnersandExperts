@@ -128,7 +128,7 @@ multiple windows and views to sort through. Again this is a benefit for
 education specifically. There is no doubt that a forensic software suite
 that ingests, analyzes evidence and presents the results in a single
 step, is more *efficient*.  But learning from the CLI with specific and
-very targeted output can be very powerful for students.
+very targeted output can be immensley powerful for students.
 
 ### Free(dom)!
 
@@ -144,27 +144,69 @@ multiple platforms and users, again without breaking the bank.
 
 For a practitioner learning the ins and outs of digital forensics, this
 can be very powerful.  You can install multiple copies of Linux across
-devices and virtual environments in a simple home lab 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+devices and virtual environments in a simple home lab, deleting,
+reinstalling and repurposing computer resources along the way.
+Installing and running Linux is a great way to re-purpose old hardware,
+which brings us to our next point.
 
 Linux provides unparralelled flexibility.  It will run on all forms of
-hardware, for laptops and desktops, to mobile devices and development
-hardware like the Raspberry pi, or 
-    - lab setup
+hardware, from laptop and desktop computers, to mobile devices and
+single board computers (SBC). It will run in a variety of virtualization
+environments, up to and including Microsoft Windows own Windows
+Subsystem for Linux (WSL/WSL2).  You can chose to run a Linux
+distribution on a workstation, on a $50 Raspberry Pi setup, in a virtual
+machine, or natively in Windows using WSL.  These all have their
+benefits and drawbacks, including cost; direct hardware access;
+convenience; and resource requirements.
+
+Another facet of Linux flexibility lies in the number of choices, freely
+available, that users have over their working environment.  Desktop
+environments like Plasma, Gnome and XFCE provide a wide range of choices
+that a user can customize for aesthetics or workflow efficiency.  These
+destop environments don't change the underlying operating system, but
+only the way one interacts with the system.  Paired with a separate
+*window manager*, there are hundreds of possiblites for customization.
+While it may sound trivial, we are not discussing wallpaper and icon
+themes here - we are talking about the flexibility to decide exaclty
+*how* you interact with the system.
+
+For example, you can set up a Linux environment that focuses on
+primarily CLI usage where the keyboard is the primary interface and the
+mouse is rarely needed.  This can be done with a wide selection of
+"tiling" window managers that open new windows in a pre-determined
+arrangment and allows for window manipulation, multiple workspaces and
+program access all through customizable keystrokes and little or no use
+for a mouse.  Certainly not an configuration that will appeal to
+everyone, but that is one of the joys of Linux - the ability to
+completely customize it to match your particular workflow.
 
 ### Control
-    - 
-    - granular control over devices, drivers, etc.
-    - not as exlusive as it once was
+
+Another traditional benefit of Linux over other operatings systems has
+historicaly been the contol in provides over the entire device
+environment. This has always been one of the more important factors when
+adopting Linux in the context of a forensic workstation.  Most operating
+systems are designed to isolate the user from the inner workings of
+hardware.  Linux, on the other hand, has traditionally allowed for much
+more granular control over attached devices and the associated drivers.
+This has blurred somewhat in recent years with a number of popular Linux
+versions becoming more desktop oriented and relying more and more on
+automation and ease of operation.  While this approach does hide some of
+the control options from the user, they are generally still available.
+
+And again, with changes in recent years, this level of hardware control
+is not as exclusive to Linux as it once was.  
     
 ### Cross Verification - An Alternate OS Approach
-    - Using Linux in conjuction with Windows
+
+
+
+
+### Distributions
 
 So how does one start a journey into using Linux for digital forensics?
 We begin with a discussion of distributions and selecting you platform's
 "flavor" of Linux.
-
-### Distributions
     
 In short, a "Linux Distribution" (or "distro" for short) is a
 collection of Linux components and compiled open source programs that

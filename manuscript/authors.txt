@@ -32,7 +32,7 @@ John has taken a keen interest in password cracking after being introduced to th
 
 Nisarg Suthar is a lifelong student and learner of DFIR. He is an aspiring digital forensic analyst with high levels of curiosity about how things work the way that they do. He has experience with malware analysis, reverse engineering and forensics.
 
-Nisarg is an independent researcher, a blue teamer, CTF player and a [blogger](https://sutharnisarg.medium.com/). He likes to read material in DFIR; old and new alike, complete investigations on platforms like CyberDefenders and BTLO, and network with other forensicators to learn and grow mutually.
+Nisarg is an independent researcher, a blue teamer, CTF player and a (. He likes to read material in DFIR; old and new alike, complete investigations on platforms like CyberDefenders and BTLO, and network with other forensicators to learn and grow mutually.
 
 He is also the developer of his most recent open-source project [Veritas](https://github.com/Nisarg12/Veritas), a validation purpose hex viewer for the people in DFIR. He is a big fan of all things FOSS.
 
@@ -40,9 +40,13 @@ Nisarg started tinkering with disassembly of machine code, computer data and rev
 
 In his spare time, Nisarg likes to obssessively play and learn chess.
 
-## name
+## s3raph
 
-bio goes here
+Breaker of things (mostly things that they shouldn't break)
+Writer of broken code [GitHub](https://github.com/s3raph-x00).
+s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defense and still somehow has a job in this field.
+
+[Do You Want to Known More?](https://www.s3raph.com/)
 
 ## name
 

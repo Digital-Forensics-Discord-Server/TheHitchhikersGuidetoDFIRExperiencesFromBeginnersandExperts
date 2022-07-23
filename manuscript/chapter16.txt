@@ -24,7 +24,13 @@ Ultimately, the goal of any science is not to state things in absolutes but in o
 
 Much like any scientific field, 'forensics' or 'criminalistics' is a branch of science that deals with identifying, collecting, and preserving evidence of a crime. It is not just identifying, collecting, and preserving but doing so in a forensically sound manner. What that means is that evidence should not be changed or stray away from its true form.
 
-Digital Forensics is a six-phase process including Preparation, Identification, Collection, Preservation, Analysis, and Reporting.
+Digital Forensics is a six-phase process including:
+* Preparation: Making sure your suite of forensic tools is up to date, and destination media are sanitized.
+* Identification: Identifying the devices of interest at the site. Mobile phones, laptops, IoT devices, USB drives, cameras, SD cards etc. Anything with some type of digital memory.
+* Collection: Acquiring the memory via imaging and hashing the sources for verification.
+* Preservation: Using techniques viable for long term storage of sensitive evidence. Also includes maintaining a valid chain of custody.
+* Analysis: Dissecting the acquired evidence. All puzzle solving and brainstorming happens in this phase.
+* Reporting: Preparing a concise and easily digestible report of your findings for people who may not be technically inclined. The report must show forensic soundness for it to be admissible in the court of law.
 
 * * *
 
@@ -134,9 +140,9 @@ There are mainly two types of hive files:
 	* SECURITY: Information about security measures and policies in place for the system.
 
 2. **User Specific Hive Files:**
-	* Amcache.hve: Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp, and SHA-1 hashes.
-	* ntuser.dat: Information about autostart applications, searched terms used in Windows Explorer or Internet Explorer, recently accessed files, run queries, last execution times of applications, etc.
-	* UsrClass.dat: Information about user-specific shellbags is covered in the next section.
+	* `Amcache.hve`: Information about application executables (Evidence of Execution), full path, size, last write timestamp, last modification timestamp, and SHA-1 hashes.
+	* `ntuser.dat`: Information about autostart applications, searched terms used in Windows Explorer or Internet Explorer, recently accessed files, run queries, last execution times of applications, etc.
+	* `UsrClass.dat`: Information about user-specific shellbags is covered in the next section.
 
 {pagebreak}
 
@@ -149,7 +155,7 @@ ___Significance:___
 ___About:___
 * Shellbags were introduced in Windows 7. It is a convenience feature that allows the operating system to remember Windows Explorer configuration for user folders and a folder's tree structure.
 * Whenever a folder is created, selected, right-clicked, deleted, copied, renamed or opened, shellbag information will be generated.
-* Depending on the Windows version, shellbag information can be stored in either ntuser.dat, UsrClass.dat or both.
+* Depending on the Windows version, shellbag information can be stored in either `ntuser.dat`, `UsrClass.dat` or both.
 
 ___Significance:___
 * Reconstructing the tree structure for deleted folders. Helpful in providing an idea of the files that used to exist when they cannot be carved from the unallocated space.
@@ -200,9 +206,9 @@ ___Significance:___
 
 ### SRUDB.dat
 ___About:___
-* SRUDB.dat is an artifact resulting from a new feature introduced in Windows 8, called SRUM (System Resource Usage Monitor) which tracks and monitors different usage statistics of OS resources such as network data sent & received, process ownership, power management information, push notifications data and even applications which were in focus at times along with keyboard and mouse events as per a new [research](https://aboutdfir.com/app-timeline-provider-srum-database/).
+* `SRUDB.dat` is an artifact resulting from a new feature introduced in Windows 8, called SRUM (System Resource Usage Monitor) which tracks and monitors different usage statistics of OS resources such as network data sent & received, process ownership, power management information, push notifications data and even applications which were in focus at times along with keyboard and mouse events as per a new [research](https://aboutdfir.com/app-timeline-provider-srum-database/).
 * It is capable of holding 30-60 days worth of tracking data at a time.
-* So far, we haven't looked at an artifact that has been able to undoubtedly map a particular process executed to a user. SRUDB.dat offers us this critical information directly. It is one of the most valuable artifacts due to the multidimensional applications of SRUM by the OS itself.
+* So far, we haven't looked at an artifact that has been able to undoubtedly map a particular process executed to a user. `SRUDB.dat` offers us this critical information directly. It is one of the most valuable artifacts due to the multidimensional applications of SRUM by the OS itself.
 
 ___Significance:___
 * Useful in mapping process to a user account. Especially useful in the scenarios of restricted scope of acquisition.
@@ -213,7 +219,7 @@ ___Significance:___
 
 ### hiberfil.sys
 ___About:___
-* hiberfil.sys was first introduced in Windows 2000. It is a file used by Windows for memory paging, at the time of hibernations or sleep cycles. It is also used in case of power failures.
+* `hiberfil.sys` was first introduced in Windows 2000. It is a file used by Windows for memory paging, at the time of hibernations or sleep cycles. It is also used in case of power failures.
 * Paging is a mechanism to store the current contents of the memory to disk, for later retrieving them and continue from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from a sleep states.
 * It uses the Xpress algorithm for compression. Volatility's `imagecopy` plugin can be used to convert this artifact to a raw memory image.
 
@@ -226,7 +232,7 @@ ___Significance:___
 
 ### pagefile.sys
 ___About:___
-* Similar to hiberfil.sys, pagefile.sys is a swapping file used by Windows to temporarily store new contents that were supposed to be loaded in the memory but could not due to insufficient space. When required amount of memory is freed, contents are transferred from this artifact back to the memory.
+* Similar to `hiberfil.sys`, `pagefile.sys` is a swapping file used by Windows to temporarily store new contents that were supposed to be loaded in the memory but could not due to insufficient space. When required amount of memory is freed, contents are transferred from this artifact back to the memory.
 * The only known methods to get some information from this artifact is using the string utility, a hex editor, and filtering using regex.
 * It can store chunks of data capping at 4kb in size.
 
@@ -250,21 +256,21 @@ ___Significance:___
 
 ### $I30
 ___About:___
-* $I30 is called the index attribute of the NTFS file system. A $I30 file corresponding to each directory is maintained by the NTFS file system as the B-tree would be constantly balancing itself as different files are created or deleted.
-* $I30 is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the `$Bitmap`, `$INDEX_ROOT` and `$INDEX_ALLOCATION`. The 30 in its name comes from the offset for $FILE_NAME in a MFT record.
+* `$I30` is called the index attribute of the NTFS file system. A `$I30` file corresponding to each directory is maintained by the NTFS file system as the B-tree would be constantly balancing itself as different files are created or deleted.
+* `$I30` is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the `$Bitmap`, `$INDEX_ROOT` and `$INDEX_ALLOCATION`. The 30 in its name comes from the offset for `$FILE_NAME` in a MFT record.
 * It keeps track of which files are in which directories, along with MACB timestamps and file location.
-* It also has slack space, similar to $MFT, but again for smaller files.
+* It also has slack space, similar to `$MFT`, but again for smaller files.
 
 ___Significance:___
 * Original timestamps for deleted files can be retreived.
-* Useful in detection of anti-forensic tools and timestomping as the timestamps are $FILE_NAME attribute timestamps which are not easily modifiable or accessible through the Windows API.
+* Useful in detection of anti-forensic tools and timestomping as the timestamps are `$FILE_NAME` attribute timestamps which are not easily modifiable or accessible through the Windows API.
 * Important metadata like MACB timestamps can be obtained.
 
 ### $UsnJrnl
 ___About:___
-* The NTFS file system has a journaling mechanism, which logs all the transactions performed in the file system as a contingency plan for system failures and crashes. This transaction data is contained in the $UsnJrnl attribute file.
-* $UsnJrnl, read as USN Journal, is the main artifact which contains two alternate data streams namely $Max and $J, out of which $J is highly of interest for forensicators. It contains critical data such as if a file was overwritten, truncated, extended, created, closed or deleted along with the corresponding timestamp for that file update action.
-* $UsnJrnl tracks high-level changes to the file system, like file creation, deletion, renaming data etc.
+* The NTFS file system has a journaling mechanism, which logs all the transactions performed in the file system as a contingency plan for system failures and crashes. This transaction data is contained in the `$UsnJrnl` attribute file.
+* `$UsnJrnl`, read as USN Journal, is the main artifact which contains two alternate data streams namely `$Max` and `$J`, out of which `$J` is highly of interest for forensicators. It contains critical data such as if a file was overwritten, truncated, extended, created, closed or deleted along with the corresponding timestamp for that file update action.
+* `$UsnJrnl` tracks high-level changes to the file system, like file creation, deletion, renaming data etc.
 
 ___Significance:___
 * Useful to support or deny timestamp metadata. Potential evidence of deleted and renamed files. i.e., evidence of existence.
@@ -273,13 +279,13 @@ ___Significance:___
 
 ### $LogFile
 ___About:___
-* This is yet another artifact used by the NTFS for journaling. Only difference is $LogFile is concerned with changes made to the MFT and not the entire NTFS file system itself. Meaning it may directly contain data that was changed, similarly to how $MFT sometimes stores the files if they're small enough.
+* This is yet another artifact used by the NTFS for journaling. Only difference is `$LogFile` is concerned with changes made to the MFT and not the entire NTFS file system itself. Meaning it may directly contain data that was changed, similarly to how `$MFT` sometimes stores the files if they're small enough.
 * These 4 artifacts, in bunch can say a lot about an event or a transaction while performing file system forensics.
-* $LogFile tracks low-level changes to the file system, like data which was changed.
+* `$LogFile` tracks low-level changes to the file system, like data which was changed.
 
 ___Significance:___
-* Detect anti-forensic attempts targeted on the $MFT since $LogFile contains changes made to it.
-* Tracks changes made to $MFT metadata such as MACB timestamps.
+* Detect anti-forensic attempts targeted on the `$MFT` since `$LogFile` contains changes made to it.
+* Tracks changes made to `$MFT` metadata such as MACB timestamps.
 * Could help reconstruct a chronological list of transactions done to the files on the file system.
 
 * * *

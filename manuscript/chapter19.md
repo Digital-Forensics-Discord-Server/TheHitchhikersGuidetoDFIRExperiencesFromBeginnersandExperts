@@ -128,14 +128,14 @@ multiple windows and views to sort through. Again this is a benefit for
 education specifically. There is no doubt that a forensic software suite
 that ingests, analyzes evidence and presents the results in a single
 step, is more *efficient*.  But learning from the CLI with specific and
-very targeted output can be immensley powerful for students.
+very targeted output can be immensely powerful for students.
 
 ### Free(dom)!
 
 Freedom and flexibility are just two of the many attributes that can
-help make linux a useful addition to you tool box.  
+help make Linux a useful addition to you tool box.  
 
-First and formost of course, Linux is free.  As mentioned earlier, this
+First and foremost of course, Linux is free.  As mentioned earlier, this
 means we can install it as many times on as many computers (or virtual
 machines) as we like.  You can use it as any sort of server while not
 tying up valuable budget resources on licensing. This goes for the
@@ -149,9 +149,9 @@ reinstalling and repurposing computer resources along the way.
 Installing and running Linux is a great way to re-purpose old hardware,
 which brings us to our next point.
 
-Linux provides unparralelled flexibility.  It will run on all forms of
+Linux provides unparalleled flexibility.  It will run on all forms of
 hardware, from laptop and desktop computers, to mobile devices and
-single board computers (SBC). It will run in a variety of virtualization
+single board computers (SBC). It will run in a variety of virtualisation
 environments, up to and including Microsoft Windows own Windows
 Subsystem for Linux (WSL/WSL2).  You can chose to run a Linux
 distribution on a workstation, on a $50 Raspberry Pi setup, in a virtual
@@ -163,18 +163,18 @@ Another facet of Linux flexibility lies in the number of choices, freely
 available, that users have over their working environment.  Desktop
 environments like Plasma, Gnome and XFCE provide a wide range of choices
 that a user can customize for aesthetics or workflow efficiency.  These
-destop environments don't change the underlying operating system, but
+desktop environments don't change the underlying operating system, but
 only the way one interacts with the system.  Paired with a separate
-*window manager*, there are hundreds of possiblites for customization.
+*window manager*, there are hundreds of possibilities for customization.
 While it may sound trivial, we are not discussing wallpaper and icon
-themes here - we are talking about the flexibility to decide exaclty
+themes here - we are talking about the flexibility to decide exactly
 *how* you interact with the system.
 
 For example, you can set up a Linux environment that focuses on
 primarily CLI usage where the keyboard is the primary interface and the
 mouse is rarely needed.  This can be done with a wide selection of
 "tiling" window managers that open new windows in a pre-determined
-arrangment and allows for window manipulation, multiple workspaces and
+arrangement and allows for window manipulation, multiple workspaces and
 program access all through customizable keystrokes and little or no use
 for a mouse.  Certainly not an configuration that will appeal to
 everyone, but that is one of the joys of Linux - the ability to
@@ -182,8 +182,8 @@ completely customize it to match your particular workflow.
 
 ### Control
 
-Another traditional benefit of Linux over other operatings systems has
-historicaly been the contol in provides over the entire device
+Another traditional benefit of Linux over other operating systems has
+historically been the control in provides over the entire device
 environment. This has always been one of the more important factors when
 adopting Linux in the context of a forensic workstation.  Most operating
 systems are designed to isolate the user from the inner workings of
@@ -199,7 +199,7 @@ is not as exclusive to Linux as it once was.
     
 ### Cross Verification - An Alternate OS Approach
 
-All of the preceeding might come across as pushing Linux as a superior
+All of the preceding might come across as pushing Linux as a superior
 operating system for digital forensics.  That is most certainly not the
 intention. Rather, an effort has been made to point out the strengths of
 Linux in comparison to other platforms.  In reality, having Linux in your
@@ -226,14 +226,14 @@ a Linux box". Being able to directly monitor the kernel buffer and view
 the interactions between hardware and the kernel can be a great help in
 solving hardware issues.
 
-There is also the benefit of having a completely differnt operating
-system utilizing a different toolset to do cross verification of
+There is also the benefit of having a completely different operating
+system utilizing a different tool set to do cross verification of
 findings.  In some organizations, the cross verification of significant
-analyis results is a requirement.  Depending on the situation, it can
+analysis results is a requirement.  Depending on the situation, it can
 make good sense even if not explicitly required.  Cross verification means that if a practitioner
 finds an artifact or draws a particular conclusion on a given piece of
 evidence then there needs to be a "confirmation" of that finding using a
-differnt tool or technique.  Consider the following simplified example:
+different tool or technique.  Consider the following simplified example:
 
 1. A forensic examiner extracts the "user created contents" (documents,
    emails, etc.) from computer media and provides the data to an
@@ -244,14 +244,14 @@ differnt tool or technique.  Consider the following simplified example:
 3. The forensic examiner provides a targeted report detailing the
    document's properties - timestamps, ownership, where or how it
    might have originated on the media, etc.
-4. The forensic examiner re-analyzes the specic document using a
+4. The forensic examiner re-analyzes the specific document using a
    completely different tool perhaps on a completely different operating
-   system (Linux in this case). Does the alternate tool identifty the same
+   system (Linux in this case). Does the alternate tool identify the same
    location (physical disk location)?  Are the time stamps the same?  Is
    the document meta data the same? Differences, if any, are
    investigated and explained.  
    
-The cross verification outlined above is overly simplifed, but it
+The cross verification outlined above is somewhat overly simplified, but it
 provides an outline of how Linux can be commonly employed in a
 laboratory environment dominated by Windows software and the need for
 efficient reporting.  Using a completely alternative operating system
@@ -259,12 +259,10 @@ and unique open source tools to cross verify specific findings can help
 eliminate questions over automated processes and protects the veracity
 of the report.
 
-
-   
-
-
-
-
+Another benefit of using Linux to cross verify findings it that it
+allows you to fit Linux into your workflow, thereby  giving you reason
+to actually use it rather than simply installing it and trying to make
+time to learn.  
 
 ### Distributions
 
@@ -277,15 +275,15 @@ collection of Linux components and compiled open source programs that
 come together to create an operating system.  These components can
 include a packaged kernel; optional operating system utilities and
 configurations; configured desktop environments and window managers;
-and software management and utilities. These are all made tied
+and software management and utilities. These are all tied
 together with an installer that is usually specific to the given
 distribution.
 
-With the open source nature of the Linux environment, you could even
+With the open source nature of the Linux environment, you could 
 grab all the source code for the various components and build your
 very own distribution, or at least running version of Linux. This is
-often referred to as "Linux from Scratch" (LFS).  But the various
-distro developers do all the heavy lifting for you. Packaging it all
+often referred to as "Linux from Scratch" (LFS).  On the other hand, the various
+distro developers do all the heavy lifting for you. Packaging it 
 up and making the entire operating system available to you for
 install via a variety of methods.
 
@@ -303,10 +301,41 @@ limited to):
 So how does one choose a Linux distro? Particularly for use as a
 digital forensics platform?
    
-#### Choosing Your Platform
+#### Choosing Your Platform's distribution
 
-From the perspective of a digital forensics examiner, any distro
-    - Requirements
+From the perspective of a digital forensics examiner, any distro will
+work within reason.  The simplest answer is to download any popular
+distribution and just install it.  In the long run just about any
+flavor of Linux can be made to act and "feel" like any other.  
+
+If you want to do some research first, consider looking at what is
+already in use.  Does your lab or agency already use Linux in the
+enterprise? It may be a good idea to use a Linux system that closely
+matches what your organization already has deployed.  If part of your
+job is to respond to company or agency incidents, a more intimate
+knowledge of the systems involved would be helpful.  
+
+Another legitimate answer to the question of "which distro?" is simply
+to see what others around you are running.  If you have co-workers or
+lab mates that are running a specific version of Linux, then it makes
+sense to do the same.  Being able to consult with co-workers and friends
+makes getting support much easier.  
+
+If there are no organizational considerations, then consider using a
+popular distribution with wide acceptance in the community.  Ubuntu is
+the first distribution that comes to mind here.  Much of the forensic
+software available today for Linux is developed and tested on Ubuntu.
+There is a huge support community for Ubuntu, and just about any
+question you might have has already been answered and is readily
+available. While this can be said for other distributions (Arch Linux
+comes to mind), Ubuntu is most certainly the most ubiquitous.  
+
+There are, however other points that might warrant scrutiny.  Ubuntu, as
+popular as it is, has drifted toward a more desktop oriented operating
+system. Configuration options and system settings have been made much
+easier through a number of GUI utilities and enhancements that make the
+distribution
+
     - baseline or Ready out of the box
     - Bootable vs installed
     - baremetal vs VM

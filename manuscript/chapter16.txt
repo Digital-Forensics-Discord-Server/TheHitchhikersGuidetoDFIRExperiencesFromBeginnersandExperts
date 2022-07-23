@@ -32,8 +32,6 @@ Digital Forensics is a six-phase process including:
 * Analysis: Dissecting the acquired evidence. All puzzle solving and brainstorming happens in this phase.
 * Reporting: Preparing a concise and easily digestible report of your findings for people who may not be technically inclined. The report must show forensic soundness for it to be admissible in the court of law.
 
-* * *
-
 {pagebreak}
 
 ## Types of Artifacts

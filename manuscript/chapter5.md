@@ -219,7 +219,7 @@ Now simply click “Deselect All” (since they have already run) and click your
 
 ![](resources/Ch5/36.png)
 
-So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation,I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionalities required for my use case [Yet Another Android Application Tool](https://github.com/s3raph-x00/YAAAAT):
+So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation,I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionalities required for my use case [(Yet Another Android Application Tool)](https://github.com/s3raph-x00/YAAAAT):
 
 ![](resources/Ch5/37.png)
 

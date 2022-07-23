@@ -282,6 +282,8 @@ ___Significance:___
 * Tracks changes made to $MFT metadata such as MACB timestamps.
 * Could help reconstruct a chronological list of transactions done to the files on the file system.
 
+* * *
+
 {pagebreak}
 
 ## References:
@@ -291,6 +293,6 @@ ___Significance:___
 
 16.3 - Role of an Operating System, by Kapooht, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?curid=25825053)
 
-16.4 - Our perception of truth depends on our viewpoint 2.0, by (losmilzo)[https://imgur.com/user/losmilzo], via [Imgur](https://imgur.com/gallery/obWzGjY)
+16.4 - Our perception of truth depends on our viewpoint 2.0, by [losmilzo](https://imgur.com/user/losmilzo), via [Imgur](https://imgur.com/gallery/obWzGjY)
 
-16.5 - Puzzle Multicoloured Coloured, by [Stefan Schweihofer](https://pixabay.com/users/stux-12364/), under [Simplified Pixabay License](https://pixabay.com/service/license/), via Pixabay(https://pixabay.com/vectors/puzzle-multicoloured-coloured-3155663/)
+16.5 - Puzzle Multicoloured Coloured, by [Stefan Schweihofer](https://pixabay.com/users/stux-12364/), under [Simplified Pixabay License](https://pixabay.com/service/license/), via [Pixabay](https://pixabay.com/vectors/puzzle-multicoloured-coloured-3155663/)

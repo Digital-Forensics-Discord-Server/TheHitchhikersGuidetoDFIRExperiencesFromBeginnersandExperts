@@ -10,7 +10,7 @@ An avid blue team leader helping to secure the healthcare industry. Despite bein
 
 ## Andrew Rathbun
 
-bio goes here
+Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to: the Digital Forensics Discord Server, AboutDFIR, and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
 
 ## Kevin Pagano
 

@@ -24,9 +24,9 @@ In his spare time, Kevin likes to drink beers and design DFIR themed designs for
 
 ## John Haynes
 
-John Haynes is a detective who also works with digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer. He is finishing up a Bachelor of Science in Computer Information Technology that he started in 2019 before being exposed to digital forensics. 
+John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
 
-John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. You can find a few basic videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or finding him learning what he can on the DFIR Discord (@FullTang).
+John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or finding him learning what he can on the DFIR Discord (@FullTang).
 
 ## Nisarg Suthar
 

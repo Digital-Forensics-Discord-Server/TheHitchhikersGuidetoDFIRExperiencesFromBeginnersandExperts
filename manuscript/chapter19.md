@@ -334,7 +334,40 @@ There are, however other points that might warrant scrutiny.  Ubuntu, as
 popular as it is, has drifted toward a more desktop oriented operating
 system. Configuration options and system settings have been made much
 easier through a number of GUI utilities and enhancements that make the
-distribution
+distribution more focused on ease of use - the end user still has
+access to in-depth control of the operating system, but there might be
+some work involved in disabling some of the automation that might hamper
+forensic work.
+
+Other Linux distributions offer a far more simple approach - minimally
+configured "out of the box", leaving it completely up to the user to
+configure the bells and whistles often considered normal features for
+modern operating systems.  Distributions like Slackware , Void Linux and
+Gentoo fall into this category. With these distributions, rather than
+making systemic changes to a healiy desktop oriented configuration, you can start with
+a more streamlined workstation and work up, building a more efficient
+system.
+
+The last consideration one might want to consider is selecting between a
+rolling release and incremental release distro.  Normally we think of
+numbered releases for an operating system.  Version X realeased on a
+given date, often with security updates and bug fixes in between major
+version realeases.  Eventually another release, let's call it version Y
+is made available and so on. Distributions like Slackware, Debian and
+(generally) Ubuntu fall ito this category. For the most part these are
+considered more stable, where components of the desktop and operating
+system are updated and tested together before release.  For the forensic
+examiner, this approach provides not only the aforementioned stability,
+but also fewer mass changes to kernel components and sofware libraries
+that might affect the forensic environment and unexpected behaviors that
+can impact evidence integrity or the interpretation of examination
+results.
+
+A rolling release, on the other hand
+continually updates software as new versions become available for
+everything from the the kernel to base libraries. This has the benefit
+of always keeping up with the "latest and greatest".  Changes to
+upstream software are often immediately supported.  One obvious 
 
     - baseline or Ready out of the box
     - Bootable vs installed

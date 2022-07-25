@@ -41,11 +41,11 @@ comp.os.minix:
 > AT-harddisks, as that's all I have :-(.
 >        --Linus Torvalds  (quoted from Wikipedia)}
 
-Linux is an operating system very similar to Unix, deriving most of its
+Modern Linux is an operating system very similar to Unix, deriving most of its
 functionality from the much older AT&T Unix originally developed in
-1970.  This included a full TCP/IP stack and GNU development tools to
+in the 1970's.  This included a full TCP/IP stack and GNU development tools to
 compile programs.  In short, Linux is mostly compliant with the Portable
-Operating System Interface for Unix (POSIX).  
+Operating System Interface for Unix (POSIX). 
     
 Despite the warnings of lack of architecture portability and limited
 support mentioned by Torvalds in his postscript in the above quote,
@@ -70,7 +70,7 @@ it originated, we should also mention what Linux is _not_, particularly
 where digital forensics is concerned.  We will cover _why_ you might
 want to use Linux for digital forensics in a later section, but for now
 a beginner forensics examiner should know that Linux is not a platform
-well suited to "point and click", or what I like to refer to as
+well suited to "point and click", or what some might refer to as
 "nintendo forensics" techniques.  While there are graphical user
 interface (GUI) tools available for Linux, it is not the strongest OS
 for that approach.  More on that later.
@@ -264,13 +264,15 @@ allows you to fit Linux into your workflow, thereby  giving you reason
 to actually use it rather than simply installing it and trying to make
 time to learn.  
 
-### Distributions
+## Choosing Linux
 
 So how does one start a journey into using Linux for digital forensics?
 We begin with a discussion of distributions and selecting you platform's
 "flavor" of Linux.
-    
-In short, a "Linux Distribution" (or "distro" for short) is a
+
+### Distributions
+
+A "Linux Distribution" (or "distro" for short) is a
 collection of Linux components and compiled open source programs that
 come together to create an operating system.  These components can
 include a packaged kernel; optional operating system utilities and
@@ -301,7 +303,7 @@ limited to):
 So how does one choose a Linux distro? Particularly for use as a
 digital forensics platform?
    
-#### Choosing Your Platform's distribution
+### Choosing Your Platform
 
 From the perspective of a digital forensics examiner, any distro will
 work within reason.  The simplest answer is to download any popular
@@ -320,15 +322,6 @@ to see what others around you are running.  If you have co-workers or
 lab mates that are running a specific version of Linux, then it makes
 sense to do the same.  Being able to consult with co-workers and friends
 makes getting support much easier.  
-
-If there are no organizational considerations, then consider using a
-popular distribution with wide acceptance in the community.  Ubuntu is
-the first distribution that comes to mind here.  Much of the forensic
-software available today for Linux is developed and tested on Ubuntu.
-There is a huge support community for Ubuntu, and just about any
-question you might have has already been answered and is readily
-available. While this can be said for other distributions (Arch Linux
-comes to mind), Ubuntu is most certainly the most ubiquitous.  
 
 There are, however other points that might warrant scrutiny.  Ubuntu, as
 popular as it is, has drifted toward a more desktop oriented operating
@@ -363,18 +356,44 @@ that might affect the forensic environment and unexpected behaviors that
 can impact evidence integrity or the interpretation of examination
 results.
 
-A rolling release, on the other hand
-continually updates software as new versions become available for
-everything from the the kernel to base libraries. This has the benefit
-of always keeping up with the "latest and greatest".  Changes to
-upstream software are often immediately supported.  One obvious 
+A rolling release, on the other hand continually updates software as new
+versions become available for everything from the the kernel to base
+libraries. This has the benefit of always keeping up with the "latest
+and greatest".  Changes to upstream software are often immediately
+supported.  One obvious negative effect of this, aside from being more
+prone to instability, is that wholesale changes to the operating system
+should probably trigger some testing on part of the forensic examiner.
+There should be no dobut that a digital forensics platform is operating
+exactly as expected. Constant mass upgrades can interfre with this by
+possibly breaking or chaning expected output or hardware behavior.
+Examples of rolling releases include Arch , Manjaro, Void, and Ubuntu
+Rolling Rhino.
 
-    - baseline or Ready out of the box
-    - Bootable vs installed
-    - baremetal vs VM
+Another option, of course, is a ready made distribution specifically
+designed for digital forensics.  Kali Linux, Caine and Tsrugi Linux are
+common examples.  These are generally used as bootable operating systems
+for live investigations, but can also be installed directly on hardware
+to use in a Lab.  The benefit is obviously that the system is ready to
+go with just about all the forensic software one might need to conduct
+digtal forensics, incident response, or even Open Source Intelligence
+(OSINT). From an education perspecitve, ready made forensic
+distributions have you up and running quickly, ready to learn the tools.
+What you might miss however is actually setting up, finding and
+installing the tools yourself - all part of the education process.
 
-#### Simple vs. Easy
+If there are no organizational considerations, then consider using a
+popular distribution with wide acceptance in the community.  Ubuntu is
+the first distribution that comes to mind here.  Much of the forensic
+software available today for Linux is developed and tested on Ubuntu.
+There is a huge support community for Ubuntu, and just about any
+question you might have has already been answered and is readily
+available. While this can be said for other distributions (Arch Linux
+comes to mind), Ubuntu is most certainly the most ubiquitous.  
 
+Or you can take the opposite view and install a distribution along the
+lines of Slackware or Gentoo.  Start with a very 'vanilla'
+installation and learn the ins and outs of configuration, sysetem setup,
+and administration without a lot of helpful automation.  
 
 ## Learning Linux
     - forensic perspecitve
@@ -384,12 +403,12 @@ upstream software are often immediately supported.  One obvious
 ## Learning Linux Forensics
     - What is your purpose for using linux?
 
-#### Linux as a Platform
+### Linux as a Platform
     - if it is for learning forensics, you can try the linuxleo guide
     - watch windows forensics videos and see how you can apply linux
     - use it!
 
-#### Linux as a target
+### Linux as a target
     - There are books available, and more to come as linux growth on the
       desktop grows and server use increases.
     - Analysing an OS generally requires knowledge of how it works.

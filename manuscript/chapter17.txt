@@ -1,5 +1,7 @@
 # Chapter 17: Forensic imaging in a nutshell
 
+C> By Guus Beckers
+
 ## What is a disk image?
 
 A disk image is a representation of data contained within a disk. It contains the contents of the entire disk, including all files and folders. Dedicated forensic hardware appliances or software packages ensure a bit-by-bit copy is performed. In other words, the contents of the disk image will match the contents of the disk exactly. When an unexpected error has occurred, this will be flagged and the forensicator will be notified. It is possible to make a disk image from every data source, including desktop computers, laptops and servers, a USB-drive, an SD-card, or any other storage medium you can think of.
@@ -129,4 +131,30 @@ For a full set of commands please refer to the GitHub development page.
 ### Virtual Machines
 
 The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are necessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility.
+
+## Next steps and conclusion
+
+This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and assosciated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost.  In the near future this book will hopefully contain a triage chapter as well, in the meantime a couple of pointers can be found below. Disk sizes are ever-expanding and it is no longer feasible for most investigations to investigate a image to its full extent in the initial phase of an investigation. Rather, it is recommended to focus on well-known forensic artifacts which can be used to answer research questions. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/.
+
+A number of tools can be of use during triage, these include:
+
+* FTK Imager
+* Arsenal Image Mounter
+* KAPE
+* Eric Zimmerman tools (most notably Timeline Explorer
+
+FTK Imager can be used to read the image and browse the filesystem by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post processing steps. 
+
+[Arsenal Image Mounter](https://arsenalrecon.com/downloads/) can be used to mount images in a read-only manner. This capability can be used in conjunction with KAPE to quickly extract pertinent artifacts. It has more advanced functionality as well but that is beyond the scope of this chapter. 
+
+[KAPE](https://github.com/EricZimmerman/KapeFiles), created by Eric Zimmerman, can be used to quickly collect and post-process artifacts utilizing either a graphical user interface or a command line. KAPE can collect information from a wide range of targets. The required information can be collected by simply checking the box next to the target and providing source and destination locations. KAPE will then collect the information. 
+
+Of particular note for triage is the KapeTriage collection target. The following description is provided at the time of writing:
+
+ Kape Triage collections that will collect most of the files needed for a DFIR Investigation.  This module pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Mozilla history), LNK Files, Jump Lists, 3rd party remote access software logs, 3rd party antivirus software logs, Windows 10 Timeline database, and $I Recycle Bin data files.
+ 
+ The KapeTriage collection can be post-processed by the included EZParsers. These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format. 
+ 
+ These parsers (and other tools) can also be downloaded indivudally at https://ericzimmerman.github.io/#!index.md. Among the tools is Timeline Explorer, a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/
+
 

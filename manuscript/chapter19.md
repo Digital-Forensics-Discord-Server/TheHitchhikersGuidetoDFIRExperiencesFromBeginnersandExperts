@@ -454,19 +454,127 @@ materials are freely available at https://www.linuxleo.com.
 ### Linux as a target
 
 Perhaps you have no specific desire to use Linux as a day to day
-forensic platform.
+forensic platform.  There is, however, something to be said for knowing
+how Linux works and where to look for evidence should you be assigned an
+analysis where the subject device runs a version of Linux.
 
-    - There are books available, and more to come as linux growth on the
-      desktop grows and server use increases.
-    - Analysing an OS generally requires knowledge of how it works.
-        - This can be made difficult by distribution differences,
-          configuration differences, file system selection, etc.
-        - baseline knowledge is a good base.
+For years now, Linux has been a popular server operating sysetm,
+utilized in enterprise environments across the world.  In the past few
+years there has been a steady growth of "desktop" Linux, particualary
+with the emergence of user oriented distributions like Ubuntu, Mint and
+derivations based on them. A growth in Linux compatible software for specialized
+tasks such as video editing, publishing, and even gaming has resulted in
+Linux being more widely adopted.  Alwasy strong in academia, the growth
+of Linux destop applications has resulted in a much wider user base.
 
-### GNU Utilities and the Power of the Command Line
+Given the popularity of the Android operating system, which is (in
+simple terms) based on Linux, there has always been a stronger need for
+familiarity with Linux in the analisys of mobile devices.  But Android
+is not the same as Linux on desktop computers.  Similar for sure, but
+file system differences and application analysis are widely divergent.
 
-- beware of non-forensic advice
+One of the biggest issues that arises when examining a Linux system as
+the target of an examination is the breadth of possible options
+available to a user in a customized desktop (or server for that matter).
+For example, an examiner must be at least somewhat familiar with a
+subject computer's *init* system. Most modern distributions use
+*systemd* to control processes and logging.  Other distributions rely on
+the older text based *BSD init* or *System V* process scripts.  In
+either case and depending on the nature of the investigation, knowing
+how processes are started, and how they are started might be an
+important part of the forensic puzzle.
 
-### External Forensic Software
+Tracking and identifying *user activity* is often another important
+piece of the puzzle.  With Linux, regardless of distribution, users
+have a wide range of choices for desktop environments, window managers,
+file managers, and many other desktop components.  All of these
+components, some used in combination, store configuration and user
+activity in different formats and locations which makes having intimate
+knowledge of every possible iteration very difficult.  
+
+Event the very low level components of a Linux installation can differ,
+even within a single distribution.  Users can choose a different boot loader
+(which loads the operating sysetm) and even a different file system
+format.  Most Linux distributions will use the Ext4 file system by
+default, but it's a simple matter to select and install any number of
+others depeding on perference:  btrFS, XFS, ZFS, JFS are all examples of
+file systems.  Should an examiner come across one of these,
+consideration would need to be givent to file recovery, allocation
+strategies to help determine file activity, and perhaps forensic
+software support.
+
+All of these are challenges with examining any of the myriad
+permutations of Linux. There are a few books covering the basics of Linux
+examinations. Much of the information available from a forensic
+perspective can be found in a few videos or seminars.  For anyone
+looking for a challenging focus for research or  a subject for an academic 
+project, Linux as a forensic target provides ample subject matter for
+unique content.
+
+## Linux Forensics in Action
+
+All of the information covered so far gives a overall view of Linux and
+where it might fit in with a digital forensic workflow.  For those just
+starting out, or for those that have never seen Linux in action before,
+it might be useful to actually see a very simple command line session
+from acquistion through artifact recovery and interpretation.
+
+There are far too many tools to cover in a single chapter.  Again,
+documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com)
+will cover a great number of tools with hands on opportunities.  Here we
+will select just a few tools to do a quick analysis of a Microsoft
+Windows Registry file.
+
+First, let's map a quick outline of what we wish to accomplish, and the
+tools we will use:
+
+ 1. Define the goal of the examination (scope)
+ 2. Acquire the evidence 
+ 3. Map the storage media and find a volume of interest
+ 4. Identify the file system format within that volume
+ 5. Identify artifacts (e.g. files) of interest
+ 6. Extract / Examine the artifacts
+ 7. Parse data from each artifact
+
+### Define the Goal of the Examination
+
+An important part of every digital forensic analysis is planning the
+goal or at least the scope of your examination. Helping to focus on a
+goal gives an idea of the tools requried and the methods to be used.  In
+many cases, when providing forensic support to other investigators, the
+goal of the examination is defined by the support request.  In other
+cases, the elements of the crime or known inicators (in the case of
+network compromise) provide the goals.
+
+In this particular exercise, we will go back to our premise of cross
+verification.  Covering every step in exact detail is outside the scope
+of this chapter. This is an illustration of what a simple cross
+verification of results might look like.  
+
+Let us assume we have the output from a Windows Forensic suite that
+shows a particular user last login date of an enterprise workstation at
+a given time.  This was done through the examination of the SAM registry
+file. The specific time the user logged in is imperitive to the case
+and we want to cross verify the results.  Our original output shows
+this:
+
+![Original Registry Output](resources/Ch19/regripout.png)
+
+The goal for this examination is to verify the above *Last Login Date*
+with a separate tool under Linux.
+
+### Acquire the Evidence
+
+
+
+### Map the Storage Volumes
+
+### Identify the File System
+
+### Identify the File(s) of Interest
+
+### Extract and Parse the data
+
+
 
 ## Closing

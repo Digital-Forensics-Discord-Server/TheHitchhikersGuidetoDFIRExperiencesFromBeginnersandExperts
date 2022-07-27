@@ -5,7 +5,7 @@
 There are a plenty of resources available on what Linux is, what role it
 fills, and how it compares with other operating systems.  Here we will
 discuss Linux from the perspective of digital forensics and incident
-response.  
+response.
 
 There have been many discussions of what defines Linux.  The classical
 definition is that Linux is a kernel ("brains of the operating system")
@@ -27,13 +27,13 @@ comp.os.minix:
 > feedback on things people like/dislike in minix, as my OS resembles
 > it somewhat (same physical layout of the file-system (due to
 > practical reasons) among other things).
-> 
+>
 > I've currently ported bash(1.08) and gcc(1.40), and
 > things seem to work. This implies that I'll get something
 > practical within a few months, and I'd like to know what features
 > most people would want. Any suggestions are welcome, but I won't
 > promise I'll implement them :-)
-> 
+>
 > Linus (torvalds@kruuna.helsinki.fi)
 > PS. Yes - it's free of any minix code, and it has a
 > multi-threaded fs. It is NOT portable (uses 386 task switching
@@ -45,8 +45,8 @@ Modern Linux is an operating system very similar to Unix, deriving most of its
 functionality from the much older AT&T Unix originally developed in
 in the 1970's.  This included a full TCP/IP stack and GNU development tools to
 compile programs.  In short, Linux is mostly compliant with the Portable
-Operating System Interface for Unix (POSIX). 
-    
+Operating System Interface for Unix (POSIX).
+
 Despite the warnings of lack of architecture portability and limited
 support mentioned by Torvalds in his postscript in the above quote,
 Linux has grown to a fully functioning operating system that supports a
@@ -230,10 +230,11 @@ There is also the benefit of having a completely different operating
 system utilizing a different tool set to do cross verification of
 findings.  In some organizations, the cross verification of significant
 analysis results is a requirement.  Depending on the situation, it can
-make good sense even if not explicitly required.  Cross verification means that if a practitioner
-finds an artifact or draws a particular conclusion on a given piece of
-evidence then there needs to be a "confirmation" of that finding using a
-different tool or technique.  Consider the following simplified example:
+make good sense even if not explicitly required.  Cross verification
+means that if a practitioner finds an artifact or draws a particular
+conclusion on a given piece of evidence then there needs to be a
+"confirmation" of that finding using a different tool or technique.
+Consider the following simplified example:
 
 1. A forensic examiner extracts the "user created contents" (documents,
    emails, etc.) from computer media and provides the data to an
@@ -393,22 +394,68 @@ comes to mind), Ubuntu is most certainly the most ubiquitous.
 Or you can take the opposite view and install a distribution along the
 lines of Slackware or Gentoo.  Start with a very 'vanilla'
 installation and learn the ins and outs of configuration, sysetem setup,
-and administration without a lot of helpful automation.  
+and administration without a lot of helpful automation.  Choices and
+customization options are abundant.
 
-## Learning Linux
-    - forensic perspecitve
-    - Lots of resources
-    - Be wary of non-forensic advice for forensic issues
-    
 ## Learning Linux Forensics
-    - What is your purpose for using linux?
+
+There are a copious amount of resources available to help learn linux.
+From distribution specific tutorials and Wiki pages, to command line
+oriented blogs and websites.  You can take an online course from any one
+of the many providers out there from Udemy, Edx or even Youtube.  There
+is no shortage of learning material.
+
+Here we are concentrating on a digital forensic perspective.  There are
+still numerous resources for digital forensics and Linux, including
+books and websites, but the material is not quite as widespread.
+
+"Learning Linux forensics" can also have a couple of different meanings.
+We could be talking about using Linux as a forensic platform - using
+tools and techniques within the Linux operating system to analyze
+digital evidence, regardless of source.   It's also possible that you
+might only be interested in *investigating* Linux - learning Linux as a
+potential target of an analysis.
 
 ### Linux as a Platform
-    - if it is for learning forensics, you can try the linuxleo guide
-    - watch windows forensics videos and see how you can apply linux
-    - use it!
+
+Most of what we have covered so far assumes an interest in choosing and
+installing Linux for use as a platform to perform forensics, either as a
+primary operating system, or as an augment for cross verification.
+
+Learning to use Linux in this way has several facets.  First is actually
+learning the operating system - the installation, configuration, network
+environment, and interface.  This is common to all users, whether the
+system will be used for digital forensics or not.  We do, however, need
+to account for "out of the box" configuration or automation that might
+hamper or interfer with evidnce integrity.  Something most other Linux
+users are not generally concerned with.
+
+Second, there are the tools we need to learn.  These fall into a number
+of categories:
+
+ - Evidence Acquisition
+ - Volume analysis
+ - File system analysis
+ - Application analsys
+ - Memory analysis
+ - Network enumeration and analysis
+ - Data parsing
+ 
+There are specific tools (with some crossover) for each of these
+categories, which we'll cover in the next sections.
+
+The Law Enforcement and Forensic Examiner's Introduction to Linux, the
+LinuxLEO guide, is available for free.  Written by the same author as
+this chapter, the guide was produced as a complete guide to installing
+Linux, learning the operating system, and using forensic tools to
+conduct hands on exercises using sample practice files.  The
+materials are freely available at https://www.linuxleo.com.
 
 ### Linux as a target
+
+Perhaps you have no specific desire to use Linux as a day to day
+forensic platform.
+
     - There are books available, and more to come as linux growth on the
       desktop grows and server use increases.
     - Analysing an OS generally requires knowledge of how it works.
@@ -417,6 +464,8 @@ and administration without a lot of helpful automation.
         - baseline knowledge is a good base.
 
 ### GNU Utilities and the Power of the Command Line
+
+- beware of non-forensic advice
 
 ### External Forensic Software
 

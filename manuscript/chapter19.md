@@ -519,24 +519,176 @@ starting out, or for those that have never seen Linux in action before,
 it might be useful to actually see a very simple command line session
 from acquistion through artifact recovery and interpretation.
 
+First, let's map a quick outline of what we wish to accomplish, and the
+tools we will use:
+
+ 1. Define the goal of the examination (scope)
+ 2. Acquire the evidence (imaging)
+ 3. Verify evidence integrity
+ 4. Map the forensic image and find a volume of interest
+ 5. Identify the file system format within that volume
+ 6. Identify artifacts (e.g. files) of interest
+ 7. Extract / Examine the artifacts
+ 8. Parse data from each artifact
+
+### The Tools
+
 There are far too many tools to cover in a single chapter.  Again,
 documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com)
 will cover a great number of tools with hands on opportunities.  Here we
 will select just a few tools to do a quick analysis of a Microsoft
 Windows Registry file.
 
-First, let's map a quick outline of what we wish to accomplish, and the
-tools we will use:
+| Purpose                              | Tool                                                                                                                      |
+| ---                                  | ---                                                                                                                       |
+| Acquisition                          | dd <br> dc3dd <br> dcfldd <br> ddrescue <br> ewfacquire                                                          |
+| Integrity verification (hashing) | md5sum <br> sha1sum <br> sha256sum <br> ...etc |
+| Volume / File System / File Analysis | **The Sleuthkit (TSK)**: <br> mmls <br> fsstat <br> fls <br> istat <br> icat <br> blkcalc <br> ...and more                |
+| Windows Artifacts                    | **Libyal (multiple tools/libraries)**: <br> libregf <br> libevtx <br> liblnk <br> libscca <br> libesedb <br> ...many more |
+| File Carving                         | scalpel <br> foremost <br> bulk_extractor                                                                                 |
+| Data Parsing                         | **General GNU Utilities**: <br> sed <br> awk <br> grep <br> etc.                                                          |
 
- 1. Define the goal of the examination (scope)
- 2. Acquire the evidence 
- 3. Map the storage media and find a volume of interest
- 4. Identify the file system format within that volume
- 5. Identify artifacts (e.g. files) of interest
- 6. Extract / Examine the artifacts
- 7. Parse data from each artifact
+#### Acquisition Tools
 
-### Define the Goal of the Examination
+The acquisition tools in the above table work in generally the same manner,
+creating "bit for bit" or *raw* images that are essentially exact duplicates of
+the storage media being imaged.  `dd` is the original Linux tool used
+for basic forensic imaging.  It was not explicity designed for that, but
+it is useful in a pinch, particularly because it will be available on
+just about any Unix or Linux system you might come across. 
+
+Varients of `dd` include `dc3dd` and `dcfldd`.  These are
+both forks of `dd` that were coded specifically with digital forenics
+and media acquisition in mind.  Both include logging and built-in
+hashing capabilities with a multiple avaiable hash algorithms. There are
+also options to directly split the output files for easier handling.
+
+Command line imaging tools like `dd` and those based on it can seem a
+bit confusing to use at first, but they all follow the same basic
+command layout.  In simplest terms, you have an input file defined by
+`if=/dev/<device>`. This is our subject media - the media we are imaging
+and will eventually examine.
+
+The output file - the image file we are writing to, is defined with
+`of=<imagefile>`.  The file name is arbitrary, but general convention is
+to use a `.dd` or `.raw` extension for images created with `dd`.  The
+forensic-specific versions of `dd` extend the options.  Using `dc3dd` as
+an example, the output file can be defined with `hof=<imagefile> hash=algorithm` 
+to specify hashing the input media and the resulting image.  An examiner
+can also split the output into smaller segments using `ofs=<imagefile> ofsz=<size>`.
+Combining the options gives a split file with all the segments and the
+original media hashed using `hofs=<imagefile> hash=<algorithm> ofsz=<size>`.
+The entire ouptut can be documented with the `log=<logfile>` option.
+
+We will see an example of this in the scenario coming up in the next
+section.  
+
+Learning how to image with Linux command line tools is a useful skill
+for all digital forensic practitioners.  Using Linux bootable media to
+access in-situ media is not uncommon.
+
+#### Evidence Integrity
+
+In geneneral, common practice for command line collection of a forensic
+image should include calculation of a hash *prior* to imaging.  This is
+usually followed by a hash of the resulting forensic image.  In recent
+years, industry practitioners have taken to relying on the built in
+hashing capabilities of their imaging tools to do the work for them.
+Manual hashing is both a good idea and a good skill to have.
+
+The algorithm you select to hash with (MD5, SHA1, etc.) is up to your
+policy and the acceptable standards you are working under.  Issues
+surrounding hash algorithm selection are outside the scope of this
+chapter.
+
+Manually hashing media and files under Linux (or other command line
+environments for that matter) is quite simple:
+
+```
+# sha1sum /dev/sdb 
+8f37a4c0112ebe7375352413ff387309b80a2ddd  /dev/sdb
+```
+With the hash of the original media recorded, we can use `dd` to create
+a simple raw image:
+
+```
+# dd if=/dev/sdb of=imagefile.raw
+```
+Now hash the resulting image file and make sure the hash matches that of
+the original media (`/dev/sdb`).  This means our image file is an exact
+duplicate, bit for bit, of the original.
+
+```
+# sha1sum imagefile.raw 
+8f37a4c0112ebe7375352413ff387309b80a2ddd  imagefile.raw
+```
+
+#### Volume / File system analysis
+
+Once we have an image, and the itegrity of our evidence has been
+verified, we need to focus our examination on the volume, file system,
+and artifacts pertinent to our case.  This will include parsing any
+partition table (DOS or GPT in most cases), identifying the file system
+format (exFAT, NTFS, APFS, etc.), and finally identifying files or
+objects that need to be recovered, extracted, or examined for the
+investigation. 
+
+The Sleuthkit (TSK) is a collection of command line tools and libraries
+that can provide this functionality under Linux. Bootable distributions
+focused on digital forensics like Kali and Caine come with TSK by
+default. It can also be used on Windows and Mac systems.  For a quick
+peek into an image file, it can be quite useful.  No need to fire up a
+full GUI tool to do a quick file extraction or view the contents of a
+directory. 
+
+The Sleuthkit supports the following file system types:
+	ntfs (NTFS)
+	fat (FAT (Auto Detection))
+	ext (ExtX (Auto Detection))
+	iso9660 (ISO9660 CD)
+	hfs (HFS+ (Auto Detection))
+	yaffs2 (YAFFS2)
+	apfs (APFS)
+	ufs (UFS (Auto Detection))
+	raw (Raw Data)
+	swap (Swap Space)
+	fat12 (FAT12)
+	fat16 (FAT16)
+	fat32 (FAT32)
+	exfat (exFAT)
+	ext2 (Ext2)
+	ext3 (Ext3)
+	ext4 (Ext4)
+	ufs1 (UFS1)
+	ufs2 (UFS2)
+	hfsp (HFS+)
+	hfsl (HFS (Legacy))
+    
+There are more than thirty command line tools in the TSK.  We will use
+some of them in the sample scenario that follows this section:
+
+| Tool     | Purpose                                             |
+|----------|-----------------------------------------------------|
+| `mmls`   | list partitions                                     |
+| `fsstat` | file system information                             |
+| `fls`    | list files                                          |
+| `istat`  | file meta-data information (MFT entry, inode, etc.) |
+| `icat`   | recover file content                                |
+
+Again, for a more detailed look at The Sleuthkit refer to the [LinuxLEO Guide](https://linuxleo.com) 
+for hands on exercises and practice images.
+
+#### Artifact analysis
+
+Digital forensics is far more than just recovering deleted files.  There
+are databases to parse, temporal data to extract and organize, and other
+artifacts to review and make sense of.  This is one of the greatest
+challenges of digital forensics - keeping up with operating system
+changes, application version changes, and various format changes that
+make keeping our knowledge up to date a difficult prospect.
+
+
+### Sample Scenario: Define the Goal of the Examination
 
 An important part of every digital forensic analysis is planning the
 goal or at least the scope of your examination. Helping to focus on a
@@ -561,19 +713,101 @@ this:
 ![Original Registry Output](resources/Ch19/regripout.png)
 
 The goal for this examination is to verify the above *Last Login Date*
-with a separate tool under Linux.
+with a separate tool under Linux (our cross verification).
 
-### Acquire the Evidence
+### Sample Scenario: Acquire the Evidence
+
+In this scenario, we can assume the evidenc has already been acquired.
+But for the sake of completion, we can show the disk image here being
+created from computer media attached to our Linux platform.
+
+Linux assigns a device node to attached media.  In this case, the device
+node is `/dev/sdb`:
+
+```
+$ lsblk
+NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+...
+sdb             7:0    0   500M  1 disk  
+└─sdb1        259:4    0   499M  1 part  
+...
+```
+We used the command `lsblk` to list devices, and our attached subject
+disk shows up as `/dev/sdb`.
+
+Once we've identified the device, we can image it with some `dd` or
+preferably a more forensic oriented version like `dc3dd`:
+
+```
+$ sudo dc3dd if=/dev/sdb hof=image.raw hash=sha1 log=image.log
+```
+This is a simple forensic image obtained with Linux using `dc3dd` on a
+subject disk.  The input file (`if`) is `/dev/sdb`.  The hashed output
+file (`hof`) is `image.raw`.  The hash algorithm is SHA1 and
+we are writing a log file to `image.log`. 
+
+We also created a log of the output, viewable using the `cat` command to
+stream the text file to our terminal:
+
+```
+$ cat image.log
+
+dc3dd 7.2.646 started at 2022-07-27 21:33:40 -0400
+compiled options:
+command line: dc3dd if=/dev/sdb hof=image.raw hash=sha1 log=image.log
+device size: 1024000 sectors (probed),      524,288,000 bytes
+sector size: 512 bytes (probed)
+   524288000 bytes ( 500 M ) copied ( 100% ),    2 s, 237 M/s                 
+   524288000 bytes ( 500 M ) hashed ( 100% ),    1 s, 555 M/s                 
+
+input results for device `/dev/sdb':
+   1024000 sectors in
+   0 bad sectors replaced by zeros
+   094123df4792b18a1f0f64f1e2fc609028695f85 (sha1)
+
+output results for file `image.raw':
+   1024000 sectors out
+   [ok] 094123df4792b18a1f0f64f1e2fc609028695f85 (sha1)
+
+dc3dd completed at 2022-07-27 21:33:42 -0400
+```
+
+This shows us a log of the imaging process, the size of the date
+acquired, and the calculated hashes used to help document evidence
+integrity.  
+
+We now have a verified image, obtained from the original storage device,
+that we can use for our examination.
+
+### Sample Scenario: Map the Storage Volumes
+
+Now that we have created our image, we need to determine the
+partitioning scheme, and which of those partitions are of interest to
+our investigation.  
 
 
 
-### Map the Storage Volumes
+```
+$ mmls image.raw
+DOS Partition Table
+Offset Sector: 0
+Units are in 512-byte sectors
 
-### Identify the File System
+      Slot      Start        End          Length       Description
+000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)
+001:  -------   0000000000   0000002047   0000002048   Unallocated
+002:  000:000   0000002048   0001023999   0001021952   NTFS / exFAT (0x07)
+```
 
-### Identify the File(s) of Interest
+Using the `mmls` command from the Sleuthkit, we can see that there is
+only one NTFS file system, at a sector offset of `2O48` (under `Start`).
 
-### Extract and Parse the data
+### Sample Scenario: Identify the File System
+
+
+### Sample Scenario: Identify the File(s) of Interest
+
+### Sample Scenario: Extract and Parse the data
 
 
 

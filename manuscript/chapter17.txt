@@ -1,4 +1,4 @@
-# Chapter 17: Forensic imaging in a nutshell
+# Chapter 17 - Forensic imaging in a nutshell
 
 C> By [Guus Beckers](http://discordapp.com/users/323054846431199232)
 

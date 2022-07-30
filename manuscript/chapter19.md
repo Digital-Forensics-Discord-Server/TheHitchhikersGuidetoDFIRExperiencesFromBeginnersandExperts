@@ -685,8 +685,59 @@ are databases to parse, temporal data to extract and organize, and other
 artifacts to review and make sense of.  This is one of the greatest
 challenges of digital forensics - keeping up with operating system
 changes, application version changes, and various format changes that
-make keeping our knowledge up to date a difficult prospect.
+make keeping our knowledge up to date a difficult prospect. 
 
+Luckily there are a great many open source projects that specifically
+address the collection and analysis of everything from macOS plist to
+Windows shellbags. Using them might not be as simple as clicking a line
+item in a GUI forensic suite or selecting a specific view in a menu. But
+again, the open source tools very often provide a simple command line
+interface to provide an uncluttered look at the data we need most.  In
+addition, many of these tools provide *libraries* to allow developers to
+include artifact parsing capabilities in more feature rich tools.  One
+example of this is *Autopsy*, a GUI digital forensic tool that utilizes
+Sleuthkit libraries to parse disk images, storage volumes, and file
+systems. Additional fucntionality is provided by external open source
+libraries for artifact parsing and timeline creation.
+
+For those examiners that are proficient in the Python language, there
+are often specific Python libraries that can be used to parse artifacts.
+In some cases the previously mentioned open source libraries will
+include *bindings* that provide Python code that allows us to write
+scripts that can parse artifacts of interest.
+
+One example of this is the
+[libewf](https://github.com/libyal/libewf)
+project.  This library provides access to Expert Witness Format (EWF)
+images created by many acquisition utilites. The project includes tools
+like `ewfmount` and `ewfinfo` to directly interact with commonly
+collected `.E01` images.  In addition to the tools, there are also
+libraries that can be included in other programs to provide access to
+EWF images.  The Sleuthkit can be compilied with `libewf` support,
+allowing TSK tools to be used directly on `.E01` images with first
+having to convert them to "raw" format.  Finally, `pyewf` Python
+bindings are provided to allow anyone to create scripts using `libewf`
+functionality.
+
+For operating system artifacts, this same approach is found in other
+libraries like [libevtx](https://github.com/libyal/libevtx) for Windows
+event logs, [libregf](https://github.com/libyal/libregf) for Windows
+registry hives, [libscca](https://github.com/libyal/libscca) for Windows
+prefetch files, and *many* others.  These are all part of the
+[libyal](https://github.com/libyal) project.  These are not the only
+application level artifact tools and libraries out there, but they can give an
+idea of what is available.
+
+Tools on the Linux command line are, of course not limited to computer
+storage media either.  There are libraries and tools for mobile device
+analysis as well, such as
+[libimobiledevice](https://libimobiledevice.org/) for iOS devices.
+Application data from mobile devices are often stored in SQL data base
+files.  Once again, there are often built in data base programs included
+in many Linux distributions that can extract desired data from chat
+apps, location based artifiacts and more.  
+
+So what does all this look like in use?
 
 ### Sample Scenario: Define the Goal of the Examination
 
@@ -705,9 +756,10 @@ verification of results might look like.
 
 Let us assume we have the output from a Windows Forensic suite that
 shows a particular user last login date of an enterprise workstation at
-a given time.  This was done through the examination of the SAM registry
-file. The specific time the user logged in is imperitive to the case
-and we want to cross verify the results.  Our original output shows
+a given time.  This was done through the examination of the Security
+Account Manager (SAM) registry file. The specific time the user logged
+in is imperitive to the case and we want to cross verify the results.
+Our original output shows
 this:
 
 ![Original Registry Output](resources/Ch19/regripout.png)
@@ -771,7 +823,6 @@ output results for file `image.raw':
 
 dc3dd completed at 2022-07-27 21:33:42 -0400
 ```
-
 This shows us a log of the imaging process, the size of the date
 acquired, and the calculated hashes used to help document evidence
 integrity.  
@@ -781,11 +832,9 @@ that we can use for our examination.
 
 ### Sample Scenario: Map the Storage Volumes
 
-Now that we have created our image, we need to determine the
+Once we have created our image, we need to determine the
 partitioning scheme, and which of those partitions are of interest to
 our investigation.  
-
-
 
 ```
 $ mmls image.raw
@@ -800,14 +849,88 @@ Units are in 512-byte sectors
 ```
 
 Using the `mmls` command from the Sleuthkit, we can see that there is
-only one NTFS file system, at a sector offset of `2O48` (under `Start`).
+only one NTFS file system, at a *sector offset* of `2O48` (under `Start`).
+We will be using additional file system and file extraction tools from
+TSK, and the sector offset is an important value. We use it to tell TSK
+*which volume* to access inside the image.  Media storage partitioning
+can be quite complex, and with TSK we access each volume/file system
+separately.
 
 ### Sample Scenario: Identify the File System
 
+Our volume of interest has been identified at an offset inside the image
+of `2048` sectors.  We pass this volume to the TSK tool `fsstat` to
+obtain detailed information on the file sysetm:
+
+```
+$ fsstat -o 2048 image.raw
+
+FILE SYSTEM INFORMATION
+--------------------------------------------
+File System Type: NTFS
+Volume Serial Number: CAE0DFD2E0DFC2BD
+OEM Name: NTFS    
+Volume Name: NTFS_2017d
+Version: Windows XP
+
+METADATA INFORMATION
+--------------------------------------------
+First Cluster of MFT: 42581
+First Cluster of MFT Mirror: 2
+Size of MFT Entries: 1024 bytes
+Size of Index Records: 4096 bytes
+Range: 0 - 293
+Root Directory: 5
+
+CONTENT INFORMATION
+--------------------------------------------
+Sector Size: 512
+Cluster Size: 4096
+Total Cluster Range: 0 - 127742
+Total Sector Range: 0 - 1021950
+
+$AttrDef Attribute Values:
+$STANDARD_INFORMATION (16)   Size: 48-72   Flags: Resident
+$ATTRIBUTE_LIST (32)   Size: No Limit   Flags: Non-resident
+$FILE_NAME (48)   Size: 68-578   Flags: Resident,Index
+$OBJECT_ID (64)   Size: 0-256   Flags: Resident
+$SECURITY_DESCRIPTOR (80)   Size: No Limit   Flags: Non-resident
+$VOLUME_NAME (96)   Size: 2-256   Flags: Resident
+$VOLUME_INFORMATION (112)   Size: 12-12   Flags: Resident
+$DATA (128)   Size: No Limit   Flags: 
+$INDEX_ROOT (144)   Size: No Limit   Flags: Resident
+$INDEX_ALLOCATION (160)   Size: No Limit   Flags: Non-resident
+$BITMAP (176)   Size: No Limit   Flags: Non-resident
+$REPARSE_POINT (192)   Size: 0-16384   Flags: Non-resident
+$EA_INFORMATION (208)   Size: 8-8   Flags: Resident
+$EA (224)   Size: 0-65536   Flags: 
+$LOGGED_UTILITY_STREAM (256)   Size: 0-65536   Flags: Non-resident
+```
+There is quite a bit of information in the `fsstat` output. File system
+type, version, and volume name are all items we will want to know for
+our notes.  Other information provided by `fsstat` can be useful for
+documenting and describing files carved from this particular volume, as
+well as ranges of physical blocks used to store data.
 
 ### Sample Scenario: Identify the File(s) of Interest
 
+In this particular scenario we are conducting a cross verification of
+findings from a file we already know - the SAM registry file. In a
+normal Windows installation, the SAM is located in
+`C:\windows\system32\config`.  We can use the Sleuthkit `fls` tool to
+recurively list all the allocated files in the volume of interest and
+specifically look, or *grep*, for `Windows/System32/config/SAM`:
+
+```
+$ fls -Fr -o 2048 image.raw | grep -i system32/config/SAM
+r/r 178-128-2:  Windows/System32/config/SAM
+```
+This output gives us the NTFS file system's Master File Table, or MFT
+entry for the SAM file.  In this case, the MFT entry is `178-128-2`.
+
 ### Sample Scenario: Extract and Parse the data
+
+
 
 
 

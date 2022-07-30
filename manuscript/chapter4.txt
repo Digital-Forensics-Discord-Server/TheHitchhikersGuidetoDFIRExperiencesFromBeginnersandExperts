@@ -177,11 +177,11 @@ The [13Cubed YouTube channel](https://www.youtube.com/c/13cubed) has excellent a
 
 [Crunch](https://www.kali.org/tools/crunch/) is a Kali Linux package that allows for the generation of wordlists using a predefined set of characters and only of a specific length. This can be useful if certain characters are known or if the length of the password is known. It is a bit simpler than using rules in Hashcat, it is easy to use, and it is quite useful for lists of only a few characters in length. It is similar to generating a list for brute-forcing a password which has limitations already discussed, but it can be useful. From the terminal window on a Linux machine simply type the command `sudo apt install crunch` to install. The example on their home page shows the command `crunch 6 6 0123456789abcdef -o 6chars.txt` generating a list of all combinations and permutations of all digits and the letters `a-f` and outputting the results to a file.
 
+{pagebreak}
+
 ## Conclusion
 
 This has just been a brief dive into showing how easy it is to crack simple passwords and hopefully will show why strong passwords are so important. The Windows operating system uses a weak form of encryption for its passwords, and this is a place to start when trying to crack passwords for fun or security testing purposes. Even with strong encryption methods, a weak or reused password will not be sufficient to safeguard the data. Knowing these methods are out there to defeat user passwords should show the user why it is so important to use strong passwords and why it is a bad idea to reuse passwords between accounts. A better understanding of the attack methods against passwords should encourage everyone to use better security practices to safeguard their data.
-
-{pagebreak}
 
 ## References
 

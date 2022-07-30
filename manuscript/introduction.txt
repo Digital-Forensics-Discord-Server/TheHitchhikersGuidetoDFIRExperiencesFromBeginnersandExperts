@@ -33,6 +33,8 @@ Since my first commit on GitHub in May 2020, I've been hooked on contributing to
 
 Self-publishing allows for as much control as possible for the content creators. Being able to self-publish on Leanpub enables the content creators to modify the content at a moment's notice without the red tape involved when dealing with a publisher. As a result, this book can be updated at any time with additional content until the authors deem the book to be complete, and thus a sequel would be necessary. 
 
+{pagebreak}
+
 ### Created using GitHub and Markua (modified version of Markdown)
 
 This goes along with the open-source above. GitHub is a fantastic platform by which to contribute to open source projects. Markdown is commonly used on GitHub and Leanpub utilized a Leanpub-flavored version of Markdown called [Markua](http://markua.com/). Having gained a lot of experience with Markdown in my travels in various GitHub repos, the thought of authoring a book using Markdown was very appealing. 
@@ -45,18 +47,20 @@ This particular book will be freely available on Leanpub [here](https://leanpub.
 
 Frankly, this may not be at the level of a college textbook, but it's also not meant to be. Again, this project is intended to provide a platform for previously unknown contributors in the DFIR community to provide the knowledge they've gained through research, experience, or otherwise. When one is passionate enough about a subject to where they'd volunteer to write a chapter for a book like this, enabling that person to spread their wings and put themselves out there for others to benefit from is an honor. Any errata in the chapters of this book will be addressed as they are identified, and since we control the publishing tempo, we (or you) can update the book at any time.
 
+{pagebreak}
+
 ### Community Participation
 
 One important aspect of creating this book was involving the community in deciding [the title of the book](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4). Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on Google Forms were created with the following results:
 
 #### Round 1
 
-{width: 90%}
+{width: 80%}
 ![](Ch0/BookTitleRound1Results.jpg)
 
 #### Round 2
 
-{width: 90%}
+{width: 80%}
 ![](Ch0/BookTitleRound2Results.jpg)
 
 ## Final Thoughts

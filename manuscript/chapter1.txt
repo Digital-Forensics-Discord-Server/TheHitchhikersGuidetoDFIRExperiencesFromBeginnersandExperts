@@ -3,7 +3,7 @@
 {width: 30%}
 ![](Ch1/DFDSLogo.png)
 
-By [Andrew Rathbun](https://github.com/AndrewRathbun) | [bunsofwrath12](https://twitter.com/bunsofwrath12) | rathbuna@0679
+C> By [Andrew Rathbun](https://github.com/AndrewRathbun) | [bunsofwrath12](https://twitter.com/bunsofwrath12) | rathbuna@0679
 
 Special thanks to Kevin Pagano for creating the Digital Forensics Discord Server logo!
 

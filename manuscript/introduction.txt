@@ -17,6 +17,8 @@ This book is purely a proof of concept that members of the Digital Forensics Dis
 	5. Accessible
 	6. Considering all the above, a legitimate DFIR resource
 	
+{pagebreak}
+
 Before we go further, let's break down each bullet point above. 
 
 ### Crowdsourced
@@ -45,14 +47,16 @@ Frankly, this may not be at the level of a college textbook, but it's also not m
 
 ### Community Participation
 
-One important aspect of creating this book was involving the community in deciding [the title of the book](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4). Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on Google Forms were created with the following results.
+One important aspect of creating this book was involving the community in deciding [the title of the book](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4). Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on Google Forms were created with the following results:
 
 #### Round 1
 
+{width: 90%}
 ![](Ch0/BookTitleRound1Results.jpg)
 
 #### Round 2
 
+{width: 90%}
 ![](Ch0/BookTitleRound2Results.jpg)
 
 ## Final Thoughts
@@ -60,4 +64,3 @@ One important aspect of creating this book was involving the community in decidi
 I don't think any of the co-authors listed on the cover of this book ever thought they would be published authors. I can certainly say that is the case for myself. This project proved that the barrier to doing something as complicated as writing a book isn't as complex as it could be, primarily thanks to Leanpub. For all we know, the next prominent name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing the path of knowledge sharing, content development, and overall DFIR community betterment. Only time will tell! Either way, I'm proud of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. Ultimately, the authors win, the other contributors win, and most importantly, the community wins! 
 
 Enjoy the book!
-

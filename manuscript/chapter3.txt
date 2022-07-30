@@ -48,7 +48,7 @@ Process Explorer also has a tab to review TCP/IP connections listing listening a
 
 ![](resources/Ch3/chapter3.009.png)
 
-The Strings tab is another great feature that allows you to list the strings embedded in the binary just like the strings command in Linux. This is useful for finding IOCs and determining some of the capabilities of the malware. You may be able to find IPs or domain names that are coded in to the application. Or you may find strings that point to dangerous Windows API calls that can hint at the executable being malicious. The Sysinternals Suite can be downloaded from <https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite>.
+The Strings tab is another great feature that allows you to list the strings embedded in the binary just like the strings command in Linux. This is useful for finding IOCs and determining some of the capabilities of the malware. You may be able to find IPs or domain names that are coded in to the application. Or you may find strings that point to dangerous Windows API calls that can hint at the executable being malicious. The Sysinternals Suite can be downloaded [here](https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite).
 
 ![](resources/Ch3/chapter3.010.png)
 
@@ -74,7 +74,7 @@ ProcDOT is useful for filtering and displaying the results from Procmon. ProcDOT
 
 ![](resources/Ch3/chapter3.016.png)
 
-This effectively filters out the noise of unrelated processes giving the analyst an easy-to-follow graph that displays all actions conducted by the malware to include those of child processes spawned by the original process. It also allows to ingest packet captures to correlate with Procmon. ProcDOT can be downloaded from <https://www.procdot.com/downloadprocdotbinaries.htm>.
+This effectively filters out the noise of unrelated processes giving the analyst an easy-to-follow graph that displays all actions conducted by the malware to include those of child processes spawned by the original process. It also allows to ingest packet captures to correlate with Procmon. ProcDOT can be downloaded [here](https://www.procdot.com/downloadprocdotbinaries.htm).
 
 The [netstat](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/netstat) tool included in Windows is another useful tool. You can use it to list all listening ports and established connections. You can review the connections and listening ports with the command `netstat -ano`. This command includes the process ID of the process using that listed port to help you correlate a suspicious connection to a process.
 
@@ -94,13 +94,13 @@ Wireshark provides capabilities to conduct more advanced analysis of malware com
 
 ![](resources/Ch3/chapter3.020.png)
 
-The malware analysis walkthrough in this chapter will focus on using Wireshark to perform basic analysis tasks. This includes reviewing DNS queries to identify suspicious domain lookups and plaintext commands/passwords sent during malware communication. More advanced usage of Wireshark is out of scope of basic malware analysis and is saved for future writings on intermediate and advanced malware analysis. Wireshark can be downloaded from <https://www.wireshark.org/>. Microsoft`s NetMon is an alternative to Wireshark, but is only available for download from archive and is no longer being developed <https://www.microsoft.com/en-us/download/4865>.
+The malware analysis walkthrough in this chapter will focus on using Wireshark to perform basic analysis tasks. This includes reviewing DNS queries to identify suspicious domain lookups and plaintext commands/passwords sent during malware communication. More advanced usage of Wireshark is out of scope of basic malware analysis and is saved for future writings on intermediate and advanced malware analysis. Wireshark can be downloaded [here](https://www.wireshark.org/). Microsoft's NetMon is an alternative to Wireshark, but is only available for download from [archive](https://www.microsoft.com/en-us/download/4865) and is no longer being developed.
 
 Regedit is another useful tool built in to Windows. Regedit gives the ability to view and edit the Windows registry. It can be used for basic malware analysis to search for persistence mechanism such as entries in `HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` or `HKEY\_CURRENT\_USER\Software\Microsoft\Windows\CurrentVersion\Run`. Applications listed in the run keys will auto start when a user logs in to the machine and is sometimes used by malware to establish persistence.
 
 ![](resources/Ch3/chapter3.021.png)
 
-Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded from <https://github.com/Seabreg/Regshot>. However, Regshot is no longer being actively maintained. NirSoft provides an alternative to Regshot that is capable of handling registry comparisons. NirSoft's RegistryChangesView can be found at <https://www.nirsoft.net/utils/registry_changes_view.html>. The malware analysis portion of this chapter will still use Regshot.
+Regshot is useful for determining what changes an application makes to the Windows registry when it is executed. Regshot allows an analyst to take a snapshot of the Windows registry before and after executing a suspicious application and generates a comparison of the two snapshots. This is useful when analyzing a suspicious application in a controlled lab setting. Regshot can be downloaded [here](https://github.com/Seabreg/Regshot). However, Regshot is no longer being actively maintained. NirSoft provides an alternative to Regshot that is capable of handling registry comparisons. NirSoft's RegistryChangesView can be found [here](https://www.nirsoft.net/utils/registry_changes_view.html). The malware analysis portion of this chapter will still use Regshot.
 
 ![](resources/Ch3/chapter3.022.png)
 
@@ -108,20 +108,20 @@ Certutil is another tool built in to Windows that is useful for malware analysis
 
 ![](resources/Ch3/chapter3.023.png)
 
-[Certutil](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil) is used in the above screenshot to generate the SHA1, MD5, and SHA256 hashes of cmd.exe. A malware analyst can compare these hashes to the hashes of the known legitimate versions of `cmd.exe` installed with Windows. The analyst can also submit these hashes to VirusTotal to see if it is a known malicious file.
+[Certutil](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil) is used in the above screenshot to generate the SHA1, MD5, and SHA256 hashes of `cmd.exe`. A malware analyst can compare these hashes to the hashes of the known legitimate versions of `cmd.exe` installed with Windows. The analyst can also submit these hashes to VirusTotal to see if it is a known malicious file.
 
-An analyst can also use automated tools for analysis. Multiple tools mentioned already have features to upload files or hashes to VirusTotal. A suspicious file can be uploaded to VirusTotal (<https://www.virustotal.com/gui/home/upload>). VirusTotal is an online system that will execute the file in a sandbox to attempt to determine if it is malicious or not. It will then provide file hashes and IOCs an analyst can use to identify the file. VirusTotal also shares uploaded files with Antivirus vendors to use for building detection signature.
+An analyst can also use automated tools for analysis. Multiple tools mentioned already have features to upload files or hashes to VirusTotal. A suspicious file can be uploaded to [VirusTotal](https://www.virustotal.com/gui/home/upload). VirusTotal is an online system that will execute the file in a sandbox to attempt to determine if it is malicious or not. It will then provide file hashes and IOCs an analyst can use to identify the file. VirusTotal also shares uploaded files with Antivirus vendors to use for building detection signature.
 
 ![](resources/Ch3/chapter3.024.png)
 
-Antiscan.me (<https://antiscan.me/>) is another option an analyst can use to analyze a suspected file. Antiscan.me only checks uploaded files against 26 different Antivirus vendors. It also does not share the files with the Antivirus vendors. This makes it a good option if you are analyzing a file that you do not want to be shared with other organizations.
+[Antiscan.me](https://antiscan.me/) is another option an analyst can use to analyze a suspected file. Antiscan.me only checks uploaded files against 26 different Antivirus vendors. It also does not share the files with the Antivirus vendors. This makes it a good option if you are analyzing a file that you do not want to be shared with other organizations.
 
 ![](resources/Ch3/chapter3.025.png)
 
 ## Basic Malware Analysis Walkthrough
 It is time to do a walkthrough of a sample malware analysis now that you are familiar with some of the tools used for malware analysis and their capabilities. The walkthrough will teach how to use some of the tools mentioned in this chapter. It will not use any tools not previously mentioned.
 
-In this scenario a user has reported to you that their machine has been running slow and acting "weird". You have already conducted initial investigations by asking the user questions including: "When did the issues start?", "Did you download or install any new applications?", and "Did you click any links or open any documents from untrusted sources?" The user states that they did not install any application recently but did review a Microsoft Word document sent from a customer.
+In this scenario a user has reported to you that their machine has been running slow and acting "weird". You have already conducted initial investigations by asking the user questions including: "When did the issues start?", "Did you download or install any new applications?" and "Did you click any links or open any documents from untrusted sources?" The user states that they did not install any application recently but did review a Microsoft Word document sent from a customer.
 
 We start our analysis with opening TCPView from the Sysinternals Suite to determine if we can quickly find any unusual processes communicating to remote sites. In this simple scenario, we find that there is currently only one process, `python.exe`, communicating to a remote system. We flag this as suspicious since Python is not typically used in the manner for our fictitious network. We then make a note of the port and IP for potential IOCs.
 
@@ -143,7 +143,7 @@ We have verified that there is unusual network traffic on the potentially compro
 
 ![](resources/Ch3/chapter3.031.png)
 
-We then right click on one of the packets and select follow\TCP stream to pull up the conversation in a readable format. This confirms that this is a malicious process used to create a reverse shell to the attacker. We are able to identify commands sent by the attacker and the response from the infected machine.
+We then right click on one of the packets and select follow TCP stream to pull up the conversation in a readable format. This confirms that this is a malicious process used to create a reverse shell to the attacker. We are able to identify commands sent by the attacker and the response from the infected machine.
 
 ![](resources/Ch3/chapter3.032.png)
 
@@ -161,7 +161,7 @@ Regedit is then used to verify the run key created after verifying that no malic
 
 ![](resources/Ch3/chapter3.035.png)
 
-The next step for this scenario is to navigate to the `C:\Windows\Tasks\` folder to investigate the `bdw.py` file mentioned in the previous steps. The investigation finds that this is just a simple Python script to establish a reverse shell from the infected computer to the attacker`s machine. We are able to determine that it contains the port number 8443 but is pointing to a domain name of `maliciousdomain.cn` instead of IP.
+The next step for this scenario is to navigate to the `C:\Windows\Tasks\` folder to investigate the `bdw.py` file mentioned in the previous steps. The investigation finds that this is just a simple Python script to establish a reverse shell from the infected computer to the attacker's machine. We are able to determine that it contains the port number 8443 but is pointing to a domain name of `maliciousdomain.cn` instead of IP.
 
 ![](resources/Ch3/chapter3.036.png)
 
@@ -197,11 +197,11 @@ We can verify if any other registry settings are changed by executing the Word d
 
 ![](resources/Ch3/chapter3.043.png)
 
-We then open the malicious Word document. We execute the macro allowing it to download the bdw.py reverse shell from out attacker webserver and then add our persistence registry key under HKCU\Software\Microsoft\Windows\CurrentVersion\Run. Then we click 2nd shot in Regshot and select shot. This takes the second snapshot and allows us to click the compare button to compare the snapshots.
+We then open the malicious Word document. We execute the macro allowing it to download the bdw.py reverse shell from out attacker webserver and then add our persistence registry key under HKCU\Software\Microsoft\Windows\CurrentVersion\Run. Then we click 2^nd^ shot in Regshot and select shot. This takes the second snapshot and allows us to click the compare button to compare the snapshots.
 
 ![](resources/Ch3/chapter3.044.png)
 
-This produces a `.txt` document listing all of the registry changes that occurred between the snapshots. It contains a lot of noise and can be tedious to sort through. We can verify that the persistence mechanism was added. We can find evidence that the user clicked the `Enable Content` button allowing the macro to run. This found by searching for `TrustRecords` to find an entry that lists the malicious document added to the TrustRecords key.
+This produces a `.txt` document listing all of the registry changes that occurred between the snapshots. It contains a lot of noise and can be tedious to sort through. We can verify that the persistence mechanism was added. We can find evidence that the user clicked the `Enable Content` button allowing the macro to run. This found by searching for `TrustRecords` to find an entry that lists the malicious document added to the `TrustRecords` key.
 
 ![](resources/Ch3/chapter3.045.png)
 
@@ -226,14 +226,16 @@ We have now completed analyzing the system to verify that it is infected with ma
 - `Bdw.py` reverse shell to IP 192.168.163.128 (`maliciousdomain.cn`)
 - `Bdw.py` reverse shell on port 8443
 
+{pagebreak}
+
 ## Conclusion
 
-This was a simple example of how to conduct basic malware analysis. The tools and techniques discussed in this scenario can be used in a real-world scenario to determine if a machine is infected with malware and extract some IOCs. The malicious files used for this scenario and a copy of the walkthrough can be found on my GitHub (<https://github.com/ApexPredator-InfoSec/Basic-Malware-Analysis>). You will need a system with netcat to receive the reverse shell as well as fakedns (<https://github.com/SocialExploits/fakedns/blob/main/fakedns.py>) to simulate a DNS server to direct the `malicousdomain.cn` calls to your attacker machine.
+This was a simple example of how to conduct basic malware analysis. The tools and techniques discussed in this scenario can be used in a real-world scenario to determine if a machine is infected with malware and extract some IOCs. The malicious files used for this scenario and a copy of the walkthrough can be found on my [GitHub](https://github.com/ApexPredator-InfoSec/Basic-Malware-Analysis). You will need a system with netcat to receive the reverse shell as well as [fakedns](https://github.com/SocialExploits/fakedns/blob/main/fakedns.py) to simulate a DNS server to direct the `malicousdomain.cn` calls to your attacker machine.
 
 More advanced malware will require additional tools and techniques. The techniques to reverse engineer malware to include decompiling, disassembling, and debugging is covered in courses such as [SANS FOR610 Reverse Engineering Malware](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/). The FOR610 course is a good step up to the next level if you enjoyed this basic malware analysis. The course also teaches some techniques for deobfuscating code whereas this basic analysis only consisted of unobfuscated code.
 
 Additional advanced topics to look into include techniques to recover encryption keys. Those techniques are useful to decrypt source code of encrypted malware or to help recover keys to decrypt files that have been encrypted by ransomware. Assembly language programming familiarity is needed for debugging and reverse engineering of malware. Basic knowledge of JavaScript is also useful for analyzing web-based malware.
 
-You can also increase your skills by taking malware development course from Sektor7 (<https://institute.sektor7.net/red-team-operator-malware-development-essentials>). Learning to develop malware will help you better understand how to detect malware and will teach you additional techniques used by modern malware. SANS also offers the advanced FOR710 course for [Reverse-Engineering Malware: Advanced Code Analysis](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-advanced-code-analysis/).
+You can also increase your skills by taking malware development course from [Sektor7](https://institute.sektor7.net/red-team-operator-malware-development-essentials). Learning to develop malware will help you better understand how to detect malware and will teach you additional techniques used by modern malware. SANS also offers the advanced FOR710 course for [Reverse-Engineering Malware: Advanced Code Analysis](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-advanced-code-analysis/).
 
-If you enjoyed this walkthrough would like to check out more, you can check out [my GitHub](https://github.com/ApexPredator-InfoSec) for a walkthrough on performing white box code analysis of a vulnerable web application and coding a full chain exploit. I have solutions for various vulnerable web applications and binary exploitation challenges and will be adding a couple of binary exploitation and reverse engineering walkthroughs in the future. I can also add in intermediate malware analysis walkthroughs if there is enough interest.
+If you enjoyed this walkthrough would like to check out more, you can check out my [GitHub](https://github.com/ApexPredator-InfoSec) for a walkthrough on performing white box code analysis of a vulnerable web application and coding a full chain exploit. I have solutions for various vulnerable web applications and binary exploitation challenges and will be adding a couple of binary exploitation and reverse engineering walkthroughs in the future. I can also add in intermediate malware analysis walkthroughs if there is enough interest.

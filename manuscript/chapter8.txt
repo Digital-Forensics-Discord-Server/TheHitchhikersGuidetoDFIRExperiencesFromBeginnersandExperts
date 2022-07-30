@@ -379,6 +379,8 @@ It is important for us to keep in mind that these are not the only tricks that a
 
 ![](Ch8/chapter8002.jpg)
 
+{pagebreak}
+
 One of the best ways to stay ahead of the curve is to ensure that you have a solid understanding of PowerShell. I would recommend that you take a PowerShell programming course if you’re coming into this green. If you have some level of comfort with using PowerShell, I challenge you to use it even more. Find a workflow that's annoying to do manually and automate it. You can also take some time and even optimize some of your older scripts.
 
 Never stop challenging yourself. Go the extra mile, stand up and stand strong. Keep moving forward and you’ll be in a position where you’ll be able to help others grow in the domains that you once found yourself struggling with.

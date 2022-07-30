@@ -125,6 +125,8 @@ I'm a Windows user through and through so I cannot offer much advise from a Mac 
  - [MemProcFS](https://github.com/ufrisk/MemProcFS)
  - [Volatility](https://www.volatilityfoundation.org/releases)
 
+{pagebreak}
+
 **Mobile Devices**
  - [ALEAPP](https://github.com/abrignoni/ALEAPP)
  - [Andriller](https://github.com/den4uk/andriller)
@@ -170,6 +172,8 @@ My personal strategy is a combination of them all. I will typically go more towa
 And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up to whatever suits the player the best.
 
 >"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
+
+{pagebreak}
 
 ## Takeaways
 

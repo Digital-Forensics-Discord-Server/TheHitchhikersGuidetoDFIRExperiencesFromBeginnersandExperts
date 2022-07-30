@@ -31,7 +31,7 @@ I recall having aspirations for a move to Discord months prior to March 2018. Fo
 
 I was reminded that the major push to move to Discord came from me mostly surrounding the image uploading process combined with the positive experiences I had with the platform in my personal life via special interest servers from September 2016 to March 2018. The call to move to Discord was met with nearly unanimous approval from members of the IRC channel. As a result, the Mobile Forensics Discord Server was created!
 
-### Mobile Forensics Discord Server -> Digital Forensics Discord Server
+### Mobile Forensics Discord Server → Digital Forensics Discord Server
 
 The Mobile Forensics Discord Server enjoyed great success and rapid growth throughout its first year of existence. The server's growth was entirely driven by word of mouth and advertising on various Google Groups. The list of channels maintained in the server were driven by member requests which quickly expanded outside of mobile devices. Over time, it became increasingly apparent that branding the server as a Mobile Forensics server did not fully encompass the needs of the DFIR community. To the best of my research, the Mobile Forensics Discord Server was rebranded to the Digital Forensics Discord Server sometime around February 2019.
 
@@ -41,9 +41,11 @@ Since then, multiple channels have been added, renamed, and removed at the reque
 
 Throughout the 4 years (as of this writing), the Digital Forensics Discord Server has undergone substantial growth. Below are some major membership milestones that were mined from Announcements I made in the `#announcements` channel over time. 
 
+{pagebreak}
+
 #### Major Milestones
 
-| Date | # of Members |
+| Date | Member Count |
 |---|---|
 | 3/26/2018 | 3 |
 | 3/29/2018 | 116 |
@@ -94,9 +96,9 @@ Another story I can think of was more recent in that someone from a country I ha
 
 ### Law Enforcement Personnel
 
-Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level.
+Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level. Countries with roles assigned for Law Enforcement personnel are listed below:
 
-| Countries with roles assigned for Law Enforcement personnel (as of July 2022): |
+| As of July 2022: |
 |--------------------|-------------|----------------------|
 | Albania            | India       | Nigeria              |
 | Argentina          | Indonesia   | Norway               |

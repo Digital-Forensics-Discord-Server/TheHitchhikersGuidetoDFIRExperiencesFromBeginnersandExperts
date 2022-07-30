@@ -2,7 +2,7 @@
 
 ## Andrew Rathbun
 
-Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
+Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects). You can find him on the [DFIR discord](http://discordapp.com/users/223211621185617920).
 
 ## ApexPredator
 

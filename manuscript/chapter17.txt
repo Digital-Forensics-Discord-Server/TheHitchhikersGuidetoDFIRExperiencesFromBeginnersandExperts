@@ -1,6 +1,6 @@
 # Chapter 17: Forensic imaging in a nutshell
 
-C> By Guus Beckers
+C> By [Guus Beckers](http://discordapp.com/users/323054846431199232)
 
 ## What is a disk image?
 

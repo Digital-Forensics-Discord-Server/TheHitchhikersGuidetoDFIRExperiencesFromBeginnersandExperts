@@ -3,7 +3,7 @@
 {width: 30%}
 ![](https://user-images.githubusercontent.com/48143894/162533767-1d6eca8a-98c7-446b-a970-807bd3deb588.png)
 
-C> By [Kevin Pagano](https://twitter.com/KevinPagano3) | [Stark 4N6](https://startme.stark4n6.com)
+C> By [Kevin Pagano](https://github.com/stark4n6) | [Website](https://www.stark4n6.com/) | [Twitter](https://twitter.com/KevinPagano3) | [Discord](http://discordapp.com/users/597827073846935564)
 
 ## What is a CTF?
 

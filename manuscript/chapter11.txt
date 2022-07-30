@@ -5,7 +5,7 @@
 {width: 30%}
 ![](Ch11/DoRkMoDe.png)
 
-By [Jason Wilkins](https://twitter.com/TheJasonWilkins)
+C> By [Jason Wilkins](https://twitter.com/TheJasonWilkins)
 
 ## Executive Cooperation
 

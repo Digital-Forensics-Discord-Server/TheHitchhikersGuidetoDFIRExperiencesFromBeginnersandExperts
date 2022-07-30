@@ -3,7 +3,7 @@
 {width: 30%}
 ![](Ch8/chapter8001.jpg)
 
-By [Tristram](https://github.com/gh0x0st) | [@JDTristram](https://twitter.com/jdtristram) | Tristram#2315
+C> By [Tristram](https://github.com/gh0x0st) | [@JDTristram](https://twitter.com/jdtristram) | Tristram#2315
 
 ## Introduction
 

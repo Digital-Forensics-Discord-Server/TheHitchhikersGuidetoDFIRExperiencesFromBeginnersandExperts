@@ -3,7 +3,7 @@
 {width: 30%}
 ![](https://static.wixstatic.com/media/3b47d0_3ff0961d0c234c1dbc5998ec09ecbfcd~mv2_d_2425_2400_s_4_2.gif)
 
-By [s3raph](https://github.com/s3raph-x00/) | [Website](https://www.s3raph.com/)
+C> By [s3raph](https://github.com/s3raph-x00/) | [Website](https://www.s3raph.com/)
 
 ## Overview:
 

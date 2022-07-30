@@ -7,7 +7,6 @@ chapter4.txt
 chapter5.txt
 chapter8.txt
 chapter9.txt
-section3.txt
 chapter10.txt
 chapter16.txt
 chapter17.txt

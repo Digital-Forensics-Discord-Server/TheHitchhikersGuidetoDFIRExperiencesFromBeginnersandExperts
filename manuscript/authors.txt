@@ -1,16 +1,22 @@
 # Authors
 
+## Andrew Rathbun
+
+Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
+
 ## ApexPredator
 
 After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working to the top while possessing an MS in Cybersecurity and Information Assurance degree and numerous certifications, including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH and GSEC. Always hunting for more prey, it spends free time playing with malware analysis and exploit development.
 
-## Tristram
+## Guus Beckers
 
-An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets to identify gaps and validate existing controls.
+A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
 
-## Andrew Rathbun
+## John Haynes
 
-Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
+John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
+
+John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or find him learning what he can on the DFIR Discord (@FullTang).
 
 ## Kevin Pagano
 
@@ -21,12 +27,6 @@ Kevin is the creator of the [Forensics StartMe](https://start.me/p/q6mw4Q/forens
 Kevin is a regular competitor in the digital forensics CTF circuit.  He has won First Place in the Magnet User Summit DFIR CTF 2019, the Magnet Virtual Summit DFIR CTF 2021, the Magnet User Summit DFIR CTF 2022, the Magnet Weekly CTF 2020, the Wi-Fighter Challenge v3 CTF, the Belkasoft Europe 2021 CTF, and the BloomCON CTF in 2017, 2019, 2021 and 2022. He additionally is a SANS DFIR NetWars Champion and NetWars Tournament of Champions winner and has earned multiple Lethal Forensicator coins. Kevin is a 4-time Hacking Exposed Computer Forensic (HECF) Blog Sunday Funday Winner.
 
 In his spare time, Kevin likes to drink beers and design DFIR-themed designs for stickers, clothing, and other swag. You can find him lurking on [Twitter](https://twitter.com/kevinpagano3) and on the [DFIR Discord](http://discordapp.com/users/597827073846935564).
-
-## John Haynes
-
-John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
-
-John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or find him learning what he can on the DFIR Discord (@FullTang).
 
 ## Nisarg Suthar
 
@@ -50,10 +50,10 @@ s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defens
 
 [Do You Want to Know More?](https://www.s3raph.com/)
 
-## Guus Beckers
+## Tristram
 
-A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
+An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets to identify gaps and validate existing controls.
 
-## name
+## name (Please Maintain Alphabetical Order, Thank You!)
 
 bio goes here

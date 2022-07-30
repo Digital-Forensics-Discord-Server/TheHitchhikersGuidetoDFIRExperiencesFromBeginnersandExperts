@@ -2,7 +2,7 @@
 
 ## ApexPredator
 
-After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working to the top while possessing an MS in Cybersecurity and Information Assurance degree and numerous certifications, including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH, and GSEC. Always hunting for more prey, it spends free time playing with malware analysis and exploit development.
+After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working to the top while possessing an MS in Cybersecurity and Information Assurance degree and numerous certifications, including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH and GSEC. Always hunting for more prey, it spends free time playing with malware analysis and exploit development.
 
 ## Tristram
 
@@ -10,21 +10,21 @@ An avid blue team leader helping to secure the healthcare industry. Despite bein
 
 ## Andrew Rathbun
 
-Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to: the Digital Forensics Discord Server, AboutDFIR, and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
+Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects).
 
 ## Kevin Pagano
 
-Kevin Pagano is a digital forensics analyst, researcher, blogger, and contributor to the open-source community. He holds a Bachelor of Science in Computer Forensics from Bloomsburg University of Pennsylvania and a Graduate Certificate in Digital Forensics from Champlain College. Kevin is a member of the GIAC Advisory Board and holds several industry certifications, including the GIAC Advanced Smartphone Forensics (GASF), GIAC Certified Forensic Examiner (GCFE), and GIAC Battlefield Forensics and Acquisition (GBFA), and the Certified Cellebrite Mobile Examiner (CCME) among others.
+Kevin Pagano is a digital forensics analyst, researcher, blogger and contributor to the open-source community. He holds a Bachelor of Science in Computer Forensics from Bloomsburg University of Pennsylvania and a Graduate Certificate in Digital Forensics from Champlain College. Kevin is a member of the GIAC Advisory Board and holds several industry certifications, including the GIAC Advanced Smartphone Forensics (GASF), GIAC Certified Forensic Examiner (GCFE), and GIAC Battlefield Forensics and Acquisition (GBFA), and the Certified Cellebrite Mobile Examiner (CCME) among others.
 
-Kevin is the creator of the Forensics StartMe page and regularly shares his research on his blog stark4n6.com. He is a published author with multiple peer-reviewed papers accepted through DFIR Review. Kevin also contributes to multiple open-source projects, including but not limited to ALEAPP, iLEAPP, RLEAPP, CLEAPP, and KAPE.
+Kevin is the creator of the [Forensics StartMe](https://start.me/p/q6mw4Q/forensics) page and regularly shares his research on his [blog](https://www.stark4n6.com/). He is a published author with multiple peer-reviewed papers accepted through [DFIR Review](https://dfir.pubpub.org/user/kevin-pagano). Kevin also contributes to multiple open-source projects, including but not limited to [ALEAPP](https://github.com/abrignoni/ALEAPP), [iLEAPP](https://github.com/abrignoni/iLEAPP), [RLEAPP](https://github.com/abrignoni/RLEAPP), [CLEAPP](https://github.com/markmckinnon/cLeapp) and [KAPE](https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape).
 
 Kevin is a regular competitor in the digital forensics CTF circuit.  He has won First Place in the Magnet User Summit DFIR CTF 2019, the Magnet Virtual Summit DFIR CTF 2021, the Magnet User Summit DFIR CTF 2022, the Magnet Weekly CTF 2020, the Wi-Fighter Challenge v3 CTF, the Belkasoft Europe 2021 CTF, and the BloomCON CTF in 2017, 2019, 2021 and 2022. He additionally is a SANS DFIR NetWars Champion and NetWars Tournament of Champions winner and has earned multiple Lethal Forensicator coins. Kevin is a 4-time Hacking Exposed Computer Forensic (HECF) Blog Sunday Funday Winner.
 
-In his spare time, Kevin likes to drink beers and design DFIR-themed designs for stickers, clothing, and other swag. You can find him lurking on Twitter (@KevinPagano3) and on the DFIR Discord (@Stark4N6).
+In his spare time, Kevin likes to drink beers and design DFIR-themed designs for stickers, clothing, and other swag. You can find him lurking on [Twitter](https://twitter.com/kevinpagano3) and on the [DFIR Discord](http://discordapp.com/users/597827073846935564).
 
 ## John Haynes
 
-John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE), and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
+John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
 
 John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or find him learning what he can on the DFIR Discord (@FullTang).
 
@@ -32,7 +32,7 @@ John has taken a keen interest in password cracking after being introduced to th
 
 Nisarg Suthar is a lifelong student and learner of DFIR. He is an aspiring digital forensic analyst with high levels of curiosity about how things work the way that they do. He has experience with malware analysis, reverse engineering, and forensics.
 
-Nisarg is an independent researcher, a blue teamer, CTF player, and a (. He likes to read material in DFIR; old and new, complete investigations on platforms like CyberDefenders and BTLO, and network with other forensicators to learn and grow mutually.
+Nisarg is an independent researcher, a blue teamer, CTF player, and a [blogger](https://sutharnisarg.medium.com/). He likes to read material in DFIR; old and new, complete investigations on platforms like CyberDefenders and BTLO, and network with other forensicators to learn and grow mutually.
 
 He is also the developer of his most recent open-source project [Veritas](https://github.com/Nisarg12/Veritas), a validation purpose hex viewer for the people in DFIR. He is a big fan of all things FOSS.
 

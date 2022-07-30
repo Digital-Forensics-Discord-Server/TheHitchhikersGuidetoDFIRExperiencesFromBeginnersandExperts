@@ -11,7 +11,7 @@ The origins of CTF or “Capture The Flag" were found on the playground. It was 
 
 ## Why am I qualified to talk about CTFs?
 
-Humble brag time. I've played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR [Lethal Forensicator coins](https://www.sans.org/digital-forensics-incident-response/coins/) from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I've also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I've competed in on [my personal blog](https://ctf.stark4n6.com).
+Humble brag time. I've played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR [Lethal Forensicator coins](https://www.sans.org/digital-forensics-incident-response/coins/) from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I've also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I've competed in on my personal [blog](https://ctf.stark4n6.com).
 
 ## Types of CTFs
 

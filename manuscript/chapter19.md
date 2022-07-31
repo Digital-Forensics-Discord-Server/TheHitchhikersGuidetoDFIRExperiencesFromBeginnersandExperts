@@ -1,5 +1,10 @@
 # Chapter 19 - Linux and Digital Forensics
 
+![](Ch19/ch19logo.png)
+
+By [Barry Grundy](https://github.com/bgrundy) |
+[Discord](http://discordapp.com/users/505057526421913600) | [LinuxLEO](https://linuxleo.com)
+
 ## What is Linux?
 
 There are a plenty of resources available on what Linux is, what role it

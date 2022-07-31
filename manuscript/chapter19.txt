@@ -2,8 +2,7 @@
 
 ![](Ch19/ch19logo.png)
 
-By [Barry Grundy](https://github.com/bgrundy) |
-[Discord](http://discordapp.com/users/505057526421913600) | [LinuxLEO](https://linuxleo.com)
+By [Barry Grundy](https://github.com/bgrundy) | [Discord](http://discordapp.com/users/505057526421913600) | [LinuxLEO](https://linuxleo.com)
 
 ## What is Linux?
 

@@ -9,4 +9,5 @@ chapter8.txt
 chapter9.txt
 chapter16.txt
 chapter17.txt
+chapter19.txt
 errata.txt

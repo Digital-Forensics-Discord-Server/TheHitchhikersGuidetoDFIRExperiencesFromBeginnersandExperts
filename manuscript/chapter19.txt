@@ -1,1 +1,42 @@
-# Chapter 19 - LinuxLEO
+# Chapter 19 - Linux and Digital Forensics
+
+## What is Linux?
+
+### Distributions
+
+#### Choosing Your Platform
+
+##### Simple vs. Easy
+
+## Why Linux for Digital Forensics
+
+### Education
+
+### Free(dom)!
+
+### Control
+
+### Cross Verification - An Alternate OS Approach
+
+## Learning Linux
+
+## Learning Linux Forensics
+
+### Linux as a Platform
+
+### Linux as a target
+
+## Learning Linux forensics
+
+### GNU Utilities and the Power of the Command Line
+
+### External Forensic Software
+
+
+
+
+
+
+
+
+

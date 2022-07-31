@@ -71,7 +71,7 @@ where digital forensics is concerned.  We will cover _why_ you might
 want to use Linux for digital forensics in a later section, but for now
 a beginner forensics examiner should know that Linux is not a platform
 well suited to "point and click", or what some might refer to as
-"nintendo forensics" techniques.  While there are graphical user
+"Nintendo forensics" techniques.  While there are graphical user
 interface (GUI) tools available for Linux, it is not the strongest OS
 for that approach.  More on that later.
 
@@ -338,35 +338,35 @@ configured "out of the box", leaving it completely up to the user to
 configure the bells and whistles often considered normal features for
 modern operating systems.  Distributions like Slackware , Void Linux and
 Gentoo fall into this category. With these distributions, rather than
-making systemic changes to a healiy desktop oriented configuration, you can start with
+making systemic changes to a heavily desktop oriented configuration, you can start with
 a more streamlined workstation and work up, building a more efficient
 system.
 
 The last consideration one might want to consider is selecting between a
 rolling release and incremental release distro.  Normally we think of
-numbered releases for an operating system.  Version X realeased on a
+numbered releases for an operating system.  Version X released on a
 given date, often with security updates and bug fixes in between major
-version realeases.  Eventually another release, let's call it version Y
+version releases.  Eventually another release, let's call it version Y
 is made available and so on. Distributions like Slackware, Debian and
-(generally) Ubuntu fall ito this category. For the most part these are
+(generally) Ubuntu fall into this category. For the most part these are
 considered more stable, where components of the desktop and operating
 system are updated and tested together before release.  For the forensic
 examiner, this approach provides not only the aforementioned stability,
-but also fewer mass changes to kernel components and sofware libraries
+but also fewer mass changes to kernel components and software libraries
 that might affect the forensic environment and unexpected behaviors that
 can impact evidence integrity or the interpretation of examination
 results.
 
 A rolling release, on the other hand continually updates software as new
-versions become available for everything from the the kernel to base
+versions become available for everything from the kernel to base
 libraries. This has the benefit of always keeping up with the "latest
 and greatest".  Changes to upstream software are often immediately
 supported.  One obvious negative effect of this, aside from being more
 prone to instability, is that wholesale changes to the operating system
 should probably trigger some testing on part of the forensic examiner.
-There should be no dobut that a digital forensics platform is operating
-exactly as expected. Constant mass upgrades can interfre with this by
-possibly breaking or chaning expected output or hardware behavior.
+There should be no doubt that a digital forensics platform is operating
+exactly as expected. Constant mass upgrades can interfere with this by
+possibly breaking or changing expected output or hardware behavior.
 Examples of rolling releases include Arch , Manjaro, Void, and Ubuntu
 Rolling Rhino.
 
@@ -376,8 +376,8 @@ common examples.  These are generally used as bootable operating systems
 for live investigations, but can also be installed directly on hardware
 to use in a Lab.  The benefit is obviously that the system is ready to
 go with just about all the forensic software one might need to conduct
-digtal forensics, incident response, or even Open Source Intelligence
-(OSINT). From an education perspecitve, ready made forensic
+digital forensics, incident response, or even Open Source Intelligence
+(OSINT). From an education perspective, ready made forensic
 distributions have you up and running quickly, ready to learn the tools.
 What you might miss however is actually setting up, finding and
 installing the tools yourself - all part of the education process.
@@ -393,16 +393,16 @@ comes to mind), Ubuntu is most certainly the most ubiquitous.
 
 Or you can take the opposite view and install a distribution along the
 lines of Slackware or Gentoo.  Start with a very 'vanilla'
-installation and learn the ins and outs of configuration, sysetem setup,
+installation and learn the ins and outs of configuration, system setup,
 and administration without a lot of helpful automation.  Choices and
 customization options are abundant.
 
 ## Learning Linux Forensics
 
-There are a copious amount of resources available to help learn linux.
+There are a copious amount of resources available to help learn Linux.
 From distribution specific tutorials and Wiki pages, to command line
 oriented blogs and websites.  You can take an online course from any one
-of the many providers out there from Udemy, Edx or even Youtube.  There
+of the many providers out there from Udemy, Edx or even YouTube.  There
 is no shortage of learning material.
 
 Here we are concentrating on a digital forensic perspective.  There are
@@ -427,7 +427,7 @@ learning the operating system - the installation, configuration, network
 environment, and interface.  This is common to all users, whether the
 system will be used for digital forensics or not.  We do, however, need
 to account for "out of the box" configuration or automation that might
-hamper or interfer with evidnce integrity.  Something most other Linux
+hamper or interfere with evidence integrity.  Something most other Linux
 users are not generally concerned with.
 
 Second, there are the tools we need to learn.  These fall into a number
@@ -436,7 +436,7 @@ of categories:
  - Evidence Acquisition
  - Volume analysis
  - File system analysis
- - Application analsys
+ - Application analysis
  - Memory analysis
  - Network enumeration and analysis
  - Data parsing
@@ -458,18 +458,18 @@ forensic platform.  There is, however, something to be said for knowing
 how Linux works and where to look for evidence should you be assigned an
 analysis where the subject device runs a version of Linux.
 
-For years now, Linux has been a popular server operating sysetm,
+For years now, Linux has been a popular server operating system,
 utilized in enterprise environments across the world.  In the past few
-years there has been a steady growth of "desktop" Linux, particualary
+years there has been a steady growth of "desktop" Linux, particularly
 with the emergence of user oriented distributions like Ubuntu, Mint and
 derivations based on them. A growth in Linux compatible software for specialized
 tasks such as video editing, publishing, and even gaming has resulted in
-Linux being more widely adopted.  Alwasy strong in academia, the growth
-of Linux destop applications has resulted in a much wider user base.
+Linux being more widely adopted.  Always strong in academia, the growth
+of Linux desktop applications has resulted in a much wider user base.
 
 Given the popularity of the Android operating system, which is (in
 simple terms) based on Linux, there has always been a stronger need for
-familiarity with Linux in the analisys of mobile devices.  But Android
+familiarity with Linux in the analysis of mobile devices.  But Android
 is not the same as Linux on desktop computers.  Similar for sure, but
 file system differences and application analysis are widely divergent.
 
@@ -494,12 +494,12 @@ knowledge of every possible iteration very difficult.
 
 Event the very low level components of a Linux installation can differ,
 even within a single distribution.  Users can choose a different boot loader
-(which loads the operating sysetm) and even a different file system
+(which loads the operating system) and even a different file system
 format.  Most Linux distributions will use the Ext4 file system by
 default, but it's a simple matter to select and install any number of
-others depeding on perference:  btrFS, XFS, ZFS, JFS are all examples of
+others depending on preference:  btrFS, XFS, ZFS, JFS are all examples of
 file systems.  Should an examiner come across one of these,
-consideration would need to be givent to file recovery, allocation
+consideration would need to be given to file recovery, allocation
 strategies to help determine file activity, and perhaps forensic
 software support.
 
@@ -517,7 +517,7 @@ All of the information covered so far gives a overall view of Linux and
 where it might fit in with a digital forensic workflow.  For those just
 starting out, or for those that have never seen Linux in action before,
 it might be useful to actually see a very simple command line session
-from acquistion through artifact recovery and interpretation.
+from acquisition through artifact recovery and interpretation.
 
 First, let's map a quick outline of what we wish to accomplish, and the
 tools we will use:
@@ -553,14 +553,14 @@ Windows Registry file.
 The acquisition tools in the above table work in generally the same manner,
 creating "bit for bit" or *raw* images that are essentially exact duplicates of
 the storage media being imaged.  `dd` is the original Linux tool used
-for basic forensic imaging.  It was not explicity designed for that, but
+for basic forensic imaging.  It was not explicitly designed for that, but
 it is useful in a pinch, particularly because it will be available on
 just about any Unix or Linux system you might come across. 
 
-Varients of `dd` include `dc3dd` and `dcfldd`.  These are
-both forks of `dd` that were coded specifically with digital forenics
+Variants of `dd` include `dc3dd` and `dcfldd`.  These are
+both forks of `dd` that were coded specifically with digital forensics
 and media acquisition in mind.  Both include logging and built-in
-hashing capabilities with a multiple avaiable hash algorithms. There are
+hashing capabilities with a multiple available hash algorithms. There are
 also options to directly split the output files for easier handling.
 
 Command line imaging tools like `dd` and those based on it can seem a
@@ -578,7 +578,7 @@ to specify hashing the input media and the resulting image.  An examiner
 can also split the output into smaller segments using `ofs=<imagefile> ofsz=<size>`.
 Combining the options gives a split file with all the segments and the
 original media hashed using `hofs=<imagefile> hash=<algorithm> ofsz=<size>`.
-The entire ouptut can be documented with the `log=<logfile>` option.
+The entire output can be documented with the `log=<logfile>` option.
 
 We will see an example of this in the scenario coming up in the next
 section.  
@@ -589,7 +589,7 @@ access in-situ media is not uncommon.
 
 #### Evidence Integrity
 
-In geneneral, common practice for command line collection of a forensic
+In general, common practice for command line collection of a forensic
 image should include calculation of a hash *prior* to imaging.  This is
 usually followed by a hash of the resulting forensic image.  In recent
 years, industry practitioners have taken to relying on the built in
@@ -625,7 +625,7 @@ duplicate, bit for bit, of the original.
 
 #### Volume / File system analysis
 
-Once we have an image, and the itegrity of our evidence has been
+Once we have an image, and the integrity of our evidence has been
 verified, we need to focus our examination on the volume, file system,
 and artifacts pertinent to our case.  This will include parsing any
 partition table (DOS or GPT in most cases), identifying the file system
@@ -697,7 +697,7 @@ addition, many of these tools provide *libraries* to allow developers to
 include artifact parsing capabilities in more feature rich tools.  One
 example of this is *Autopsy*, a GUI digital forensic tool that utilizes
 Sleuthkit libraries to parse disk images, storage volumes, and file
-systems. Additional fucntionality is provided by external open source
+systems. Additional functionality is provided by external open source
 libraries for artifact parsing and timeline creation.
 
 For those examiners that are proficient in the Python language, there
@@ -709,11 +709,11 @@ scripts that can parse artifacts of interest.
 One example of this is the
 [libewf](https://github.com/libyal/libewf)
 project.  This library provides access to Expert Witness Format (EWF)
-images created by many acquisition utilites. The project includes tools
+images created by many acquisition utilities. The project includes tools
 like `ewfmount` and `ewfinfo` to directly interact with commonly
 collected `.E01` images.  In addition to the tools, there are also
 libraries that can be included in other programs to provide access to
-EWF images.  The Sleuthkit can be compilied with `libewf` support,
+EWF images.  The Sleuthkit can be compiled with `libewf` support,
 allowing TSK tools to be used directly on `.E01` images with first
 having to convert them to "raw" format.  Finally, `pyewf` Python
 bindings are provided to allow anyone to create scripts using `libewf`
@@ -735,7 +735,7 @@ analysis as well, such as
 Application data from mobile devices are often stored in SQL data base
 files.  Once again, there are often built in data base programs included
 in many Linux distributions that can extract desired data from chat
-apps, location based artifiacts and more.  
+apps, location based artifacts and more.  
 
 So what does all this look like in use?
 
@@ -743,10 +743,10 @@ So what does all this look like in use?
 
 An important part of every digital forensic analysis is planning the
 goal or at least the scope of your examination. Helping to focus on a
-goal gives an idea of the tools requried and the methods to be used.  In
+goal gives an idea of the tools required and the methods to be used.  In
 many cases, when providing forensic support to other investigators, the
 goal of the examination is defined by the support request.  In other
-cases, the elements of the crime or known inicators (in the case of
+cases, the elements of the crime or known indicators (in the case of
 network compromise) provide the goals.
 
 In this particular exercise, we will go back to our premise of cross
@@ -758,18 +758,30 @@ Let us assume we have the output from a Windows Forensic suite that
 shows a particular user last login date of an enterprise workstation at
 a given time.  This was done through the examination of the Security
 Account Manager (SAM) registry file. The specific time the user logged
-in is imperitive to the case and we want to cross verify the results.
+in is imperative to the case and we want to cross verify the results.
 Our original output shows
 this:
 
-![Original Registry Output](resources/Ch19/regripout.png)
+<pre>
+Username        : johnnyFox [1000]
+Full Name       : 
+User Comment    : 
+Account Type    : Default Admin User
+Account Created : Thu Apr  6 01:35:32 2017 Z
+Name            :  
+Password Hint   : InitialsInCapsCountToFour
+Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+Pwd Reset Date  : Thu Apr  6 01:35:34 2017 Z
+Pwd Fail Date   : Sun Apr 30 21:23:01 2017 Z
+Login Count     : 7
+</pre>
 
 The goal for this examination is to verify the above *Last Login Date*
 with a separate tool under Linux (our cross verification).
 
 ### Sample Scenario: Acquire the Evidence
 
-In this scenario, we can assume the evidenc has already been acquired.
+In this scenario, we can assume the evidence has already been acquired.
 But for the sake of completion, we can show the disk image here being
 created from computer media attached to our Linux platform.
 
@@ -860,7 +872,7 @@ separately.
 
 Our volume of interest has been identified at an offset inside the image
 of `2048` sectors.  We pass this volume to the TSK tool `fsstat` to
-obtain detailed information on the file sysetm:
+obtain detailed information on the file system:
 
 ```
 $ fsstat -o 2048 image.raw
@@ -918,7 +930,7 @@ In this particular scenario we are conducting a cross verification of
 findings from a file we already know - the SAM registry file. In a
 normal Windows installation, the SAM is located in
 `C:\windows\system32\config`.  We can use the Sleuthkit `fls` tool to
-recurively list all the allocated files in the volume of interest and
+recursively list all the allocated files in the volume of interest and
 specifically look, or *grep*, for `Windows/System32/config/SAM`:
 
 ```
@@ -928,10 +940,168 @@ r/r 178-128-2:  Windows/System32/config/SAM
 This output gives us the NTFS file system's Master File Table, or MFT
 entry for the SAM file.  In this case, the MFT entry is `178-128-2`.
 
-### Sample Scenario: Extract and Parse the data
+### Sample Scenario: Extract the data
 
+We will do two quick steps here.  First we will extract the file using
+the Sleuthkit's `icat` command, which takes the meta-data entry (in this
+case MFT entry `178`), and streams the contents of the data blocks or
+clusters to our chosen destination - which in this case is an extracted
+file:
 
+```
+$ icat -o 2048 image.raw 178 > image.SAM
 
+$ file image.SAM 
+image.SAM: MS Windows registry file, NT/2000 or above
+```
+The `icat` command extracts the SAM file and writes it to the file
+called `image.SAM`.  Once this is done, we use the Linux `file` command
+to make sure that the file type we've extracted matches what we expect.
+In this case we expected a Windows registry file, and that's exactly
+what we have.
+
+At this point we can install `libregf`.  This will allow us to gather
+some simple identifying information as well as *mount* the registry file
+to allow us to parse it for the information we are seeking.  The
+following commands are provided by the `libregf` package:
+
+```
+$ regfinfo image.SAM 
+regfinfo 20220131
+
+Windows NT Registry File information:
+        Version:        1.3
+        File type:      Registry
+
+$ mkdir regfmnt
+
+$ regfmount image.SAM regfmnt/
+regfmount 20220131
+```
+
+Using commands provided by `libregf` we confirm the identity and
+version of the registry file. Then we create a *mount point* or
+directory to which we can attach the registry file so we can browse the
+contents.
+
+### Sample Scenario: Parse the Artifact
+
+Given the fact that we've already examined this file in our main forensic
+suite, and we are simply cross verifying our results here, we would
+probably know the account's *Relative ID* (RID) - in this case the
+account's RID is `1000`.
+
+Now that we know the RID (from our previous examination - this is a
+cross verification), we can browse to the account's associated keys in
+the mounted registry file:
+
+```
+$ cd SAM/Domains/Account/Users/
+
+$ ls
+(values)/  000001F4/  000001F5/  000003E8/  000003E9/  Names/
+
+```
+
+The directory `SAM/Domains/Account/Users/` contains keys for each
+account, listed by RID in hex format.  If you study Windows forensics,
+you know that we have a System Administrator (RID `500`), a Guest
+account (RID `501`), and user accounts starting at `1000` by default.
+We can confirm the account we are interested in is `000003E8` by
+converting each value to decimal using shell expansion and finding
+`1000`:
+
+```
+$ echo $((0x3E8))
+1000
+```
+Changing into that directory, we find several subkey values. Again,
+studying registry forensics, we find that the `F` value contains an
+account's login information, so we change our directory to 
+`(values)` for that account:
+
+<pre>
+$ cd 000003E8/\(values\)
+
+$ ls
+<b>F</b>  UserPasswordHint  V
+</pre>
+
+### Sample Scenario: Cross Verify the Findings
+
+Using a hex viewer included with Linux (`xxd`), we can look at the
+subkey's value.  The *Last Login Date* is stored at hex offset 8.
+
+<pre>
+$ xxd F
+00000000: 0200 0100 0000 0000 <b>678e 5df7 f7c1 d201</b>  ........g.].....
+00000010: 0000 0000 0000 0000 20d7 bf15 76ae d201  ........ ...v...
+00000020: ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201  ........\.].....
+00000030: e803 0000 0102 0000 1402 0000 0000 0000  ................
+00000040: 0000 0700 0100 0000 0000 4876 488a 3600  ..........HvH.6.
+</pre>
+
+There are a number of tools available to convert that hex string to a
+date value.  We will use a simple python script
+([WinTime.py](https://linuxleo.com/Files/WinTime)).
+
+```
+$ python ~/WinTime.py 678e5df7f7c1d201
+Sun Apr 30 21:23:09 2017
+```
+
+Here again is the original output from the analysis we are trying to
+verify (with some output removed for brevity):
+
+<pre>
+...
+Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+...
+</pre>
+
+So we can see that our original analysis, using a common digital
+forensics tool under Windows, has been cross verified with a completely
+separate set of tools under a different operating system. The steps look
+complex, but for a far more detailed look at this level of analysis is
+covered in the previous mentioned LinuxLEO guide.
+
+Note that we included the acquisition here for completeness, but in a
+real cross verification situation, the image already acquired is fine to
+use - it has generally already been verified by the hash algorithm.
+
+We've actually accomplished a bit more by verifying our results with
+Linux.  In addition to proving the veracity of what our original tool
+found, we have focused on a "smoking gun" artifact and *manually*
+extracted and parsed it ourselves.  This entire manual process will go
+in your notes along with any research you needed to do in order to
+complete it (What registry file do I need? Where is the login data
+stored?  What offset?  What format?).  Should you ever be called to
+testify or participate in any adjudication process, you will be better
+prepared to answer the oppositions questions on *how* your original tool
+found what it reported.  
+
+This same approach applies to results of a mobile device analysis chats
+are displayed in a GUI tool and organized by conversation. Find
+something important to the investigation? Fire up a Linux command line
+and dig into the database yourself.  In many cases you don't even need
+to leave your Windows forensic workstation desktop.  You can use
+WSL/WSL2, or SSH into your physical Linux workstation or VM using
+[PuTTY](https://putty.org).
 
 
 ## Closing
+
+While doing all this on the command line looks
+daunting, it is an excellent way to drill down to the "bits and bytes"
+and learn digital forensics from the ground up.  There is no doubt that
+a full GUI suite of digital forensic tools can be a more efficient way
+of drilling into large amounts of data quickly.  Where the Linux command
+line excels is in forcing you to learn exactly where you need to look
+for specific data and how it is stored.  
+
+There are a growing number of ways to access a Linux environment without
+the need for excessive excessive resources.  This makes it
+more accessible to forensic examiners and a good fit for modern digital
+forensic laboratories.
+
+

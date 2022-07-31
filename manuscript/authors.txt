@@ -12,6 +12,24 @@ After many years at the top of the Systems Administration food chain, the ApexPr
 
 A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
 
+## Barry Grundy
+
+Barry Grundy has been working in the field of digital forensics since the mid
+1990s.  Starting at the Ohio Attorney General's office as a criminal
+investigator, and eventually joining U.S. Federal Law Enforcement as a digital
+forensics analyst and computer crimes investigator in 2001.  He holds a
+Bachelor of Science in Forensic Science from Ohio University, and A Master's
+Degree in Forensic Computing and Cybercrimes Investigations from University
+College Dublin.  
+
+Barry is the author and maintainer of the Law Enforcement and Forensic
+Examiner's Introduction to Linux ([LinuxLEO](https://linuxleo.com)).  This
+practical beginner's guide to Linux as a digital forensics platform has been
+available for over 20 years and has been used by a number of academic
+institutions and law enforcement agencies around the world to introduce
+students of DFIR to Linux. Teaching, particularly Linux forensics and open
+source DFIR tools, is his passion.
+
 ## John Haynes
 
 John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.

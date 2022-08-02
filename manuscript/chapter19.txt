@@ -3,7 +3,7 @@
 {width: 30%}
 ![](Ch19/ch19logo.png)
 
-By [Barry Grundy](https://github.com/bgrundy) | [Discord](http://discordapp.com/users/505057526421913600) | [LinuxLEO](https://linuxleo.com)
+C> By [Barry Grundy](https://github.com/bgrundy) | [Website](https://linuxleo.com) | [Discord](http://discordapp.com/users/505057526421913600)
 
 ## What is Linux?
 
@@ -219,12 +219,12 @@ There are far too many tools to cover in a single chapter. Again, documents like
 
 | Purpose   | Tool          |
 | ---    | ---        |
-| Acquisition  | dd <br> dc3dd <br> dcfldd <br> ddrescue <br> ewfacquire    |
-| Integrity verification (hashing) | md5sum <br> sha1sum <br> sha256sum <br> ...etc |
-| Volume / File System / File Analysis | **The Sleuthkit (TSK)**: <br> mmls <br> fsstat <br> fls <br> istat <br> icat <br> blkcalc <br> ...and more |
-| Windows Artifacts  | **Libyal (multiple tools/libraries)**: <br> libregf <br> libevtx <br> liblnk <br> libscca <br> libesedb <br> ...many more |
-| File Carving    | scalpel <br> foremost <br> bulk_extractor      |
-| Data Parsing    | **General GNU Utilities**: <br> sed <br> awk <br> grep <br> etc.      |
+| Acquisition  | dd <br/> dc3dd <br/> dcfldd <br/> ddrescue <br/> ewfacquire    |
+| Integrity verification (hashing) | md5sum <br/> sha1sum <br/> sha256sum <br/> etc. |
+| Volume / File System / File Analysis | **The Sleuthkit (TSK)**: <br/> mmls <br/> fsstat <br/> fls <br/> istat <br/> icat <br/> blkcalc <br/> etc. |
+| Windows Artifacts  | **Libyal (multiple tools/libraries)**: <br/> libregf <br/> libevtx <br/> liblnk <br/> libscca <br/> libesedb <br/> .etc. |
+| File Carving    | scalpel <br/> foremost <br/> bulk_extractor      |
+| Data Parsing    | **General GNU Utilities**: <br/> sed <br/> awk <br/> grep <br/> etc.      |
 
 #### Acquisition Tools
 
@@ -333,19 +333,18 @@ In this particular exercise, we will go back to our premise of cross verificatio
 
 Let us assume we have the output from a Windows Forensic suite that shows a particular user last login date of an enterprise workstation at a given time. This was done through the examination of the Security Account Manager (SAM) registry file. The specific time the user logged in is imperative to the case and we want to cross verify the results. Our original output shows this:
 
-<pre>
-Username  : johnnyFox [1000]
-Full Name :
-User Comment :
-Account Type : Default Admin User
-Account Created : Thu Apr  6 01:35:32 2017 Z
-Name   :
-Password Hint   : InitialsInCapsCountToFour
-Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
-Pwd Reset Date  : Thu Apr  6 01:35:34 2017 Z
-Pwd Fail Date   : Sun Apr 30 21:23:01 2017 Z
-Login Count  : 7
-</pre>
+
+> Username  : johnnyFox [1000]
+> Full Name :
+> User Comment :
+> Account Type : Default Admin User
+> Account Created : Thu Apr  6 01:35:32 2017 Z
+> Name   :
+> Password Hint   : InitialsInCapsCountToFour
+> Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+> Pwd Reset Date  : Thu Apr  6 01:35:34 2017 Z
+> Pwd Fail Date   : Sun Apr 30 21:23:01 2017 Z
+> Login Count  : 7
 
 The goal for this examination is to verify the above *Last Login Date* with a separate tool under Linux (our cross verification).
 
@@ -530,25 +529,25 @@ $ echo $((0x3E8))
 ```
 Changing into that directory, we find several subkey values. Again, studying registry forensics, we find that the `F` value contains an account's login information, so we change our directory to `(values)` for that account:
 
-<pre>
-$ cd 000003E8/\(values\)
 
-$ ls
-<b>F</b>  UserPasswordHint  V
-</pre>
+> $ cd 000003E8/\(values\)
+> 
+> $ ls
+> <b>F</b>  UserPasswordHint  V
+
 
 ### Sample Scenario: Cross Verify the Findings
 
 Using a hex viewer included with Linux (`xxd`), we can look at the subkey's value. The *Last Login Date* is stored at hex offset 8.
 
-<pre>
-$ xxd F
-00000000: 0200 0100 0000 0000 <b>678e 5df7 f7c1 d201</b>  ........g.].....
-00000010: 0000 0000 0000 0000 20d7 bf15 76ae d201  ........ ...v...
-00000020: ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201  ........\.].....
-00000030: e803 0000 0102 0000 1402 0000 0000 0000  ................
-00000040: 0000 0700 0100 0000 0000 4876 488a 3600  ..........HvH.6.
-</pre>
+
+> $ xxd F
+> 00000000: 0200 0100 0000 0000 <b>678e 5df7 f7c1 d201</b>  ........g.].....
+> 00000010: 0000 0000 0000 0000 20d7 bf15 76ae d201  ........ ...v...
+> 00000020: ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201  ........\.].....
+> 00000030: e803 0000 0102 0000 1402 0000 0000 0000  ................
+> 00000040: 0000 0700 0100 0000 0000 4876 488a 3600  ..........HvH.6.
+
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).
 
@@ -559,11 +558,9 @@ Sun Apr 30 21:23:09 2017
 
 Here again is the original output from the analysis we are trying to verify (with some output removed for brevity):
 
-<pre>
-...
-Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
-...
-</pre>
+> ...
+> Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+> ...
 
 So we can see that our original analysis, using a common digital forensics tool under Windows, has been cross verified with a completely separate set of tools under a different operating system. The steps look complex, but for a far more detailed look at this level of analysis is covered in the previous mentioned LinuxLEO guide.
 

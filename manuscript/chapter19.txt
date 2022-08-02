@@ -120,6 +120,8 @@ A "Linux Distribution" (or "distro" for short) is a collection of Linux componen
 
 With the open source nature of the Linux environment, you could grab all the source code for the various components and build your very own distribution, or at least running version of Linux. This is often referred to as "Linux from Scratch" (LFS). On the other hand, the various distro developers do all the heavy lifting for you. Packaging it up and making the entire operating system available to you for install via a variety of methods.
 
+{pagebreak}
+
 Some popular distributions out there include (but are certainly not limited to):
 * Ubuntu
 * Manjaro
@@ -221,6 +223,8 @@ First, let's map a quick outline of what we wish to accomplish, and the tools we
  7. Extract / Examine the artifacts
  8. Parse data from each artifact
 
+ * * *
+
 {pagebreak}
 
 ### The Tools
@@ -258,6 +262,7 @@ There are far too many tools to cover in a single chapter. Again, documents like
 |              | awk                        |
 |              | grep etc.                  |
 
+{pagebreak}
 
 #### Acquisition Tools
 
@@ -334,6 +339,8 @@ The Sleuthkit supports the following file system types:
 * hfsp (HFS+)
 * hfsl (HFS (Legacy))
 
+{pagebreak}
+
 There are more than thirty command line tools in the TSK. We will use some of them in the sample scenario that follows this section:
 
 | Tool  | Purpose   |
@@ -364,6 +371,8 @@ Tools on the Linux command line are, of course not limited to computer storage m
 
 So what does all this look like in use?
 
+{pagebreak}
+
 ### Sample Scenario: Define the Goal of the Examination
 
 An important part of every digital forensic analysis is planning the goal or at least the scope of your examination. Helping to focus on a goal gives an idea of the tools required and the methods to be used. In many cases, when providing forensic support to other investigators, the goal of the examination is defined by the support request. In other cases, the elements of the crime or known indicators (in the case of network compromise) provide the goals.
@@ -371,7 +380,6 @@ An important part of every digital forensic analysis is planning the goal or at 
 In this particular exercise, we will go back to our premise of cross verification. Covering every step in exact detail is outside the scope of this chapter. This is an illustration of what a simple cross verification of results might look like.
 
 Let us assume we have the output from a Windows Forensic suite that shows a particular user last login date of an enterprise workstation at a given time. This was done through the examination of the Security Account Manager (SAM) registry file. The specific time the user logged in is imperative to the case and we want to cross verify the results. Our original output shows this:
-
 
 > Username  : johnnyFox [1000]
 > Full Name :
@@ -386,6 +394,8 @@ Let us assume we have the output from a Windows Forensic suite that shows a part
 > Login Count  : 7
 
 The goal for this examination is to verify the above *Last Login Date* with a separate tool under Linux (our cross verification).
+
+{pagebreak}
 
 ### Sample Scenario: Acquire the Evidence
 
@@ -438,6 +448,8 @@ This shows us a log of the imaging process, the size of the date acquired, and t
 
 We now have a verified image, obtained from the original storage device, that we can use for our examination.
 
+{pagebreak}
+
 ### Sample Scenario: Map the Storage Volumes
 
 Once we have created our image, we need to determine the partitioning scheme, and which of those partitions are of interest to our investigation.
@@ -455,6 +467,8 @@ Units are in 512-byte sectors
 ```
 
 Using the `mmls` command from the Sleuthkit, we can see that there is only one NTFS file system, at a *sector offset* of `2O48` (under `Start`). We will be using additional file system and file extraction tools from TSK, and the sector offset is an important value. We use it to tell TSK *which volume* to access inside the image. Media storage partitioning can be quite complex, and with TSK we access each volume/file system separately.
+
+{pagebreak}
 
 ### Sample Scenario: Identify the File System
 
@@ -506,6 +520,8 @@ $LOGGED_UTILITY_STREAM (256)   Size: 0-65536   Flags: Non-resident
 ```
 There is quite a bit of information in the `fsstat` output. File system type, version, and volume name are all items we will want to know for our notes. Other information provided by `fsstat` can be useful for documenting and describing files carved from this particular volume, as well as ranges of physical blocks used to store data.
 
+{pagebreak}
+
 ### Sample Scenario: Identify the File(s) of Interest
 
 In this particular scenario we are conducting a cross verification of findings from a file we already know - the SAM registry file. In a normal Windows installation, the SAM is located in `C:\windows\system32\config`. We can use the Sleuthkit `fls` tool to recursively list all the allocated files in the volume of interest and specifically look, or *grep*, for `Windows/System32/config/SAM`:
@@ -515,6 +531,8 @@ $ fls -Fr -o 2048 image.raw | grep -i system32/config/SAM
 r/r 178-128-2:  Windows/System32/config/SAM
 ```
 This output gives us the NTFS file system's Master File Table, or MFT entry for the SAM file. In this case, the MFT entry is `178-128-2`.
+
+{pagebreak}
 
 ### Sample Scenario: Extract the data
 
@@ -546,6 +564,8 @@ regfmount 20220131
 
 Using commands provided by `libregf` we confirm the identity and version of the registry file. Then we create a *mount point* or directory to which we can attach the registry file so we can browse the contents.
 
+{pagebreak}
+
 ### Sample Scenario: Parse the Artifact
 
 Given the fact that we've already examined this file in our main forensic suite, and we are simply cross verifying our results here, we would probably know the account's *Relative ID* (RID) - in this case the account's RID is `1000`.
@@ -568,26 +588,22 @@ $ echo $((0x3E8))
 ```
 Changing into that directory, we find several subkey values. Again, studying registry forensics, we find that the `F` value contains an account's login information, so we change our directory to `(values)` for that account:
 
-
 > $ cd 000003E8/\(values\)
-> 
 > $ ls
-> 
 > **F**  UserPasswordHint  V
 
+{pagebreak}
 
 ### Sample Scenario: Cross Verify the Findings
 
 Using a hex viewer included with Linux (`xxd`), we can look at the subkey's value. The *Last Login Date* is stored at hex offset 8.
 
-
 > $ xxd F
-| 00000000: | 0200 0100 0000 0000 **678e 5df7 f7c1 d201** | ``........g.].....`` |
-| 00000010: | 0000 0000 0000 0000 20d7 bf15 76ae d201 | ``........ ...v...`` |
-| 00000020: | ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201 | ``........\.].....`` |
-| 00000030: | e803 0000 0102 0000 1402 0000 0000 0000 | ``................`` |
-| 00000040: | 0000 0700 0100 0000 0000 4876 488a 3600 | ``..........HvH.6.`` |
-
+| 00000000: | ``0200 0100 0000 0000`` **678e 5df7 f7c1 d201** | ``........g.].....`` |
+| 00000010: | ``0000 0000 0000 0000 20d7 bf15 76ae d201`` | ``........ ...v...`` |
+| 00000020: | ``ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201`` | ``........\.].....`` |
+| 00000030: | ``e803 0000 0102 0000 1402 0000 0000 0000`` | ``................`` |
+| 00000040: | ``0000 0700 0100 0000 0000 4876 488a 3600`` | ``..........HvH.6.`` |
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).
 

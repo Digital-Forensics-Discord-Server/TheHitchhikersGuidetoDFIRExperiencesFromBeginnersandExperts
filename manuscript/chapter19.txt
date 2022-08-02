@@ -97,6 +97,8 @@ As an alternative operating system, Linux is often used to troubleshoot hardware
 
 There is also the benefit of having a completely different operating system utilizing a different tool set to do cross verification of findings. In some organizations, the cross verification of significant analysis results is a requirement. Depending on the situation, it can make good sense even if not explicitly required. Cross verification means that if a practitioner finds an artifact or draws a particular conclusion on a given piece of evidence then there needs to be a "confirmation" of that finding using a different tool or technique.
 
+{pagebreak}
+
 Consider the following simplified example:
 
 1. A forensic examiner extracts the "user created contents" (documents, emails, etc.) from computer media and provides the data to an investigator using a common Windows forensic software suite.
@@ -154,6 +156,8 @@ If there are no organizational considerations, then consider using a popular dis
 Or you can take the opposite view and install a distribution along the lines of Slackware or Gentoo. Start with a very 'vanilla' installation and learn the ins and outs of configuration, system setup, and administration without a lot of helpful automation. Choices and
 customization options are abundant.
 
+{pagebreak}
+
 ## Learning Linux Forensics
 
 There are a copious amount of resources available to help learn Linux. From distribution specific tutorials and Wiki pages, to command line oriented blogs and websites. You can take an online course from any one of the many providers out there from Udemy, Edx or even YouTube. There is no shortage of learning material.
@@ -181,6 +185,8 @@ Second, there are the tools we need to learn. These fall into a number of catego
 There are specific tools (with some crossover) for each of these categories, which we'll cover in the next sections.
 
 The Law Enforcement and Forensic Examiner's Introduction to Linux, the LinuxLEO guide, is available for free. Written by the same author as this chapter, the guide was produced as a complete guide to installing Linux, learning the operating system, and using forensic tools to conduct hands on exercises using sample practice files. The materials are freely available at https://www.linuxleo.com.
+
+{pagebreak}
 
 ### Linux as a target
 
@@ -268,6 +274,10 @@ We will see an example of this in the scenario coming up in the next section.
 
 Learning how to image with Linux command line tools is a useful skill for all digital forensic practitioners. Using Linux bootable media to access in-situ media is not uncommon.
 
+* * *
+
+{pagebreak}
+
 #### Evidence Integrity
 
 In general, common practice for command line collection of a forensic image should include calculation of a hash *prior* to imaging. This is usually followed by a hash of the resulting forensic image. In recent years, industry practitioners have taken to relying on the built in hashing capabilities of their imaging tools to do the work for them. Manual hashing is both a good idea and a good skill to have.
@@ -292,6 +302,8 @@ Now hash the resulting image file and make sure the hash matches that of the ori
 # sha1sum imagefile.raw
 8f37a4c0112ebe7375352413ff387309b80a2ddd  imagefile.raw
 ```
+
+{pagebreak}
 
 #### Volume / File system analysis
 
@@ -570,11 +582,11 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 
 
 > $ xxd F
-| 00000000: | 0200 | 0100 | 0000 | 0000 | **678e** | **5df7** | **f7c1** | **d201** | ``........g.].....`` |
-| 00000010: | 0000 | 0000 | 0000 | 0000 | 20d7 | bf15 | 76ae | d201 | ``........ ...v...`` |
-| 00000020: | ffff | ffff | ffff | ff7f | 5ce9 | 5df2 | f7c1 | d201 | ``........\.].....`` |
-| 00000030: | e803 | 0000 | 0102 | 0000 | 1402 | 0000 | 0000 | 0000 | ``................`` |
-| 00000040: | 0000 | 0700 | 0100 | 0000 | 0000 | 4876 | 488a | 3600 | ``..........HvH.6.`` |
+| 00000000: | 0200 0100 0000 0000 **678e 5df7 f7c1 d201** | ``........g.].....`` |
+| 00000010: | 0000 0000 0000 0000 20d7 bf15 76ae d201 | ``........ ...v...`` |
+| 00000020: | ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201 | ``........\.].....`` |
+| 00000030: | e803 0000 0102 0000 1402 0000 0000 0000 | ``................`` |
+| 00000040: | 0000 0700 0100 0000 0000 4876 488a 3600 | ``..........HvH.6.`` |
 
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).

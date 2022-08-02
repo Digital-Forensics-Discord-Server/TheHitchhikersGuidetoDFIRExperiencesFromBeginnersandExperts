@@ -133,6 +133,8 @@ Performing a memory dump on Windows can be performed by multiple tools. FTK Imag
 
 There is no single version of Linux, every single distribution has its own intricacies and (minor) differences. A tool was needed that can perform a memory dump independent of installed kernels, packages, or other dependencies. Microsoft actively develops [AVML](https://github.com/microsoft/avml). AVML can be used to perform a memory dump and also has a few tricks of its own. AVML supports compression of memory dumps to decrease the amount of required disk space as well as uploads to a Microsoft Azure Blob store.
 
+{pagebreak}
+
 The standard usage of AVML is shown below:
 
 {line-numbers:false}
@@ -181,3 +183,5 @@ KapeTriage collections that will collect most of the files needed for a DFIR Inv
 The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format. 
  
 These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
+
+* * *

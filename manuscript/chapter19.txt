@@ -633,11 +633,11 @@ Changing into that directory, we find several subkey values. Again, studying reg
 Using a hex viewer included with Linux (`xxd`), we can look at the subkey's value. The *Last Login Date* is stored at hex offset 8.
 
 > $ xxd F
-| 00000000: | ``0200 0100 0000 0000`` **678e  5df7  f7c1  d201** | ``........g.].....`` |
-| 00000010: | ``0000 0000 0000 0000 20d7 bf15 76ae d201`` | ``........ ...v...`` |
-| 00000020: | ``ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201`` | ``........\.].....`` |
-| 00000030: | ``e803 0000 0102 0000 1402 0000 0000 0000`` | ``................`` |
-| 00000040: | ``0000 0700 0100 0000 0000 4876 488a 3600`` | ``..........HvH.6.`` |
+| 00000000: | ``0200 0100 0000 0000`` **678E 5DF7 F7C1 D201** | ``........g.].....`` |
+| 00000010: | ``0000 0000 0000 0000 20D7 BF15 76AE D201`` | ``........ ...v...`` |
+| 00000020: | ``FFFF FFFF FFFF FF7F 5CE9 5DF2 F7C1 D201`` | ``........\.].....`` |
+| 00000030: | ``E803 0000 0102 0000 1402 0000 0000 0000`` | ``................`` |
+| 00000040: | ``0000 0700 0100 0000 0000 4876 488A 3600`` | ``..........HvH.6.`` |
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).
 
@@ -660,6 +660,8 @@ Note that we included the acquisition here for completeness, but in a real cross
 We've actually accomplished a bit more by verifying our results with Linux. In addition to proving the veracity of what our original tool found, we have focused on a "smoking gun" artifact and *manually* extracted and parsed it ourselves. This entire manual process will go in your notes along with any research you needed to do in order to complete it (What registry file do I need? Where is the login data stored?  What offset?  What format?). Should you ever be called to testify or participate in any adjudication process, you will be better prepared to answer the oppositions questions on *how* your original tool found what it reported.
 
 This same approach applies to results of a mobile device analysis chats are displayed in a GUI tool and organized by conversation. Find something important to the investigation? Fire up a Linux command line and dig into the database yourself. In many cases you don't even need to leave your Windows forensic workstation desktop. You can use WSL/WSL2, or SSH into your physical Linux workstation or VM using [PuTTY](https://putty.org).
+
+* * *
 
 {pagebreak}
 

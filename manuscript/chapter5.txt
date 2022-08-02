@@ -105,6 +105,10 @@ Another area of concern is the collection and sending of sensitive device inform
 
 While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies.
 
+* * *
+
+{pagebreak}
+
 ## Part 2 - Manual Analysis
 
 Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into readable decomplied code. The source code and compiled releases for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
@@ -144,6 +148,10 @@ I would recommend enabling searching within comments as sometimes additional fun
 ## Problem of Scale:
 
 So far, we have covered the bare basics of using MobSF to analyze an APK as well as how to manually interrogate the same APK using JADX. In most malware mobile forensic investigations with physical access (not logical) most stock Android phones have more than 100+ APKs (including system applications, device manufacturer applications, network provider applications, and third-party applications) that could need to be analyzed. Devices in active usage could reach beyond 200+ APKs that could potentially need to be analyzed. 200+ APKs is a significant number of applications for a malware forensic analysis but the investigation could be completed using MobSF and JADX in a few weeks. The problem comes at scale by expanding the number of devices being analyzed. Now you may have 100+ devices, each with 100+ APKs that may or may not be the same version. This quickly becomes untenable which results in a need to develop or adapt mobile application analysis methodology to scale.
+
+* * *
+
+{pagebreak}
 
 ## Part 3 - Using Autopsy, Jadx, and Python to Scrap and Parse Android Applications at Scale
 

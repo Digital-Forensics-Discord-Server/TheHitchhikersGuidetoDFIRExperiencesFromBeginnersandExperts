@@ -9,20 +9,13 @@ Welcome to the first crowdsourced digital forensics and incident response (DFIR)
 
 Before getting into the chapters this book offers, I want to cover the mantra behind this book for the reader to consider as they make their way through.
 
+* * *
+
+{pagebreak}
+
 ## Purpose of This Book
 
 This book is purely a proof of concept that members of the Digital Forensics Discord Server undertook to show that a DFIR book can be:
-
-	1. Crowdsourced
-	2. Open source
-	3. Self-published
-	4. Created using GitHub and Markua (Leabpub's flavor of Markdown)
-	5. Accessible
-	6. Considering all the above, a legitimate DFIR resource
-	
-{pagebreak}
-
-Before we go further, let's break down each bullet point above. 
 
 ### Crowdsourced
 
@@ -50,6 +43,8 @@ This particular book will be freely available on Leanpub [here](https://leanpub.
 
 Frankly, this may not be at the level of a college textbook, but it's also not meant to be. Again, this project is intended to provide a platform for previously unknown contributors in the DFIR community to provide the knowledge they've gained through research, experience, or otherwise. When one is passionate enough about a subject to where they'd volunteer to write a chapter for a book like this, enabling that person to spread their wings and put themselves out there for others to benefit from is an honor. Any errata in the chapters of this book will be addressed as they are identified, and since we control the publishing tempo, we (or you) can update the book at any time.
 
+* * *
+
 {pagebreak}
 
 ### Community Participation
@@ -58,16 +53,20 @@ One important aspect of creating this book was involving the community in decidi
 
 #### Round 1
 
-{width: 80%}
+{width: 70%}
 ![](Ch0/BookTitleRound1Results.jpg)
 
 #### Round 2
 
-{width: 80%}
+{width: 70%}
 ![](Ch0/BookTitleRound2Results.jpg)
+
+{pagebreak}
 
 ## Final Thoughts
 
 I don't think any of the co-authors listed on the cover of this book ever thought they would be published authors. I can certainly say that is the case for myself. This project proved that the barrier to doing something as complicated as writing a book isn't as complex as it could be, primarily thanks to Leanpub. For all we know, the next prominent name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing the path of knowledge sharing, content development, and overall DFIR community betterment. Only time will tell! Either way, I'm proud of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. Ultimately, the authors win, the other contributors win, and most importantly, the community wins! 
 
 Enjoy the book!
+
+* * *

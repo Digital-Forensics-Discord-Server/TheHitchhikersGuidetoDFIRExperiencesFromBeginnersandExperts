@@ -41,6 +41,10 @@ If the examiner is looking at an APFS encrypted volume from a MacBook, it is imp
 
 Other encryption methods include BitLocker, zipped or compressed files, password-protected Word documents, and many more. Generally speaking, some smart person somewhere has found out how to extract the hash and has shared that information for that particular situation. The examiner needs to search for hash extraction of a particular make, model, file system, software version, or a combination of those and similar attributes. [John the Ripper](https://github.com/openwall/john) is a great place to start when looking for how to extract a hash. Also as a general rule, the hash is likely to be stored in plain text somewhere in the hex (the raw data) on an electronic device. If the examiner is willing to poke around and search the hex, they may be able to find the password hash assuming the correct decoding method is used. This is not a hard-fast rule by any means, as there are complex methods of preventing external access to protected memory areas. For example, at the time of writing this, I know of no known method to extract a hash from a Chromebook even though it is possible to log into a Chromebook without it being connected to the internet, implying that a hash of the user’s password must be stored locally on the device.
 
+* * *
+
+{pagebreak}
+
 ## Hash Identification
 
 There may be times when a password hash has been located but the hash type is unknown. Hashcat has an entire wiki including example hashes that can aid in this process. The example hashes are located on the [Hashcat Wiki](https://hashcat.net/wiki/doku.php?id=example_hashes) and can help with the hash identification of an unknown hash. A simple Google search for "Hash Identification" results in multiple online tools that can help identify the type of hash, be it NTLM, SHA-256, or many others. Several websites include [Skerritt](https://nth.skerritt.blog/), [Hashes.com](https://hashes.com/en/tools/hash_identifier) or [Onlinehashcrack.com](https://www.onlinehashcrack.com/hash-identification.php). Be wary of using these or any other websites for sensitive hashes as the website now has the actual hash. For advanced examiners who do not want to use an online tool, Kali Linux also has an offline tool called [Hash-Identifier](https://www.kali.org/tools/hash-identifier/) that can be downloaded and used locally so the hash is not shared.
@@ -57,6 +61,10 @@ So to speed up this process we need to make some assumptions about the original 
 
 It is also common to add numbers or symbols to the end of the password. So we can also add numbers to the end of a valid word and try those combinations. Sophisticated users may decide to use "[leet speak](https://en.wikipedia.org/wiki/Leet)" and replace letters like 'S' with the number '5', the letter 'A' with the number '4', the letter 'E' with the number '3', the letters 'I' or 'l' with the number '1' because they look similar to the corresponding letter. For example, the word "Apples" may become "4pp135" when using leet speak. Finally, the addition of symbols is common at the end of the password, so common symbols like "!" can be added to the end (Picolet, 2019). This is by no means an exhaustive list, but this is a good starting point considering the alternative of a true brute force attack.
 
+* * *
+
+{pagebreak}
+
 ## Wordlists
 
 Now that we know a better method, we need to come up with a way to use that method to attack passwords. The simplest method would be to use a list of words or a wordlist of possible passwords. Just like it sounds, it is a list of possible passwords that already have symbols and numbers added to them. When using a wordlist to attack a password, it is often called a dictionary attack. It is possible to manually build our wordlist, but that is a very time-intensive task as we would not only need to create useful passwords but avoid duplicates. Fortunately, there are prebuilt wordlists that we can use.
@@ -64,6 +72,10 @@ Now that we know a better method, we need to come up with a way to use that meth
 When companies are hacked, a part of the data that is often stolen is the passwords. Companies should encrypt their data, specifically user passwords, but this is not always the case. In 2009, the social gaming company RockYou was compromised by a SQL injection attack. The hacker was able to gain access to over 32 million accounts and they were storing passwords in the clear, which means that there was no encryption whatsoever on the passwords as they were stored in plain text (Cubrilovic, 2009). This list of passwords has become known as the rockyou list and is commonly used as a starting point for dictionary attacks. Future breaches where the passwords have been compromised and cracked have also been added to wordlists. It is important to note that a good password list will not have duplicates of passwords due to deduplication. This is a key way to save time when cracking passwords by not attempting the same password multiple times.
 
 A good online resource where wordlists are compiled and ranked is [Weakpass.com](https://weakpass.com/) (W34kp455, 2014). On this site, wordlists are ranked by order of popularity and functionality from 0 to 100 and using a color-coding system that corresponds with the numerical ranking. Note how there are varying sizes of lists, ranging from over 400GB to only a few bytes in size. The first several wordlists for download may not be ranked very high being color-coded red and only being in the single digits. Selecting "Lists" and selecting "Medium" should display the original rockyou wordlist as `rockyou.txt` on the first page with just over 14 million unique passwords. When selecting "Lists" from the horizontal menu and selecting "All" we can sort all lists by popularity. Near the top of the list should be the `cyclone.hashesorg.hashkiller.combined.txt` password list with about 1.5 billion total passwords. This list is one of the top-ranked lists while only being just over 15GB in size. I would recommend using this list and I use it frequently because it is a good combination of reduced size yet it still has some complexity to crack most common passwords. The total time to iterate through the list is not unreasonable for many password hash types and stands a decent chance of cracking many passwords with a straight dictionary attack. The "All-in-One" tab allows for downloading a deduplicated version of all passwords on the site in various lengths for different applications, but know that a longer list will take longer to complete than a shorter list. If you haven't noticed, there is also an estimated time to iterate through the list for a particular password type under each list. While this can vary widely between different computers, it does a good job of showing the relative time difference it takes to attempt that list against the different hash types. If the 15GB password list is too large for you, [here](https://github.com/FullTang/AndroidPWList) is a smaller list that is not posted on Weakpass. This list combines several of the smaller wordlists from Weakpass and uses a few other techniques for an uncompressed size that is just under 1GB in size. If you plan on installing and using Hashcat, I would strongly recommend downloading at least one list of your choice.
+
+* * *
+
+{pagebreak}
 
 ## Installing Hashcat
 
@@ -82,6 +94,10 @@ When it comes to the hash itself, Hashcat will accept the hash in one of two way
 
 The example hash shows some arguments like `?a?a?a?a?a?` after the `example0.hash`, but those are not required. Other arguments can be seen towards the top of the help file, but those are optional. We now know everything required to crack this example NTLM hash! `b4b9b02e6f09a9bd760f388b67351e2b`.
 
+* * *
+
+{pagebreak}
+
 ## "Brute-Forcing" with Hashcat
 
 Go to the command line where we typed in `hashcat.exe -h` and type `hashcat.exe -a 3 -m 1000 b4b9b02e6f09a9bd760f388b67351e2b` and hit enter. There should be a wall of white text and then it will stop and it should show `Cracked` partway up on the screen! Above the `Cracked` notification, there will be the hash and at the end, it will show `b4b9b02e6f09a9bd760f388b67351e2b:hashcat`. This means the password was `hashcat`, as can be seen at the top of the Hashcat Wiki webpage. If this is your first time cracking a password then congratulations! You just cracked your first password hash! Now let's examine what Hashcat did during that wall of white text.
@@ -90,17 +106,29 @@ Scrolling up we can see the first block of text similar to the block of text at 
 
 The second block shows a `Guess.Mask` of `?1?2 [2]`. Therefore, there was a total of two characters, but this time it is a little different. The `?2` is only the `?l` and `?d` meaning for the second character it only tried lowercase and digits, but for the first character it was still a `?1` so it tried lower, upper, and digits like in the first block. The third block is a `Guess.Mask` of `?1?2?2 [3]`, so three characters total but only trying uppercase, lowercase, and digits for the first and trying lowercase and digits for the other two. The fourth, fifth, and sixth blocks all show uppercase, lowercase, and digits for the first character with lowercase and digits for the rest. The seventh block is where it was cracked, using the same `Guess.Mask` format of `?1?2?2?2?2?2?2`. The password was not long enough to see for this example, but if we didn't crack it on seven characters it would keep getting longer, and eventually the `?3` would be used which would be added to the end which would also try the following five symbols of `*!$@_` in addition to lowercase and digits for the last character.
 
+* * *
+
+{pagebreak}
+
 ## Hashcat's Potfile
 
 This worked for this password, but for more complicated passwords we can see where it has its limitations. That is why we need a robust wordlist. So let's try and crack this password again using a wordlist, and in doing so we will discover a useful function of Hashcat. First, find the wordlist that you previously downloaded in File Explorer and unzip it. It may not have a file extension, but Hashcat doesn't care nor would it be likely that you could open the file in normal Notepad anyway as it is probably going to be too big for the standard version of Notepad. If you want to see the contents, you should be able to use another text editor like Notepad++ for smaller wordlists, but it is by no means required. Let's go back to the command line where we just cracked the hash and type out a new command. Type `hashcat.exe -a 0 -m 1000 b4b9b02e6f09a9bd760f388b67351e2b ` not forgetting to put a single space after the hash but don't hit enter just yet. Hashcat needs the path for the wordlist, note how we are using `-a 0` instead of `-a 3`. If you are savvy with the command line, you could enter the path of the file (not forgetting quotes if there are any spaces), or you could copy the path from the File Explorer window (where we typed `cmd` earlier to open our command prompt window) and then add the file name, but there is an easier way that some may consider cheating. If you are not cheating you are not trying, right? The easiest way is to just drag and drop the uncompressed wordlist into the black area of the command prompt window and it should populate the whole path to the file in the command line. The whole command should look something like this, `hashcat.exe -a 0 -m 1000 b4b9b02e6f09a9bd760f388b67351e2b "D:\My Folder\My Downloaded Wordlist"`. There may or may not be quotes around the path depending on if there are spaces in the folder and subfolders or the file name. Hit enter and see what happens.
 
 It should have finished very quickly and displayed a notification of `INFO: All hashes found in potfile! Use --show to display them.` Well, that is interesting, what is a potfile? Simply put, the potfile is where Hashcat automatically stores hashes it cracks with the corresponding password in plain text. This is very useful to make sure that time is not wasted trying to crack passwords that have already been cracked and to make sure a cracked password is saved in case of power failure. It would be most unfortunate if a password was cracked before the examiner could see it and the power went out to the machine that was not hooked up to a Universal Power Supply due to budgetary concerns. Anyway, go to the hashcat-6.2.5 folder where `hashcat.exe` is located, find the file named `hashcat.potfile` and open using Notepad or the text editor of your choice. Assuming this is your first time using a freshly downloaded Hashcat, there will only be one entry, `b4b9b02e6f09a9bd760f388b67351e2b:hashcat`. This is nice to prevent us from wasting time trying to crack it again, but we want to see how to try and crack it using other methods. Either delete the single entry from the potfile, save, and close, or just delete the whole potfile as Hashcat will automatically generate a new one upon cracking another password.
 
+* * *
+
+{pagebreak}
+
 ## Dictionary (Wordlist) Attack with Hashcat
 
 Go back to the command prompt and press the up arrow on the keyboard. Your previously typed command of `hashcat.exe -a 0 -m 1000 b4b9b02e6f09a9bd760f388b67351e2b "D:\My Folder\My Downloaded Wordlist"` or similar should appear. Press Enter to run the command again. Now it should start processing, but it will stop after a moment and display something like `Watchdog: Temperature abort trigger set to 90c`. As a side note, this is nice to know that Hashcat has built-in safety procedures to help prevent the overheating of video cards and will slow down its processing speed if the GPU (aka video card) gets too hot. Anyway, after a few seconds, it should display something like `Dictionary cache building "D:\My Folder\My Downloaded Wordlist": 1711225339 bytes (10.61%)` with the percentage increasing every few seconds. This is normal and depending on the size of the wordlist it might take a minute or two. This is required after the first time starting a new wordlist, but as long as the location of the wordlist does not change it will not need to build the dictionary each time. Once the dictionary is built, it will display the following line: `[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>`. This shows what commands we can enter while it is processing. It would be nice to know what is going on, so press the `s` key.
 
 The first thing I look at is the `Time.Estimated` row and it will show an estimated end date and time and estimated duration. This is where times can vary greatly based on the type of GPU and length of the wordlist. Even if a longer wordlist was chosen, it should not take long to crack the password This is assuming that the word "hashcat" is in the dictionary, but hopefully it is there. This method will likely take a bit longer than the brute-force method, but it is much more robust and is one of the best methods for cracking passwords. We are going to try one more method for now, so go back to the potfile and delete the most recent entry from the potfile or just delete the whole potfile.
+
+* * *
+
+{pagebreak}
 
 ## Dictionary + Rules with Hashcat
 
@@ -109,6 +137,10 @@ The obvious weakness of the dictionary attack is the password has to be in a pre
 After deleting the most recent entry in the potfile, check the `hashcat-6.2.5` folder and there should be a folder named `rules`. Inside the `rules` folder, there are plenty of prebuilt rules. My personal favorite is the `onerulestorulethemall` rule as the name has a nice ring to it. It is also a good rule in general, but again there is mostly personal preference and trial and error. It is worth mentioning that while these rules are only a few kilobytes in size, they can add a substantial amount of time to how long it takes to process a hash as all commands in each rule will be applied to each potential password in a wordlist. Just like with dictionary attacks, a bigger rule will take longer and yield more potential passwords but a smaller rule will be faster but with fewer generated passwords.
 
 Go back to the command prompt and press the up arrow. Adding a rule to a dictionary attack is quite easy, we just need to add a `-r` followed by the path to the rule file after the dictionary at the end of the command. Just add `-r` to the end of the command, put a space, then drag and drop the rule of your choice into the command prompt window. The command should look something like `hashcat.exe -a 0 -m 1000 b4b9b02e6f09a9bd760f388b67351e2b "D:\My Folder\My Downloaded Wordlist" -r "D:\hashcat-6.2.5\rules\onerulestorulethemall.rule"`. Once syntax looks good, press enter. This time the dictionary should not have to compile, as it will display `Dictionary cache hit:` and then information on the location of the dictionary. Press the `s` key on the keyboard to see the status, and note how the `Time.Estimated` row has increased, possibly to a day or more. Hopefully, it will not take longer than a few minutes to crack our example hash again. This method does take longer, but again we are attacking the hash in a way that will crack more complicated passwords than the previously discussed methods.
+
+* * *
+
+{pagebreak}
 
 ## Robust Encryption Methods
 
@@ -123,6 +155,10 @@ Knowing this means that if an NTLM hash was cracked using the `cyclone.hashesorg
 
 This is just examining BitLocker, but VeraCrypt and DiskCryptor example hashes require the download of a file as it is too large to display on Hashcat's website. This shows a substantial difference between password encryption used by Windows and robust encryption software, but it also shows why it is very important to not reuse passwords. If an attacker can compromise the weak Windows password and the same password is also used for robust encryption software then the strong encryption method is very easily defeated. It also shows how a robust encryption method can be defeated by using a good wordlist and why strong passwords are the first line of defense no matter what encryption method is used.
 
+* * *
+
+{pagebreak}
+
 ## Complex Password Testing with Hashcat
 
 Maybe you have gotten the bug by now and our simple hash that is just "hashcat" is not good enough and you want to try even harder potential passwords. The easiest way to attempt to crack more difficult passwords is to use an NTLM hash generator. Online NTLM hash generators hosted on a website may be the easiest route, but there is a major security concern if the user wants to test their own passwords and converts them using an online tool. By using the online tool the user has likely given up their password to a third party if that online tool is logging input to their website. I would only recommend using an online tool for testing passwords that the user is not using, and I would not even use similar passwords to ones that are currently in use in an online tool.
@@ -135,6 +171,10 @@ Since we have already mentioned that the main weakness of a password is the exis
 
 This is a good way to check if a password exists in a dictionary or wordlist, but if the password does not show up that does not necessarily mean it can't be cracked with that dictionary. An appropriate rule would have to be added to mangle the wordlist in a way that would cause the password to be guessed by Hashcat. Still, since dictionary attacks are the most common and the fastest method of cracking a password, it is a good yet simple test to see if the password is a strong password or not.
 
+* * *
+
+{pagebreak}
+
 ## Generating Custom Wordlists
 
 Now I am going to move into a bit more advanced concepts and assume that the reader is somewhat familiar with forensic examinations of electronic devices. Some of the more basic concepts related to forensic exams will be overlooked when explaining these techniques, and some of the advanced concepts will only be discussed briefly. This remaining section of this chapter is simply intended to show what is possible and how it can be useful in a thorough examination. Two reason reasons for using custom wordlists are for attacking a particularly stubborn password (good for them for using a strong password!) or for generating a wordlist for use on forensic tools that require a static wordlist/dictionary to attack alphanumeric passwords like are used on some Android devices.
@@ -142,6 +182,10 @@ Now I am going to move into a bit more advanced concepts and assume that the rea
 As an example of how to use both of these techniques in a forensic examination, let's say an examiner has the legal authority to examine a Windows computer and an Android phone from the same target/suspect user. Both devices are in the examiner's possession. The drive for the computer is not encrypted with BitLocker or other methods and the examiner was able to acquire an .E01 of the hard drive from the computer, but the phone is locked with an alphanumeric password and unfortunately, we have not cracked the NTLM hash with the methods already mentioned. Because the data on the hard drive is not encrypted, there is now a wealth of information about the target including user-generated data. It is even possible that there is simply a document saved somewhere on the hard drive that contains the passwords for that user that may contain the Windows (NTLM) password and the phone password. Rather than manually looking through the contents of the hard drive, there are tools that will search the hard drive and build wordlists for us.
 
 The first tool is the [AXIOM Wordlist Generator](https://support.magnetforensics.com/s/article/Generate-wordlists-with-the-AXIOM-Wordlist-Generator). This requires the examiner to have access to the Magnet AXIOM forensic software. The .E01 image will need to be processed and then the AXIOM Wordlist Generator can be used. A free alternative that is more comprehensive but yields more false positives is to use [Bulk Extractor](https://www.kali.org/tools/bulk-extractor/). This tool comes standard with a Kali Linux build, so the examiner will have a virtual machine (VM) of Linux or other access to Kali Linux, but the good news is Linux is completely free. If using a Linux VM, one option is to use [Virtual Box](https://www.virtualbox.org/). While a VM can be used, it is not difficult to set up a USB thumb drive or an external hard drive with Kali and change the boot order on the computer to boot to a fully functional and persistent Kali Linux. The instructions for this procedure are on the [Kali Linux website](https://www.kali.org/docs/usb/live-usb-install-with-linux/). I would recommend this second method if you are planning on further customizing wordlists by paring them down as is discussed in the next section, but a Kali VM will work as well. Once the wordlist is generated with the preferred method (or both methods), the NTLM password from the Windows machine can be attacked again and hopefully cracked. By using the cracked Windows password, we can then use virtualization software to log in to the suspect machine virtually and examine the saved passwords in Chrome, Edge, or other browsers. With the cracked NTLM and the saved browser passwords, we now have several potential passwords for the phone. Those exact passwords could be tried on the phone, using a forensic tool of course, but what if it was an unknown variation of those passwords? It is also possible that we have yet to crack even the NTLM password if it is a strong password. There is still hope if the keyword/baseword used in the password is in the wordlist we have generated. For example, if the target password is `123456Password!@#$%^` We just have to get rid of the noise in the custom wordlist and then mangle the wordlist in a way that will generate the target password. Kali Linux can help us with that process.
+
+* * *
+
+{pagebreak}
 
 ## Paring Down Custom Wordlists
 
@@ -154,6 +198,10 @@ Now we run into the issue of potential duplicate lines. There are tools built in
 Once we have chosen the deduplication method of our choice, it may be useful to change the characters that have escaped HTML conversion back to their ASCII equivalents. What this means is there may be a `&gt` inside of the passwords but what that should be is simply a `>`. The way to automate this conversion is with the following command: `sed -I ‘s/&gt/>/g’ WordList.txt`. [Here](https://ascii.cl/htmlcodes.htm) is a partial list of HTML names and their ASCII equivalents.
 
 Finally, we may choose to only select potential passwords that are of a certain length. Grep can be very useful here. By using the following command `grep -x ‘.\{4,16\}’ WordList.txt > AndroidPWLength.txt` it will select only lines that are between 4 to 16 characters in length. By using the following command `grep -x -E -v ‘[0-9]+’ AndroidPWLength.txt > Alphanumeric.txt` it will exclude all PIN codes from the list and only select alphanumeric passwords. This final list should be a deduplicated list of possible passwords from the AXIOM wordlist, Bulk Extractor, and foreign language list that can be used against the Android device with the appropriate forensic tool.
+
+* * *
+
+{pagebreak}
 
 ## Additional Resources and Advanced Techniques
 

@@ -1,6 +1,6 @@
 # Chapter 19 - Linux and Digital Forensics
 
-![](Ch19/ch19logo.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch19/ch19logo.png)
 
 By [Barry Grundy](https://github.com/bgrundy) |
 [Discord](http://discordapp.com/users/505057526421913600) | [LinuxLEO](https://linuxleo.com)

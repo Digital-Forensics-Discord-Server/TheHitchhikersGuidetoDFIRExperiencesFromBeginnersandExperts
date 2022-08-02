@@ -217,14 +217,37 @@ First, let's map a quick outline of what we wish to accomplish, and the tools we
 
 There are far too many tools to cover in a single chapter. Again, documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com) will cover a great number of tools with hands on opportunities. Here we will select just a few tools to do a quick analysis of a Microsoft Windows Registry file.
 
-| Purpose   | Tool          |
-| ---    | ---        |
-| Acquisition  | dd <br/> dc3dd <br/> dcfldd <br/> ddrescue <br/> ewfacquire    |
-| Integrity verification (hashing) | md5sum <br/> sha1sum <br/> sha256sum <br/> etc. |
-| Volume / File System / File Analysis | **The Sleuthkit (TSK)**: <br/> mmls <br/> fsstat <br/> fls <br/> istat <br/> icat <br/> blkcalc <br/> etc. |
-| Windows Artifacts  | **Libyal (multiple tools/libraries)**: <br/> libregf <br/> libevtx <br/> liblnk <br/> libscca <br/> libesedb <br/> .etc. |
-| File Carving    | scalpel <br/> foremost <br/> bulk_extractor      |
-| Data Parsing    | **General GNU Utilities**: <br/> sed <br/> awk <br/> grep <br/> etc.      |
+| Purpose      | Tool       |
+| ---          | ---        |
+| Acquisition  | dd         |
+|              | dc3dd      |
+|              | dcfldd     |
+|              | ddrescue   |
+|              | ewfacquire |
+| Integrity verification (hashing) | md5sum        |
+|                                  | sha1sum       |
+|                                  | sha256sum etc.|
+| Volume / File System / File Analysis | **The Sleuthkit (TSK)**: |
+|                                      | mmls                     |
+|                                      | fsstat                   |
+|                                      | fls                      |
+|                                      | istat                    |
+|                                      | icat                     |
+|                                      | blkcalc etc.             |
+| Windows Artifacts | **Libyal (multiple tools/libraries)**: |
+|                   | libregf                                |
+|                   | libevtx                                |
+|                   | liblnk                                 |
+|                   | libscca                                |
+|                   | libesedb etc.                          |
+| File Carving | scalpel        |
+|              | foremost       |
+|              | bulk_extractor |
+| Data Parsing | **General GNU Utilities**: |
+|              | sed                        |
+|              | awk                        |
+|              | grep etc.                  |
+
 
 #### Acquisition Tools
 
@@ -341,7 +364,7 @@ Let us assume we have the output from a Windows Forensic suite that shows a part
 > Account Created : Thu Apr  6 01:35:32 2017 Z
 > Name   :
 > Password Hint   : InitialsInCapsCountToFour
-> Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+> Last Login Date : **Sun Apr 30 21:23:09 2017 Z**
 > Pwd Reset Date  : Thu Apr  6 01:35:34 2017 Z
 > Pwd Fail Date   : Sun Apr 30 21:23:01 2017 Z
 > Login Count  : 7
@@ -533,7 +556,7 @@ Changing into that directory, we find several subkey values. Again, studying reg
 > $ cd 000003E8/\(values\)
 > 
 > $ ls
-> <b>F</b>  UserPasswordHint  V
+> **F**  UserPasswordHint  V
 
 
 ### Sample Scenario: Cross Verify the Findings
@@ -542,7 +565,7 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 
 
 > $ xxd F
-> 00000000: 0200 0100 0000 0000 <b>678e 5df7 f7c1 d201</b>  ........g.].....
+> 00000000: 0200 0100 0000 0000 **678e 5df7 f7c1 d201**  ........g.].....
 > 00000010: 0000 0000 0000 0000 20d7 bf15 76ae d201  ........ ...v...
 > 00000020: ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201  ........\.].....
 > 00000030: e803 0000 0102 0000 1402 0000 0000 0000  ................
@@ -559,7 +582,7 @@ Sun Apr 30 21:23:09 2017
 Here again is the original output from the analysis we are trying to verify (with some output removed for brevity):
 
 > ...
-> Last Login Date : <b>Sun Apr 30 21:23:09 2017 Z</b>
+> Last Login Date : **Sun Apr 30 21:23:09 2017 Z**
 > ...
 
 So we can see that our original analysis, using a common digital forensics tool under Windows, has been cross verified with a completely separate set of tools under a different operating system. The steps look complex, but for a far more detailed look at this level of analysis is covered in the previous mentioned LinuxLEO guide.

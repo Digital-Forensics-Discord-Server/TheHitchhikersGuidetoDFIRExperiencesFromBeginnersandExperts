@@ -291,6 +291,7 @@ The algorithm you select to hash with (MD5, SHA1, etc.) is up to your policy and
 
 Manually hashing media and files under Linux (or other command line environments for that matter) is quite simple:
 
+{line-numbers:false}
 ```
 # sha1sum /dev/sdb
 8f37a4c0112ebe7375352413ff387309b80a2ddd  /dev/sdb
@@ -298,15 +299,19 @@ Manually hashing media and files under Linux (or other command line environments
 With the hash of the original media recorded, we can use `dd` to create
 a simple raw image:
 
+{line-numbers:false}
 ```
 # dd if=/dev/sdb of=imagefile.raw
 ```
 Now hash the resulting image file and make sure the hash matches that of the original media (`/dev/sdb`). This means our image file is an exact duplicate, bit for bit, of the original.
 
+{line-numbers:false}
 ```
 # sha1sum imagefile.raw
 8f37a4c0112ebe7375352413ff387309b80a2ddd  imagefile.raw
 ```
+
+* * *
 
 {pagebreak}
 
@@ -364,12 +369,16 @@ For those examiners that are proficient in the Python language, there are often 
 
 One example of this is the [libewf](https://github.com/libyal/libewf) project. This library provides access to Expert Witness Format (EWF) images created by many acquisition utilities. The project includes tools like `ewfmount` and `ewfinfo` to directly interact with commonly collected `.E01` images. In addition to the tools, there are also libraries that can be included in other programs to provide access to EWF images. The Sleuthkit can be compiled with `libewf` support, allowing TSK tools to be used directly on `.E01` images with first having to convert them to "raw" format. Finally, `pyewf` Python bindings are provided to allow anyone to create scripts using `libewf` functionality.
 
+{pagebreak}
+
 For operating system artifacts, this same approach is found in other libraries like [libevtx](https://github.com/libyal/libevtx) for Windows event logs, [libregf](https://github.com/libyal/libregf) for Windows registry hives, [libscca](https://github.com/libyal/libscca) for Windows prefetch files, and *many* others. These are all part of the [libyal](https://github.com/libyal) project. These are not the only application level artifact tools and libraries out there, but they can give an
 idea of what is available.
 
 Tools on the Linux command line are, of course not limited to computer storage media either. There are libraries and tools for mobile device analysis as well, such as [libimobiledevice](https://libimobiledevice.org/) for iOS devices. Application data from mobile devices are often stored in SQL data base files. Once again, there are often built in data base programs included in many Linux distributions that can extract desired data from chat apps, location based artifacts and more.
 
 So what does all this look like in use?
+
+* * *
 
 {pagebreak}
 
@@ -395,6 +404,8 @@ Let us assume we have the output from a Windows Forensic suite that shows a part
 
 The goal for this examination is to verify the above *Last Login Date* with a separate tool under Linux (our cross verification).
 
+* * *
+
 {pagebreak}
 
 ### Sample Scenario: Acquire the Evidence
@@ -403,6 +414,7 @@ In this scenario, we can assume the evidence has already been acquired. But for 
 
 Linux assigns a device node to attached media. In this case, the device node is `/dev/sdb`:
 
+{line-numbers:false}
 ```
 $ lsblk
 NAME MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
@@ -415,6 +427,7 @@ We used the command `lsblk` to list devices, and our attached subject disk shows
 
 Once we've identified the device, we can image it with some `dd` or preferably a more forensic oriented version like `dc3dd`:
 
+{line-numbers:false}
 ```
 $ sudo dc3dd if=/dev/sdb hof=image.raw hash=sha1 log=image.log
 ```
@@ -422,6 +435,7 @@ This is a simple forensic image obtained with Linux using `dc3dd` on a subject d
 
 We also created a log of the output, viewable using the `cat` command to stream the text file to our terminal:
 
+{line-numbers:false}
 ```
 $ cat image.log
 
@@ -448,12 +462,15 @@ This shows us a log of the imaging process, the size of the date acquired, and t
 
 We now have a verified image, obtained from the original storage device, that we can use for our examination.
 
+* * *
+
 {pagebreak}
 
 ### Sample Scenario: Map the Storage Volumes
 
 Once we have created our image, we need to determine the partitioning scheme, and which of those partitions are of interest to our investigation.
 
+{line-numbers:false}
 ```
 $ mmls image.raw
 DOS Partition Table
@@ -468,12 +485,15 @@ Units are in 512-byte sectors
 
 Using the `mmls` command from the Sleuthkit, we can see that there is only one NTFS file system, at a *sector offset* of `2O48` (under `Start`). We will be using additional file system and file extraction tools from TSK, and the sector offset is an important value. We use it to tell TSK *which volume* to access inside the image. Media storage partitioning can be quite complex, and with TSK we access each volume/file system separately.
 
+* * *
+
 {pagebreak}
 
 ### Sample Scenario: Identify the File System
 
 Our volume of interest has been identified at an offset inside the image of `2048` sectors. We pass this volume to the TSK tool `fsstat` to obtain detailed information on the file system:
 
+{line-numbers:false}
 ```
 $ fsstat -o 2048 image.raw
 
@@ -520,17 +540,22 @@ $LOGGED_UTILITY_STREAM (256)   Size: 0-65536   Flags: Non-resident
 ```
 There is quite a bit of information in the `fsstat` output. File system type, version, and volume name are all items we will want to know for our notes. Other information provided by `fsstat` can be useful for documenting and describing files carved from this particular volume, as well as ranges of physical blocks used to store data.
 
+* * *
+
 {pagebreak}
 
 ### Sample Scenario: Identify the File(s) of Interest
 
 In this particular scenario we are conducting a cross verification of findings from a file we already know - the SAM registry file. In a normal Windows installation, the SAM is located in `C:\windows\system32\config`. We can use the Sleuthkit `fls` tool to recursively list all the allocated files in the volume of interest and specifically look, or *grep*, for `Windows/System32/config/SAM`:
 
+{line-numbers:false}
 ```
 $ fls -Fr -o 2048 image.raw | grep -i system32/config/SAM
 r/r 178-128-2:  Windows/System32/config/SAM
 ```
 This output gives us the NTFS file system's Master File Table, or MFT entry for the SAM file. In this case, the MFT entry is `178-128-2`.
+
+* * *
 
 {pagebreak}
 
@@ -538,6 +563,7 @@ This output gives us the NTFS file system's Master File Table, or MFT entry for 
 
 We will do two quick steps here. First we will extract the file using the Sleuthkit's `icat` command, which takes the meta-data entry (in this case MFT entry `178`), and streams the contents of the data blocks or clusters to our chosen destination - which in this case is an extracted file:
 
+{line-numbers:false}
 ```
 $ icat -o 2048 image.raw 178 > image.SAM
 
@@ -548,6 +574,7 @@ The `icat` command extracts the SAM file and writes it to the file called `image
 
 At this point we can install `libregf`. This will allow us to gather some simple identifying information as well as *mount* the registry file to allow us to parse it for the information we are seeking. The following commands are provided by the `libregf` package:
 
+{line-numbers:false}
 ```
 $ regfinfo image.SAM
 regfinfo 20220131
@@ -564,6 +591,8 @@ regfmount 20220131
 
 Using commands provided by `libregf` we confirm the identity and version of the registry file. Then we create a *mount point* or directory to which we can attach the registry file so we can browse the contents.
 
+* * *
+
 {pagebreak}
 
 ### Sample Scenario: Parse the Artifact
@@ -572,6 +601,7 @@ Given the fact that we've already examined this file in our main forensic suite,
 
 Now that we know the RID (from our previous examination - this is a cross verification), we can browse to the account's associated keys in the mounted registry file:
 
+{line-numbers:false}
 ```
 $ cd SAM/Domains/Account/Users/
 
@@ -582,6 +612,7 @@ $ ls
 
 The directory `SAM/Domains/Account/Users/` contains keys for each account, listed by RID in hex format. If you study Windows forensics, you know that we have a System Administrator (RID `500`), a Guest account (RID `501`), and user accounts starting at `1000` by default. We can confirm the account we are interested in is `000003E8` by converting each value to decimal using shell expansion and finding `1000`:
 
+{line-numbers:false}
 ```
 $ echo $((0x3E8))
 1000
@@ -589,8 +620,11 @@ $ echo $((0x3E8))
 Changing into that directory, we find several subkey values. Again, studying registry forensics, we find that the `F` value contains an account's login information, so we change our directory to `(values)` for that account:
 
 > $ cd 000003E8/\(values\)
+> 
 > $ ls
 > **F**  UserPasswordHint  V
+
+* * *
 
 {pagebreak}
 
@@ -599,7 +633,7 @@ Changing into that directory, we find several subkey values. Again, studying reg
 Using a hex viewer included with Linux (`xxd`), we can look at the subkey's value. The *Last Login Date* is stored at hex offset 8.
 
 > $ xxd F
-| 00000000: | ``0200 0100 0000 0000`` **678e 5df7 f7c1 d201** | ``........g.].....`` |
+| 00000000: | ``0200 0100 0000 0000`` **678e  5df7  f7c1  d201** | ``........g.].....`` |
 | 00000010: | ``0000 0000 0000 0000 20d7 bf15 76ae d201`` | ``........ ...v...`` |
 | 00000020: | ``ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201`` | ``........\.].....`` |
 | 00000030: | ``e803 0000 0102 0000 1402 0000 0000 0000`` | ``................`` |
@@ -607,6 +641,7 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).
 
+{line-numbers:false}
 ```
 $ python ~/WinTime.py 678e5df7f7c1d201
 Sun Apr 30 21:23:09 2017
@@ -626,8 +661,12 @@ We've actually accomplished a bit more by verifying our results with Linux. In a
 
 This same approach applies to results of a mobile device analysis chats are displayed in a GUI tool and organized by conversation. Find something important to the investigation? Fire up a Linux command line and dig into the database yourself. In many cases you don't even need to leave your Windows forensic workstation desktop. You can use WSL/WSL2, or SSH into your physical Linux workstation or VM using [PuTTY](https://putty.org).
 
+{pagebreak}
+
 ## Closing
 
 While doing all this on the command line looks daunting, it is an excellent way to drill down to the "bits and bytes" and learn digital forensics from the ground up. There is no doubt that a full GUI suite of digital forensic tools can be a more efficient way of drilling into large amounts of data quickly. Where the Linux command line excels is in forcing you to learn exactly where you need to look for specific data and how it is stored.
 
 There are a growing number of ways to access a Linux environment without the need for excessive excessive resources. This makes it more accessible to forensic examiners and a good fit for modern digital forensic laboratories.
+
+* * *

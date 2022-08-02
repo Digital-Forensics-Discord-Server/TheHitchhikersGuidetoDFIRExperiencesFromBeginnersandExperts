@@ -60,9 +60,7 @@ In his spare time, Nisarg likes to play and learn chess obsessively.
 
 ## s3raph
 
-Breaker of things (mostly things that they shouldn't break).
-
-Writer of broken code [GitHub](https://github.com/s3raph-x00).
+Breaker of things (mostly things that they shouldn't break). Writer of broken code [GitHub](https://github.com/s3raph-x00).
 
 s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defense and still somehow has a job in this field.
 

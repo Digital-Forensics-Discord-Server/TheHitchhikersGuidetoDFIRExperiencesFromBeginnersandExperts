@@ -35,6 +35,10 @@ Through this chapter, I am looking to expose you to the following obfuscation te
 6. Replace Chaining
 7. ASCII Translation
 
+* * *
+
+{pagebreak}
+
 ## Stigma of Obfuscation
 
 While Obfuscation in essence is a puzzle of sorts and with every puzzle, all you need is time. It’s important to understand that obfuscation is not an end all be all solution to preventing payloads from being signatured. If you continue to use the same obfuscated payload or obfuscation technique, it will eventually get busted. 
@@ -68,6 +72,10 @@ A good practice is to always have a sandbox solution on standby. You can use a l
 
 In addition to this, being sure you have enough storage for snapshots is very useful. This way if you accidentally compromise your sandbox, or want to get it back to a known-working state, then you can simply revert it and continue where you left off.
 
+* * *
+
+{pagebreak}
+
 ## Base64 Encoded Commands
 
 One of the first methods to obfuscate PowerShell payloads utilized a provided feature of the powershell.exe executable itself. Specifically, this executable supports the -EncodedCommand parameter that accepts a base64 encoded string. Once called, PowerShell would decode the string and execute the code therein. 
@@ -82,17 +90,17 @@ Let's take a look at the following payload of this technique and break it down.
 powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc 'VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'
 ```
 
-At a quick glance we can clearly see that powershell.exe is being called directly with 5 parameters being passed using partial names. We can look at the help file for this by running `powershell -help.. 
+At a quick glance we can clearly see that powershell.exe is being called directly with 5 parameters being passed using partial names. We can look at the help file for this by running `powershell -help`.
 
 Let's break down these parameters:
 
 | Partial Parameter | Full Parameter | Description |
-| :---------------------- | :------------------- | : —---------- | 
-| -NoP |-NoProfile | Does not load the Windows PowerShell profile |
+| :---------------------- | :------------------- | : ------------ | 
+| -NoP |-NoProfile | Does not load the Windows PowerShell profile. |
 | -NonI | -NonInteractive | Does not present an interactive prompt to the user. |
 | -W Hidden | -WindowStyle | Sets the window style to Normal, Minimized, Maximized or Hidden. |
-| -Exec Bypass | -ExecutionPolicy Bypass |  Sets the default execution policy for the current | session |
-| -Enc | -EncodedCommand  | Accepts a base-64-encoded string version of a command.
+| -Exec Bypass | -ExecutionPolicy Bypass |  Sets the default execution policy for the current session. |
+| -Enc | -EncodedCommand  | Accepts a base-64-encoded string version of a command. |
     
 With our newfound understanding of the parameters in play, we now break down exactly what’s happening when this gets called, specifically, this session will launch unrestricted as a hidden window.
 
@@ -118,6 +126,10 @@ PS C:\> $Base64 = [Convert]::ToBase64String($Bytes)
 PS C:\> Write-Output "[*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc '$Base64'"
 [*] Obfuscated: powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc 'VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'
 ```
+
+* * *
+
+{pagebreak}
 
 ## Base64 Inline Expressions
 
@@ -174,6 +186,10 @@ PS C:\> $Base64 = [Convert]::ToBase64String($Bytes)
 PS C:\> iex ([System.Text.Encoding]::Unicode.GetString(([convert]::FromBase64String('VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAE8AYgBmAHUAcwBjAGEAdABlAGQAIABQAGEAeQBsAG8AYQBkACIA'))))
 ```
 
+* * *
+
+{pagebreak}
+
 ## GZip Compression
 
 A relatively successful obfuscation technique is built around compressing byte streams. Similar to how we can compress files on disk to make them smaller, we can also compress payloads and store and execute them from within a script.
@@ -202,7 +218,7 @@ PS C:\> [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9K
 139
 8
 0
-…SNIP...
+…SNIP…
 ```
 
 This revealed a byte array. Even if we converted the byte array to a string by using `System.Text.Encoding]::ASCII.GetString()`, it would still leave us just as confused. One of the benefits of this technique is that some security providers decode these strings automatically, but in this case, it wouldn’t necessarily reveal anything immediately signaturable on its own.
@@ -259,6 +275,10 @@ $ms = (New-Object System.IO.MemoryStream($decoded,0,$decoded.Length))
 Invoke-Expression (New-Object System.IO.StreamReader(New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
 ```
 
+* * *
+
+{pagebreak}
+
 ## Invoke Operator
 
 At this point we have found that a common pitfall in obfuscating PowerShell commands is the glaringly obvious usage of the `Invoke-Expression` cmdlet. This is to be expected because its commonly known purpose is to run supplied expressions. However, this isn’t the only way to directly execute strings.
@@ -286,6 +306,10 @@ Because of this behavior, you’re more than likely to see this being used to ob
 ```powershell
 PS C:\> $decoded = [System.Convert]::FromBase64String("H4sIAAAAAAAEAAsvyixJ1fUvLSkoLVFQ8k9KKy1OTixJTVEISKzMyU9MUQIA9Wd9xiEAAAA=");$ms = (&'New-Object' System.IO.MemoryStream($decoded,0,$decoded.Length));&'iex'(&'New-Object' System.IO.StreamReader(&'New-Object' System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()
 ``` 
+
+* * *
+
+{pagebreak}
 
 ## String Reversing
 
@@ -329,6 +353,8 @@ Obfuscated Payload
 
 When dealing with these replace operations, pay very close attention to your integrated development environment (IDE). You look closely, you’ll see that one of the replace statements is the color of a string, which means that in that position, it’s indeed a string and not a method invocation. It’s very common for people to manually do the search and replacements of these, but if you do so out of order, you could inadvertently break the script logic.
 
+{pagebreak}
+
 ## ASCII Translation
 
 When we view strings we are seeing them in a format that we understand, their character values. These character values also have binary representation of the character that your computer will understand. For example, we know that the ASCII value of the character a is 97. To the benefit of some, so does PowerShell out of the box.
@@ -371,6 +397,8 @@ $String = 'Write-Output "Obfuscated Payload"'
 '$(' + (([int[]][char[]]$String | ForEach-Object { "[char]$($_)" }) -join '+') + ')'
 ```
 
+{pagebreak}
+
 ## Wrapping Up
 
 In this chapter we walked through different types of PowerShell obfuscation techniques that are frequently leveraged in the wild and how we can step through them to successfully de-obfuscate them. 
@@ -385,4 +413,6 @@ One of the best ways to stay ahead of the curve is to ensure that you have a sol
 
 Never stop challenging yourself. Go the extra mile, stand up and stand strong. Keep moving forward and you’ll be in a position where you’ll be able to help others grow in the domains that you once found yourself struggling with.
 
-Tristram
+**Tristram**
+
+* * *

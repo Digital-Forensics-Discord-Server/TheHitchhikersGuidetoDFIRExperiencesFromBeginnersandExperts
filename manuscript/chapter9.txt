@@ -19,15 +19,19 @@ Two of the most common information security types of CTF competitions are “**J
 
 “**Jeopardy**" style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
 
+{width: 90%}
 ![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
 
 “**Attack and Defense**" is more common in Red and Blue Team environments where the Red Team has to hack or attack a Blue Team server. The Blue Team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
 
+{width: 90%}
 ![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
 
 Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
 
 For this chapter, I will go more in-depth regarding the “Jeopardy" style competitions, more specifically, forensics geared CTF competitions.
+
+{pagebreak}
 
 ## Evidence Aplenty
 
@@ -43,6 +47,10 @@ With forensics CTFs, just like in real life, any type of device is game for bein
 
 You can see from the above list that you get a well rounded variety of types of evidence that you most likely will see in the field on the job. In other competitions I've played you could also come across Chromebooks or even Google Takeout and other cloud resources as they become more common. I have also seen some where they are more crypto based so working with different ciphers and hashes to determine the answers.
 
+* * *
+
+{pagebreak}
+
 ## Who's Hosting?
 
 As previously mentioned, **SANS** is probably the most well known provider of a forensics CTF through their [NetWars](https://www.sans.org/cyber-ranges) program. It isn't cheap as a standalone, but is sometimes bundled with one of their training courses. You can sometimes see them hosted for free with other events such as OpenText's enFuse conference.
@@ -56,6 +64,8 @@ Another fantastic resource for finding other challenges is [**CyberDefenders**](
 ![9.3 - CyberDefenders website](https://i.ibb.co/SdqWtZw/blueyard.png)
 
 Another fairly exhaustive list of other past challenges and evidence can be found hosted on [**AboutDFIR**](https://aboutdfir.com/education/challenges-ctfs/).
+
+{pagebreak}
 
 ## Why Play a CTF?
 
@@ -76,6 +86,8 @@ I put profit in quotations because many may construe that as a compensation type
 
 The knowledge you gain from the “practice" will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
 
+{pagebreak}
+
 ## Toss a Coin in the Tip Jar
 
 I get asked all the time, "what are your keys to success playing CTFs?". That's probably a loaded question because there are many factors that can lead to good results. Here, I will break down into sections that I feel can at least get you started on a path forward to winning your first CTF.
@@ -91,6 +103,8 @@ If evidence is provided ahead of the competition make sure to spend some time ge
 ![9.4 - "This will take a while"](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
 
 You may also consider making sure you have local admin access or at least the ability to turn off antivirus (if you are analyzing malware) on your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
+
+{pagebreak}
 
 ### The Toolkit
 
@@ -172,6 +186,8 @@ My personal strategy is a combination of them all. I will typically go more towa
 And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up to whatever suits the player the best.
 
 >"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
+
+* * *
 
 {pagebreak}
 

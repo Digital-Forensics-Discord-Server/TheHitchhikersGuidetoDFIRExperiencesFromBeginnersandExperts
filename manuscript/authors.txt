@@ -8,10 +8,6 @@ Andrew Rathbun is a DFIR professional with multiple years of experience in law e
 
 After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working to the top while possessing an MS in Cybersecurity and Information Assurance degree and numerous certifications, including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH and GSEC. Always hunting for more prey, it spends free time playing with malware analysis and exploit development.
 
-## Guus Beckers
-
-A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
-
 ## Barry Grundy
 
 Barry Grundy has been working in the field of digital forensics since the mid
@@ -29,6 +25,10 @@ available for over 20 years and has been used by a number of academic
 institutions and law enforcement agencies around the world to introduce
 students of DFIR to Linux. Teaching, particularly Linux forensics and open
 source DFIR tools, is his passion.
+
+## Guus Beckers
+
+A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
 
 ## John Haynes
 

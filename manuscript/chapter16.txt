@@ -290,7 +290,12 @@ ___Significance:___
 
 {pagebreak}
 
-## References:
+## Closing Notes
+
+
+{pagebreak}
+
+## References
 16.1 - Scientific law versus Scientific theories, by GliderMaven, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scientific_law_versus_Scientific_theories.png)
 
 16.2 - The relationship between e-discovery and digital forensics, from 6th slide in DVD included with [E-Discovery: An Introduction to Digital Evidence](https://www.amazon.com/Discovery-Introduction-Digital-Evidence-DVD/dp/1111310645), via [YouTube](https://www.youtube.com/watch?v=btfCf9Hylns)

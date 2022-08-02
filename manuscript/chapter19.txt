@@ -13,6 +13,8 @@ There have been many discussions of what defines Linux. The classical definition
 
 Linux was developed by Linus Torvalds at the University of Helsinki back in the early 1990's. It was, essentially, a "hobby" version of UNIX created for PC hardware.
 
+{pagebreak}
+
 On 25 August, 1991, Torvalds posted this to the Usenet group comp.os.minix:
 > Hello everybody out there using minix
 > I'm doing a (free) operating system (just a hobby, won't be big and
@@ -117,14 +119,14 @@ A "Linux Distribution" (or "distro" for short) is a collection of Linux componen
 With the open source nature of the Linux environment, you could grab all the source code for the various components and build your very own distribution, or at least running version of Linux. This is often referred to as "Linux from Scratch" (LFS). On the other hand, the various distro developers do all the heavy lifting for you. Packaging it up and making the entire operating system available to you for install via a variety of methods.
 
 Some popular distributions out there include (but are certainly not limited to):
- - Ubuntu
- - Manjaro
- - Arch
- - Mint
- - SUSE
- - Red Hat
- - Slackware
- - and many others
+* Ubuntu
+* Manjaro
+* Arch
+* Mint
+* SUSE
+* Red Hat
+* Slackware
+* and many others
 
 So how does one choose a Linux distro? Particularly for use as a digital forensics platform?
 
@@ -213,6 +215,8 @@ First, let's map a quick outline of what we wish to accomplish, and the tools we
  7. Extract / Examine the artifacts
  8. Parse data from each artifact
 
+{pagebreak}
+
 ### The Tools
 
 There are far too many tools to cover in a single chapter. Again, documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com) will cover a great number of tools with hands on opportunities. Here we will select just a few tools to do a quick analysis of a Microsoft Windows Registry file.
@@ -296,27 +300,27 @@ Once we have an image, and the integrity of our evidence has been verified, we n
 The Sleuthkit (TSK) is a collection of command line tools and libraries that can provide this functionality under Linux. Bootable distributions focused on digital forensics like Kali and Caine come with TSK by default. It can also be used on Windows and Mac systems. For a quick peek into an image file, it can be quite useful. No need to fire up a full GUI tool to do a quick file extraction or view the contents of a directory.
 
 The Sleuthkit supports the following file system types:
-	ntfs (NTFS)
-	fat (FAT (Auto Detection))
-	ext (ExtX (Auto Detection))
-	iso9660 (ISO9660 CD)
-	hfs (HFS+ (Auto Detection))
-	yaffs2 (YAFFS2)
-	apfs (APFS)
-	ufs (UFS (Auto Detection))
-	raw (Raw Data)
-	swap (Swap Space)
-	fat12 (FAT12)
-	fat16 (FAT16)
-	fat32 (FAT32)
-	exfat (exFAT)
-	ext2 (Ext2)
-	ext3 (Ext3)
-	ext4 (Ext4)
-	ufs1 (UFS1)
-	ufs2 (UFS2)
-	hfsp (HFS+)
-	hfsl (HFS (Legacy))
+* ntfs (NTFS)
+* fat (FAT (Auto Detection))
+* ext (ExtX (Auto Detection))
+* iso9660 (ISO9660 CD)
+* hfs (HFS+ (Auto Detection))
+* yaffs2 (YAFFS2)
+* apfs (APFS)
+* ufs (UFS (Auto Detection))
+* raw (Raw Data)
+* swap (Swap Space)
+* fat12 (FAT12)
+* fat16 (FAT16)
+* fat32 (FAT32)
+* exfat (exFAT)
+* ext2 (Ext2)
+* ext3 (Ext3)
+* ext4 (Ext4)
+* ufs1 (UFS1)
+* ufs2 (UFS2)
+* hfsp (HFS+)
+* hfsl (HFS (Legacy))
 
 There are more than thirty command line tools in the TSK. We will use some of them in the sample scenario that follows this section:
 
@@ -556,6 +560,7 @@ Changing into that directory, we find several subkey values. Again, studying reg
 > $ cd 000003E8/\(values\)
 > 
 > $ ls
+> 
 > **F**  UserPasswordHint  V
 
 
@@ -565,11 +570,11 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 
 
 > $ xxd F
-| 00000000: | 0200 | 0100 | 0000 | 0000 | **678e** | **5df7** | **f7c1** | **d201** |  ........**g.].....** |
-| 00000010: | 0000 | 0000 | 0000 | 0000 | 20d7 | bf15 | 76ae | d201 |  ........ ...v... |
-| 00000020: | ffff | ffff | ffff | ff7f | 5ce9 | 5df2 | f7c1 | d201 |  ........\.]..... |
-| 00000030: | e803 | 0000 | 0102 | 0000 | 1402 | 0000 | 0000 | 0000 |  ................ |
-| 00000040: | 0000 | 0700 | 0100 | 0000 | 0000 | 4876 | 488a | 3600 |  ..........HvH.6. |
+| 00000000: | 0200 | 0100 | 0000 | 0000 | **678e** | **5df7** | **f7c1** | **d201** | ``........g.].....`` |
+| 00000010: | 0000 | 0000 | 0000 | 0000 | 20d7 | bf15 | 76ae | d201 | ``........ ...v...`` |
+| 00000020: | ffff | ffff | ffff | ff7f | 5ce9 | 5df2 | f7c1 | d201 | ``........\.].....`` |
+| 00000030: | e803 | 0000 | 0102 | 0000 | 1402 | 0000 | 0000 | 0000 | ``................`` |
+| 00000040: | 0000 | 0700 | 0100 | 0000 | 0000 | 4876 | 488a | 3600 | ``..........HvH.6.`` |
 
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).

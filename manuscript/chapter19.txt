@@ -565,11 +565,11 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 
 
 > $ xxd F
-> 00000000: 0200 0100 0000 0000 **678e 5df7 f7c1 d201**  ........g.].....
-> 00000010: 0000 0000 0000 0000 20d7 bf15 76ae d201  ........ ...v...
-> 00000020: ffff ffff ffff ff7f 5ce9 5df2 f7c1 d201  ........\.].....
-> 00000030: e803 0000 0102 0000 1402 0000 0000 0000  ................
-> 00000040: 0000 0700 0100 0000 0000 4876 488a 3600  ..........HvH.6.
+| 00000000: | 0200 | 0100 | 0000 | 0000 | **678e** | **5df7** | **f7c1** | **d201** |  ........**g.].....** |
+| 00000010: | 0000 | 0000 | 0000 | 0000 | 20d7 | bf15 | 76ae | d201 |  ........ ...v... |
+| 00000020: | ffff | ffff | ffff | ff7f | 5ce9 | 5df2 | f7c1 | d201 |  ........\.]..... |
+| 00000030: | e803 | 0000 | 0102 | 0000 | 1402 | 0000 | 0000 | 0000 |  ................ |
+| 00000040: | 0000 | 0700 | 0100 | 0000 | 0000 | 4876 | 488a | 3600 |  ..........HvH.6. |
 
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).

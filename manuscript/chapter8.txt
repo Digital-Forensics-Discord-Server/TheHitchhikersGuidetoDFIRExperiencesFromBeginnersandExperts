@@ -105,7 +105,9 @@ Let's break down these parameters:
 With our newfound understanding of the parameters in play, we now break down exactly what’s happening when this gets called, specifically, this session will launch unrestricted as a hidden window.
 
 Now that we understand the behavior of the PowerShell process when executed, our next step is to identify the encoded payload that’s being executed behind the scenes. Decoding base64 is a trivial process, but we can accomplish this by using PowerShell to decode the string for this.
- 
+
+{pagebreak}
+
 Keep in mind that running this method will not execute any underlying code by itself.
 
 ```powershell
@@ -159,8 +161,10 @@ Stopped  ALG                Application Layer Gateway Service
 
 Returning to our obfuscated sample, we know that the payload is essentially built into two components:
 
-The launcher (iex)
-The base64 decoder (string / command)
+1. The launcher (iex)
+2. The base64 decoder (string / command)
+
+{pagebreak}
 
 Once the base64 decoder runs, it will return a string. By passing this as an argument to iex, it will essentially execute the resulting string from the base64 decoder. We can omit the iex, and simply execute the decoder to reveal the underlying string.
 
@@ -332,6 +336,10 @@ Obfuscated Payload
 
 These scripts cannot be executed on their own in this format, they have to be placed back in their intended order. Because of this, you’ll typically see logic in place to reverse the string back to its intended order. However, if you don’t see that logic, then the string is likely intended to be reversed.
 
+* * *
+
+{pagebreak}
+
 ## Replace Chaining
 
 Another method that PowerShell can use to manipulate strings is by replacing strings with other values, or removing them entirely. This can be used by using the `Replace()` method from a `System.String` object or by using the PowerShell `-Replace` operator.
@@ -352,6 +360,8 @@ Obfuscated Payload
 ```
 
 When dealing with these replace operations, pay very close attention to your integrated development environment (IDE). You look closely, you’ll see that one of the replace statements is the color of a string, which means that in that position, it’s indeed a string and not a method invocation. It’s very common for people to manually do the search and replacements of these, but if you do so out of order, you could inadvertently break the script logic.
+
+* * *
 
 {pagebreak}
 
@@ -396,6 +406,8 @@ We can use the following generator as a means to create the above-scenario for p
 $String = 'Write-Output "Obfuscated Payload"'
 '$(' + (([int[]][char[]]$String | ForEach-Object { "[char]$($_)" }) -join '+') + ')'
 ```
+
+* * *
 
 {pagebreak}
 

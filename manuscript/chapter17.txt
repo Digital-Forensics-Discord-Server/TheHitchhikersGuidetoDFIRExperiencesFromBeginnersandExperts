@@ -11,9 +11,15 @@ A disk image is a representation of data contained within a disk. It contains th
 
 While a complete discussion about file systems is outside the scope of this chapter, it is impossible to touch upon forensic imaging and not talk about file systems. A file system entails the logical representation of files and folders on the disk. It allows an operating system to keep track of files as well as other important file properties such as its location, size, file format, and any associated permissions. There are different files systems used across operating systems. The NTFS file system is currently used by all supported versions of Microsoft Windows. APFS is used by devices created by Apple, it is used across a wide range of devices including phones, tablets, TV appliances, and computers. Lastly, there is the Linux operating system, which uses a variety of file systems, depending on the version which is installed. Common varieties include `ext3`/`ext4` and `btrfs`. More specialized file systems for specific appliances are also in use. The exact intricacies and technical documentation of a file system are often not available outside of its vendor which means that software vendors have to reverse engineer a file system to a degree. Expect a forensic investigation suite to continually improve support for popular file systems.
 
+{pagebreak}
+
 Once a disk image has been created it is possible to calculate its checksum. A checksum can be used to verify the integrity of a disk image. This is of paramount importance during a forensic investigation. Evidence will always need to be retrieved from other systems. Calculating a checksum at both ends, the source and destination file(s), will ensure that no anomalies are present. When a checksum matches at both ends, this means that no anomalies are present, the contents of the file match exactly and can be used in a forensic investigation. In order to create a checksum, a hash is created. A hash is a mathematical, one-way calculation, performed by a specific algorithm. The MD5 and SHA1 algorithms are commonly used in the forensic community although other algorithms can be used as well.
 
 After validation of the checksum, the created image will be ready to use in an investigation. Forensic investigation suites will use the disk image as a basis for the investigation, allowing a forensicator to browse the file system for pertinent files and other forensic artifacts. Post-processing will also occur in many forensic suites, automatically parsing popular artifacts, thereby making investigations easier.
+
+* * *
+
+{pagebreak}
 
 ## Creating a disk image
 
@@ -32,6 +38,8 @@ Duplicators are used to perform the following functions:
 * Detection of a HPA or DCO
 * Blank disk detection, verifying whether a disk is entirely blank or contains data
 
+{pagebreak}
+
 ### Using a Live USB
 
 In scenarios in which it is not feasible to get access to physical media, a Live USB might provide an alternative. A Live USB contains an operating system which can be booted during the boot phase of a computer. In order for a live USB to function it is required to interrupt the boot cycle of a computer and select the boot from USB option. Manufacturers have different hotkeys to access this functionality. Note that it is also possible to boot from a CD/DVD in a similar manner, in that case, select the CD/DVD option. While it is still necessary to take a server or service offline, it is not required to open it up and take a hard drive. Similarly, continuous miniaturization means that some SSDs can no longer be removed from a motherboard.
@@ -48,7 +56,11 @@ In addition to its disk imaging tools, it provides a forensic environment which 
 
 Another example of a forensic Live USB environment is [Sumuri Paladin Edge](https://sumuri.com/paladin/). This Live USB environment is available free of charge. In addition to imaging the entire disk, it also allows you to convert images, find specific files, extract unallocated space, and interface with network shares.
 
- It is recommended to have a Live USB option within your lab at all times and to equip your forensicators with USB drives in case of onsite client emergencies.
+It is recommended to have a Live USB option within your lab at all times and to equip your forensicators with USB drives in case of onsite client emergencies.
+
+* * *
+
+{pagebreak}
 
 ### Disk imaging on Windows and Linux
 
@@ -72,6 +84,8 @@ The following steps can be used  to create a "Lite" version which runs in memory
 3. Copy the installation folder to the USB-drive
 4. Perform a hashing operation to ensure file integrity is in order
 
+{pagebreak}
+
 #### Linux
 
 Linux historically has an integrated utility capable of copying files called **dd**. dd can also be used for disk imaging, however it was not build with forensics in mind. A duo of utilities is available to perform forensic disk imaging called **dcfldd** and **dc3dd**. Both tools can be used to perform disk imaging, however, their main advantage over dd is integrated hashing support for various hashing algorithms.
@@ -93,6 +107,10 @@ Virtual machines have become commonplace in the IT industry, in short allowing a
 ```
     qemu-img convert -f vmdk -O raw image.vmdk image.img
 ```
+
+* * *
+
+{pagebreak}
 
 ## Memory forensics
 
@@ -134,6 +152,10 @@ For a full set of commands please refer to the GitHub development page.
 ### Virtual Machines
 
 The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are necessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility.
+
+* * *
+
+{pagebreak}
 
 ## Next Steps and Conclusion
 

@@ -33,13 +33,13 @@ cd Mobile-Security-Framework-MobSF
 sudo ./setup.sh
 ```
 
-![](resources/Ch5/1.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/1.png)
 
 <blockquote>
 !!! If you plan on installing this on a VM please note that the dynamic analysis is not really supported. If you were able to modify MobSF to run in a VM there is signficant probability of specific functionality failing to properly execute and any results would not be consistent or trustworthy. Personally, I use my own virtualized environment separate from MobSF which will potentially be discussed in another guide. !!!
 </blockquote>
 	
-![](resources/Ch5/2.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/2.png)
 
 Once installed, you can run MobSF with the following simple command within the MobSF directory <Mobile-Security-Framework-MobSF>.
 
@@ -55,59 +55,59 @@ Additionally, you can specify the listening address and listening port as MobSF 
 
 Example post run:
 
-![](resources/Ch5/3.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/3.png)
 
 Accessing the hosted webpage with your favorite browser shows the following webpage:
 
-![](resources/Ch5/4.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/4.png)
 
 From here, you can upload the binary to the MobSF instance in your virtual machine:
 
-![](resources/Ch5/5.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/5.png)
 
 From here, most times the webpage will time out so click “Recent Scans” which shows the following:
 
-![](resources/Ch5/6.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/6.png)
 
 Because we are in a VM, the dynamic report will be unavailable but the static report should provide the primary details for initial triage of the application. After a few minutes and depending on the size of the application, the report will be ready for analysis:
 
-![](resources/Ch5/7.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/7.png)
 
 Now for analysis of malware, there are a number of websites hosting samples for training and tool development but I have typically found vx-underground.org fairly robust. 
 
-![](resources/Ch5/8.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/8.png)
 
 The malware needs to be extracted with the password “infected” and renamed with the extension .apk. The scan by MobSF showed the following details:
 
-![](resources/Ch5/9.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/9.png)
 
 There are two options to view either a Static Report or Dynamic Report. Because we are in a virtual machine, there will not be an available Dynamic report. The Static Report shows the following information:
 
-![](resources/Ch5/10.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/10.png)
 
 Outside of the calculated hashes, the actual information needed for an assessment is further down:
 
-![](resources/Ch5/11.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/11.png)
 
 The section in the above right shows that MobSF stored the decompiled Java code which can be compared to the results and referenced later.The section below shows the signing certificate has an unusual xuhang string in almost all of the issuer information. The next section of interest is related to the requested permissions:
 
-![](resources/Ch5/12.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/12.png)
 
 Permissions such as “MOUNT_UNMOUNT_FILESYSTEMS” for what appears to be a game looks incredibly unusual. 
 
 Other sections of interest include various API functions that could potentially indicate application capabilities.
 
-![](resources/Ch5/13.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/13.png)
 
 For example, clicking on the “com/g/bl.java” shows the following code segment:
 
-![](resources/Ch5/14.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/14.png)
 
 Generally speaking, the function to pass commands to “/system/bin/sh” should be scrutinized and typically is indicative of malicious intent. This isn’t always the case as applications that provide system functionality typically use sh as a means to use native Android OS tools such as ping. 
 
 Another area of concern is the collection and sending of sensitive device information to include the IMSI and wireless MAC address:
 
-![](resources/Ch5/15.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/15.png)
 
 While the functions and information accessed appear malicious, it would be prudent to validate any suppositions with actual evidence of malicious intent. The additional analysis is beyond the scope of this initial writeup but is typical to most malware analysis methodologies. 
 
@@ -115,35 +115,35 @@ While the functions and information accessed appear malicious, it would be prude
 
 Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using JADX (https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into readable decomplied code. The source code and compiled releases for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 
-![](resources/Ch5/16.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/16.png)
 
 Whether malicious or not, most Android applications have some level of obfuscation. In this case, the major programmatic functionality is not obfuscated but the names of the classes (a, b, c, etc.) do not have significant meaning and can make initial analysis more difficult:
 
-![](resources/Ch5/17.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/17.png)
 
 One area that should be checked is the APK signature and certificate details:
 
-![](resources/Ch5/18.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/18.png)
 
 This matches what MobSF had reported. It is possible to get differing results from different tools so double/triple checking relevant details is important.
 
 Another area for analysis is the AndroidManifest.XML file stored within the Resources folder structure:
 
-![](resources/Ch5/19.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/19.png)
 
 Here we see the same significant number of permissions along with some third-party application app keys which appear to be directly associated to the following GitHub: https://github.com/angcyo/umeng. Interestingly, the following topic on Alibaba cloud references both the WRITE_EXTERNAL_STORAGE permission as required to dynamically update APKs using UMENG and the associated APPKEY: https://topic.alibabacloud.com/a/use-umeng-to-automatically-update-apk-and-umeng-apk_1_21_32538466.html:
 
-![](resources/Ch5/20.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/20.png)
 
 This obviously has the implication, if true, that even if there is not malicious logic baked directly into the application during dynamic and static analysis that the application could be manipulated at any later time. Beyond this initial triage is out of scope for the write up but this portion of analysis is important to highlight the need for manual analysis and need to read contextual clues. Any automation should be validated and checked regardless of scaling.
 
 While usually successful, it should be noted that JADX cannot always decompile the compiled code to JAVA and any errors should be parsed to ensure that the uncompiled code does not have any malicious logic. The following screenshot shows a typical de-compilation error:
 
-![](resources/Ch5/21.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/21.png)
 
 The concept of this writeup was to provide a cursory analysis of a piece of malware that would provide the foundation of automating large scale analysis of APKs. The foundation begins at minimum with some of the above techniques (permissions and signatures) but also on basic threat hunting aspects such as searching for various exploitation techniques and indicators of compromise. In that sense, hard coded references to `/system/bin/sh`, hard coded IP addresses, and unusual permissions are fairly easy using the built-in search functionality:
 
-![](resources/Ch5/22.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/22.png)
 
 I would recommend enabling searching within comments as sometimes additional functionality using external APIs and websites are simply commented out but otherwise accessible.
 
@@ -161,83 +161,83 @@ Pro-Tip: Using an Android VM (either from osboxes.org or another source) along w
 
 Once you have the appropriate image file (vmdk, bin, img, etc.), you can create a new case within autopsy:
 
-![](resources/Ch5/23.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/23.png)
 
 Select Disk Image or VM file as seen below:
 
-![](resources/Ch5/24.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/24.png)
 
 Select the appropriate image file:
 
-![](resources/Ch5/25.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/25.png)
 
 Select the appropriate Ingest Modules (you can leave this default for now; we will come back here).
 
-![](resources/Ch5/26.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/26.png)
 
 Continue through the default options till the data source is ingested as seen below:
 
-![](resources/Ch5/27.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/27.png)
 
 At this point we have the basic test and development case setup. Now it is time to start developing a solution to the problem of scale. The first portion of the problem is to find a relatively simple and automated solution to pull APK files from data sources. Autopsy has a specific capability that it allows you to use specifically designed Python plugins to automate such tasks. By using public examples (such as https://github.com/markmckinnon/Autopsy-Plugins), I modified one of the simpler Python scripts to search for and flag files with the .apk extension (amongst others):
 
-![](resources/Ch5/28.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/28.png)
 
 <blockquote>
 *Please Note* In the script referenced above is a hardcoded file location to pull the found files to. This must be modified to match your system. Dynamically pulling the folder location appeared too difficult at the time due to Autopsy using modified Python methods that are cross compiled into JAVA (things get weird). Additionally, the following wiki (http://www.sleuthkit.org/autopsy/docs/api-docs/4.9.0/) hasn't really been updated so a significant amount of testing is needed.  To aid in your troubleshooting, the location of the log file can be accessed by going to the case folder:
 </blockquote>
 
-![](resources/Ch5/29.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/29.png)
 
 Going to the log folder:
 
-![](resources/Ch5/30.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/30.png)
 
 Finally, opening one of the plain text log files:
 
-![](resources/Ch5/31.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/31.png)
 
 Unfortunately, this file is locked while Autopsy is running and you must close Autopsy to view any associated error.
 
 Once a python script has been developed and tested, you have to manually add in the python plugin to the appropriate folder. A simple link can be accessed from the menu option below:
 
-![](resources/Ch5/32.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/32.png)
 
 To add the python plugin, you simply move an appropriate named folder structure containing the python modules into the following directory:
 
-![](resources/Ch5/33.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/33.png)
 
 Now simply restart Autopsy and right click the data source you wish to run the plugin against:
 
-![](resources/Ch5/34.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/34.png)
 
 Similar to before, if all is well a new option should be present:
 
-![](resources/Ch5/35.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/35.png)
 
 Now simply click “Deselect All” (since they have already run) and click your custom tool. If you are using a barebones osboxes VM it would be prudent to add some various APKs. Once the module finished running you should see the following:
 
-![](resources/Ch5/36.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/36.png)
 
 So now we have a way to automate scraping of APK files, to continue now we need to do some rudimentary analysis. Remember how JADX had a CLI? This functionality can help decompile the APKs fairly quickly allowing for additional analysis using REGEX, individual file hashing, and other forensicating things. In this situation,I developed a companion script using Python (YAAAAT_apk_ripper) that has embedded the functionalities required for my use case [(GitHub: Yet Another Android Application Tool)](https://github.com/s3raph-x00/YAAAAT):
 
-![](resources/Ch5/37.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/37.png)
 
 The following code section shows the functionality of running JADX and dumping the output to the case_extract folder:
 
-![](resources/Ch5/38.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/38.png)
 
 This script works by iteratively going through the case_extract/apk folder structure and attempts to be fairly fault tolerant in the case of incorrect file extension or file corruption. 
 
 Beyond the simple JADX decompiling functionality, additional functions can be added by analyzing the code sections of the decompiled APK using REGEX:
 
-![](resources/Ch5/39.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/39.png)
 
 The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis. There are other regex solutions to map out potential URLs which helps mitigate missing aspects of URL crafting.
 
 Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning implmenetations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
 
-![](resources/Ch5/40.png)
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch5/40.png)
 
 The methods aren't perfect by any means and more testing across a number of different certificate implementations are needed. Despite this, It is similar to the automated single analysis using MobSF and manual analysis with JADX but also allows for larger scale analysis of APK signatures.
 

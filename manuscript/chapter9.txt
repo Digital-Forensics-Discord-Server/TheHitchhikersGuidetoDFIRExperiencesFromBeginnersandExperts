@@ -19,12 +19,12 @@ Two of the most common information security types of CTF competitions are “**J
 
 “**Jeopardy**" style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
 
-{width: 90%}
+{width: 80%}
 ![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
 
 “**Attack and Defense**" is more common in Red and Blue Team environments where the Red Team has to hack or attack a Blue Team server. The Blue Team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
 
-{width: 90%}
+{width: 70%}
 ![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
 
 Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
@@ -61,6 +61,7 @@ Other software vendors have started to create their own as well to engage with t
 
 Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you'd like as well as allow them to host your next live event.
 
+{width: 70%}
 ![9.3 - CyberDefenders website](https://i.ibb.co/SdqWtZw/blueyard.png)
 
 Another fairly exhaustive list of other past challenges and evidence can be found hosted on [**AboutDFIR**](https://aboutdfir.com/education/challenges-ctfs/).
@@ -85,6 +86,8 @@ I put profit in quotations because many may construe that as a compensation type
 > ever have is your mind and what you put into it." - Albert Einstein
 
 The knowledge you gain from the “practice" will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
+
+* * *
 
 {pagebreak}
 
@@ -214,3 +217,5 @@ It's also important to build your confidence. Just because you don't place well 
 The number one takeaway of playing CTFs is to have fun! These are meant to be a training exercise to stimulate the mind and to give you a break from your normal workload. Don't stress it, just keep learning. If you're in person, enjoy the comradery of other competitors and build your network. You never know who you may meet while playing and who you will harbor friendships with in the industry.
 
 I hope this chapter breathes new life into you playing CTF competitions. Good luck and see you all out there on the digital battlefields!
+
+* * *

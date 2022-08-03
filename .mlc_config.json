@@ -1,18 +1,15 @@
 {
-    "ignorePatterns": [
-        {
-            "pattern": "^https://www.exterro.com/ftk-imager"
-        }
-    ],
-    "timeout": "20s",
-    "retryOn429": true,
-    "retryCount": 5,
-    "fallbackRetryDelay": "30s",
-    "aliveStatusCodes": [
-        200,
-        403,
-        429,
-        502,
-        0
-    ]
+  "ignorePatterns": [
+    {
+      "pattern": "^https://www.exterro.com/ftk-imager"
+    },
+    {
+      "pattern": "^resources/Ch*"
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 5,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 403, 429, 502, 0]
 }

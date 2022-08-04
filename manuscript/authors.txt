@@ -70,6 +70,10 @@ s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defens
 
 An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets to identify gaps and validate existing controls.
 
+## Jason Wilkins
+
+After serving in the US Navy for five years, Jason Wilkins began a career in firefighting and emergency medicine. While serving the community in that capacity for fourteen years he obtained associates degrees in criminal justice and computer networking from Iowa Central Community College online. He left the fire department in 2014 to pursue a network analyst position working for a global tire manufacturer. Disillusioned by a lack of mission and purpose, he returned to public safety in 2019 and began working as a crime & intelligence analyst for the local police department. It was there that he developed the agency's first digital forensics lab and started the N00B2PR04N6 blog. In 2020 he was nominated as Newcomer of the Year in the Digital Forensics 4:Cast awards and has spoken at both the SANS Digital Forensics and Magnet Forensics Summits. He currently works as an overseas contractor teaching digital forensics and is also an adjunct instructor for digital forensics and incident response at Iowa Central Community College. 
+
 ## name (Please Maintain Alphabetical Order, Thank You!)
 
 bio goes here

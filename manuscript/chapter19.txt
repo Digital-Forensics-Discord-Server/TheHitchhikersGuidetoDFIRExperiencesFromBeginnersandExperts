@@ -67,7 +67,7 @@ Freedom and flexibility are just two of the many attributes that can help make L
 
 First and foremost of course, Linux is free. As mentioned earlier this means we can install it as many times on as many computers (or virtual machines) as we like. You can use it as any sort of server while not tying up valuable budget resources on licensing. This goes for the forensic software as well. You can install, copy, and share across multiple platforms and users, again without breaking the bank.
 
-For a practitioner learning the ins and outs of digital forensics, this can be very powerful. You can install multiple copies of Linux across devices and virtual environments in a simple home lab; deleting, reinstalling and repurposing computer resources along the way.  Installing and running Linux is a great way to re-purpose old hardware, which brings us to our next point.
+For a practitioner learning the ins and outs of digital forensics, this can be very powerful. You can install multiple copies of Linux across devices and virtual environments in a simple home lab; deleting, reinstalling and repurposing computer resources along the way. Installing and running Linux is a great way to re-purpose old hardware, which brings us to our next point.
 
 Linux provides unparalleled flexibility. It will run on all forms of hardware, from laptop and desktop computers, to mobile devices and single board computers (SBC). It will run in a variety of virtualisation environments, up to and including Microsoft Window's own Windows Subsystem for Linux (WSL/WSL2). You can chose to run a Linux distribution on a workstation, on a $50 Raspberry Pi, in a virtual machine, or natively in Windows using WSL. These all have their benefits and drawbacks, including cost; direct hardware access; convenience; and resource requirements.
 
@@ -160,7 +160,7 @@ There are a copious amount of resources available to help learn Linux. From dist
 
 Here we are concentrating on a digital forensic perspective. There are still numerous resources for digital forensics and Linux, including books and websites, but the material is not quite as widespread.
 
-"Learning Linux forensics" can also have a couple of different meanings. We could be talking about using Linux as a forensic platform - using tools and techniques within the Linux operating system to analyze digital evidence regardless of source.  It's also possible that you might only be interested in _investigating_ Linux - learning Linux as a potential target of an analysis.
+"Learning Linux forensics" can also have a couple of different meanings. We could be talking about using Linux as a forensic platform - using tools and techniques within the Linux operating system to analyze digital evidence regardless of source. It's also possible that you might only be interested in _investigating_ Linux - learning Linux as a potential target of an analysis.
 
 ### Linux as a Platform
 

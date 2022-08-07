@@ -42,8 +42,6 @@ I recall having aspirations for a move to Discord months prior to March 2018. Fo
 
 I was reminded that the major push to move to Discord came from me mostly surrounding the image uploading process combined with the positive experiences I had with the platform in my personal life via special interest servers from September 2016 to March 2018. The call to move to Discord was met with nearly unanimous approval from members of the IRC channel. As a result, the Mobile Forensics Discord Server was created!
 
-{pagebreak}
-
 ## Mobile Forensics Discord Server => Digital Forensics Discord Server
 
 The Mobile Forensics Discord Server enjoyed great success and rapid growth throughout its first year of existence. The server's growth was entirely driven by word of mouth and advertising on various Google Groups. The list of channels maintained in the server were driven by member requests which quickly expanded outside of mobile devices. Over time, it became increasingly apparent that branding the server as a Mobile Forensics server did not fully encompass the needs of the DFIR community. To the best of my research, the Mobile Forensics Discord Server was rebranded to the Digital Forensics Discord Server sometime around February 2019.
@@ -55,8 +53,6 @@ Since then, multiple channels have been added, renamed, and removed at the reque
 ## Member Growth
 
 Throughout the 4 years (as of this writing), the Digital Forensics Discord Server has undergone substantial growth. Below are some major membership milestones that were mined from Announcements I made in the `#announcements` channel over time. 
-
-{pagebreak}
 
 ### Major Milestones
 
@@ -103,6 +99,8 @@ One of the biggest divides that the Digital Forensics Discord Server was able to
 
 I know I have no possible way to quantify this statement, but I would like to think overall there has been a net positive influence on commonly utilized digital forensic software as a result of this direct interaction with the customer base within the Digital Forensic Discord Server's channels. 
 
+{pagebreak}
+
 ## Impact on the DFIR community
 
 In this section, I want to share some unique stories from people who have joined the Digital Forensics Discord Server and what impact it has had on them. 
@@ -110,6 +108,8 @@ In this section, I want to share some unique stories from people who have joined
 One of the earliest stories I can remember is from someone who identified themselves as a detective in Alaska. Specifically, this person stated they worked at a police department in a remote part of Alaska and they were a one-man digital forensics team. They did not have another technically savvy person to run ideas past that was less than 3 hours away from them by car. Upon joining the Digital Forensics Discord Server, they stated that the community provided exactly what they needed as prior to joining the server they were operating solo with no one to bounce ideas off of when challenges arose in their investigations. When I was a detective, I had at least 2 other people in my office to run ideas past or ensure I wasn't forgetting something simple whenever I ran into a roadblock in my analysis. I simply cannot imagine having my closest support being over 3 hours away from me. I can only imagine the feeling of isolation. This person stated the the Digital Forensics Discord Server was a game changer for them in that it provided something they so desperately needed: support!
 
 Another story I can think of was more recent in that someone from a country I had never expected to have to make a Law Enforcement role for had joined the server. Someone posted in the `#role-assignment` channel stating they were a police officer in Iraq. In a prior life, I was in the United State Marine Corps and I had actually served a combat tour in Iraq in the infantry back in 2006-2007. Never in a million years would I have imagined that someone from Iraq serving in Law Enforcement would join the Digital Forensics Discord Server. To this day, this person is the only one occupying the `Law Enforcement [Iraq]` role, but I have to say particularly for me that this person joining the server was a "coming full circle moment for me. I engaged in conversation with this individual and asked for updates on how the country was doing and it really warmed my heart, in all honesty. I've met so many wonderful people in that country during my 7 month deployment and to think that the country is in a place to where they're catching up with the 70 other countries who have roles within the server was something that put a smile on my face and still does to this day. 
+
+{pagebreak}
 
 ## Law Enforcement Personnel
 
@@ -144,6 +144,8 @@ Being former Law Enforcement myself, I understand the importance of jurisdiction
 | Iceland            |             |                      |
 
 To save you from counting, that's 73 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those! 
+
+{pagebreak}
 
 ## Forensic 4:cast Awards
 

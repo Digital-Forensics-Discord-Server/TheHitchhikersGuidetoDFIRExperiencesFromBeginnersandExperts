@@ -10,21 +10,9 @@ After many years at the top of the Systems Administration food chain, the ApexPr
 
 ## Barry Grundy
 
-Barry Grundy has been working in the field of digital forensics since the mid
-1990s.  Starting at the Ohio Attorney General's office as a criminal
-investigator, and eventually joining U.S. Federal Law Enforcement as a digital
-forensics analyst and computer crimes investigator in 2001.  He holds a
-Bachelor of Science in Forensic Science from Ohio University, and A Master's
-Degree in Forensic Computing and Cybercrimes Investigations from University
-College Dublin.  
+A U.S. Marine Corps veteran, Barry Grundy has been working in the field of digital forensics since the mid 1990s.  Starting at the Ohio Attorney General's office as a criminal investigator, and eventually joining U.S. Federal Law Enforcement as a digital forensics analyst and computer crimes investigator in 2001.  He holds a Bachelor of Science in Forensic Science from Ohio University, and A Master's Degree in Forensic Computing and Cybercrime Investigations from University College Dublin.  
 
-Barry is the author and maintainer of the Law Enforcement and Forensic
-Examiner's Introduction to Linux ([LinuxLEO](https://linuxleo.com)).  This
-practical beginner's guide to Linux as a digital forensics platform has been
-available for over 20 years and has been used by a number of academic
-institutions and law enforcement agencies around the world to introduce
-students of DFIR to Linux. Teaching, particularly Linux forensics and open
-source DFIR tools, is his passion.
+Barry is the author and maintainer of the Law Enforcement and Forensic Examiner's Introduction to Linux ([LinuxLEO](https://linuxleo.com)).  This practical beginner's guide to Linux as a digital forensics platform has been available for over 20 years and has been used by a number of academic institutions and law enforcement agencies around the world to introduce students of DFIR to Linux. Teaching, particularly Linux forensics and open source DFIR tools, is his passion.
 
 ## Guus Beckers
 

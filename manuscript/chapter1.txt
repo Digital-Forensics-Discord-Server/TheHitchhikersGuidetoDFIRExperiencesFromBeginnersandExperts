@@ -9,7 +9,7 @@ Special thanks to Kevin Pagano for creating the Digital Forensics Discord Server
 
 ## Introduction
 
-I felt it was prudent to choose this topic for this project because very few others could provide as in-depth an account of the history of the Digital Forensics Discord Server. Having been apart of the server since day one, and actively monitoring every day since, 
+I felt it was prudent to choose this topic for this project because very few others could provide as in-depth an account of the history of the Digital Forensics Discord Server. Having been apart of the server since day one, and actively monitoring every day since, I felt like this was something that needed to be immortalized before too much more time passes. As the server continues to grow, and life forges on, much like a DVR or event log, memories are overwritten with more current memories and I very likely would not be able to write as detaied of an account of this server’s history 5 years from now as I am today. If anything, by documenting this history now, it can serve as a starting point to build upon over time. 
 
 ## Beginnings in IRC
 
@@ -102,7 +102,7 @@ Another story I can think of was more recent in that someone from a country I ha
 
 Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has had on the DFIR community on a global level. Countries with roles assigned for Law Enforcement personnel are listed below:
 
-| As of July 2022: |
+| Law Enforcement Representation (as of July 2022) |
 |--------------------|-------------|----------------------|
 | Albania            | India       | Nigeria              |
 | Argentina          | Indonesia   | Norway               |
@@ -132,12 +132,28 @@ Being former Law Enforcement myself, I understand the importance of jurisdiction
 
 To save you from counting, that's 73 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those! 
 
+## Forensic 4:cast Awards
+
+The Digital Forensics Discord Server was fortunate enough to enjoy success in the [Forensic 4:cast Awards](https://forensic4cast.com/forensic-4cast-awards/), as seen below:
+
+| Year                                                                                | Category             | Result    |
+|-------------------------------------------------------------------------------------|----------------------|-----------|
+| [2020](https://forensic4cast.com/forensic-4cast-awards/2020-forensic-4cast-awards/) | Resource of the Year | Winner    |
+| [2021](https://forensic4cast.com/forensic-4cast-awards/2021-forensic-4cast-awards/) | Resource of the Year | Winner    |
+| 2022                                                                                | Resource of the Year | Nominated |
+
 ## Future
 
-The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. 
+The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. I will always be active in the server, but this server is and always has been far more than any single person. As long as the members of the DFIR community keep showing up and engaging with each other, the Digital Foreniscs Discord Server will never die...unless Discord ceases to exist which would likely call for the community to migrate to a different platform. Let’s hope that doesn’t happen anytime soon! 
+
+Regardless, all indications point to the the server continuing to grow through coworker word of mouth, exposure through training courses, and university programs sharing invites to the server to students. The server has always been welcoming of all walks of life, from the high school student wanting to work in DFIR someday to people who’ve been involved in DFIR for decades, and everywhere in between. This will not ever change.  
 
 ### Adminstrator Contingency Plan
 
 This server is has become such an important part of my life (and the DFIR community) that I’ve created a contingency plan. For those who are new to administering Discord servers, one important thing to know is that only the member who is assigned as the Server Owner can delete the server. Currently, that person is me, Andrew Rathbun. In the interest of ensuring the Digital Forensics Discord Server lives far beyond all of us (assuming Discord is still around by that time), I've established a paper trail for any other moderators to follow should anything happen to me to where I will never be able to log back in to Discord. This paper trail will require a lot of effort and coordination with family members/friends of mine to access my password vault and many other necessary items in order to [Transfer Ownership](https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership) so that the server can live on without any administrative hiccups. In the unfortunate event that I can no longer log back into Discord, a OneNote page has been shared with other moderators providing breadcrumbs to obtain the necessary information to transfer ownership to another moderator so the server can be properly taken care of. 
+
+## Conclusion
+
+Thank you to everyone who has helped this server become such an integral part of the DFIR community.
 
 * * *

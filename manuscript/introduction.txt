@@ -47,16 +47,16 @@ Frankly, this may not be at the level of a college textbook, but it's also not m
 
 {pagebreak}
 
-### Community Participation
+## Community Participation
 
 One important aspect of creating this book was involving the community in deciding [the title of the book](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4). Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on Google Forms were created with the following results:
 
-#### Round 1
+### Round 1
 
 {width: 70%}
 ![](Ch0/BookTitleRound1Results.jpg)
 
-#### Round 2
+### Round 2
 
 {width: 70%}
 ![](Ch0/BookTitleRound2Results.jpg)

@@ -23,6 +23,7 @@ On August 23, 2016, a user that went by the name of `tupperwarez` had informed t
 
 I have been using forums for all of my internet life up until this point, and I think subconsciously I was ready for something more, and this was it! I also knew that IRC was a longstanding tradition but I had never dabbled with it as I only had previous experience with messaging clients such as [AOL Instant Messenger (AIM)](https://en.wikipedia.org/wiki/AIM_(software)) and [MSN Messenger](https://en.wikipedia.org/wiki/Windows_Live_Messenger) at the time. 13 minutes after the post went out by `tupperwarez`, I was the first to respond in the thread that I had joined.
 
+{width: 50%}
 ![](Ch1/mobileforensicsfreenode.png)
 
 Throughout the next year and a half, a small contingent of people totaling anywhere from 7-15 at any given time occupied this IRC channel. We became a tight-knit group of examiners who relied on each other's knowledge and expertise to navigate challenges in our everyday casework. These problems often would relate to performing advanced acquisition methods using Chip-Off, JTAG, or flasher boxes. The collaboration was exactly what I was looking for because through each other we were able to cast a wider net for knowledge that we sought for problems we were coming across in our everyday investigations. 

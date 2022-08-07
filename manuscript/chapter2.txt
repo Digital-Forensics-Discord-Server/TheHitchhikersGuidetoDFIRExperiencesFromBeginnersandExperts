@@ -9,8 +9,8 @@ C> By [Alexis Brignoni](https://linqapp.com/abrignoni) | [Discord](http://discor
 
 Most mobile forenisc examinations involve the use of third party tools to extract and decode information stored whitin targeted devices. What happens when the tool presents little to nothing of what is expected? What to do when the targeted app seems to not exist as far as the tool is concerned?
 
-A big part of digital forensics involves what I call The Artisanal Approach. The Oxford Languages dictionary defines artisanal as: 
-		
+A big part of digital forensics involves what I call The Artisanal Approach. The Oxford Languages dictionary defines artisanal as:
+
 		ar·ti·san·al
 		/ärˈtēzən(ə)l/
 		adjective
@@ -18,7 +18,7 @@ A big part of digital forensics involves what I call The Artisanal Approach. The
 		"artisanal skills"
 		- (of a product, especially food or drink) made in a traditional or non-mechanized way.
 		"artisanal cheeses"
-		
+
 This is just a long way of saying that we will rely have to manually identify the relevant data stores. The approach has 3 steps.
 
 1. Locate the relevant apps.
@@ -43,7 +43,7 @@ As seen in figure 2.1 there are folders within the data directory for each app o
 {height: 100%}
 ![2.1 - Data directory](/Ch2/Screenshot1.png)
 
-Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser. 
+Most mobile apps have bundle ID names that are easy to identify. Notice in the previous image how it is pretty obvious that com.android.chrome should be the bundle ID for the Chrome Browser, which it is. Another example would be how the bundle ID for Discord is com.Discord. Be aware that is not always the case. Not all bundle ID names are easy to reference back to the app name just by reading. One way of determining the budle ID of an app in Android is to look for the app in the Google Play store using a browser.
 
 ![2.2 - ](/Ch2/Screenshot2.png)
 
@@ -55,10 +55,10 @@ Let's look at TikTok.
 
 ![2.3 - ](/Ch2/Screenshot3.png)
 
-Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all. 
+Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious reference to TikTok at all.
 
 	https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US&gl=US
-	
+
 By changing the Google Play store URLs to the possibly unknown bundle IDs found on the target extraction one can determine the common app name for it.
 
 It is of note that apps also save data to additional locations within the Android device. Look for targeted bundle ID direcotries in the following locations:
@@ -66,7 +66,7 @@ It is of note that apps also save data to additional locations within the Androi
 	/data/media/
 	/MNT/ or /NONAME/
 
-As you navigate the contents of these directories you will find relevant stores that can contain user generated data. 
+As you navigate the contents of these directories you will find relevant stores that can contain user generated data.
 
 ### Relevant apps in iOS
 
@@ -76,10 +76,10 @@ In iOS devices user generated data can be found in the following directories:
 	/private/var/mobile/Containers/Shared/AppGroup/*GUID directory*/
 	/private/var/mobile/Containers/Data/PluginKitPlugin/*GUID directory*/
 
-Notice the \*GUID directory* at the end of the paths. These will be subsituted with a corresponding global unique identifier. See the following example: 
+Notice the \*GUID directory* at the end of the paths. These will be subsituted with a corresponding global unique identifier. See the following example:
 
 	A72DDBEE-8EEE-4868-9E5A-769B078781EA
-	
+
 These values can change constantly due to app installs, updates, and uninstalls. Unlike Android devices iOS bundle IDs are not part of the application directory paths therefore it is impossible to identify applications of interest visually by bundle ID names.
 
 ![2.4 - ](/Ch2/Screenshot4.png)
@@ -89,8 +89,8 @@ How can then we take these GUID named directories and linked them to the corresp
 This data store is a SQLite database that contains information for all currently installed appications. We will discuss SQLite databases in the next section. The database is located here:
 
 	/private/var/mobile/Library/FrontBoard/applicationState.db
-	
-The exemplar data in the following image is from Josh Hickman's test iOS images. These can be found here: 
+
+The exemplar data in the following image is from Josh Hickman's test iOS images. These can be found here:
 https://thebinaryhick.blog/public_images/
 
 ![2.5 - ](/Ch2/Screenshot5.png)
@@ -110,10 +110,10 @@ Like the previous option the data store is a plist. The plist is contained in th
 
 ![2.7 - ](/Ch2/Screenshot7.png)
 
-As discussed previously bundle IDs might not be anywhere close to their commercial or well known app names. The following URL has a useful database of iOS bundle IDs and corresponding app names: 
+As discussed previously bundle IDs might not be anywhere close to their commercial or well known app names. The following URL has a useful database of iOS bundle IDs and corresponding app names:
 
 	https://offcornerdev.com/bundleid.html
-	
+
 See the following output for Snapchat.
 
 ![2.8 - ](/Ch2/Screenshot8.png)
@@ -142,7 +142,7 @@ These tables record the customer's names and addresses. A customer can have one 
 
 To tell the database to match customers to addresses we use a set of commmands called Structured Query Language (SQL). We will tell the database to gives us all columns from both tables where the CustomerID in the customer's table is the same as the AddressID in the addresses table.
 
-`SELECT * 
+`SELECT *
 FROM Customers, Addresses
 where CustomerID = AddressID`
 

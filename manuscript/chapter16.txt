@@ -38,7 +38,7 @@ Digital Forensics is a six-phase process including:
 
 Analysis is a major phase where forensicators discover different types of artifacts ranging from plain metadata to complex evidence of execution and residual traces. The vast gap between the difficulty of retrieving or reconstructing evidence determines the fine line between E-Discovery and Digital Forensics.
 
-User data such as internet history, images, videos, emails, messages, etc., fall under E-Discovery. It is relatively easy to reconstruct even from the unallocated space. 
+User data such as internet history, images, videos, emails, messages, etc., fall under E-Discovery. It is relatively easy to reconstruct even from the unallocated space.
 
 However, System Data-like artifacts that help support some view of truth, or determine how closely a transpired event is to the evidence, are not that simple to manually parse with forensic soundness, which is why often times forensicators rely on well-known parsing tools, either commercial or open-source.
 

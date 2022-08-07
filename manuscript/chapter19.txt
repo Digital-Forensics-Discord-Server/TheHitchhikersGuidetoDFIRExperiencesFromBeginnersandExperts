@@ -144,7 +144,7 @@ Other Linux distributions offer a far more simple approach - minimally configure
 
 The last consideration one might want to consider is selecting between a rolling release and incremental release distro. Normally we think of numbered releases for an operating system. Version X released on a given date, often with security updates and bug fixes in between major version releases. Eventually another release, let's call it version Y is made available and so on. Distributions like Slackware, Debian and (generally) Ubuntu fall into this category. For the most part these are considered more stable, where components of the desktop and operating system are updated and tested together before release. For the forensic examiner this approach provides not only the aforementioned stability, but also fewer mass changes to kernel components and software libraries that might affect the forensic environment in addition to unexpected behaviors that can impact evidence integrity or the interpretation of examination results.
 
-A rolling release, on the other hand, continually updates software as new versions become available for everything from the kernel to base libraries. This has the benefit of always keeping up with the "latest and greatest". Changes to upstream software are often immediately supported. One obvious negative effect of this, aside from being more prone to instability, is that wholesale changes to the operating system should probably trigger some testing on part of the forensic examiner. There should be no doubt that a digital forensics platform is operating exactly as expected. Constant mass upgrades can interfere with this by possibly breaking or changing expected output or hardware behavior. Examples of rolling releases include Arch, Manjaro, Void, and Ubuntu _Rolling Rhino_. 
+A rolling release, on the other hand, continually updates software as new versions become available for everything from the kernel to base libraries. This has the benefit of always keeping up with the "latest and greatest". Changes to upstream software are often immediately supported. One obvious negative effect of this, aside from being more prone to instability, is that wholesale changes to the operating system should probably trigger some testing on part of the forensic examiner. There should be no doubt that a digital forensics platform is operating exactly as expected. Constant mass upgrades can interfere with this by possibly breaking or changing expected output or hardware behavior. Examples of rolling releases include Arch, Manjaro, Void, and Ubuntu _Rolling Rhino_.
 
 Another option, of course, is a ready made distribution specifically designed for digital forensics. Kali Linux, Caine and Tsrugi Linux are common examples. These are generally used as bootable operating systems for live investigations, but can also be installed directly on hardware to use in a Lab. The benefit is obviously that the system is ready to go with just about all the forensic software one might need to conduct digital forensics, incident response, or even Open Source Intelligence (OSINT). From an education perspective, ready made forensic distributions have you up and running quickly, ready to learn the tools. What you might miss however is actually setting up, finding and installing the tools yourself - all part of the education process.
 
@@ -202,7 +202,7 @@ All of these are challenges with examining any of the myriad permutations of Lin
 
 ## Linux Forensics in Action
 
-All of the information covered so far gives a overall view of Linux and where it might fit in with a digital forensic workflow. For those just starting out, or for those that have never seen Linux in action before, it might be useful to actually see a very simple command line session from acquisition through artifact recovery and interpretation. 
+All of the information covered so far gives a overall view of Linux and where it might fit in with a digital forensic workflow. For those just starting out, or for those that have never seen Linux in action before, it might be useful to actually see a very simple command line session from acquisition through artifact recovery and interpretation.
 
 First, let's map a quick outline of what we wish to accomplish, and the tools we will use:
 
@@ -605,7 +605,7 @@ $ echo $((0x3E8))
 Changing into that directory, we find several subkey values. Again, studying registry forensics, we find that the `F` value contains an account's login information, so we change our directory to `(values)` for that account:
 
 > $ cd 000003E8/\(values\)
-> 
+>
 > $ ls
 > **F**  UserPasswordHint  V
 

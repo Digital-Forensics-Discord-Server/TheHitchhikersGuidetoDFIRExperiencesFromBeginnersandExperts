@@ -170,18 +170,18 @@ A number of tools can be of use during triage, these include:
 * [KAPE](https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape)
 * [Eric Zimmerman Tools](https://ericzimmerman.github.io/#!index.md) (most notably Timeline Explorer)
 
-FTK Imager can be used to read the image and browse the file system by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post processing steps. 
+FTK Imager can be used to read the image and browse the file system by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post processing steps.
 
-Arsenal Image Mounter can be used to mount images in a read-only manner. This capability can be used in conjunction with KAPE to quickly extract pertinent artifacts. It has more advanced functionality as well but that is beyond the scope of this chapter. 
+Arsenal Image Mounter can be used to mount images in a read-only manner. This capability can be used in conjunction with KAPE to quickly extract pertinent artifacts. It has more advanced functionality as well but that is beyond the scope of this chapter.
 
-KAPE, created by Eric Zimmerman, can be used to quickly collect and post-process artifacts utilizing either a graphical user interface or the command line. KAPE can collect information from a wide range of Targets. The required information can be collected by simply checking the box next to the Target and providing source and destination locations. KAPE will then collect the information. 
+KAPE, created by Eric Zimmerman, can be used to quickly collect and post-process artifacts utilizing either a graphical user interface or the command line. KAPE can collect information from a wide range of Targets. The required information can be collected by simply checking the box next to the Target and providing source and destination locations. KAPE will then collect the information.
 
 Of particular note for triage is the [KapeTriage Target](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Compound/KapeTriage.tkape). The following description is provided at the time of writing:
 
 KapeTriage collections that will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
- 
-The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format. 
- 
+
+The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format.
+
 These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
 
 * * *

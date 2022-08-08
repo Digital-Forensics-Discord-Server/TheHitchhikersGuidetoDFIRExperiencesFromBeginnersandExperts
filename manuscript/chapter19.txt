@@ -309,7 +309,7 @@ $ sha1sum imagefile.raw
 
 Once we have an image, and the integrity of our evidence has been verified, we need to focus our examination on the volume, file system, and artifacts pertinent to our case. This will include parsing any partition table (DOS or GPT in most cases), identifying the file system format (exFAT, NTFS, APFS, etc.), and finally identifying files or objects that need to be recovered, extracted, or examined for the investigation.
 
-The Sleuthkit (TSK) is a collection of command line tools and libraries that can provide this functionality under Linux. Bootable distributions focused on digital forensics like Kali and Caine come with TSK by default. It can also be used on Windows and Mac systems. For a quick peek into an image file, it can be quite useful. No need to fire up a full GUI tool to do a quick file extraction or view the contents of a directory.
+The [Sleuthkit (TSK)](https://sleuthkit.org/) is a collection of command line tools and libraries that can provide this functionality under Linux. Bootable distributions focused on digital forensics like Kali and Caine come with TSK by default. It can also be used on Windows and Mac systems. For a quick peek into an image file, it can be quite useful. No need to fire up a full GUI tool to do a quick file extraction or view the contents of a directory.
 
 The Sleuthkit supports the following file system types:
 * ntfs (NTFS)
@@ -346,13 +346,13 @@ There are more than thirty command line tools in the TSK. We will use some of th
 | `istat`  | file meta-data information (MFT entry, inode, etc.) |
 | `icat`   | recover file content  |
 
-Again, for a more detailed look at The Sleuthkit refer to the [LinuxLEO Guide](https://linuxleo.com) for hands on exercises and practice images.
+Again, for a more detailed look at The Sleuthkit refer to the [LinuxLEO Guide](https://linuxleo.com) for hands-on exercises and practice images.
 
 #### Artifact analysis
 
 Digital forensics is far more than just recovering deleted files. There are databases to parse, temporal data to extract and organize, and other artifacts to review and make sense of. This is one of the greatest challenges of digital forensics - keeping up with operating system changes, application version changes, and various format changes that make keeping our knowledge up to date a challenging prospect.
 
-Luckily there are a great many open source projects that specifically address the collection and analysis of everything from macOS plist to Windows shellbags. Using them might not be as simple as clicking a line item in a GUI forensic suite or selecting a specific view in a menu. But again, the open source tools very often provide a simple command line interface to provide an uncluttered look at the data we need most. In addition, many of these tools provide _libraries_ to allow developers to include artifact parsing capabilities in more feature rich tools. One example of this is _Autopsy_, a GUI digital forensic tool that utilizes Sleuthkit libraries to parse disk images, storage volumes, and file systems. Additional functionality is provided by external open source libraries for artifact parsing and timeline creation.
+Luckily, there are a great many open source projects that specifically address the collection and analysis of everything from macOS plist to Windows shellbags. Using them might not be as simple as clicking a line item in a GUI forensic suite or selecting a specific view in a menu. But again, the open source tools very often provide a simple command line interface to provide an uncluttered look at the data we need most. In addition, many of these tools provide _libraries_ to allow developers to include artifact parsing capabilities in more feature rich tools. One example of this is _Autopsy_, a GUI digital forensic tool that utilizes Sleuthkit libraries to parse disk images, storage volumes, and file systems. Additional functionality is provided by external open source libraries for artifact parsing and timeline creation.
 
 For those examiners that are proficient in the Python language, there are often specific Python libraries that can be used to parse artifacts. In some cases the previously mentioned open source libraries will include _bindings_ that provide Python code allowing us to write scripts that can parse artifacts of interest.
 
@@ -362,7 +362,7 @@ One example of this is the [libewf](https://github.com/libyal/libewf) project. T
 
 For operating system artifacts, this same approach is found in other libraries like [libevtx](https://github.com/libyal/libevtx) for Windows event logs, [libregf](https://github.com/libyal/libregf) for Windows registry hives, [libscca](https://github.com/libyal/libscca) for Windows prefetch files, and _many_ others. These are all part of the [libyal](https://github.com/libyal) project. These are not the only application level artifact tools and libraries out there, but they can give an idea of what is available.
 
-Tools on the Linux command line are, of course not limited to computer storage media either. There are libraries and tools for mobile device analysis as well, such as [libimobiledevice](https://libimobiledevice.org/) for iOS devices. Application data from mobile devices are often stored in SQL data base files. Once again, there are often built in data base programs included in many Linux distributions that can extract desired data from chat apps, location based artifacts and more.
+Tools on the Linux command line are, of course, not limited to computer storage media either. There are libraries and tools for mobile device analysis as well, such as [libimobiledevice](https://libimobiledevice.org/) for iOS devices. Application data from mobile devices are often stored in SQL database files. Once again, there are often built in database programs included in many Linux distributions that can extract desired data from chat apps, location-based artifacts, and more.
 
 So what does all this look like in use?
 
@@ -532,7 +532,7 @@ There is quite a bit of information in the `fsstat` output. File system type, ve
 
 ### Sample Scenario: Identify the File(s) of Interest
 
-In this particular scenario we are conducting a cross verification of findings from a file we already know - the SAM registry file. In a normal Windows installation, the SAM is located in `C:\windows\system32\config`. We can use the Sleuthkit `fls` tool to recursively list all the allocated files in the volume of interest and specifically look, or _grep_, for `Windows/System32/config/SAM`:
+In this particular scenario we are conducting a cross verification of findings from a file we already know - the SAM registry file. In a normal Windows installation, the SAM is located in `C:\Windows\system32\config`. We can use the Sleuthkit `fls` tool to recursively list all the allocated files in the volume of interest and specifically look, or _grep_, for `Windows/System32/config/SAM`:
 
 {line-numbers:false}
 ```console
@@ -547,7 +547,7 @@ This output gives us the NTFS file system's Master File Table, or MFT entry for 
 
 ### Sample Scenario: Extract the data
 
-We will do two quick steps here. First we will extract the file using the Sleuthkit's `icat` command, which takes the meta-data entry (in this case MFT entry `178`), and streams the contents of the data blocks or clusters to our chosen destination - which in this case is an extracted file:
+We will do two quick steps here. First, we will extract the file using the Sleuthkit's `icat` command, which takes the meta-data entry (in this case MFT entry `178`), and streams the contents of the data blocks or clusters to our chosen destination - which in this case is an extracted file:
 
 {line-numbers:false}
 ```console
@@ -630,7 +630,7 @@ $ xxd F
 00000030:  E803 0000 0102 0000 1402 0000 0000 0000  ................
 00000040:  0000 0700 0100 0000 0000 4876 488A 3600  ..........HvH.6.
 ```
-hex offset 8 in the above output is on the first line: `678E 5DF7 F7C1 D201`.
+Hex offset 8 in the above output is on the first line: `678E 5DF7 F7C1 D201`.
 
 There are a number of tools available to convert that hex string to a date value. We will use a simple python script ([WinTime.py](https://linuxleo.com/Files/WinTime)).
 
@@ -649,11 +649,11 @@ Last Login Date : **Sun Apr 30 21:23:09 2017 Z**
 ...
 ```
 
-So we can see that our original analysis, using a common digital forensics tool under Windows, has been cross verified with a completely separate set of tools under a different operating system. The steps look complex, but for a far more detailed look at this level of analysis is covered in the previous mentioned LinuxLEO guide.
+So we can see that our original analysis, using a common digital forensics tool under Windows, has been cross verified with a completely separate set of tools under a different operating system. The steps look complex, but for a far more detailed look at this level of analysis is covered in the aforementioned LinuxLEO guide.
 
 Note that we included the acquisition here for completeness, but in a real cross verification situation, the image already acquired is fine to use - it has generally already been verified by hashing.
 
-We've actually accomplished a bit more by verifying our results with Linux. In addition to proving the veracity of what our original tool found, we have focused on a "smoking gun" artifact and _manually_ extracted and parsed it ourselves. This entire manual process will go in your notes along with any research you needed to do in order to complete it (What registry file do I need? Where is the login data stored?  What offset?  What format?). Should you ever be called to testify or participate in any adjudication process, you will be better prepared to answer the oppositions questions on _how_ your original tool found what it reported.
+We've actually accomplished a bit more by verifying our results with Linux. In addition to proving the veracity of what our original tool found, we have focused on a "smoking gun" artifact and _manually_ extracted and parsed it ourselves. This entire manual process will go in your notes along with any research you needed to do in order to complete it (What registry file do I need? Where is the login data stored? What offset? What format?). Should you ever be called to testify or participate in any adjudication process, you will be better prepared to answer the oppositions questions on _how_ your original tool found what it reported.
 
 This same approach applies to results of a mobile device analysis. In many mobile device analysis suites, chats are displayed in a GUI tool and organized by conversation. Find something important to the investigation? Fire up a Linux command line and dig into the database yourself. In many cases you don't even need to leave your Windows forensic workstation desktop. You can use WSL/WSL2, or SSH into your physical Linux workstation or VM using [PuTTY](https://putty.org).
 

@@ -16,6 +16,7 @@ Linux was developed by Linus Torvalds at the University of Helsinki back in the 
 {pagebreak}
 
 On 25 August, 1991, Torvalds posted this to the Usenet group comp.os.minix:
+
 > Hello everybody out there using minix
 > I'm doing a (free) operating system (just a hobby, won't be big and
 > professional like gnu) for 386(486) AT clones. This has been
@@ -35,19 +36,19 @@ On 25 August, 1991, Torvalds posted this to the Usenet group comp.os.minix:
 > multi-threaded fs. It is NOT portable (uses 386 task switching
 > etc), and it probably never will support anything other than
 > AT-harddisks, as that's all I have :-(.
->  --Linus Torvalds  (quoted from Wikipedia)}
+>  --Linus Torvalds  (quoted from [Wikipedia](https://en.wikipedia.org/wiki/History_of_Linux#The_creation_of_Linux))}
 
 Modern Linux is an operating system very similar to Unix, deriving most of its functionality from the much older AT&T Unix originally developed in in the 1970's. This included a full TCP/IP stack and GNU development tools to compile programs. In short, Linux is mostly compliant with the Portable Operating System Interface for Unix (POSIX).
 
-Despite the warnings of lack of architecture portability and limited support mentioned by Torvald's postscript, Linux has grown to a fully functioning operating system that supports a multitude of modern hardware. Standard SATA hard drives through modern M.2 and NVMe storage robustly supported. Drivers and software support for newer motherboards and associated hardware are constantly improving and growing. The Linux kernel, where most of this support resides, has a very fast production cycle and support for newer devices (where specifications are available) is rapidly added in most cases.
+Despite the warnings of lack of architecture portability and limited support mentioned by Torvald's postscript, Linux has grown to a fully functioning operating system that supports a multitude of modern hardware. Standard SATA hard drives through modern M.2 and NVMe storage are robustly supported. Drivers and software support for newer motherboards and associated hardware are constantly improving and growing. The Linux kernel, where most of this support resides, has a very fast production cycle and support for newer devices (where specifications are available) is rapidly added in most cases.
 
 For the digital forensics practitioner, this hardware compatibility issue can be exceedingly important. Not only must we verify and _test_ that our hardware is properly supported and functioning as intended; we also need to ensure that any subject hardware we might need to directly attach to our system (which we might do for a variety of reasons) is also properly detected and supported. This is often done via direct physical connection, or via boot media on a subject system.
 
 While we have given a very general definition of what Linux is and where it originated, we should also mention what Linux is _not_, particularly where digital forensics is concerned. We will cover _why_ you might want to use Linux for digital forensics in a later section, but for now a beginner forensics examiner should know that Linux is not a platform well suited to "point and click", or what some might refer to as "Nintendo forensics" techniques. While there are graphical user interface (GUI) tools available for Linux, it is not the strongest OS for that approach. More on that later.
 
-Linux can be fairly easy to install, particularly given modern desktop GUI front ends for configuration and settings. However, Linux is **NOT** a "better Windows". Linux should not be approached as a replacement to Microsoft Windows - one that acts like Windows and is supposed to be familiar to someone who has been using Windows (or MacOS for that matter) for years. Linux works very differently from some more mainstream operating systems. There is a steep learning curve and trouble shooting can seem overwhelming to someone used to running Windows on her computer. It is possible to use Linux as a primary driver for digital forensics, and many digital forensic practitioners have done this for years. But for most people new to the field, Linux can be a fantastic learning tool and a great way to access forensic and operating system utilities on an alternative platform - but will still remain a secondary operating system.
+Linux can be fairly easy to install, particularly given modern desktop GUI front ends for configuration and settings. However, Linux is **NOT** a "better Windows". Linux should not be approached as a replacement to Microsoft Windows - one that acts like Windows and is supposed to be familiar to someone who has been using Windows (or macOS for that matter) for years. Linux works very differently from some more mainstream operating systems. There is a steep learning curve and troubleshooting can seem overwhelming to someone used to running Windows on their computer. It is possible to use Linux as a primary driver for digital forensics, and many digital forensic practitioners have done this for years. But for most people new to the field, Linux can be a fantastic learning tool and a great way to access forensic and operating system utilities on an alternative platform - but will still remain a secondary operating system.
 
-Now that we have a very basic idea of what Linux is, and what it is not, let's discuss *why* we might decide to add it to our digital forensic tool box.
+Now that we have a very basic idea of what Linux is, and what it is not, let's discuss *why* we might decide to add it to our digital forensic toolbox.
 
 ## Why Linux for Digital Forensics
 
@@ -69,7 +70,7 @@ First and foremost of course, Linux is free. As mentioned earlier this means we 
 
 For a practitioner learning the ins and outs of digital forensics, this can be very powerful. You can install multiple copies of Linux across devices and virtual environments in a simple home lab; deleting, reinstalling and repurposing computer resources along the way. Installing and running Linux is a great way to re-purpose old hardware, which brings us to our next point.
 
-Linux provides unparalleled flexibility. It will run on all forms of hardware, from laptop and desktop computers, to mobile devices and single board computers (SBC). It will run in a variety of virtualisation environments, up to and including Microsoft Window's own Windows Subsystem for Linux (WSL/WSL2). You can chose to run a Linux distribution on a workstation, on a $50 Raspberry Pi, in a virtual machine, or natively in Windows using WSL. These all have their benefits and drawbacks, including cost; direct hardware access; convenience; and resource requirements.
+Linux provides unparalleled flexibility. It will run on all forms of hardware, from laptop and desktop computers, to mobile devices and single board computers (SBC). It will run in a variety of virtualisation environments, up to and including Microsoft Window's own Windows Subsystem for Linux (WSL/WSL2). You can choose to run a Linux distribution on a workstation, on a $50 Raspberry Pi, in a virtual machine, or natively in Windows using WSL. These all have their benefits and drawbacks, including cost, direct hardware access, convenience and resource requirements.
 
 Another facet of Linux flexibility lies in the number of choices, freely available, that users have over their working environment. Desktop environments like [KDE/Plasma](https://kde.org/plasma-desktop/), [Gnome](https://www.gnome.org/) and [XFCE](https://www.xfce.org/) provide a wide range of choices that a user can customize for aesthetics or workflow efficiency. These desktop environments don't change the underlying operating system, but only the way one interacts with that system. Paired with a separate _window manager_, there are hundreds of possibilities for customization. While it may sound trivial, we are not discussing wallpaper and icon themes here - we are talking about the flexibility to decide exactly *how* you interact with your workstation.
 
@@ -100,11 +101,11 @@ Consider the following simplified example:
 1. A forensic examiner extracts the "user created contents" (documents, emails, etc.) from computer media and provides the data to an investigator using a common Windows forensic software suite.
 2. The investigator identifies a particular document that can be considered valuable to the case being investigated and requests a report specific to that document.
 3. The forensic examiner provides a targeted report detailing the document's properties - timestamps, ownership, where or how it might have originated on the media, etc.
-4. The forensic examiner re-analyzes the specific document using a completely different tool perhaps on a completely different operating system (Linux in this case). Does the alternate tool identify the same location (physical disk location)?  Are the time stamps the same?  Is the document meta data the same? Differences, if any, are investigated and explained.
+4. The forensic examiner re-analyzes the specific document using a completely different tool perhaps on a completely different operating system (Linux in this case). Does the alternate tool identify the same location (physical disk location)?  Are the timestamps the same?  Is the document metadata the same? Differences, if any, are investigated and explained.
 
 The cross verification outlined above is somewhat overly simplified, but it provides an outline of how Linux can be commonly employed in a laboratory environment dominated by Windows software and the need for efficient reporting. Using a completely alternative operating system and unique open source tools to cross verify specific findings can help eliminate questions over automated processes and protects the veracity of the report.
 
-Another benefit of using Linux to cross verify findings it that it allows you to fit Linux into your workflow, thereby giving you reason to actually use it rather than simply installing it and trying to make time to learn.
+Another benefit of using Linux to cross verify findings is that it allows you to fit Linux into your workflow, thereby giving you reason to actually use it rather than simply installing it and trying to make time to learn.
 
 ## Choosing Linux
 
@@ -112,20 +113,20 @@ So how does one start a journey into using Linux for digital forensics? We begin
 
 ### Distributions
 
-A "Linux Distribution" (or "distro" for short) is a collection of Linux components and compiled open source programs that come together to create an operating system. These components can include a customized and packaged kernel; optional operating system utilities and configurations; custom configured desktop environments and window managers; and software management utilities. These are all tied together with an installer that is usually specific to the given distribution.
+A "Linux Distribution" (or "distro" for short) is a collection of Linux components and compiled open source programs that come together to create an operating system. These components can include a customized and packaged kernel, optional operating system utilities and configurations, custom configured desktop environments and window managers, and software management utilities. These are all tied together with an installer that is usually specific to the given distribution.
 
 With the open source nature of the Linux environment, you could grab all the source code for the various components and build your very own distribution, or at least a running version of Linux. This is often referred to as "Linux from Scratch" (LFS). On the other hand, the various distro developers do all the heavy lifting for you. Packaging it up and making the entire operating system available to you for install via a variety of methods.
 
 {pagebreak}
 
 Some popular distributions out there include (but are certainly not limited to):
-* Ubuntu
-* Manjaro
-* Arch
-* Mint
-* SUSE
-* Red Hat
-* Slackware
+* [Ubuntu](https://ubuntu.com/)
+* [Manjaro](https://manjaro.org/)
+* [Arch](https://archlinux.org/)
+* [Mint](https://linuxmint.com/)
+* [SUSE](https://www.suse.com/)
+* [Red Hat](https://www.redhat.com/en)
+* [Slackware](http://www.slackware.com/)
 * and many others
 
 So how does one choose a Linux distro? Particularly for use as a digital forensics platform?
@@ -136,9 +137,9 @@ From the perspective of a digital forensics examiner, any distro will work withi
 
 If you want to do some research first, consider looking at what is already in use. Does your lab or agency already use Linux in the enterprise? It may be a good idea to use a Linux version that closely matches what your organization already has deployed. If part of your job is to respond to company or agency incidents, a more intimate knowledge of the systems involved would be helpful.
 
-Another legitimate answer to the question of "which distro?" is simply to see what others around you are running. If you have co-workers or lab mates that are running a specific version of Linux, then it makes sense to do the same. Being able to consult with co-workers and friends makes getting support much easier.
+Another legitimate answer to the question of "which distro?" is simply to see what others around you are running. If you have co-workers or labmates that are running a specific version of Linux, then it makes sense to do the same. Being able to consult with co-workers and friends makes getting support much easier.
 
-There are, however other points that might warrant scrutiny. Ubuntu, as popular as it is, has drifted toward a more desktop oriented operating system. Configuration options and system settings have been made much easier through a number of GUI utilities and enhancements that make the distribution more focused on ease of use - the end user still has access to in-depth control of the operating system, but there might be some work involved in disabling some of the automation that might hamper forensic work (automatic mounting of attached storage, for example).
+There are, however, other points that might warrant scrutiny. Ubuntu, as popular as it is, has drifted toward a more desktop oriented operating system. Configuration options and system settings have been made much easier through a number of GUI utilities and enhancements that make the distribution more focused on ease of use - the end user still has access to in-depth control of the operating system, but there might be some work involved in disabling some of the automation that might hamper forensic work (automatic mounting of attached storage, for example).
 
 Other Linux distributions offer a far more simple approach - minimally configured "out of the box", leaving it completely up to the user to configure the bells and whistles often considered normal features for modern operating systems. Distributions like Slackware, Void Linux and Gentoo fall into this category. With these distributions, rather than making systemic changes to a heavily desktop oriented configuration, you can start with a more streamlined workstation and work up, building a more efficient system. The learning curve, however, is steeper.
 
@@ -156,9 +157,9 @@ Or you can take the opposite view and install a distribution along the lines of 
 
 ## Learning Linux Forensics
 
-There are a copious amount of resources available to help learn Linux. From distribution specific tutorials and Wiki pages, to command line oriented blogs and websites. You can take an online course from any one of the many providers out there from Udemy, Edx or even YouTube. There is no shortage of learning material.
+There are a copious amount of resources available to help learn Linux. From distribution specific tutorials and Wiki pages, to command line oriented blogs and websites. You can take an online course from any one of the many providers out there from Udemy, edX or even YouTube. There is no shortage of learning material.
 
-Here we are concentrating on a digital forensic perspective. There are still numerous resources for digital forensics and Linux, including books and websites, but the material is not quite as widespread.
+Here, we are concentrating on a digital forensic perspective. There are still numerous resources for digital forensics and Linux, including books and websites, but the material is not quite as widespread.
 
 "Learning Linux forensics" can also have a couple of different meanings. We could be talking about using Linux as a forensic platform - using tools and techniques within the Linux operating system to analyze digital evidence regardless of source. It's also possible that you might only be interested in _investigating_ Linux - learning Linux as a potential target of an analysis.
 
@@ -188,7 +189,7 @@ The Law Enforcement and Forensic Examiner's Introduction to Linux, the [LinuxLEO
 
 Perhaps you have no specific desire to use Linux as a day to day forensic platform. There is, however, something to be said for knowing how Linux works and where to look for evidence should you be assigned an analysis where the subject device runs a version of Linux.
 
-For years now, Linux has been a popular server operating system, utilized in enterprise environments across the world. In the past few years there has been a steady growth of "desktop" Linux, particularly with the emergence of user oriented distributions like Ubuntu, Mint and derivations based on them. A growth in Linux compatible software for specialized tasks such as video editing, publishing, and even gaming has resulted in Linux being more widely adopted. Always strong in academia, the growth of Linux desktop applications has resulted in a much wider user base.
+For years now, Linux has been a popular server operating system, utilized in enterprise environments across the world. In the past few years, there has been a steady growth of "desktop" Linux, particularly with the emergence of user oriented distributions like Ubuntu, Mint and derivations based on them. A growth in Linux-compatible software for specialized tasks such as video editing, publishing, and even gaming has resulted in Linux being more widely adopted. Always strong in academia, the growth of Linux desktop applications has resulted in a much wider user base.
 
 Given the popularity of the Android operating system, which is (in simple terms) based on Linux, there has always been a stronger need for familiarity with Linux in the analysis of mobile devices. But Android is not the same as Linux on desktop computers. Similar for sure, but file system differences and application analysis are widely divergent.
 
@@ -196,7 +197,7 @@ One of the biggest issues that arises when examining a Linux system as the targe
 
 Tracking and identifying _user activity_ is often another important piece of the puzzle. With Linux, regardless of distribution, users have a wide range of choices for desktop environments, window managers, file managers, and many other desktop components. All of these components, some used in combination, store configuration and user activity in different formats and locations which makes having intimate knowledge of every possible iteration very difficult.
 
-Even the very low level components of a Linux installation can differ - even within a single distribution. Users can choose a different boot loader (which loads the operating system) or a different file system format for various partitions. Most Linux distributions will use the Ext4 file system by default, but it's a simple matter to select and install any number of others depending on preference and use case: btrFS, XFS, ZFS, JFS are all examples of file systems. Should an examiner come across one of these, consideration would need to be given to file recovery, allocation strategies to help determine file activity, and perhaps forensic software support.
+Even the very low level components of a Linux installation can differ - even within a single distribution. Users can choose a different bootloader (which loads the operating system) or a different file system format for various partitions. Most Linux distributions will use the Ext4 file system by default, but it's a simple matter to select and install any number of others depending on preference and use case: btrFS, XFS, ZFS, JFS are all examples of file systems. Should an examiner come across one of these, consideration would need to be given to file recovery, allocation strategies to help determine file activity, and perhaps forensic software support.
 
 All of these are challenges with examining any of the myriad permutations of Linux. There are a few books covering the basics of Linux examinations. Much of the information available from a forensic perspective can also be found in a videos or seminars. For anyone looking for a challenging focus for research or a subject for an academic project, Linux as a forensic target provides ample subject matter for unique content.
 
@@ -221,7 +222,7 @@ First, let's map a quick outline of what we wish to accomplish, and the tools we
 
 ### The Tools
 
-There are far too many tools to cover in a single chapter. Again, documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com) will cover a great number of tools with hands on opportunities. Here we will select just a few tools to do a quick analysis of a Microsoft Windows Registry file.
+There are far too many tools to cover in a single chapter. Again, documents like the previously mentioned [LinuxLEO guide](https://linuxleo.com) will cover a great number of tools with hands-on opportunities. Here we will select just a few tools to do a quick analysis of a Microsoft Windows Registry file.
 
 | Purpose      | Tool       |
 | ---          | ---        |
@@ -623,11 +624,11 @@ Using a hex viewer included with Linux (`xxd`), we can look at the subkey's valu
 {line-numbers:false}
 ```console
 $ xxd F
-00000000:  0200 0100 0000 0000 678E 5DF7 F7C1 D201  ........g.]..... 
-00000010:  0000 0000 0000 0000 20D7 BF15 76AE D201  ........ ...v... 
-00000020:  FFFF FFFF FFFF FF7F 5CE9 5DF2 F7C1 D201  ........\.]..... 
-00000030:  E803 0000 0102 0000 1402 0000 0000 0000  ................ 
-00000040:  0000 0700 0100 0000 0000 4876 488A 3600  ..........HvH.6. 
+00000000:  0200 0100 0000 0000 678E 5DF7 F7C1 D201  ........g.].....
+00000010:  0000 0000 0000 0000 20D7 BF15 76AE D201  ........ ...v...
+00000020:  FFFF FFFF FFFF FF7F 5CE9 5DF2 F7C1 D201  ........\.].....
+00000030:  E803 0000 0102 0000 1402 0000 0000 0000  ................
+00000040:  0000 0700 0100 0000 0000 4876 488A 3600  ..........HvH.6.
 ```
 hex offset 8 in the above output is on the first line: `678E 5DF7 F7C1 D201`.
 

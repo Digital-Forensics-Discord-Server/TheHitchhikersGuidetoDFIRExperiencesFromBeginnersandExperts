@@ -125,23 +125,22 @@ Being former Law Enforcement myself, I understand the importance of jurisdiction
 | Belgium            | Israel      | Romania              |
 | Bosnia             | Italy       | Royal Cayman Islands |
 | Brazil             | Jamaica     | Russia               |
-| Burma              | Japan       | Senegal              |
-| Canada             | Korea       | Seychelles           |
-| Chile              | Latvia      | Singapore            |
-| China              | Lithuania   | Slovakia             |
-| Columbia           | Luxembourg  | Slovenia             |
-| Croatia            | Malaysia    | Spain                |
-| Cyprus             | Maldives    | Sweden               |
-| Czech Republic     | Malta       | Switzerland          |
-| Denmark            | Mauritius   | Taiwan               |
-| Dominican Republic | Mexico      | Turkey               |
-| Estonia            | Monaco      | Ukraine              |
-| Finland            | Mongolia    | United Arab Emirates |
-| France             | Myanmar     | United Kingdom       |
-| Germany            | Nepal       | Uruguay              |
-| Greece             | Netherlands | USA                  |
-| Grenada            | New Zealand | Vietnam              |
-| Iceland            |             |                      |
+| Canada             | Japan       | Senegal              |
+| Chile              | Korea       | Seychelles           |
+| China              | Latvia      | Singapore            |
+| Columbia           | Lithuania   | Slovakia             |
+| Croatia            | Luxembourg  | Slovenia             |
+| Cyprus             | Malaysia    | Spain                |
+| Czech Republic     | Maldives    | Sweden               |
+| Denmark            | Malta       | Switzerland          |
+| Dominican Republic | Mauritius   | Taiwan               |
+| Estonia            | Mexico      | Turkey               |
+| Finland            | Monaco      | Ukraine              |
+| France             | Mongolia    | United Arab Emirates |
+| Germany            | Myanmar     | United Kingdom       |
+| Greece             | Nepal       | Uruguay              |
+| Grenada            | Netherlands | USA                  |
+| Iceland            | New Zealand | Vietnam              |
 
 To save you from counting, that's 73 countries with a dedicated Law Enforcement role. This means that someone who has identified themselves as someone who works in Law Enforcement in one of these countries has joined the server and had this role assigned to them. At least 1 person from each of these countries that at the time served in a Law Enforcement capacity have joined the Digital Forensics Discord Server. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those!
 

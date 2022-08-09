@@ -54,7 +54,7 @@ This brings us to parsing. We often go around throwing the term while working wi
 
 Generally, it is some feature or underlying mechanism of the main operating system installed on the device. Parsing tools are written to accurately mimic those functions of the operating system, which make the raw data stored on the hardware human readable.
 
-{height: 30%}
+{height: 50%}
 ![16.3 - Attr: Kapooht, CC BY-SA 3.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/b/b7/Role_of_an_Operating_System.svg)
 
 Understand the operating system as an abstraction level between the end-user and the intricacies of raw data. It provides an interface to the user which hides all the complexities of computer data and how it is being presented.
@@ -287,11 +287,6 @@ ___Significance:___
 * Could help reconstruct a chronological list of transactions done to the files on the file system.
 
 * * *
-
-{pagebreak}
-
-## Closing Notes
-
 
 {pagebreak}
 

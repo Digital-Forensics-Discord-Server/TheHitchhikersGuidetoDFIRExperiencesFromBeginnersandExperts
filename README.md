@@ -23,7 +23,7 @@ Version 1 will go live by mid-August! From the beginning, the writing and editin
 
 | Format | ISBN |
 |---|---|
-| PDF | 979-8-9863359-0-2 |
-| ePub | 979-8-9863359-1-9 |
+| PDF | `979-8-9863359-0-2` |
+| ePub | `979-8-9863359-3-3` |
 
 As of July 2022, Amazon (and therefore Leanpub) no longer supports `Send to Kindle` for MOBI files, so there no longer will be a MOBI version generated as of July 25, 2022, for this book or any Leanpub books.

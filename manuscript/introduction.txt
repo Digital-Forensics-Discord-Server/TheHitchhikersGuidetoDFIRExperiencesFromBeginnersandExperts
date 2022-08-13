@@ -49,17 +49,51 @@ Frankly, this may not be at the level of a college textbook, but it's also not m
 
 ## Community Participation
 
-One important aspect of creating this book was involving the community in deciding [the title of the book](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4). Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on Google Forms were created with the following results:
+One important aspect of creating this book was involving the community in deciding the [book title](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/4) and the [book cover](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/issues/12).
 
-### Round 1
+### Book Title
+
+Originally, this book was called CrowdsourcedDFIRBook as a working title. Multiple polls on [Google Forms](https://www.google.com/forms) were created with the following results:
+
+#### Round 1
 
 {width: 70%}
 ![](Ch0/BookTitleRound1Results.jpg)
 
-### Round 2
+#### Round 2
 
 {width: 70%}
 ![](Ch0/BookTitleRound2Results.jpg)
+
+### Book Cover
+
+Originally, the book had no cover concept planned. As we got closer to the date of publishing the initial version of the book, we had discovered [Canva](https://www.canva.com/) allowed us to work up respectable book cover candidates. Naturally, the book cover was put to a vote that would be decided by the community. The first voting round contained 17 book cover candidates created using Canva.
+
+#### Round 1
+
+The following book covers were available as options during the first round of voting:
+
+{width: 70%}
+![](Ch0/BookCoverRound1.jpg)
+
+The final results for Round 1 were as follows:
+
+{width: 70%}
+![](Ch0/BookCoverRound1Results.jpg)
+
+#### Round 2
+
+The following book covers were decided as the top three in Round 1:
+
+{width: 70%}
+![](Ch0/BookCoverRound2.jpg)
+
+The final results for Round 2 were as follows:
+
+{width: 70%}
+![](Ch0/BookCoverRound2Results.jpg)
+
+Therefore, the book cover was chosen by the community for a book that was made by the community and for the community.
 
 {pagebreak}
 

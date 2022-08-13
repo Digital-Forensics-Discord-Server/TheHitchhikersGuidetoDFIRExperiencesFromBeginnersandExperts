@@ -1,5 +1,136 @@
-# Chapter 7 - Chapter Title Goes Here
+# Chapter 11 - The Law Enforcement Digital Forensics Laboratory
 
-## Subheading goes here
+## Setting Up and Getting Started
 
-Content goes here. Remember, only what is put here is parsed by Leanpub to generate the PDF/MOBI/EPUB files.
+{width: 30%}
+![](Ch11/DoRkMoDe.png)
+
+C> By [Jason Wilkins](https://twitter.com/TheJasonWilkins) | [Website](https://www.noob2pro4n6.com/) | [Discord](http://discordapp.com/users/656544966214025256)
+
+## Executive Cooperation
+
+### The necessity of executive cooperation
+
+When I was approached by my superiors at the police department to establish a Digital Forensics lab, I felt immediately overwhelmed and intimidated, being that I was so new to the field and unsure of my ability to successfully achieve the task. I began scouting the internet for ideas and advice on what tools would be needed and what training I would require. After deciding on the software that we would begin using in our lab, I began the year-long training offered by the company to get certified in their product. It was here that I met my first mentor and really began having my questions answered. He introduced me to the Digital Forensics Discord Server and AboutDFIR.com, and these two tools alone have done so much to reduce the barriers to entry that existed prior to their creation.
+
+As I gained confidence in my abilities, and familiarity within the industry, I was more able to approach my executive leadership in a way that facilitated a more professional understanding that would lead to greater cooperation in budgeting and planning.
+
+To say that Digital Forensics can be expensive, is quite often an understatement. Many law enforcement agencies do not have the budget to even make the attempt. In those cases, they usually depend upon other larger agencies, the state or federal labs, or do not attempt the feat at all.
+
+### Making your case to executive leadership
+
+In these times, every crime contains an aspect of digital evidence. As detectives and prosecutors attempt to add legs to the table of their argument, they are forced to acknowledge the value of Digital Forensics in nearly every case.
+
+Most law enforcement executives understand this and will be already amenable to the idea that it would be a great addition to their department. However, anywhere that cost is involved, they will initially resist the eager forensic examiner wishing to purchase every cool toy available. You must be professional, courteous, and extremely patient if you wish to be taken seriously. Create a business plan for the lab that is complete with a section for present state and future goal. Make a list of tools and training that is needed with prices and budget for everything. Include the cost of payroll for analysts and use this financial bottom-line strategy to sell the idea to your decision makers. I would advise caution when using the technique of asking for the world in hopes of blind acceptance. This will do very little to add credibility to your reputation and may hinder you in the future when you need to ask for more.
+
+The way that I decided to go was to determine just what was necessary to get started and return to ask for anything more as I encountered roadblocks.
+
+### Open communication and trust
+
+By showing respect and understanding for the position and responsibility of the executive leadership to the tax-paying citizens of our community, I was able to earn their trust and cooperation. I have never received a negative response to any request that I have made. As soon as an obstacle was encountered and a solution was needed that the lab did not already provide for, I made the request and either received the approval for what was needed or given a timeline of when the funds would be available. Open communication and trust are necessary for any relationship to maintain integrity and it is no different for professional cooperation than it is for personal connection.
+
+Always approach decision makers with respect and then console yourself with patience and faith in their response. As an examiner, you are not always enlightened to all issues of budgetary and sometimes legal or political impact that may affect your request. This is where the trust that you would like to be shown must be reciprocated in kind.
+
+By approaching every situation in this way, you will earn the respect and trust of your executive leadership and make your professional life more satisfying in the long run.
+
+## Physical Requirements
+
+### Physical security and accessibility
+
+When you begin to create the business plan for the digital forensics lab, you will need to first find a suitable space that will provide physical security and room to accommodate your personnel and equipment. A small department using low cost and free tools may only require a single examiner, an office with one computer and a desk. A larger agency may require space for several people, workstations, evidence lockers and lab equipment. The fact is that you can begin implementing digital forensics in your agency with free tools and existing personnel and hardware. However, you will find yourself running up against obstacles immediately and wanting for better solutions. Either way, it is because you are handling evidence that may implicate or exculpate someone of criminal behavior that you need to take security very seriously from the start. Chain of custody and physical access control should be at the forefront of your thoughts throughout the forensic process. At the very least, the lab should be locked when unoccupied and all keyholders accounted for. Digital ID scan access gives accountability and access deniability and is relatively low cost in implementation.
+
+### Floor plans
+
+The floor plan that you decide upon is going to be very distinctly individual to your agency’s need and capability. However, you should take into account the amount of devices that you believe you will be handling, the amount of time that you will have possession of them for storage purposes, and how many people you will have assigned to the lab. If your lab only has one examiner, and only handles a hundred or so mobile devices a year, then you may get by with a space as small as a ten-by-ten office with a desk for your computer, a cabinet or shelves for your devices and a file cabinet for your case files. As you expand capabilities and personnel, however, you will quickly outgrow that amount of space. With microscopes, faraday cages, and extra workstations, you will require room for movement of individuals between tables. With greater number of devices, you will need more room for shelves, charging cabinets, and workflow organization. Mobile devices quickly begin stacking up and becoming disorganized chaos if you do not establish sound workflow processes and case management practices. You need to know which devices are next in line, which are being processed, and which are ready to be returned. If a device is lost while in your custody, it will have serious consequences to yourself, your agency, and most importantly, to the case. Having the space to organize your work properly is therefore of paramount importance.
+
+## Selecting Tools
+
+### Network Requirements
+
+Your forensic workstations and tools may or may not require a connection to the internet, but when they do, you should at least utilize a dedicated line and/or a virtual private network. Malware can be transferred from devices to your system and network if you are not careful. Even the forensic software that you have on your workstation can set off alarms in your IT department. Trust me on that one. I speak from experience. It was just that sort of event that convinced my IT director that I needed a dedicated connection. You may find that you need one connection for your forensic workstations and another separate one for your administrative computer. Just be aware of the very real danger to your network that is presented by strange devices. Even a detective bringing you a thumb drive to place evidence on can present an unwary threat. Always practice safe handling of devices when considering making any connections to your system.
+
+### Selecting forensic workstations
+
+This is perhaps the most common question asked when someone first considers getting into digital forensics. What kind of computer is needed for the job? It is also the most fun part for those of us who nerd out over computer specifications and configurations. Boiling it down, you will need great processing power and vast storage. Always refer to the software that you choose first to determine what the minimum and optimal specifications are for that particular tool. I have found that you will basically be building a super gaming computer because of the amount of graphics processing that you will need to accomplish. It is because of this that you may need to convince your superiors that you are not trying to play video games in the lab when you are supposed to be working. That said, I will give you the specifications that I had on my first workstation at the police department.
+
+* Dell Precision 5820 Tower X-Series
+* Intel Core i9-9820X CPU @ 3.30 GHZ, 3312 Mhz with 10 cores, 20 logical
+* Radeon Pro WX 5100 Graphics Card (I wanted an NVIDIA GeForce 3060 at the time)
+* 128 GB RAM
+* 1TB SSD (for the Operating System and Program Files)
+* 2x 4 TB Hard Drives (for File Storage)
+
+I wanted an Alienware Aurora desktop, but compromised for the above setup. Never forget that you are asking to spend other people’s money when working in Law Enforcement and you may have to make concessions for that very reason. Always show gratitude and positive attitude when granted anything.
+
+### Selecting forensic software
+
+I want to preface this section with the acknowledgment that I have made many friends in the field of digital forensics in the few short years that I have been working in the industry. Some work for companies that make competing software. I have found that collaboration even among competitors is like nothing seen in any other market. That said, I will not be granting any single product my sole endorsement, but rather will describe the pros and cons of each, as I see them.
+
+The largest players in the commercial off-the-shelf digital forensics solutions are Magnet Forensics, Cellebrite, Oxygen Forensics, Belkasoft, Exterro, Basis Technology, MSAB, and EnCase. These are not in any particular order, and I have not intentionally excluded any not listed. These are just the products that I have had personal experience with and see most often discussed between examiners. In my day-to-day operations, I use both Magnet AXIOM and Cellebrite, depending on which report my detectives prefer. A smaller agency may not have the budget for both or either. Autopsy is an excellent free program from Basis Technology and created by Brian Carrier. I have used it to validate evidence extracted with commercial tools to great success. I would recommend it to be a must-have for every lab for that very reason.
+
+When considering open-source and free software, always use a test environment before implementing in a production network. There are many exciting and brilliant tools made freely available to the community by their authors and some of which allow you to contribute code towards their improvement. Thanks to Brian Carrier, we have Autopsy, as Eric Zimmerman gave us KAPE and EZ Tools, and Alexis Brignoni, the Log Events and Properties Parser (xLEAPP) series. There are so many wonderful free tools out there that you could fill an entire book and you will discover them and want to try them out as much as possible, as there is no single tool that does everything perfectly. As an examiner, you will need to be a lifelong learner and stay connected to the community to remain on top of new discoveries, tools and techniques.
+
+### Selecting peripheral equipment
+
+You will find very quickly that workstations and software are only the beginning of your expenditures. Many peripheral devices and tools will also need to be purchased to assist with various examinations. You can plan to purchase them up front or as needed. In some cases, you may only use the device once in several years. While this list is no way extensive or exclusive, it is exemplary of the tools that I had purchased for my lab as I discovered need for them.
+
+* A digital camera for photographing devices and crime scenes. It is helpful to purchase one capable of video recording in high definition and connecting to your workstation for file transfer
+* An external SSD drive for transferring files between workstations. The larger and faster, the better
+* Computer hand tools that can be purchased specifically for computer or mobile device repair
+* A heat gun for melting the glue around a mobile device touchscreen
+* A magnifying visor with a light for seeing small screws and writing
+* Various cables for connecting to various types of hard drives and SSDs. (I.E. IDE, ATA, SATA, USB)
+* Data transfer cables for various types of phones (i.e. Lightning, Micro USB, USB-C, Mini USB)
+* An anti-static mat
+* Write blocker for preventing data writes on target hard drives
+* A charging cabinet for devices that are bruteforcing
+* Faraday bags and a faraday cage for preventing devices from touching mobile networks
+* External battery chargers for transferring low power devices from the crime scene to the lab
+* SIM card and SD card readers
+* APC Battery backup and surge protector for your expensive workstations
+
+There are many other items for which you may or may not discover the need as your case load grows, but these items are the most likely. You may also consider purchasing cloud services for the storage of digital evidence or have your IT department setup dedicated server space that can be expanded. Smaller agencies may just use hard drives stored in the evidence locker.
+
+### Planning for Disaster
+
+You will want to have a disaster recovery plan for lightning strikes, flooding, fire, earthquake, or simply hardware failure and viruses. You will invest tens of thousands of dollars and countless hours planning, purchasing, and setting up your lab. A good disaster recovery plan protects that investment. You may include a backup plan for your workstation once per week. The rule is to store at least one copy of backups on site and duplicate copies at an off-site location. You may want to log all updates to your workstation in case you encounter an issue and need to roll-back or troubleshoot new problems. Keep your forensic workstation on a dedicated network of its own if it needs to have an internet connection at all. Invest in a good antivirus and monitoring tool. In the recovery plan you will also need to consider upgrading components every two to three years as wear will degrade your equipment over time.
+
+## Certification and Training
+
+Some US States require digital forensics examiners to be certified. Whether or not that is the case for your location, it is good to consider having at least one examiner certified and trained to teach others. There are non-profit organizations such as the National White Collar Crime Center (NW3C) that offers both training and certification for Cyber Crime Examiners and Investigators free of cost to law enforcement or government personnel. The training is on par with for-profit organizations and the certification is much less costly. There is no exam as it is experience based, and it lasts for one year. As stated, there are also for-profit organizations that offer certification and individual vendors that certify users of their specific tools.
+
+### Why should you get certified?
+
+In any case, it is worth the investment of time and money and greatly helpful when called to the stand in court. Your testimony will carry more weight if you are certified and the knowledge gained from the training involved will help you to make competent and confident statements when cross-examined.
+
+### Where to find training
+
+I always suggest to everyone to begin their quest for information at [AboutDFIR.com](https://aboutdfir.com/). You will find ample resources and an updated list of training with prices. Some other sites to consider are [DFIRDiva.com](https://dfirdiva.com/) and [DFIR.Training](http://dfir.training/). [SANS Institute](https://www.sans.org/) has very reputable programs for training and certification that is recognized worldwide, though costly and not recommended (by me) for inexperienced examiners. Their certification exams are open book and timed and you are given practice tests prior to taking the final. Should you achieve this level of certification, you will definitely be considered a member of an elite class of Digital Forensics Examiner.
+
+### Creating a training plan for your lab
+
+Whether you are the only examiner or you have multiple people working in your lab, you need to have a training plan for everyone, especially if they are trying to maintain certifications that require annual credit hours for re-instatement.
+
+## Accreditation
+
+Accreditation is not mandatory in the United States, but it is highly recommended. However, it may become mandatory in the future and therefore is worth mentioning and describing. The [ANSI-ASQ National Accreditation Board (ANAB)](https://anab.ansi.org/) is a subsidiary of the [American National Standards Institute (ANSI)](https://ansi.org/) and the [American Society for Quality (ASQ)](https://asq.org/). In order to have your lab considered for accreditation, ANAB will audit the lab’s tasks and functions to ensure correct procedures are being followed consistently.
+
+### Budgeting for the lab
+
+Digital Forensics is an expensive operation. You will need to budget appropriately for your lab to continue successfully and responsibly. Plan for hardware and software licensing costs alongside of training, certification, and expansion costs. Create a monthly, quarterly, and annual expenditure spreadsheet. Estimate your total annual number of examinations and type of cases as you may need to plan for the purchase of new software or hardware for use in special circumstances. Planning for future operations is critical as technology evolves quickly and storage size on devices grows rapidly. Training is absolutely necessary to maintain knowledge of new operating systems and hardware.
+
+### Duties and responsibilities
+
+ANAB requires that specific objectives be determined for each role within a digital forensics lab by the lab manager who is responsible for establishing, enforcing, and reviewing, procedures for case management. The manager also plans for updates and upgrades, and accounts for all activities and training within the lab. Other lab members should have enough training to utilize their equipment effectively and should report directly to the lab manager.
+
+### Privacy Policy
+
+Any law enforcement digital forensics lab should consider having a privacy policy regarding handling of digital evidence. There are websites such as [NATSAR.com](https://natsar.com/) that offer model policies for a price, but you can also reach out to the community through the Digital Forensics Discord Server for free copies of other agency policies. Having a privacy policy will go far to protect your agency and lab members from litigation in high profile cases.
+
+### Standard Operating Procedures
+
+It should go without saying that having Standard Operating Procedures (SOP) developed, maintained, and reviewed by the lab manager is a good consideration. Not only is it required for accreditation, but it will also protect the agency from litigation in much the same way as having a privacy policy. By creating SOPs that are based on national standards from the [Scientific Working Group on Digital Evidence (SWGDE)](https://www.swgde.org/) or the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), you can rest assured that your lab is operating within accreditation standards.
+
+### **Chapter Summary**
+
+In summary, a law enforcement digital forensics lab operates to conduct criminal investigations and store evidence. The outcome of a murder investigation and the exoneration of an innocent suspect may be entirely determined by the work done by lab members. That responsibility should weigh heavily upon each person involved and be considered in day-to-day operations as well as future planning. The setup and maintenance of an effective lab can be an expensive operation, and the obligation to tax-paying citizens should be a constant presence in the mind of the lab manager. As Law Enforcement Examiners, your duty is to protect and serve the community and your agency. Always remember that, and strive to make your lab better every day, by improving your skills and knowledge, that of other lab members, and your equipment. Serve with pride in knowing that your mission is noble and impactful, and you will be joined by a global community of Digital Forensics Examiners that will welcome you into the fold.

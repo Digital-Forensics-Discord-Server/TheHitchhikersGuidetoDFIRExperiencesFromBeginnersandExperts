@@ -1,0 +1,48 @@
+# Chapter 10 - Getting into Digital Forensics
+
+{width: 30%}
+![](https://dfir.science/assets/images/logos/icons/android-chrome-512x512.png)
+
+C> By [Joshua I. James](https://www.youtube.com/c/DFIRScience) | [Website](https://dfir.science) | [Discord](http://discordapp.com/users/474770962794151937)
+
+v220405
+
+## So you want to be a digital forensic investigator?
+
+### Technical Skills
+
+#### How to build a home lab?
+
+### Non-Technical Skills
+
+#### WRITING
+
+#### PRESENTING
+
+### Common Career Paths
+
+## Programming
+
+### Languages
+
+### Tools
+
+## Cooperation and Collaboration
+
+### Why Collaborate?
+
+### How to Collaborate?
+
+### Research
+
+### Conferences
+
+### Online Resources
+
+## International Cooperation
+
+### Informal
+
+### Formal
+
+

@@ -1,221 +1,187 @@
-# Chapter 9 - Gamification of DFIR: Playing CTFs
+# Chapter 17 - Forensic imaging in a nutshell
 
 {width: 30%}
-![](https://user-images.githubusercontent.com/48143894/162533767-1d6eca8a-98c7-446b-a970-807bd3deb588.png)
+![](Ch17/dfir.png)
 
-C> By [Kevin Pagano](https://github.com/stark4n6) | [Website](https://www.stark4n6.com/) | [Twitter](https://twitter.com/KevinPagano3) | [Discord](http://discordapp.com/users/597827073846935564)
+C> By [Guus Beckers](http://discordapp.com/users/323054846431199232) | [LinkedIn](https://www.linkedin.com/in/guusbeckers/)
 
-## What is a CTF?
+## What is a disk image?
 
-The origins of CTF or “Capture The Flag" were found on the playground. It was (still is?) an outdoor game where teams had to run into the other teams zones and physically capture a flag (typically a handkerchief) and return it back to their own base without getting tagged by the opposing team. In the information security realm it has come to mean a slightly different competition.
+A disk image is a representation of data contained within a disk. It contains the contents of the entire disk, including all files and folders. Dedicated forensic hardware appliances or software packages ensure a bit-by-bit copy is performed. In other words, the contents of the disk image will match the contents of the disk exactly. When an unexpected error has occurred, this will be flagged and the forensicator will be notified. It is possible to make a disk image from every data source, including desktop computers, laptops and servers, a USB-drive, an SD-card, or any other storage medium you can think of.
 
-## Why am I qualified to talk about CTFs?
-
-Humble brag time. I've played in dozens of CTF competitions and have done pretty well for myself. I am the proud recipient of 3 DFIR [Lethal Forensicator coins](https://www.sans.org/digital-forensics-incident-response/coins/) from SANS, one Tournament of Champions coin (and trophy!), a 3-time winner of Magnet Forensics CTF competitions, a 4-time winner of the BloomCON CTF competition, and a few others. I've also assisted in the creation of questions for some CTF competitions as well as creating thorough analysis write-ups of events I've competed in on my personal [blog](https://ctf.stark4n6.com).
-
-## Types of CTFs
-
-Two of the most common information security types of CTF competitions are “**Jeopardy**" style and “**Attack and Defense**" style.
-
-“**Jeopardy**" style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
-
-{width: 80%}
-![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
-
-“**Attack and Defense**" is more common in Red and Blue Team environments where the Red Team has to hack or attack a Blue Team server. The Blue Team subsequently has to try and protect themselves from the attack. Points can be given for time held or for acquiring specific files from their adversary.
-
-{width: 70%}
-![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
-
-Depending on the CTF, you may see a combination of types with it being Jeopardy style and linear (story based) with some questions hidden or locked until a certain question is answered.
-
-For this chapter, I will go more in-depth regarding the “Jeopardy" style competitions, more specifically, forensics geared CTF competitions.
+While a complete discussion about file systems is outside the scope of this chapter, it is impossible to touch upon forensic imaging and not talk about file systems. A file system entails the logical representation of files and folders on the disk. It allows an operating system to keep track of files as well as other important file properties such as its location, size, file format, and any associated permissions. There are different files systems used across operating systems. The NTFS file system is currently used by all supported versions of Microsoft Windows. APFS is used by devices created by Apple, it is used across a wide range of devices including phones, tablets, TV appliances, and computers. Lastly, there is the Linux operating system, which uses a variety of file systems, depending on the version which is installed. Common varieties include `ext3`/`ext4` and `btrfs`. More specialized file systems for specific appliances are also in use. The exact intricacies and technical documentation of a file system are often not available outside of its vendor which means that software vendors have to reverse engineer a file system to a degree. Expect a forensic investigation suite to continually improve support for popular file systems.
 
 {pagebreak}
 
-## Evidence Aplenty
+Once a disk image has been created it is possible to calculate its checksum. A checksum can be used to verify the integrity of a disk image. This is of paramount importance during a forensic investigation. Evidence will always need to be retrieved from other systems. Calculating a checksum at both ends, the source and destination file(s), will ensure that no anomalies are present. When a checksum matches at both ends, this means that no anomalies are present, the contents of the file match exactly and can be used in a forensic investigation. In order to create a checksum, a hash is created. A hash is a mathematical, one-way calculation, performed by a specific algorithm. The MD5 and SHA1 algorithms are commonly used in the forensic community although other algorithms can be used as well.
 
-With forensics CTFs, just like in real life, any type of device is game for being analyzed. In the ever growing landscape of data locations, it just provides us more places to look for clues to solve the problems. One of the more well known forensic CTFs is the [SANS NetWars](https://www.sans.org/cyber-ranges/) tournaments. These are devised with 5 levels with each level being progressively harder than the last. In this competition you will have a chance to analysis evidence from:
-
- - Windows computer
- - macOS computer
- - Memory/RAM dump
- - iOS dump
- - Android dump
- - Network (PCAP/Netflow/Snort logs)
- - Malware samples
-
-You can see from the above list that you get a well rounded variety of types of evidence that you most likely will see in the field on the job. In other competitions I've played you could also come across Chromebooks or even Google Takeout and other cloud resources as they become more common. I have also seen some where they are more crypto based so working with different ciphers and hashes to determine the answers.
+After validation of the checksum, the created image will be ready to use in an investigation. Forensic investigation suites will use the disk image as a basis for the investigation, allowing a forensicator to browse the file system for pertinent files and other forensic artifacts. Post-processing will also occur in many forensic suites, automatically parsing popular artifacts, thereby making investigations easier.
 
 * * *
 
 {pagebreak}
 
-## Who's Hosting?
+## Creating a disk image
 
-As previously mentioned, **SANS** is probably the most well known provider of a forensics CTF through their [NetWars](https://www.sans.org/cyber-ranges) program. It isn't cheap as a standalone, but is sometimes bundled with one of their training courses. You can sometimes see them hosted for free with other events such as OpenText's enFuse conference.
+There are different ways to create a disk image, this section will discuss the most popular methods. Be aware that different scenarios might require different imaging methods. The following subsections are not intended to be ranked in order of preference.
 
-As for others, **Magnet Forensics** has been hosting a CTF for the past 5 years in tandem with their User Summit. This has been created by Jessica Hyde in collaboration with some students from Champlain College's Digital Forensics Association. Some previous Magnet CTFs were also created by Dave Cowen and Matthew Seyer, for context.
+### Using a forensic duplicator
 
-Other software vendors have started to create their own as well to engage with the community. **Cellebrite** in the past 2 years has hosted virtual CTF competitions and **Belkasoft** has created and put out multiple [CTFs](https://belkasoft.com/ctf) the last 2 years. [**DFRWS**](https://dfrws.org/forensic-challenges/) hosts a yearly forensic challenge with past events covering evidence types such as Playstation 3 dumps, IoT (Internet of Things) acquisitions, mobile malware, and many others.
+Forensic duplicators come in many shapes and sizes, however it's most common variety is a portable hardware appliance that can be easily transported and can be used both in a lab environment or on-site at a client. A forensic duplicator can be used to create disk images of various physical media types. In order to do this, it distinguishes between source and destination drives. Source drives are generally connected to the left side of the device while destination drives are connected to the right side of the device. **Be sure to confirm this with individual duplicators as there might be deviations.** Forensic duplicators support a range of different connectivity methods such as SATA, IDE, and USB. The ports supported by a duplicator are mirrored on either side of the device. **Ensure that the correct drives are connected to the correct side of the device prior to imaging. Failure to do this might result in data erasure.** Specialized duplicators also support SAS or an Ethernet connection to image from a computer network.
 
-Another fantastic resource for finding other challenges is [**CyberDefenders**](https://cyberdefenders.org/blueteam-ctf-challenges/). They host hundreds of various different CTF challenges, from past events and other ones that people have uploaded. You can even contribute your own if you'd like as well as allow them to host your next live event.
+Duplicators are used to perform the following functions:
 
-{width: 70%}
-![9.3 - CyberDefenders website](https://i.ibb.co/SdqWtZw/blueyard.png)
-
-Another fairly exhaustive list of other past challenges and evidence can be found hosted on [**AboutDFIR**](https://aboutdfir.com/education/challenges-ctfs/).
+* Clone a disk to a different disk
+* Clone a disk to an image
+* Format or wipe a disk
+* Calculate hashes and verify its integrity
+* Detection of a HPA or DCO
+* Blank disk detection, verifying whether a disk is entirely blank or contains data
 
 {pagebreak}
 
-## Why Play a CTF?
+### Using a Live USB
 
-So at the end of the day, why should YOU (yes, YOU, the reader) play a CTF? Well, it depends on what you want to get out of it.
+In scenarios in which it is not feasible to get access to physical media, a Live USB might provide an alternative. A Live USB contains an operating system which can be booted during the boot phase of a computer. In order for a live USB to function it is required to interrupt the boot cycle of a computer and select the boot from USB option. Manufacturers have different hotkeys to access this functionality. Note that it is also possible to boot from a CD/DVD in a similar manner, in that case, select the CD/DVD option. While it is still necessary to take a server or service offline, it is not required to open it up and take a hard drive. Similarly, continuous miniaturization means that some SSDs can no longer be removed from a motherboard.
 
-### For Sport
+Luckily there are a number of free Live USB tools that can be used to circumvent these limitations and acquire forensic images. One of the most well known tools is [CAINE (Computer Aided Investigative Environment)](www.caine-live.net). CAINE is a Linux live environment and mounts any discovered drives as read-only by default to ensure the forensic integrity of the disks. It provides GUI-based tools for the following operations:
 
-Growing up I've always been a competitive person, especially playing sports like baseball and basketball, CTFs are no different. There is a rush of excitement (at least for me) competing against other like-minded practitioners or analysts to see how you stack up. You can even be anonymous while playing. Part of the fun is coming up with a creative handle / username to compete with. It also keeps the commentary and your competitors on their toes.
+* Imaging of a disk (Guymager)
+* Disk Image Mounter (Xmount)
+* DDrescue
+* Enabling write operations
+* Mounting remote file systems across a network
 
-I personally like to problem solve and to be challenged which is part of the reason why I enjoy playing.
+In addition to its disk imaging tools, it provides a forensic environment which can be used to perform most forensic operations including accessing various file systems, recover data, performing memory analysis and other operations.
 
-### For Profit
+Another example of a forensic Live USB environment is [Sumuri Paladin Edge](https://sumuri.com/paladin/). This Live USB environment is available free of charge. In addition to imaging the entire disk, it also allows you to convert images, find specific files, extract unallocated space, and interface with network shares.
 
-I put profit in quotations because many may construe that as a compensation type objective. While many CTF challenges do have prizes such as challenge coins or swag (awesome branded clothing anyone?!) that's not completely the profit I'm talking about here. The profit is the knowledge you gain from playing. I've done competitions where I never knew how to analyze memory dumps at all and I learned at least the basics of where to look for evidence and new techniques to try later on in real world scenarios.
-
-> "Commit yourself to lifelong learning. The most valuable asset you'll
-> ever have is your mind and what you put into it." - Albert Einstein
-
-The knowledge you gain from the “practice" will inevitably help you in the future, it's just a matter of time. Seriously, you don't know what you don't know. Remember when I said you can be anonymous? It doesn't matter if you get 10 points or 1000 points, as long as you learn something new and have fun while doing so, that's all that matters.
+It is recommended to have a Live USB option within your lab at all times and to equip your forensicators with USB drives in case of onsite client emergencies.
 
 * * *
 
 {pagebreak}
 
-## Toss a Coin in the Tip Jar
+### Disk imaging on Windows and Linux
 
-I get asked all the time, "what are your keys to success playing CTFs?". That's probably a loaded question because there are many factors that can lead to good results. Here, I will break down into sections that I feel can at least get you started on a path forward to winning your first CTF.
+Situations might occur when a particular system cannot be turned off. There are various ways to perform a forensic acquisition depending on the operating system.
 
-### Tips for Playing - Prior
+#### Windows
 
-First and foremost is the preparation phase. Like any task in life, it always helps to be prepared for the battle ahead. Having a sense of what is to come will help with your plan of attack. Do your research! If you know that a specific person created the CTF then take a look at their social media profiles. Often times they will release hints in some form or fashion, whether it is webinars they have shared or research papers or blog posts they have recently published. Don't over do it though, there could be red herrings amuck. You can also look at past CTFs they have created, seeing how questions were formulated before and what sort of locations they tend to lean on for flags. This is part of the reason why I personally do write-ups of past CTFs for future reference.
+[FTK Imager](https://www.exterro.com/forensic-toolkit) is a well-known tool to perform disk acquisitions on a Windows host. It is part of the FTK forensic suite developed by Exterro (formerly AccessData). However, the imager is also available free of charge. FTK Imager can either be installed on the host operating system or it can be used in a "lite" mode. Lite mode is preferable as no changes are performed on the disk, however be aware that it affects RAM memory.
 
-Each CTF rules may be different but sometimes teams are allowed reach out to colleagues or others to form a squad. Knowledge from multiple people well-versed in different topics can help in spreading out the workload especially if there are multiple forms of evidence to be analyzed. I would be remiss if I didn't say that some of my winning efforts were with team members who helped pick up sections where I wasn't as strong. Your mileage may vary though, make sure to coordinate your efforts if you do join a team as to not waste time all working on the same questions.
+FTK Imager can be used to perform the following operations:
 
-If evidence is provided ahead of the competition make sure to spend some time getting familiar with it. Process the evidence ahead of time so you aren't wasting time during the live competition waiting on machine time. Some of these events only last 2-3 hours so time is of the essence. This segues right into building out your analysis machine and your toolkit. Make sure that all your system updates are completed prior. The last thing you need is an errant Windows update to take down your system while you watch the spinning.
+* Disk acquisitions (both physical and logical)
+* Memory acquisitions
+* Acquisitions of the Windows Registry
+* Browse the filesystem and select relevant files/folders
 
-![9.4 - "This will take a while"](https://3.bp.blogspot.com/-MXprM2uLx4Y/XZ0g4hImh6I/AAAAAAAAEVo/fVV_PHGlAqwS9rVkMf9KIVcSYPvB3TdwQCLcBGAsYHQ/s1600/update-faker-windows-update.jpg)
+The following steps can be used  to create a "Lite" version which runs in memory. These steps are based on the official guide provided by Exterro to the forensic community:
 
-You may also consider making sure you have local admin access or at least the ability to turn off antivirus (if you are analyzing malware) on your computer. Always do so in a controlled environment if possible but you knew this already (I hope). If you are provided a toolkit or a trial of a commercial license, use it to your advantage, even if it's a secondary set of tools. There are times some vendors will make sure that the answer is formulated in a way that their tool will spit out from their own software. Also, commercial tools can potentially speed up your analysis compared to a bunch of free tools but that is personal preference.
-
-{pagebreak}
-
-### The Toolkit
-
-I'm a Windows user through and through so I cannot offer much advise from a Mac or Linux perspective. With that said, I do have some tools that I use from a forensic perspective to analyze those types of evidence. Here are my favorite (free) tools that I use during CTFs:
-
-**General Analysis**
- - [Autopsy](https://www.autopsy.com/)
- - [Bulk Extractor](https://github.com/simsong/bulk_extractor)
- - [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
- - [FTK Imager](https://www.exterro.com/ftk-imager)
- - [Hindsight](https://dfir.blog/hindsight/)
-
-**Chromebook**
- - [cLEAPP](https://github.com/markmckinnon/cLeapp)
-
-**Ciphers**
- - [CyberChef](https://gchq.github.io/CyberChef/)
- - [dcode.fr](https://www.dcode.fr/en)
-
-**Google Takeout / Returns**
- - [RLEAPP](https://github.com/abrignoni/RLEAPP)
-
-**Mac**
- - [mac_apt](https://github.com/ydkhatri/mac_apt)
- - [plist Editor - iCopyBot](http://www.icopybot.com/plist-editor.htm)
-
-**Malware/PE**
- - [PEStudio](https://www.winitor.com/)
- - [PPEE (puppy)](https://www.mzrst.com/)
-
-**Memory/RAM**
- - [MemProcFS](https://github.com/ufrisk/MemProcFS)
- - [Volatility](https://www.volatilityfoundation.org/releases)
+1. Install FTK Imager on another workstation
+2. Insert a USB drive
+3. Copy the installation folder to the USB-drive
+4. Perform a hashing operation to ensure file integrity is in order
 
 {pagebreak}
 
-**Mobile Devices**
- - [ALEAPP](https://github.com/abrignoni/ALEAPP)
- - [Andriller](https://github.com/den4uk/andriller)
- - [APOLLO](https://github.com/mac4n6/APOLLO)
- - [ArtEx](https://www.doubleblak.com/software.php?id=8)
- - [iBackupBot](http://www.icopybot.com/itunes-backup-manager.htm)
- - [iLEAPP](https://github.com/abrignoni/iLEAPP)
+#### Linux
 
-**Network**
- - [NetworkMiner](https://www.netresec.com/?page=NetworkMiner)
- - [Wireshark](https://www.wireshark.org/)
+Linux historically has an integrated utility capable of copying files called **dd**. dd can also be used for disk imaging, however it was not build with forensics in mind. A duo of utilities is available to perform forensic disk imaging called **dcfldd** and **dc3dd**. Both tools can be used to perform disk imaging, however, their main advantage over dd is integrated hashing support for various hashing algorithms.
 
-**Windows Analysis**
- - [Eric Zimmerman tools / KAPE](https://ericzimmerman.github.io/#!index.md)
- - [USB Detective](https://usbdetective.com/)
+All three utilities utilize the available Linux block devices in `/dev/` to perform a physical disk image capture. An example of dcfldd is included below. **Be warned that these tools can and will destroy evidence if used incorrectly**. in this particular instance a 976 MB USB stick was inserted and the block storage device `sdb1` is used. In this case a MD5 hash is generated, the hash log is available in the home folder along with the image.
 
-This whole list could be expanded way further but this is the majority of the go-to's in my toolkit.
+{line-numbers:false}
+```
+    dcfldd if=/dev/sdb1 conv=sync, noerror hash=md5 hashwindow=976M hashlog=/home/example/hash.txt hashconv=after of=/home/example/image.dd
+```
 
-### Tips for Playing - During
+### Virtual machines
 
-We've all been there, you get to a point in the middle of a CTF and you start to struggle. Here are some things to key in on while actually playing.
+Virtual machines have become commonplace in the IT industry, in short allowing an organization to scale resources without purchasing additional hardware. The use of virtual machines is also advantageous for imaging purposes. A client can offer to send the virtual hard drive files for forensic investigation. After performing the customary hashing procedures these files can then be converted if necessary. FTK Imager supports conversion of VMDK files to any other FTK image format, which in turn can be used by a forensic program or forensic suite.
 
-Read the titles of the questions carefully, often times they are riddled with hints about where to look. "*Fetch"* the run time of XXX application, maybe you should analyze those Prefetch files over there. Questions will often also tell you what format the answer should be in when submitting. This may tell you that that timestamp you're hunting could be incorrect, those pesky timezone offsets!
+[qemu-img](https://qemu.readthedocs.io/en/latest/index.html) can be used to convert various hard drive image formats to raw dd format. An example covering the conversion of a VMDK file is included below.
 
-Did you find a flag that appears to be a password? It's almost guaranteed that that evidence was placed in such a way that it will be reused. Emails and notes can be a treasure trove for passwords to encrypted containers or files.
-
-One thing that may seem silly but can help is to just ask questions. If you're stumped on a question, talk to the organizer if you can, they may lead you in a direction that you didn't think of when you set off on a path of destruction.
-
-![9.5 - Don't Sweat It, Take the Hint](https://i.postimg.cc/3N8Ps9yF/Screenshot-2022-06-20-204105.png)
-
-Some CTF competitions have a built in hint system. If they don't count against your overall store, take them! The chances of a tie breaker coming down to who used less hints is extremely small. If the hint system costs points you will need to weigh the pros and cons of not completing a certain high point question as opposed to losing 5 points for buying that hint.
-
-The last tip while playing is to write down your submissions, both the correct and incorrect ones. I can't tell you the amount of times I've entered the same answer wrongly into a question to eventually get points docked off my total. This will not only help you during the live CTF but afterwards if you are writing a blog on your walkthroughs.
-
-### Strategies
-
-There are multiple strategies that you could use for attacking the questions during the competition. Usually they will be broken out into different categories by type of evidence such as Mobile / Computer / Network / Hunt. Some people prefer to try and finish all questions in one section before jumping to the next one. If you're really good at mobile forensics that may be a good strategy if you are less experieinced than other areas.
-
-Another potential strategy depends on how many points the questions are worth. Usually the more the points the harder the question. Some people prefer to try and get high point questions first to put large points on the scoreboard and put the pressure on other competitors. Others prefer to go for the lower point questions first and work their way up.
-
-My personal strategy is a combination of them all. I will typically go more towards the easy points first and work my way up from there but I will jump from different evidence categories once I get stuck for a time period. Depending on how much prework analysis has been done, I may have inferred references to areas that need to be analyzed so I may look at questions that I may already have answers for.
-
-And then there are the ones that are confident (sometimes too confident!). Some players knowing that they have the answers already will hold off on submitting for points until very late in the competition to mess with the other competitors. Some CTF competitions will freeze the board the last 15-30 minutes to make the final scores a surprise to all. I would advise against this tactic but if you're that confident then by all means. At the end of the day it is up to whatever suits the player the best.
-
->"You miss 100% of the shots you don't take – Wayne Gretzky" – Michael Scott
+{line-numbers:false}
+```
+    qemu-img convert -f vmdk -O raw image.vmdk image.img
+```
 
 * * *
 
 {pagebreak}
 
-## Takeaways
+## Memory forensics
 
-What is it that you can takeaway from playing a CTF you ask? You may have different feelings on what you got out of playing CTFs but here are a few of my personal takeaways.
+### Background
 
-### Documentation
+While the disk forensics focus on forensic artifacts from files and folders, more pertinent information can also be readily available within a computer's memory. A computer's memory, called Random Access Memory, or RAM for short, is used to carry out all active tasks of a computer. As such, it contains a wealth of artifacts not available through other means. For instance:
 
-One of the things I enjoy doing after playing a CTF is to do blog writeups of solutions. If there are questions I didn't get to finish during the live competition I have a tendency to go back and revisit to see if I can solve them properly. Once I have a majority of the answers, I will start to write some blogs on how I solved the questions. Not only does this help me document my results for future usage but also helps with gaining experience in more technical writing. I can't tell you the many times that I've referenced my own posts in other competitions or in research as I go back to further dive into file system locations that I had never looked at before.
+* A list of active and (potentially) recently terminated processes
+* Active network connections
+* Entered system commands
+* Open file handles
 
-Documentation is critical in a lot of aspects of an investigation so it only makes sense to write down your notes in case you need to reference where a specific artifact came from. The best part is that not all questions will be solved the same so I thoroughly enjoy reading other solver's thought process to get to the end result.
+In order to collect this information, an application will perform a memory dump. A memory dump is exactly what it sounds like, the contents of the RAM extracted to a disk. Be aware that as the size of the RAM increases, an equivalent amount of disk space should be readily available for storage. Furthermore, the RAM does not remain in stasis while the extraction takes place. It will continue to perform tasks and will continue to change for the duration of the RAM dump.
 
-### Challenge Yourself & Build Confidence
+### Windows
 
-I'm going to stress it again, playing CTFs will help you learn. For those that don't get to work with some of the different evidence files like Linux or network files will give you plenty to take home from analyzing them. Before playing SANS NetWars, I had rarely touched PCAP files let alone knew how to utilize Wireshark to pull out files or specific packets. Learning about Google Takeout exports has given me a new appreciation for what potential evidence can be found in the cloud and what may not be found directly on a mobile device. This has lead to me doing my own research and contributing back to the community in tools like [RLEAPP](https://github.com/abrignoni/rleapp) and other open-source projects. These are just a few examples of getting out of your comfort zone and challenging yourself to learn about new tools and techniques.
+Performing a memory dump on Windows can be performed by multiple tools. FTK Imager was already mentioned in the previous section. An alternative to FTK Imager in this regard is the utility [DumpIt](https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt). DumpIt can be used without installation on the host system. The directory it is launched from also doubles as the destination directory. Take this into consideration before performing a memory dump.
 
-It's also important to build your confidence. Just because you don't place well the first time you play doesn't mean you can't get better. I know when I started out I struggled in competitions. I didn't know where to go to find answers or how to get to them. It all comes back to practice. Any sports athlete will tell you that repetitions of a task will only make you better at that specific task and this correlates with CTFs and examinations. If you see something often enough you'll start seeing patterns like Neo in the Matrix.
+### Linux
 
-![9.6 - "I know kung-fu!"](https://user-images.githubusercontent.com/48143894/179990282-aba4739c-9dc9-463d-9394-ed7c635b052f.png)
+There is no single version of Linux, every single distribution has its own intricacies and (minor) differences. A tool was needed that can perform a memory dump independent of installed kernels, packages, or other dependencies. Microsoft actively develops [AVML](https://github.com/microsoft/avml). AVML can be used to perform a memory dump and also has a few tricks of its own. AVML supports compression of memory dumps to decrease the amount of required disk space as well as uploads to a Microsoft Azure Blob store.
 
-### Have Fun!
+{pagebreak}
 
-The number one takeaway of playing CTFs is to have fun! These are meant to be a training exercise to stimulate the mind and to give you a break from your normal workload. Don't stress it, just keep learning. If you're in person, enjoy the comradery of other competitors and build your network. You never know who you may meet while playing and who you will harbor friendships with in the industry.
+The standard usage of AVML is shown below:
 
-I hope this chapter breathes new life into you playing CTF competitions. Good luck and see you all out there on the digital battlefields!
+{line-numbers:false}
+```
+    avml output.lime
+```
+
+It is possible to generate a compressed image with the following command:
+
+{line-numbers:false}
+```
+    avml —compress output.lime.compressed
+```
+
+For a full set of commands please refer to the GitHub development page.
+
+### Virtual Machines
+
+The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are necessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility.
+
+* * *
+
+{pagebreak}
+
+## Next Steps and Conclusion
+
+This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and assosciated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost.  In the near future this book will hopefully contain a triage chapter as well, in the meantime a couple of pointers can be found below. Disk sizes are ever-expanding and it is no longer feasible for most investigations to investigate a image to its full extent in the initial phase of an investigation. Rather, it is recommended to focus on well-known forensic artifacts which can be used to answer research questions. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/.
+
+A number of tools can be of use during triage, these include:
+
+* [FTK Imager](https://www.exterro.com/ftk-imager)
+* [Arsenal Image Mounter](https://arsenalrecon.com/products/arsenal-image-mounter)
+* [KAPE](https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape)
+* [Eric Zimmerman Tools](https://ericzimmerman.github.io/#!index.md) (most notably Timeline Explorer)
+
+FTK Imager can be used to read the image and browse the file system by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post processing steps.
+
+Arsenal Image Mounter can be used to mount images in a read-only manner. This capability can be used in conjunction with KAPE to quickly extract pertinent artifacts. It has more advanced functionality as well but that is beyond the scope of this chapter.
+
+KAPE, created by Eric Zimmerman, can be used to quickly collect and post-process artifacts utilizing either a graphical user interface or the command line. KAPE can collect information from a wide range of Targets. The required information can be collected by simply checking the box next to the Target and providing source and destination locations. KAPE will then collect the information.
+
+Of particular note for triage is the [KapeTriage Target](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Compound/KapeTriage.tkape). The following description is provided at the time of writing:
+
+KapeTriage collections that will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
+
+The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format.
+
+These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
 
 * * *

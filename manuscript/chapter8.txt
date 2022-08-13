@@ -1,4 +1,4 @@
-# Chapter 16 - Artifacts as Evidence
+# Chapter 8 - Artifacts as Evidence
 
 {width: 30%}
 ![](Ch16/NeverStopLearning.png)

@@ -1,4 +1,4 @@
-# Chapter 17 - Forensic imaging in a nutshell
+# Chapter 9 - Forensic imaging in a nutshell
 
 {width: 30%}
 ![](Ch17/dfir.png)

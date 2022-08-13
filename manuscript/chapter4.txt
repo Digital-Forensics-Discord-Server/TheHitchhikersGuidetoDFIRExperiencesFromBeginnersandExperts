@@ -1,4 +1,4 @@
-# Chapter 5 - Large Scale Android Application Analysis
+# Chapter 4 - Large Scale Android Application Analysis
 
 {width: 30%}
 ![](https://static.wixstatic.com/media/3b47d0_3ff0961d0c234c1dbc5998ec09ecbfcd~mv2_d_2425_2400_s_4_2.gif)

@@ -1,4 +1,4 @@
-# Chapter 11 - The Law Enforcement Digital Forensics Laboratory
+# Chapter 7 - The Law Enforcement Digital Forensics Laboratory
 
 ## Setting Up and Getting Started
 

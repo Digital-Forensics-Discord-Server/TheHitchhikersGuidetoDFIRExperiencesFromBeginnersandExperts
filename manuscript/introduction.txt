@@ -73,7 +73,7 @@ Originally, the book had no cover concept planned. As we got closer to the date 
 
 The following book covers were available as options during the first round of voting:
 
-{width: 70%}
+{width: 80%}
 ![](Ch0/BookCoverRound1.jpg)
 
 The final results for Round 1 were as follows:

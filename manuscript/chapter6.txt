@@ -166,7 +166,7 @@ This whole list could be expanded way further but this is the majority of the go
 
 We've all been there. You get to a point in the middle of a CTF where you start to struggle. Here are some things to key in on while actually playing.
 
-Read the titles of the questions carefully. Often they are riddled with hints about where to look. "*'Fetch'* the run time of XXX application." Maybe you should analyze those Prefetch files over there? Questions will often also tell you how to format your answer submission. This may tell you that the timestamp you're hunting could be incorrect -- those pesky timezone offsets!
+Read the titles of the questions carefully. Often they are riddled with hints about where to look. "*Fetch* the run time of XXX application." Maybe you should analyze those Prefetch files over there? Questions will often also tell you how to format your answer submission. This may tell you that the timestamp you're hunting could be incorrect -- those pesky timezone offsets!
 
 Did you find a flag that appears to be a password? It's almost guaranteed that that evidence was placed in such a way that it will be reused. Emails and notes can be a treasure trove for passwords to encrypted containers or files.
 

@@ -1,4 +1,4 @@
-ross verif# Chapter 10 - Linux and Digital Forensics
+# Chapter 10 - Linux and Digital Forensics
 
 {width: 30%}
 ![](Ch19/ch19logo.png)

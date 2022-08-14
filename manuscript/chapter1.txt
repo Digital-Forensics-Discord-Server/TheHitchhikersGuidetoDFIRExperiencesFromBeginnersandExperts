@@ -148,7 +148,7 @@ To save you from counting, that's 72 countries with a dedicated Law Enforcement 
 
 ## Forensic 4:cast Awards
 
-The Digital Forensics Discord Server has fortunate enough to enjoy success in the [Forensic 4:cast Awards](https://forensic4cast.com/forensic-4cast-awards/), as seen below:
+The Digital Forensics Discord Server was fortunate enough to enjoy success in the [Forensic 4:cast Awards](https://forensic4cast.com/forensic-4cast-awards/), as seen below:
 
 | Year                                                                                | Category             | Result    |
 |-------------------------------------------------------------------------------------|----------------------|-----------|
@@ -158,9 +158,9 @@ The Digital Forensics Discord Server has fortunate enough to enjoy success in th
 
 ## Future
 
-The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. I will always active, but this server is and always has been far more than any single person. As long as the members of the DFIR community keep showing up and engaging with each other, the Digital Foreniscs Discord Server will never die...unless Discord ceases to exist, forcing the community to migrate to a different platform. Let’s hope that doesn’t happen anytime soon!
+The Digital Forensics Discord Server will continue to live and thrive so long as the community wills it. I will always be active, but this server is and always has been far more than any single person. As long as the members of the DFIR community keep showing up and engaging with each other, the Digital Foreniscs Discord Server will never die...unless Discord ceases to exist, forcing the community to migrate to a different platform. Let’s hope that doesn’t happen anytime soon!
 
-All indication are that the server will continue to grow through coworker word-of-mouth, exposure through training courses, and university programs sharing invites to the server to students. The server has always been welcoming to all, from the high school student wanting to work in DFIR someday, to people who’ve been involved in DFIR for decades, and everyone in between. This will not ever change.
+All indications are that the server will continue to grow through coworker word-of-mouth, exposure through training courses, and university programs sharing invites to the server to students. The server has always been welcoming to all, from the high school student wanting to work in DFIR someday, to people who’ve been involved in DFIR for decades, and everyone in between. This will not ever change.
 
 ### Administrator Contingency Plan
 

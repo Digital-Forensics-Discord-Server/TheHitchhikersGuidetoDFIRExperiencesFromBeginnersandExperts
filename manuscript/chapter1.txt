@@ -152,8 +152,8 @@ The Digital Forensics Discord Server was fortunate enough to enjoy success in th
 
 | Year                                                                                | Category             | Result    |
 |-------------------------------------------------------------------------------------|----------------------|-----------|
-| 2020 | [Resource of the Year](https://forensic4cast.com/forensic-4cast-awards/2020-forensic-4cast-awards/) | Winner    |
-| 2021 | [Resource of the Year](https://forensic4cast.com/forensic-4cast-awards/2021-forensic-4cast-awards/) | Winner    |
+| 2020 | Resource of the Year | [Winner](https://forensic4cast.com/forensic-4cast-awards/2020-forensic-4cast-awards/) |
+| 2021 | Resource of the Year | [Winner](https://forensic4cast.com/forensic-4cast-awards/2021-forensic-4cast-awards/) |
 | 2022 | Resource of the Year | Nominated |
 
 ## Future

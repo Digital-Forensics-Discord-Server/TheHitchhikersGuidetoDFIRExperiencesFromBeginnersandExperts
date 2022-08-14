@@ -95,8 +95,6 @@ The final results for Round 2 were as follows:
 
 Therefore, the book cover was chosen by the community for a book that was made by the community and for the community.
 
-{pagebreak}
-
 ## Final Thoughts
 
 I don't think any of the co-authors listed on the cover of this book ever thought they would be published authors. I can certainly say that is the case for myself. This project proved that the barrier to doing something as complicated as writing a book isn't as complex as it could be, primarily thanks to Leanpub. For all we know, the next prominent name in the DFIR world may have gotten their start from volunteering a simple chapter to this book which sparked an interest in continuing the path of knowledge sharing, content development, and overall DFIR community betterment. Only time will tell! Either way, I'm proud of those who stepped up to do something uncomfortable, something that requires effort and follow-through, and something they can ultimately be proud of accomplishing when all is said and done. Ultimately, the authors win, the other contributors win, and most importantly, the community wins!

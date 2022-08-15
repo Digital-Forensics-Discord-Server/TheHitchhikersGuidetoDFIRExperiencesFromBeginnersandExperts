@@ -1,3 +1,9 @@
 # Contributors
 
-* [brootware](https://github.com/brootware) - thank you for helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!
+**Thank You,**
+
+* [Holly Kennedy](https://github.com/hollykennedy) | [Twitter](https://twitter.com/hollykennedy4n6)
+For proofreading, editing, and making corrections!
+
+* [Oaker Min](https://github.com/brootware) | [Blog](https://brootware.github.io/) | [Twitter](https://twitter.com/brootware/)
+For helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!

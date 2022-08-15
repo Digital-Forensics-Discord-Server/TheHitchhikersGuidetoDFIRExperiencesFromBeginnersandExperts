@@ -1,9 +1,7 @@
 # Contributors
 
-**Thank You,**
+***Thank You,***
 
-* [Holly Kennedy](https://github.com/hollykennedy) | [Twitter](https://twitter.com/hollykennedy4n6)
-For proofreading, editing, and making corrections!
+* [Holly Kennedy](https://github.com/hollykennedy) | [Twitter](https://twitter.com/hollykennedy4n6) - For proofreading, editing, and making corrections!
 
-* [Oaker Min](https://github.com/brootware) | [Blog](https://brootware.github.io/) | [Twitter](https://twitter.com/brootware/)
-For helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!
+* [Oaker Min](https://github.com/brootware) | [Blog](https://brootware.github.io/) | [Twitter](https://twitter.com/brootware/) - For helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!

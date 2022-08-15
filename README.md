@@ -1,6 +1,6 @@
 # The Hitchhikers Guide to DFIR: Experiences From Beginners and Experts
 
-Check out the book on Leanpub [here](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts).
+Check out the book on [Leanpub](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts) and [Bookwire](https://bookwire.com/book/USA/the-hitchhikers-guide-to-dfir-9798986335902-andrew-rathbun-85169559).
 
 ## What is this?
 

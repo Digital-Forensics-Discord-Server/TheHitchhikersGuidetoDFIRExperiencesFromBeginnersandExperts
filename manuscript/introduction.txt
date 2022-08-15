@@ -81,6 +81,8 @@ The final results for Round 1 were as follows:
 {width: 70%}
 ![](Ch0/BookCoverRound1Results.jpg)
 
+{pagebreak}
+
 #### Round 2
 
 The following book covers were decided as the top three in Round 1:
@@ -94,6 +96,8 @@ The final results for Round 2 were as follows:
 ![](Ch0/BookCoverRound2Results.jpg)
 
 Therefore, the book cover was chosen by the community for a book that was made by the community and for the community.
+
+{pagebreak}
 
 ## Final Thoughts
 

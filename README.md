@@ -1,5 +1,7 @@
 # The Hitchhikers Guide to DFIR: Experiences From Beginners and Experts
 
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/BookCover.jpg)
+
 Check out the book on [Leanpub](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts) and [Bookwire](https://bookwire.com/book/USA/the-hitchhikers-guide-to-dfir-9798986335902-andrew-rathbun-85169559).
 
 ## What is this?

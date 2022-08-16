@@ -1,34 +1,34 @@
 # Authors
 
-## Andrew Rathbun
+### Andrew Rathbun
 
 Andrew Rathbun is a DFIR professional with multiple years of experience in law enforcement and the private sector. Andrew currently works at Kroll as a Vice President in Cyber Risk. Andrew is involved in multiple community projects, including but not limited to the [Digital Forensics Discord Server](https://www.linkedin.com/company/digital-forensics-discord-server/), [AboutDFIR](https://aboutdfir.com/), and [multiple GitHub repositories](https://github.com/stars/AndrewRathbun/lists/my-projects). You can find him on the [DFIR discord](http://discordapp.com/users/223211621185617920).
 
-## ApexPredator
+### ApexPredator
 
 After many years at the top of the Systems Administration food chain, the ApexPredator switched to the Cybersecurity food chain. The ApexPredator is working to the top while possessing an MS in Cybersecurity and Information Assurance degree and numerous certifications, including OSCE3 (OSWE, OSEP, OSED), OSCP, OSWP, GREM, GXPN, GPEN, GWAPT, GSLC, GCIA, GCIH and GSEC. Always hunting for more prey, it spends free time playing with malware analysis and exploit development.
 
-## Barry Grundy
+### Barry Grundy
 
 A U.S. Marine Corps veteran, Barry Grundy has been working in the field of digital forensics since the mid-1990s. Starting at the Ohio Attorney General's office as a criminal investigator, and eventually joining U.S. Federal Law Enforcement as a digital forensics analyst and computer crimes investigator in 2001. He holds a Bachelor of Science in Forensic Science from Ohio University, and A Master's Degree in Forensic Computing and Cybercrime Investigations from University College Dublin.
 
 Barry is the author and maintainer of the Law Enforcement and Forensic Examiner's Introduction to Linux ([LinuxLEO](https://linuxleo.com)). This practical beginner's guide to Linux as a digital forensics platform has been available for over 20 years and has been used by a number of academic institutions and law enforcement agencies around the world to introduce students of DFIR to Linux. Teaching, particularly Linux forensics and open source DFIR tools, is his passion.
 
-## Guus Beckers
+### Guus Beckers
 
 A lifelong IT aficionado, Guus Beckers (1990), completed the Network Forensic Research track at Zuyd University of Applied Sciences as part of his Bachelor's degree. In 2016, he attained his university Master's degree at Maastricht University by completing the Forensics, Criminology and Law master’s program. Guus currently works as a security consultant at Secura, leading the forensic team and performing penetration testing.
 
-## Jason Wilkins
+### Jason Wilkins
 
 After serving in the US Navy for five years, Jason Wilkins began a career in firefighting and emergency medicine. While serving the community in that capacity for fourteen years he obtained associates degrees in criminal justice and computer networking from Iowa Central Community College online. He left the fire department in 2014 to pursue a network analyst position working for a global tire manufacturer. Disillusioned by a lack of mission and purpose, he returned to public safety in 2019 and began working as a crime & intelligence analyst for the local police department. It was there that he developed the agency's first digital forensics lab and started the N00B2PR04N6 blog. In 2020 he was nominated as Newcomer of the Year in the Digital Forensics 4:Cast awards and has spoken at both the SANS Digital Forensics and Magnet Forensics Summits. He currently works as an overseas contractor teaching digital forensics and is also an adjunct instructor for digital forensics and incident response at Iowa Central Community College.
 
-## John Haynes
+### John Haynes
 
 John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
 
 John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or find him learning what he can on the [DFIR Discord](http://discordapp.com/users/167135713006059520).
 
-## Kevin Pagano
+### Kevin Pagano
 
 Kevin Pagano is a digital forensics analyst, researcher, blogger and contributor to the open-source community. He holds a Bachelor of Science in Computer Forensics from Bloomsburg University of Pennsylvania and a Graduate Certificate in Digital Forensics from Champlain College. Kevin is a member of the GIAC Advisory Board and holds several industry certifications, including the GIAC Advanced Smartphone Forensics (GASF), GIAC Certified Forensic Examiner (GCFE), and GIAC Battlefield Forensics and Acquisition (GBFA), and the Certified Cellebrite Mobile Examiner (CCME) among others.
 
@@ -38,7 +38,7 @@ Kevin is a regular competitor in the digital forensics CTF circuit. He has won F
 
 In his spare time, Kevin likes to drink beers and design DFIR-themed designs for stickers, clothing, and other swag. You can find him lurking on [Twitter](https://twitter.com/kevinpagano3) and on the [DFIR Discord](http://discordapp.com/users/597827073846935564).
 
-## Nisarg Suthar
+### Nisarg Suthar
 
 Nisarg Suthar is a lifelong student and learner of DFIR. He is an aspiring digital forensic analyst with high levels of curiosity about how things work the way that they do. He has experience with malware analysis, reverse engineering, and forensics.
 
@@ -50,7 +50,7 @@ Nisarg started tinkering with the disassembly of machine code, computer data, an
 
 In his spare time, Nisarg likes to play and learn chess obsessively.
 
-## s3raph
+### s3raph
 
 Breaker of things (mostly things that they shouldn't break). Writer of broken code [GitHub](https://github.com/s3raph-x00).
 
@@ -58,14 +58,6 @@ s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defens
 
 [Do You Want to Know More?](https://www.s3raph.com/)
 
-## Tristram
+### Tristram
 
 An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets to identify gaps and validate existing controls.
-
-<!-- Format to follow:
-
-## Name (Please Maintain Alphabetical Order, Thank You!)
-
-Author Bio goes here.
-
--->

@@ -5,11 +5,11 @@
 
 C> By [s3raph](https://github.com/s3raph-x00/) | [Website](https://www.s3raph.com/) | [Discord](http://discordapp.com/users/598660199062044687)
 
-## Overview:
+## Overview
 
 This chapter provides a cursory overview of Android application analysis through automated and manual methods followed by a methodology of adjusting to scale.
 
-## Introduction:
+## Introduction
 
 Mobile forensics, specifically as it pertains to Android devices, tends to focus a little more heavily on application analysis during the initial evaluation. Unlike Windows systems, the sandbox nature of the devices (assuming they aren’t and/or can’t be easily rooted), makes it a little more difficult gain a deeper forensic image without first compromising an existing application (such as malicious webpages targeting exploits in Chrome or through hijacking an insecure update process in a given application), utilizing a debugging or built in adminsitrative function, or through installing an application with greater permissions (both methods would still require privilege escalation to root). A typical stock Android phone typically has at least between 60-100+ applications installed at a given time while recent phones have more than 100+. This includes system applications maintained by Google, device/manufacturer applications such as with Huawei or Samsung, and network provider applications such as with Sprint, Vodafone, or Verizon. Additionally, device manufacturers and network provides typically have agreements with various companies, such as Facebook, to preinstall their application during device provisioning. Most of these applications cannot be easily pulled during forensic analysis without utilizing some method of physical extraction (i.e., use of Qualcomm Debugger functionality) or root access.
 
@@ -145,7 +145,7 @@ The concept of this writeup was to provide a cursory analysis of a piece of malw
 
 I would recommend enabling searching within comments as sometimes additional functionality using external APIs and websites are simply commented out but otherwise accessible.
 
-## Problem of Scale:
+## Problem of Scale
 
 So far, we have covered the bare basics of using MobSF to analyze an APK as well as how to manually interrogate the same APK using JADX. In most malware mobile forensic investigations with physical access (not logical) most stock Android phones have more than 100+ APKs (including system applications, device manufacturer applications, network provider applications, and third-party applications) that could need to be analyzed. Devices in active usage could reach beyond 200+ APKs that could potentially need to be analyzed. 200+ APKs is a significant number of applications for a malware forensic analysis but the investigation could be completed using MobSF and JADX in a few weeks. The problem comes at scale by expanding the number of devices being analyzed. Now you may have 100+ devices, each with 100+ APKs that may or may not be the same version. This quickly becomes untenable which results in a need to develop or adapt mobile application analysis methodology to scale.
 

@@ -31,5 +31,4 @@ From the beginning, the writing and editing process has been fully transparent t
 | ePub | `979-8-9863359-3-3` |
 | Print (future) | `979-8-9863359-4-0` |
 
-
 As of July 2022, Amazon (and therefore Leanpub) no longer supports `Send to Kindle` for MOBI files, so there no longer will be a MOBI version generated as of July 25, 2022, for this book or any Leanpub books.

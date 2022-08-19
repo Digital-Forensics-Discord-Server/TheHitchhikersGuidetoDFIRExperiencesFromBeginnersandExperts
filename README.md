@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/BookCover.jpg" width="50%">
 
-Check out the book on [Leanpub](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts) and [Bookwire](https://bookwire.com/book/USA/the-hitchhikers-guide-to-dfir-9798986335902-andrew-rathbun-85169559).
+Check out the book on [Leanpub](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts) and Bookwire ([PDF](https://bookwire.com/book/USA/the-hitchhikers-guide-to-dfir-9798986335902-andrew-rathbun-85169559) and [ePub](https://www.bookwire.com/book/USA/the-hitchhikers-guide-to-dfir-9798986335933-andrew-rathbun-85353460)).
 
 ## What is this?
 

@@ -37,7 +37,7 @@ You can pull up the details for each service listed in the Services tab or from 
 
 ![](resources/Ch3/chapter3.006.png)
 
-[Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) (`procexp.exe` and `procexp64.exe`) from the Sysinternals Suite is another free tool that provides a greater level of detail than the built in Task Manager in Windows. It provides the same functionality to kill processes while providing additional details in the main window. You can submit hashes to Virus Total through Process Explorer to help determine if a process is malicious.
+[Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) (`procexp.exe` and `procexp64.exe`) from the Sysinternals Suite is another free tool that provides a greater level of detail than the built in Task Manager in Windows. It provides the same functionality to kill processes while providing additional details in the main window. You can submit hashes to VirusTotal through Process Explorer to help determine if a process is malicious.
 
 ![](resources/Ch3/chapter3.007.png)
 

@@ -11,7 +11,7 @@ This chapter will cover the basics of analyzing malware on an infected computer.
 
 The chapter starts with an introduction to basic malware analysis. It then covers some free tools to use in basic malware analysis. The chapter culminates with a walkthrough of a canned analysis on a piece of malware. The walkthrough wraps up with recommendations on where to go next to progress to intermediate or advanced malware analysis.
 
-I had numerous instances of friends and family asking me to figure out why their computer was acting weird long before moving in to cybersecurity and receiving formal training on malware analysis. I have had other cybersecurity professionals ask why it is not a waste of time to learn to build Microsoft Office macro-based payloads when Microsoft is making it harder for users to run the malicious code inside to which I always respond with "Never under estimate the users desire and ability to download and run anything sent to them." People are going to download and execute malware at some point and if you are the IT expert they will ask you to figure out what happened.
+I had numerous instances of friends and family asking me to figure out why their computer was acting weird long before moving in to cybersecurity and receiving formal training on malware analysis. I have had other cybersecurity professionals ask why it is not a waste of time to learn to build Microsoft Office macro-based payloads when Microsoft is making it harder for users to run the malicious code inside to which I always respond with "Never underestimate the users desire and ability to download and run anything sent to them." People are going to download and execute malware at some point and if you are the IT expert they will ask you to figure out what happened.
 
 One of my first instances of basic malware analysis was when I was in a situation that required using a computer shared by multiple people to access the internet. I erred on the paranoid side before using it to access any of my personal accounts and ran a network packet capture using Microsoft`s NetMon, which is a packet capture tool similar to Wireshark. I noticed from the packet capture that the machine was communicating with a Chinese domain which appeared unusual. I then conducted a quick Google search on the domain and found that it was associated with a piece of malware.
 
@@ -37,7 +37,7 @@ You can pull up the details for each service listed in the Services tab or from 
 
 ![](resources/Ch3/chapter3.006.png)
 
-[Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) (`procexp.exe` and `procexp64.exe`) from the Sysinternals Suite is another free tool that provides a greater level of detail than the built in Task Manager in Windows. It provides the same functionality to kill processes while providing additional details in the main window. You can submit hashes to Virus Total thru Process Explorer to help determine if a process is malicious.
+[Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) (`procexp.exe` and `procexp64.exe`) from the Sysinternals Suite is another free tool that provides a greater level of detail than the built in Task Manager in Windows. It provides the same functionality to kill processes while providing additional details in the main window. You can submit hashes to VirusTotal through Process Explorer to help determine if a process is malicious.
 
 ![](resources/Ch3/chapter3.007.png)
 
@@ -162,7 +162,7 @@ Regedit is then used to verify the run key created after verifying that no malic
 
 ![](resources/Ch3/chapter3.035.png)
 
-The next step for this scenario is to navigate to the `C:\Windows\Tasks\` folder to investigate the `bdw.py` file mentioned in the previous steps. The investigation finds that this is just a simple Python script to establish a reverse shell from the infected computer to the attacker's machine. We are able to determine that it contains the port number 8443 but is pointing to a domain name of `maliciousdomain.cn` instead of IP.
+The next step for this scenario is to navigate to the `C:\Windows\Tasks\` folder to investigate the `bdw.py` file mentioned in the previous steps. The investigation finds that this is just a simple Python script to establish a reverse shell from the infected computer to the attacker's machine. We are able to determine that it contains the port number 8443 but it is pointing to a domain name of `maliciousdomain.cn` instead of IP.
 
 ![](resources/Ch3/chapter3.036.png)
 
@@ -239,4 +239,4 @@ Additional advanced topics to look into include techniques to recover encryption
 
 You can also increase your skills by taking malware development course from [Sektor7](https://institute.sektor7.net/red-team-operator-malware-development-essentials). Learning to develop malware will help you better understand how to detect malware and will teach you additional techniques used by modern malware. SANS also offers the advanced FOR710 course for [Reverse-Engineering Malware: Advanced Code Analysis](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-advanced-code-analysis/).
 
-If you enjoyed this walkthrough would like to check out more, you can check out my [GitHub](https://github.com/ApexPredator-InfoSec) for a walkthrough on performing white box code analysis of a vulnerable web application and coding a full chain exploit. I have solutions for various vulnerable web applications and binary exploitation challenges and will be adding a couple of binary exploitation and reverse engineering walkthroughs in the future. I can also add in intermediate malware analysis walkthroughs if there is enough interest.
+If you enjoyed this walkthrough and would like to check out more, you can check out my [GitHub](https://github.com/ApexPredator-InfoSec) for a walkthrough on performing white box code analysis of a vulnerable web application and coding a full chain exploit. I have solutions for various vulnerable web applications and binary exploitation challenges and will be adding a couple of binary exploitation and reverse engineering walkthroughs in the future. I can also add in intermediate malware analysis walkthroughs if there is enough interest.

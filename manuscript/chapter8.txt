@@ -26,11 +26,11 @@ Much like any scientific field, 'forensics' or 'criminalistics' is a branch of s
 
 Digital Forensics is a six-phase process including:
 * Preparation: Making sure your suite of forensic tools is up to date, and destination media are sanitized.
-* Identification: Identifying the devices of interest at the site. Mobile phones, laptops, IoT devices, USB drives, cameras, SD cards etc. Anything with some type of digital memory.
+* Identification: Identifying the devices of interest at the site. Mobile phones, laptops, IoT devices, USB drives, cameras, SD cards, etc. Anything with some type of digital memory.
 * Collection: Acquiring the memory via imaging and hashing the sources for verification.
-* Preservation: Using techniques viable for long term storage of sensitive evidence. Also includes maintaining a valid chain of custody.
+* Preservation: Using techniques viable for long-term storage of sensitive evidence. Also includes maintaining a valid chain of custody.
 * Analysis: Dissecting the acquired evidence. All puzzle solving and brainstorming happens in this phase.
-* Reporting: Preparing a concise and easily digestible report of your findings for people who may not be technically inclined. The report must show forensic soundness for it to be admissible in the court of law.
+* Reporting: Preparing a concise and easily digestible report of your findings for people who may not be technically inclined. The report must show forensic soundness for it to be admissible in a court of law.
 
 {pagebreak}
 
@@ -44,7 +44,7 @@ However, System Data-like artifacts that help support some view of truth, or det
 
 ![16.2 - Attr: Original from 6th slide in DVD included with E-Discovery: An Introduction to Digital Evidence by Amelia Phillips, Ronald Godfrey, Christopher Steuart & Christine Brown, modified here as text removal](Ch16/EDvsDF.png)
 
-And that is the main difference between E-Discovery & Digital Forensics, depending on the categorization of data alone. Both follow different procedures and have a different scope of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region, whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
+And that is the main difference between E-Discovery & Digital Forensics, depending on the categorization of data alone. Both follow different procedures and have different scopes of execution. Generally, E-Discovery can be contained to only the logical partitions and the unallocated region, whereas Digital Forensics operates in a much wider scope solely due to the necessity of dealing with complex data structures.
 
 {pagebreak}
 
@@ -61,7 +61,7 @@ Understand the operating system as an abstraction level between the end-user and
 
 Before parsing the artifacts and diving deep into analysis, you must fully understand how files are generally handled by an operating system. As mentioned earlier, an operating system is just a very sophisticated piece of software written by the manufacturers to provide an abstraction level between the complexities of hardware interactions and the user.
 
-In the context of file handling, operating systems either *store* files or *execute* files. Both of which require different types of memory. Also, note that *storing* files requires access to a storage media such as HDDs, SSDs, and flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
+In the context of file handling, operating systems either *store* files or *execute* files. Both of which require different types of memory. Also, note that *storing* files requires access to storage media such as HDDs, SSDs, and flash drives, whereas *executing* files requires access to the microprocessor. Both are handled by the operating system.
 
 {pagebreak}
 
@@ -79,7 +79,7 @@ There are many sub-types of both RAM & ROM, but only the fundamental difference 
 Now let's look at the lifecycle of an application in two stages:
 
 1. **Production Cycle:**
-An application is a set of *programs*. A program is a set of *code* written by a programmer, generally in higher-level languages, that does not interact directly with machine-level entities such as registers, buses, channels, etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower leveled language that can interact directly with machine-level entities. Finally, the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for its execution cycle.
+An application is a set of *programs*. A program is a set of *code* written by a programmer, generally, in higher-level languages, that does not interact directly with machine-level entities such as registers, buses, channels, etc. That piece of code is written to the disk. The code is then compiled to assembly, which is a lower leveled language that can interact directly with machine-level entities. Finally, the assembly is converted to the machine code consisting of 1s and 0s (also known as binary or executable file), which is now ready for its execution cycle.
 
 2. **Execution Cycle:**
 Now that the program is sitting on the disk, waiting to be executed, it is first loaded into the RAM. The operating system instructs the processor about the arrival of this program and allocates the resources when they're made available by the processor. The processor's job is to execute the program one instruction at a time. Now the program can execute successfully if the processor is not required to be assigned another task with a higher priority. If so, the program is sent to the ready queue. The program can also terminate if it fails for some reason. However, finally, it is discarded from the RAM.
@@ -122,7 +122,7 @@ As a result of the codependency of the artifacts on drawing correlations to some
 {pagebreak}
 
 ## Examples
-This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, rather the significance of those artifacts at a much higher level, including what it offers, proves, and denies. Additionally, what is its forensic value? I suggest the readers use these brief bits to spark their curiosity about these important artifacts and research on their own about locating and parsing them.
+This section will cover how some of the more uncommon artifacts can play into a case from a bird's eye view. We won't be getting into the technical specifics on the parsing or extraction, but rather the significance of those artifacts at a much higher level, including what it offers, proves, and denies. Additionally, what is its forensic value? I suggest the readers use these brief bits to spark their curiosity about these important artifacts and research on their own about locating and parsing them.
 
 ### Registry
 ___About:___
@@ -132,7 +132,7 @@ ___About:___
 
 There are mainly two types of hive files:
 1. **System Hive Files:**
-	* SAM (Security Account Manager): User account information such as hashed passwords, account metadata including last login timestamp, login counts, account creation timestamp, group information, etc.
+	* SAM (Security Account Manager): User account information such as hashed passwords, and account metadata including last login timestamp, login counts, account creation timestamp, group information, etc.
 	* SYSTEM: File execution times (Evidence of Execution), USB devices connected (Evidence of Removable Media), local timezone, last shutdown time, etc.
 	* SOFTWARE: Information about both user and system software. Operating System information such as version, build, name & install timestamp. Last logged-on user, network connections, IP addresses, IO devices, etc
 	* SECURITY: Information about security measures and policies in place for the system.
@@ -152,8 +152,8 @@ ___Significance:___
 ### Shellbags
 ___About:___
 * Shellbags were introduced in Windows 7. It is a convenience feature that allows the operating system to remember Windows Explorer configuration for user folders and a folder's tree structure.
-* Whenever a folder is created, selected, right-clicked, deleted, copied, renamed or opened, shellbag information will be generated.
-* Depending on the Windows version, shellbag information can be stored in either `ntuser.dat`, `UsrClass.dat` or both.
+* Whenever a folder is created, selected, right-clicked, deleted, copied, renamed, or opened, shellbag information will be generated.
+* Depending on the Windows version, shellbag information can be stored in either `ntuser.dat`, `UsrClass.dat`, or both.
 
 ___Significance:___
 * Reconstructing the tree structure for deleted folders. Helpful in providing an idea of the files that used to exist when they cannot be carved from the unallocated space.
@@ -162,7 +162,7 @@ ___Significance:___
 
 ### Prefetch
 ___About:___
-* Prefetch was first introduced in Windows XP. It is a memory management feature which optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is a direct evidence of execution.
+* Prefetch was first introduced in Windows XP. It is a memory management feature that optimizes loading speeds for files that are frequently executed. Originally it was meant for faster booting times, but since has been developed for applications too. Hence, this artifact is direct evidence of execution.
 * We looked at the lifecycle of an application earlier, the prefetcher in Windows works in the same way. It studies the first ~10 seconds of an application launched and creates/updates the corresponding prefetch file, for faster loading speeds on the next execution.
 * Starting from Windows 10, prefetch files are compressed by default to save considerable disk space. It uses the Xpress algorithm with Huffman encoding. For validation purposes, forensicators must decrypt their prefetch files first. Thank you [Eric](https://twitter.com/ericrzimmerman) for this handy [Python script](https://gist.github.com/EricZimmerman/95be73f6cd04882e57e6) for the same.
 
@@ -183,23 +183,23 @@ Forensicators can refer to this key to check if prefetching is disabled.
 {pagebreak}
 
 ___Significance:___
-* Since it is evidence of execution, it is helpful in identifying anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in its own prefetch file being generated.
+* Since it is evidence of execution, it helps identify anti-forensic attempts at bypassing detection. Any automated anti-forensic tools ran would in turn result in its own prefetch file being generated.
 * Useful in identifying and hunting ransomware executed. Once identified, analysts can look for publicly available decryptors to retrieve encrypted files.
 * By studying files and directories referenced by an executable, analysts can identify malware families.
 * Application execution from removable media or deleted partitions can be identified from the volume information parsed.
-* Timestamps for last eight executions and the run counter is useful for frequency analysis of malicious executables. Worms which would result into multiple prefetch files referencing the exact same resources is a prime example of this.
+* Timestamps for the last eight executions and the run counter are useful for frequency analysis of malicious executables. Worms which would result in multiple prefetch files referencing the exact same resources is a prime example of this.
 
 ### Jumplists & LNK files
 ___About:___
-* LNK files, or link files are the shortcuts that a user or an application creates for quick access to a file. LNK files themselves are rich in file metadata such as timestamps, file path, file hash, MAC address, volume information and volume serial numbers.
+* LNK files or link files are the shortcuts that a user or an application creates for quick access to a file. LNK files themselves are rich in file metadata such as timestamps, file path, file hash, MAC address, volume information, and volume serial numbers.
 * However, apart from the Recent Items and Start Menu folders, these LNK files are also found embedded in jumplists.
-* Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have a quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right click context menu which can be used to 'jump' to induce a frequently used action.
+* Jumplists were first introduced in Windows 7. It is a convenience feature of the Windows Taskbar, that allows a user to have quick access to recently used files in or by different applications. It automatically creates these 'lists' in the right-click context menu which can be used to 'jump' to induce a frequently used action.
 * There are two types of jumplists; automatic and custom. Automatic jumplists are those created automatically by Windows, based on the MRU and MFU items. Custom jumplists are those explicitly created by the user, like bookmarks in a browser or pinning files for instance.
-* Both categories of these jumplists provide rich information like modified, accessed and created timestamps, and absolute file path of the original file.
+* Both categories of these jumplists provide rich information like modified, accessed, and created timestamps, and absolute file path of the original file.
 
 ___Significance:___
 * Useful to gain information on uninstalled applications and deleted files from the system & also applications ran and files opened from removable media.
-* Again, being a direct evidence of execution, it can be useful in timelining executed applications and opened files.
+* Again, being direct evidence of execution, it can be useful in timelining executed applications and opened files.
 * Useful to discover partial user history including URLs and bookmarks.
 
 ### SRUDB.dat
@@ -218,7 +218,7 @@ ___Significance:___
 ### hiberfil.sys
 ___About:___
 * `hiberfil.sys` was first introduced in Windows 2000. It is a file used by Windows for memory paging, at the time of hibernations or sleep cycles. It is also used in case of power failures.
-* Paging is a mechanism to store the current contents of the memory to disk, for later retrieving them and continue from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from a sleep states.
+* Paging is a mechanism to store the current contents of the memory on disk, for later retrieving them and continuing from the same stage. This prevents additional processing by applications and optimizes resource allocation by the operating system. Windows also enhanced this to allow faster startup times from sleep states.
 * It uses the Xpress algorithm for compression. Volatility's `imagecopy` plugin can be used to convert this artifact to a raw memory image.
 
 {pagebreak}
@@ -230,56 +230,56 @@ ___Significance:___
 
 ### pagefile.sys
 ___About:___
-* Similar to `hiberfil.sys`, `pagefile.sys` is a swapping file used by Windows to temporarily store new contents that were supposed to be loaded in the memory but could not due to insufficient space. When required amount of memory is freed, contents are transferred from this artifact back to the memory.
-* The only known methods to get some information from this artifact is using the string utility, a hex editor, and filtering using regex.
+* Similar to `hiberfil.sys`, `pagefile.sys` is a swapping file used by Windows to temporarily store new contents that were supposed to be loaded in the memory but could not due to insufficient space. When the required amount of memory is freed, contents are transferred from this artifact back to the memory.
+* The only known methods to get some information from this artifact are using the string utility, a hex editor, and filtering using regex.
 * It can store chunks of data capping at 4kb in size.
 
 ___Significance:___
 * Useful in hunting IOCs in malware cases.
-* Useful in carving smaller files that were meant to be loaded in the memory. Meaning it is evidence of access. If an image was successfully carved from this artifact, it means that it was opened, as it would have meant to be eventually loaded in the working memory of that device.
-* May contain NTFS records, browsing history, index records, registry data and other useful information.
+* Useful in carving smaller files that were meant to be loaded into the memory. Meaning it is evidence of access. If an image was successfully carved from this artifact, it means that it was opened, as it would have meant to be eventually loaded in the working memory of that device.
+* May contain NTFS records, browsing history, index records, registry data, and other useful information.
 
 ### $MFT
 ___About:___
 The next few artifacts, including this one, are a part of the NTFS file system - one of the most common file systems encountered when working with Windows OS.
 
 * MFT stands for Master File Table. It is a record of every file that exists or once existed on that particular file system.
-* It also contains other information like path to that file, file size, file extension, MACB timestamps, system flags, whether it was copied or not etc.
-* Sometimes if the file size is small enough to be accomodated by the MFT entry, we can even retreive the resident data from the record entry itself. Typically a MFT entry is 1024 bytes long, and small files can very well be completely fitting in this range. It is known as MFT slack space.
+* It also contains other information like path to that file, file size, file extension, MACB timestamps, system flags, whether it was copied or not, etc.
+* Sometimes if the file size is small enough to be accommodated by the MFT entry, we can even retrieve the resident data from the record entry itself. Typically MFT entry is 1024 bytes long, and small files can very well be completely fitting in this range. It is known as MFT slack space.
 
 ___Significance:___
 * Files that were deleted, may still have an intact MFT record entry if not overwritten.
-* Useful in retreiving smaller files from the record itself and the file history on disk.
+* Useful in retrieving smaller files from the record itself and the file history on disk.
 * Important metadata like MACB timestamps can be obtained.
 
 ### $I30
 ___About:___
 * `$I30` is called the index attribute of the NTFS file system. A `$I30` file corresponding to each directory is maintained by the NTFS file system as the B-tree would be constantly balancing itself as different files are created or deleted.
-* `$I30` is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the `$Bitmap`, `$INDEX_ROOT` and `$INDEX_ALLOCATION`. The 30 in its name comes from the offset for `$FILE_NAME` in a MFT record.
+* `$I30` is not a standalone file or artifact but a collection of multiple attributes of the file system. Attribute files like the `$Bitmap`, `$INDEX_ROOT`, and `$INDEX_ALLOCATION`. The 30 in its name comes from the offset for `$FILE_NAME` in an MFT record.
 * It keeps track of which files are in which directories, along with MACB timestamps and file location.
 * It also has slack space, similar to `$MFT`, but again for smaller files.
 
 ___Significance:___
-* Original timestamps for deleted files can be retreived.
-* Useful in detection of anti-forensic tools and timestomping as the timestamps are `$FILE_NAME` attribute timestamps which are not easily modifiable or accessible through the Windows API.
+* Original timestamps for deleted files can be retrieved.
+* Useful in the detection of anti-forensic tools and timestamping as the timestamps are `$FILE_NAME` attribute timestamps which are not easily modifiable or accessible through the Windows API.
 * Important metadata like MACB timestamps can be obtained.
 
 ### $UsnJrnl
 ___About:___
 * The NTFS file system has a journaling mechanism, which logs all the transactions performed in the file system as a contingency plan for system failures and crashes. This transaction data is contained in the `$UsnJrnl` attribute file.
-* `$UsnJrnl`, read as USN Journal, is the main artifact which contains two alternate data streams namely `$Max` and `$J`, out of which `$J` is highly of interest for forensicators. It contains critical data such as if a file was overwritten, truncated, extended, created, closed or deleted along with the corresponding timestamp for that file update action.
-* `$UsnJrnl` tracks high-level changes to the file system, like file creation, deletion, renaming data etc.
+* `$UsnJrnl`, read as USN Journal, is the main artifact which contains two alternate data streams namely `$Max` and `$J`, out of which `$J` is highly of interest for forensicators. It contains critical data such as if a file was overwritten, truncated, extended, created, closed, or deleted along with the corresponding timestamp for that file update action.
+* `$UsnJrnl` tracks high-level changes to the file system, like file creation, deletion, renaming data, etc.
 
 ___Significance:___
 * Useful to support or deny timestamp metadata. Potential evidence of deleted and renamed files. i.e., evidence of existence.
 * The slack space for this artifact isn't managed at all, so additional data could be carved. Since it only keeps the data for some days, carving can be potentially useful for deleted records.
-* Tracks changes to files and directories with reason for the change.
+* Tracks changes to files and directories with the reason for the change.
 
 ### $LogFile
 ___About:___
-* This is yet another artifact used by the NTFS for journaling. Only difference is `$LogFile` is concerned with changes made to the MFT and not the entire NTFS file system itself. Meaning it may directly contain data that was changed, similarly to how `$MFT` sometimes stores the files if they're small enough.
-* These 4 artifacts, in bunch can say a lot about an event or a transaction while performing file system forensics.
-* `$LogFile` tracks low-level changes to the file system, like data which was changed.
+* This is yet another artifact used by the NTFS for journaling. The only difference is that `$LogFile` is concerned with changes made to the MFT and not the entire NTFS file system itself. Meaning it may directly contain data that was changed, similarly to how `$MFT` sometimes stores the files if they're small enough.
+* These 4 artifacts, in a bunch can say a lot about an event or a transaction while performing file system forensics.
+* `$LogFile` tracks low-level changes to the file system, like data that was changed.
 
 ___Significance:___
 * Detect anti-forensic attempts targeted on the `$MFT` since `$LogFile` contains changes made to it.

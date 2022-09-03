@@ -11,7 +11,7 @@ I have had the pleasure of working with many individuals within the cyber securi
 
 Regardless of which side you prefer to operate on, whether you're a penetration tester looking to put an organization’s security program to the test or a blue teamer looking to stomp on adversaries during every step of their desired campaign, we are ultimately on the same side. We are advisors to risk and we offer guidance on how to eliminate that risk; the difference is being how we respond.
 
-We are ultimately on the same team, operating as one entity to ensure the security and integrity of the organizations we serve the data that they protect. Part of how we work towards this common goal is through professional development and imparting our knowledge onto others. Projects such as this is an example of why our security community is strong. We care, we learn, we grow. Together, there is nothing that will stop us from being successful.
+We are ultimately on the same team, operating as one entity to ensure the security and integrity of the organizations we serve and the data that they protect. Part of how we work towards this common goal is through professional development and imparting our knowledge to others. Projects such as this are an example of why our security community is strong. We care, we learn, we grow. Together, there is nothing that will stop us from being successful.
 
 As an individual who is primarily a blue teamer with roots in penetration testing, I am looking to impart unto you some of the common scenarios that I have faced that I feel would help provide you the foundation and confidence you’re looking for to comfortably break down obfuscated PowerShell payloads.
 
@@ -41,12 +41,12 @@ Through this chapter, I am looking to expose you to the following obfuscation te
 
 ## Stigma of Obfuscation
 
-While Obfuscation in essence is a puzzle of sorts and with every puzzle, all you need is time. It’s important to understand that obfuscation is not an end all be all solution to preventing payloads from being signatured. If you continue to use the same obfuscated payload or obfuscation technique, it will eventually get busted.
+While Obfuscation in essence is a puzzle of sorts and with every puzzle, all you need is time. It’s important to understand that obfuscation is not be-all and end-all solution to preventing payloads from being signatured. If you continue to use the same obfuscated payload or obfuscation technique, it will eventually get busted.
 
 This reality can cause debates in the security community on it’s overall effectiveness, but it’s important for us to understand that obfuscation serves two purposes for red teams:
 
-Bypass various signature based detections from anti-virus solutions as well as AMSI
-To buy time in the event the payload is successful, but later discovered by a blue team
+Bypass various signature based detections from anti-virus solutions as well as AMSI;
+To buy time in the event the payload is successful, but later discovered by a blue team.
 
 The process of bypassing security solutions is a trivial process, but where the gap typically exists is with the second bullet when we are responding to incidents involving these payloads.
 
@@ -56,7 +56,7 @@ Assume we are a penetration tester and we are performing an assessment against a
 
 At some point the user reports the email and we launch our phishing assessment procedures and identify that the user did in fact open the email and got pwned.
 
-From the firewall logs we are able to see where they connected to and were able to plug the hole. Continuing our incident response procedures, we follow up on the embed payload to ensure that it doesn’t include another logic that does anything else that we don’t already know about, such as mechanisms where it has a more than one remote address it can reach out to in the event one gets discovered.
+From the firewall logs we are able to see where they connected to and were able to plug the hole. Continuing our incident response procedures, we follow up on the embedded payload to ensure that it doesn’t include another logic that does anything else that we don’t already know about, such as mechanisms where it has a more than one remote address it can reach out to in the event one gets discovered.
 
 As the penetration tester, we coded contingencies for this very scenario so that our payload does in fact use more than one remote address. To ensure our extra effort doesn’t get steam rolled, we obfuscated our payload so the blue team would have to spend extra time lifting the veil, buying us more time to hopefully move laterally through the network, away from the point of entry.
 
@@ -117,7 +117,7 @@ PS C:\> Write-Output "[*] Decoded Command >> $Command"
 [*] Decoded Command >> Write-Output "Obfuscated Payload"
 ```
 
-Running this method has revealed a simple payload, which was expected based on the size of the base 64 encoded string.If it was significantly larger, we could safely assume that that payload would be larger.
+Running this method has revealed a simple payload, which was expected based on the size of the base 64 encoded string. If it was significantly larger, we could safely assume that that payload would be larger.
 
 You can replicate this obfuscation technique for decoding practice using this snippet to encode a simple one-liner, or even expand to more complex scripts.
 
@@ -235,7 +235,7 @@ PS C:\> [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64Stri
 
 Let’s keep looking at the payload. If you remember from before, when we see iex, or invoke-expression, then it’s executing a resulting string.
 
-With this in mind, look at  how iex is followed by a grouping operator `()` which contains a set of expressions. This tells us that iex ultimately executes the resulting code from the inner expressions.
+With this in mind, look at how iex is followed by a grouping operator `()` which contains a set of expressions. This tells us that iex ultimately executes the resulting code from the inner expressions.
 
 If we simply remove iex, and execute the remaining code, we’ll see the resulting code that is being executed.
 
@@ -367,7 +367,7 @@ When dealing with these replace operations, pay very close attention to your int
 
 ## ASCII Translation
 
-When we view strings we are seeing them in a format that we understand, their character values. These character values also have binary representation of the character that your computer will understand. For example, we know that the ASCII value of the character a is 97. To the benefit of some, so does PowerShell out of the box.
+When we view strings we are seeing them in a format that we understand, their character values. These character values also have binary representation of the character that your computer will understand. For example, we know that the ASCII value of the character 'a' is 97. To the benefit of some, so does PowerShell out of the box.
 
 We can see this understanding directly from the console through type casting.
 

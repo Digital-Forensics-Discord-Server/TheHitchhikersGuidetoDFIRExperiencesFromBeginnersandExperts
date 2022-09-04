@@ -6,4 +6,4 @@
 
 * [Oaker Min](https://github.com/brootware) | [Blog](https://brootware.github.io/) | [Twitter](https://twitter.com/brootware/) - For helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!
 
-* And anyone else who contributed to the Git* ...and all other [contributors]() to the GitHub repository!
+* ...and all other [contributors](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/graphs/contributors) to the GitHub repository!

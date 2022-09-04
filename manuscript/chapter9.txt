@@ -153,7 +153,7 @@ For a full set of commands please refer to the GitHub development page.
 
 ### Virtual Machines
 
-The use of virtual machines has become commonplace in the IT industry and of course this impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are necessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility.
+Prevalent use of virtual machines impacts memory acquisition as well with its own advantages and disadvantages. One advantage is that memory collection has become easier. A virtual machine hypervisor allows a virtual machine to be suspended, hitting the pause button, and freezing all activity. During this process the contents of the RAM are written to disk, no additional tools are necessary to perform an acquisition. Files from popular vendors like VMware and Virtualbox can be analyzed by memory analysis tools like Volatility.
 
 * * *
 
@@ -161,7 +161,7 @@ The use of virtual machines has become commonplace in the IT industry and of cou
 
 ## Next Steps and Conclusion
 
-This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and assosciated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost.  In the near future this book will hopefully contain a triage chapter as well, in the meantime a couple of pointers can be found below. Disk sizes are ever-expanding and it is no longer feasible for most investigations to investigate a image to its full extent in the initial phase of an investigation. Rather, it is recommended to focus on well-known forensic artifacts which can be used to answer research questions. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/.
+This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and associated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost.  In the near future, this book will hopefully contain a triage chapter as well, in the meantime, a couple of pointers can be found below. Disk sizes are ever-expanding and it is no longer feasible for most investigations to investigate an image to its full extent in the initial phase of an investigation. Rather, it is recommended to focus on well-known forensic artifacts which can be used to answer research questions. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/.
 
 A number of tools can be of use during triage, these include:
 
@@ -170,7 +170,7 @@ A number of tools can be of use during triage, these include:
 * [KAPE](https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape)
 * [Eric Zimmerman Tools](https://ericzimmerman.github.io/#!index.md) (most notably Timeline Explorer)
 
-FTK Imager can be used to read the image and browse the file system by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post processing steps.
+FTK Imager can be used to read the image and browse the file system by hand, it can be used to gain an initial impression of the host system in question without losing time to additional post-processing steps.
 
 Arsenal Image Mounter can be used to mount images in a read-only manner. This capability can be used in conjunction with KAPE to quickly extract pertinent artifacts. It has more advanced functionality as well but that is beyond the scope of this chapter.
 
@@ -178,10 +178,10 @@ KAPE, created by Eric Zimmerman, can be used to quickly collect and post-process
 
 Of particular note for triage is the [KapeTriage Target](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Compound/KapeTriage.tkape). The following description is provided at the time of writing:
 
-KapeTriage collections that will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
+KapeTriage collections will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
 
-The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format.
+The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from the most common artifacts. Data will be made available in CSV format.
 
-These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
+These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility that can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
 
 * * *

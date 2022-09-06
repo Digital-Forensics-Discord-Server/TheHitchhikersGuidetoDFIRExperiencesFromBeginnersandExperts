@@ -161,7 +161,7 @@ Prevalent use of virtual machines impacts memory acquisition as well with its ow
 
 ## Next Steps and Conclusion
 
-This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and associated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/. For tips on scaling triage, check out Chapter X of this book, written by the same author.
+This chapter was designed to hit the ground running and assist a forensicator with imaging a desktop or server.  What's next in the investigation relies completely upon the research questions and associated context of the case itself. One final tip this chapter can provide is to focus on triage first and foremost. SANS has developed a poster for this specific scenario as part of its FOR500 and FOR508 courseware. It can be found at https://www.sans.org/posters/windows-forensic-analysis/. For tips on scaling triage, check out Chapter 11 of this book, written by the same author.
 
 
 * * *

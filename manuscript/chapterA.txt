@@ -1,7 +1,7 @@
 # Chapter A - Scaling, scaling, scaling, a tale of DFIR Triage
 
 {width: 30%}
-![](ChXX/XXX.png)
+![](ChG/XXX.png)
 
 C> By [Guus Beckers](http://discordapp.com/users/323054846431199232) | [LinkedIn](https://www.linkedin.com/in/guusbeckers/)
 
@@ -35,11 +35,11 @@ The second part of KAPE covers analysis through definitions called Modules. A mo
 
 Of particular note for triage is the [KapeTriage Target](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Compound/KapeTriage.tkape). The following description is provided at the time of writing:
 
-KapeTriage collections that will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
+KapeTriage collections will collect most of the files needed for a DFIR Investigation. This Target pulls evidence from File System files, Registry Hives, Event Logs, Scheduled Tasks, Evidence of Execution, SRUM data, SUM data, Web Browser data (IE/Edge, Chrome, Firefox, etc), LNK Files, Jump Lists, 3rd party remote access software logs, antivirus logs, Windows 10 Timeline database, and $I Recycle Bin data files.
 
-The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from most common artifacts. Data will be made available in the CSV format.
+The KapeTriage collection can be post-processed using the [!EZParser Module](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/Compound/!EZParser.mkape). These parsers, also written by Eric Zimmerman, can be used to extract information from the most common artifacts. Data will be made available in CSV format.
 
-These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility which can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
+These parsers (and other tools) can also be downloaded individually [here](https://ericzimmerman.github.io/#!index.md). Among the tools is Timeline Explorer, which is a utility that can open CSV files and has robust search and sorting options. A description and demonstration of Timeline Explorer is available at [AboutDFIR](https://aboutdfir.com/toolsandartifacts/windows/timeline-explorer/).
 
 KAPE can be used during live investigations but also after a forensic image has been created. A recommended tool to use with KAPE is Arsenal Image Mounter. Among its capabilities is read-only and write-protected image mounting. Just point KAPE at the assigned drive letter and it can perform collection and analysis. 
 
@@ -54,10 +54,17 @@ Similar tools like KAPE also exist for other operating systems. One of the tools
 ## Scaling up to a medium-sized subnet
 
 The aforementioned tools work fantastically on a single host but how can we scale this to a subnet? 
+The Kansa PowerShell IR Framework was created by Dave Hull to facilitate a growing need in the DFIR community, determining where deep- dive forensics should take place in ever-expanding networks.
 
+To do this Kansa operates on two assumptions, malware needs to be present on the machine to perform its actions and malicious activity is relatively rare and therefore automatically stands out.  To accomplish this Kansa is made up of two distinct components. 
 
-macOS and Linux don't have similar tools but this shouldn't necessarily be a problem as can be seen in the next chapter.
+The collection component is able to collect a number of lightweight artifacts including autostoel locations, services, new admin users etc.  The type of artifact is determined by a PowerShell script, each artifact uses its own script. These scripts are tied together with a Kansa master script. The master script is used to set which evidence needs to be collected. The Kansa scripts need to be executed on each server where evidence needs to be collected. To facilitate a secure transfer of credentials, it uses PowerShell tempting for this purpose. Kansa also integrates with third part executables. Any required executable can automatically be pushed to the various servers.
 
+The second component is the Kansa analysis part. These scripts stack the output of each gathered evidence item and counts the presence of each item. In this manner, outliers become more easily visible. 
+
+A limitation of Kansa is that it uses persistent PowerShell connections until a script has been completed. For this reason it is not recommended to use Kansa for more then 100 hosts. A distributed version of Kansa, developed by Jon Ketchum, addresses this limitation. The distributed version lifts many of the limitations of the original version. Persistent connections are no longer required. Larger data sets also require an optimized parsing method. For this reason the distributed version of Kansa uses an Elasticsearch backend. You're encouraged to check out the [original](https://www.youtube.com/watch?v=ZyTbqpc7H-M) talk. 
+
+macOS and Linux don't have similar tools but this shouldn't necessarily be be a problem. Both operating systems have a long history of text manipulation tools like awk, grep and uniq. Depending on the retrieved information, a combination of these tools can be used to achieve the same results. 
 
 ## Scaling up to an entire network 
 
@@ -70,4 +77,46 @@ Analysts can use Velociraptor to:
 * Retrieve any file on a connected endpoint in a forensically sound manner.
 * Retrieve forensic artifacts from all connected endpoints with the push of a button. 
 * Scan for IOCs utlizing both regex and YARA rules
+* Push and utilize third party command line tools on all hosts running an agent
 
+It is not possible to do Velociraptor justice within a short section of this chapter. Rather then describe it, it is advised to see the tool in action. Eric Capuano recently gave a [rundown](https://www.youtube.com/watch?v=Q1IoGX--814) on Velociraptor using a small network. Furthermore, Michel Cohen also developed his own tutorial series which is currently available free of charge on this [link](https://docs.velociraptor.app/training/). 
+
+
+## Other tools
+A number of other triage tools aren’t discussed in depth but are still quite useful while performing triage. They can either be used on a stand-alone basis or pushed by Velociraptor. Be aware that these tools might set off AV due to their included malware signatures. 
+
+* [Autoruns](https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns) or its CLI version Autorunsc, useful for enumerating all ASEP locations on a host. 
+* [DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI), a tool which enables threat hunting using the Windows Event logs
+* [Chainsaw](https://github.com/WithSecureLabs/chainsaw), a similar tool which can group significant events
+* [Loki](https://github.com/Neo23x0/Loki), an IOC/Yara scanner which can enumerate known malicious files on a host
+* [Hayabusa](https://github.com/Yamato-Security/hayabusa), an expansive threat hunting scanner which offers timelining capabilities
+
+## Practicing triage 
+
+Triage can be practiced on any number of forensic disk images. The following community images are included as recommendation:
+
+* [DFIR Madness - The case of the stolen Szechuan sauce](https://dfirmadness.com/the-stolen-szechuan-sauce/)
+* [Digital Corpora - 2012 National Gallery DC Scenario](https://digitalcorpora.org/corpora/scenarios/national-gallery-dc-2012-attack/)
+* [Digital Corpora - 2019 Narcos Scenario](https://digitalcorpora.org/corpora/scenarios/2019-narcos/)
+* [Cyberdefenders - Pawned DC](https://cyberdefenders.org/blueteam-ctf-challenges/89)
+
+## Contributions and sources
+
+Forensic triage, perhaps more than any other aspect of forensics relies on input of the entire community. Without the aid of the developers in this section, triage would surely be more difficult. 
+
+* Eric Zimmerman for creating the variety of parsers and KAPE. 
+* Andrew Rathbun for creating a multitude of KAPE targets.
+* Yogesh Khatri for creating the mac_apt acquisition framework.
+* Thiago Lahr for his development of the Unix Artifact Collector.
+* Dave Hull for creating Kansa and Jon Ketchum for extending the original suite with DistributedKansa.
+* Michel Cohen for creating Velociraptor.
+* Eric Conrad for his work on DeepBlueCLI.
+* Nextron Systems for developing the Loki scanner.
+* WithSecure Labs for developing the Chainsaw EVTX scanner.
+* Yamato Security for creating the Hayabusa threat hunting scanner.
+
+Also information from the sources below was used in creating this chapter:
+
+* Richard Davies for creating the excellent 13Cubed YouTube series.
+* Eric Capuano demoed the powerful capabilities of Velociraptor.
+* Jason Jordaan for suggesting various best practices related to the deployment of Velociraptor. 

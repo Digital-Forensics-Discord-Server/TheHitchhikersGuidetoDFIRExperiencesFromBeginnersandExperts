@@ -1,7 +1,7 @@
 # Chapter 11 - Scaling, scaling, scaling, a tale of DFIR Triage
 
 {width: 30%}
-![](ChG/XXX.png)
+![](Ch11/triangle.png)
 
 C> By [Guus Beckers](http://discordapp.com/users/323054846431199232) | [LinkedIn](https://www.linkedin.com/in/guusbeckers/)
 

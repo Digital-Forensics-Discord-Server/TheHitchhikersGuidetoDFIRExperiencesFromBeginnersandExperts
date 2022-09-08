@@ -1,5 +1,48 @@
-# Chapter 21 - Chapter Title Goes Here
+# Chapter 21 - Zff - a new forensic file format
 
-## Subheading goes here
+C> By [ph0llux](https://github.com/ph0llux)
 
-Content goes here. Remember, only what is put here is parsed by Leanpub to generate the PDF/MOBI/EPUB files.
+## Introducting Zff
+
+This chapter describes the structure and design of the very recent forensic file format Zff in a very detailed way.
+
+### What is a forensic file format?
+
+The most common physical objects of interest in digital forensics are probably data storage media by far.
+At the same time, the data on them also takes up most of the examination time in digital forensics.
+As in all other forensic disciplines, the main goal of IT forensic experts ist to analyse the data as unaltered as it can be obtained.
+
+The most common way to obtain an unaltered state of the data you want to examine is to create a copy of them. There are two different types of such copies here: those of logical folder structure (and files) and those of all the data on the storage media themselves.
+To ensure that these copies cannot be changed, they are stored as a so-called "image" (in the case of logical file system structures, this is referred to as a "logical image"; in the case of copies of all data on storage media, this is referred to as a "physical image" or "disk image"). Additional information about the creation of disk images and subtypes are described in chapter 17 in a very detailed way.
+However, these "images" can be stored in different file formats and contain different additional information or meta information depending on the file format. Some known file formats are shortly considered in the following.
+
+#### RAW (DD)
+
+The most primitive (forensic) file format is a raw image (often also known as dd image): just a bit-by-bit copy of the entire disk, which could be created by a single ```dd``` unix-command. The data will be directly copied to the raw image and doesn't contain any metadata or additional information.
+As this raw image file contains the unmodified data without any additional information to interpret, there is a wide range of tools that can be used to analyse them (even for non-forensic tools).
+On the other hand some additional operations like compression, hashing, encryption, can be made and are also necessary without altering the useful content of a bit by bit copy. Additional information regarding these kind of operations has to be stored alongside the "image" itself.
+
+#### Archive (Tar, Zip, ...)
+
+The most primitive way to acquire logical folder structures is to store them into archives. There are several archive formats to solve this; among the most widespread are certainly GNU Tar and Zip.
+With both archive formats mentioned above the folder structures as well as file contents of the files contained in the folder structures can be stored - however afterwards some file system metadata of the files are missing and also no further metadata (like hash values, etc.) can be stored - these would have to be created in separate files and then also packed into the archive.
+However, the corresponding standard is missing for the last point.
+
+#### EWF / E01
+
+todo!()
+
+### Terminology
+
+The appropriate terminology needed to understand how Zff works:
+
+- **header / footer**: Zff contains several headers and footers which contain meta information about their designated assignments. E.g. there is a "compression header" which contains the appropriate information about the used compression method or the compression level. 
+
+- **segment**: Zff containers can be stored split - into several individual files. To read the data in the appropriate container "files" in an efficient way, zff has its own implementation to segment its container - the individual files obtained after splitting a container are called "segments".
+
+- **object**: A zff container can store multiple images in a single container. Each image (physical or logical) is called "object".
+
+- **chunk**: The input data is read in parts and also stored as such "parts". These "parts" are called "chunks" and can be stored compressed and/or encrypted, if necessary. The entire process is called "chunking" and will be discussed in detail in a later subsection.
+
+## References
+

@@ -14,3 +14,4 @@ chapter9.txt
 chapter10.txt
 chapter11.txt
 errata.txt
+changelog.txt

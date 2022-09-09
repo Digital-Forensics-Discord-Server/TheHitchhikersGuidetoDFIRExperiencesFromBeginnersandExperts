@@ -122,4 +122,3 @@ Also information from the sources below was used in creating this chapter:
 
 * Richard Davis for creating the excellent 13Cubed YouTube series.
 * Eric Capuano for demoing the powerful capabilities of Velociraptor.
-* Jason Jordaan for suggesting various best practices related to the deployment of Velociraptor.

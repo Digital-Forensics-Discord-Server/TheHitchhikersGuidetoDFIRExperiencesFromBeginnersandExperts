@@ -1,4 +1,4 @@
 # Changelog
 
-* v1.0 - August 15, 2022 - https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/releases/tag/v1.0
-* v1.1 - TBD - ![](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/releases/tag/v1.1)
+* [v1.0](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/releases/tag/v1.0) - August 15, 2022
+* [v1.1](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/releases/tag/v1.1) - September 10, 2022

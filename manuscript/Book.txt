@@ -1,5 +1,6 @@
 authors.txt
 contributors.txt
+disclaimer.txt
 introduction.txt
 chapter1.txt
 chapter2.txt
@@ -13,3 +14,4 @@ chapter9.txt
 chapter10.txt
 chapter11.txt
 errata.txt
+changelog.txt

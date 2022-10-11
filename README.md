@@ -19,7 +19,7 @@ This is a proof of concept and a great first step for providing a different meth
 
 ## When will it be done?
 
-Version 1.0 went live on Auguest 15, 2022!
+Version 1.0 went live on August 15, 2022!
 
 From the beginning, the writing and editing process has been fully transparent to the public! Check out the [Milestones](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/milestones) to see where we're at. Stay tuned!
 

@@ -49,6 +49,28 @@ The forensic file formats presented above have a number of similarities - also w
 Zff's main goals are always speed, security and flexibility. These goals have always been the focus of every design decision and thus stand out across the entire format.
 The design decisions have always been made to allow easy extensibility of the format at a later point in time - especially so that existing programming implementations can be easily extended and half the code does not have to be discarded just to enable another feature.
 
+#### Featureset overview
+
+##### supported compression algorithms
+
+Since the first goal of Zff is speed, the choice of compression algorithms used in Zff excluded candidates that provide good compression ratio but slow performance. Algorithms such as LZMA are therefore not used here.
+
+Under certain circumstances (e.g. when reading compressed data from a slow storage medium like a HDD) it may make sense to provide a better compression rate here to increase the speed (this happens when reading uncompressed data from a medium takes longer than reading compressed data from that medium + decompressing it in the CPU).
+Also, it must be taken in consideration that there are algorithms that are similar in the speed of compression, but differ significantly in the speed of decompression.
+Assuming that a forensic image is created only once, but is read many times (due to analysis), more focus is placed here on the speed of decompression than on compression.
+
+Zff currently supports two "real-time" algorithms for compressing data: Zstd and Lz4.
+
+Lz4 is widely used, a large number of implementations exist for it in different programming languages. For example, it is used in the ZFS file system for real-time compression of data, there is a native implementation in the Linux kernel, etc.
+Lz4 has very high speed decompression, in most cases several GB/s per CPU core, typically limited by the speed of RAM.
+
+Zstd is a newer compression algorithm to which meanwhile also a multiplicity of implementations in different programming languages exist. Zstd is used, for example, in the Btrfs file system for real-time compression of data, and there is also a native implementation in the Linux kernel.
+Zstd has a good decompression speed, although it does not come close to Lz4. However, Zstd has compression ratios that are equal to DEFLATE (at a much higher speed). So Zstd offers the slightly better overall package and is used by default by the Zff reference implementation.
+
+##### supported encryption
+
+todo!()
+
 ### Terminology //TODO: may needless ... remove this section?
 
 The appropriate terminology needed to understand how Zff works:

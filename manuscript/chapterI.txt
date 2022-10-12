@@ -6,7 +6,7 @@ C> By [ph0llux](https://github.com/ph0llux)
 
 This chapter describes the structure and design of the very recent forensic file format Zff in a very detailed way.
 
-### What is a forensic file format?
+### What is a forensic file format? //TODO: Check Check if there is not a better heading for this...?
 
 The most common physical objects of interest in digital forensics are probably data storage media by far.
 At the same time, the data on them also takes up most of the examination time in digital forensics.
@@ -32,7 +32,24 @@ However, the corresponding standard is missing for the last point.
 
 todo!()
 
-### Terminology
+#### AFF
+
+todo!()
+
+#### AFF4
+
+todo!()
+
+### The newcomer (Zff)
+
+The forensic file formats presented above have a number of similarities - also with the new file format zff presented here.
+
+#### The concepts of Zff
+
+Zff's main goals are always speed, security and flexibility. These goals have always been the focus of every design decision and thus stand out across the entire format.
+The design decisions have always been made to allow easy extensibility of the format at a later point in time - especially so that existing programming implementations can be easily extended and half the code does not have to be discarded just to enable another feature.
+
+### Terminology //TODO: may needless ... remove this section?
 
 The appropriate terminology needed to understand how Zff works:
 
@@ -44,5 +61,10 @@ The appropriate terminology needed to understand how Zff works:
 
 - **chunk**: The input data is read in parts and also stored as such "parts". These "parts" are called "chunks" and can be stored compressed and/or encrypted, if necessary. The entire process is called "chunking" and will be discussed in detail in a later subsection.
 
+### The general layout
+
+
+
 ## References
 
+[] https://facebook.github.io/zstd/

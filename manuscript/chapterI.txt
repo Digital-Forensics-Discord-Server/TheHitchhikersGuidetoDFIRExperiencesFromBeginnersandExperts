@@ -88,6 +88,12 @@ It is also a public/private key method and is used in numerous applications (BSD
 
 ##### Supported encryption (confidentiality)
 
+In some cases, in addition to ensuring integrity and authenticity, it may also be useful to encrypt the stored data directly (confidentiality).
+To avoid having to generate additional digital signatures and hash values when encrypting data, Zff only offers encryption using AEAD (Authenticated Encryption with Associated Data) algorithms.
+Zff currently specifies two algorithms for this purpose: AES-GCM-SIV and ChaCha20Poly1305. AES-GCM-SIV is offered in 128bit and 256bit variants.
+AES-GCM-SIV was explicitly chosen to avoid possible design weaknesses (especially nonce reuse) and because it offers a very good performance on CPUs with AES-NI (mostly x86 or newer ARM). However, implementation errors can occur in the algorithm - for common programming languages there are already implementations with partly independent verification. These should also be used - ultimately, a good encryption algorithm often fails due to buggy implementations.
+ChaCha20Poly1305 also offers a very good performance - on CPUs with AES-NI the algorithm AES-GCM-SIV is usually inferior - but it is very suitable for CPUs which do not have an AES-NI (e.g. Rasperry Pis). ChaCha20Poly1305 is vulnerable to nonce reuse. Zff uses the respective chunk number as nonce, which is unique within a Zff container - a nonce reuse is therefore not intended, this vulnerability should not be present in Zff.
+
 ##### Format options (flexibility) //TODO: Check if there is not a better heading for this...?
 
 The format is built to be streamable: The format is organized so that any headers do not need to be rewritten with information afterwards - so Zff files can be streamed directly when they are created. An example here would be to create a Zff file with a tool that streams the file to a client via HTTP during creation.
@@ -104,9 +110,6 @@ The appropriate terminology needed to understand how Zff works:
 - **object**: A zff container can store multiple images in a single container. Each image (physical or logical) is called "object".
 
 - **chunk**: The input data is read in parts and also stored as such "parts". These "parts" are called "chunks" and can be stored compressed and/or encrypted, if necessary. The entire process is called "chunking" and will be discussed in detail in a later subsection.
-
-### The general layout
-
 
 
 ## References

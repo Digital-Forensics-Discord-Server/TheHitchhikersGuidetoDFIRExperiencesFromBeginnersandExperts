@@ -6,7 +6,7 @@ C> By [ph0llux](https://github.com/ph0llux)
 
 This chapter describes the structure and design of the very recent forensic file format Zff in a very detailed way.
 
-### What is a forensic file format?
+### What is a forensic file format? //TODO: Check if there is not a better heading for this...?
 
 The most common physical objects of interest in digital forensics are probably data storage media by far.
 At the same time, the data on them also takes up most of the examination time in digital forensics.
@@ -32,7 +32,74 @@ However, the corresponding standard is missing for the last point.
 
 todo!()
 
-### Terminology
+#### AFF
+
+todo!()
+
+#### AFF4
+
+todo!()
+
+### The newcomer (Zff)
+
+The forensic file formats presented above have a number of similarities - also with the new file format zff presented here.
+
+#### The concepts of Zff
+
+Zff's main goals are always speed, security and flexibility. These goals have always been the focus of every design decision and thus stand out across the entire format.
+The design decisions have always been made to allow easy extensibility of the format at a later point in time - especially so that existing programming implementations can be easily extended and half the code does not have to be discarded just to enable another feature.
+
+#### Featureset overview
+
+##### supported compression algorithms
+
+Since the first goal of Zff is speed, the choice of compression algorithms used in Zff excluded candidates that provide good compression ratio but slow performance. Algorithms such as LZMA are therefore not used here.
+
+Under certain circumstances (e.g. when reading compressed data from a slow storage medium like a HDD) it may make sense to provide a better compression rate here to increase the speed (this happens when reading uncompressed data from a medium takes longer than reading compressed data from that medium + decompressing it in the CPU).
+Also, it must be taken in consideration that there are algorithms that are similar in the speed of compression, but differ significantly in the speed of decompression.
+Assuming that a forensic image is created only once, but is read many times (due to analysis), more focus is placed here on the speed of decompression than on compression.
+
+Zff currently supports two "real-time" algorithms for compressing data: Zstd and Lz4.
+
+Lz4 is widely used, a large number of implementations exist for it in different programming languages. For example, it is used in the ZFS file system for real-time compression of data, there is a native implementation in the Linux kernel, etc.
+Lz4 has very high speed decompression, in most cases several GB/s per CPU core, typically limited by the speed of RAM.
+
+Zstd is a newer compression algorithm to which meanwhile also a multiplicity of implementations in different programming languages exist. Zstd is used, for example, in the Btrfs file system for real-time compression of data, and there is also a native implementation in the Linux kernel.
+Zstd has a good decompression speed, although it does not come close to Lz4. However, Zstd has compression ratios that are equal to DEFLATE (at a much higher speed). So Zstd offers the slightly better overall package and is used by default by the Zff reference implementation.
+
+##### Hash values and digital signatures (Integrity and authenticity)
+
+The most common way to ensure the integrity of the stored data is to generate hash values of the stored data (or of parts of the data) in purpose to compare them at a later point in time.
+Zff also offers the possibility to generate hash values of the stored data and stores them as metadata.
+
+However, the simple generation of hash values does not provide any form of authenticity in itself. 
+If the hash value is calculated again at a later time using the stored data and compared with the hash value in the metadata, you can be sure that the integrity of the image is correct and that no transmission errors have occurred during a copying process.
+However, this calculation alone cannot be used to detect any manipulation of the data. 
+An attacker could start here at different points, modify the stored data and recalculate the hash values, and then store the recalculated hash values in the metadata.
+This would work with all the forensic file formats listed above.
+There are many different strategies for doing this, but usually duplicate documentation follows at some point after the data has been stored (this may even be followed by another window of time during which an attack can take place - especially in the case of live forensic operations).
+
+Furthermore, there is no protection against identity fraud at this point. Images can simply be created in someone else's name (I don't want to mention a use case here, because I don't want to step on anyone's feet - everyone can think for themselves whether they can imagine a realistic scenario).
+
+However, Zff offers a solution beyond hash values that can fix both of the above problems: Digital signatures.
+Zff offers the possibility to digitally sign the generated hash values or even the complete data using the ed25519 (RFC 8032) method.
+The ed25519 was chosen because it uses significantly smaller keys compared to the competing RSA method (the keys used can even be distributed as a QR code ;) ).
+It is also a public/private key method and is used in numerous applications (BSD's signify, GnuPG, openSSH, ...).
+
+##### Supported encryption (confidentiality)
+
+In some cases, in addition to ensuring integrity and authenticity, it may also be useful to encrypt the stored data directly (confidentiality).
+To avoid having to generate additional digital signatures and hash values when encrypting data, Zff only offers encryption using AEAD (Authenticated Encryption with Associated Data) algorithms.
+Zff currently specifies two algorithms for this purpose: AES-GCM-SIV and ChaCha20Poly1305. AES-GCM-SIV is offered in 128bit and 256bit variants.
+AES-GCM-SIV was explicitly chosen to avoid possible design weaknesses (especially nonce reuse) and because it offers a very good performance on CPUs with AES-NI (mostly x86 or newer ARM). However, implementation errors can occur in the algorithm - for common programming languages there are already implementations with partly independent verification. These should also be used - ultimately, a good encryption algorithm often fails due to buggy implementations.
+ChaCha20Poly1305 also offers a very good performance - on CPUs with AES-NI the algorithm AES-GCM-SIV is usually inferior - but it is very suitable for CPUs which do not have an AES-NI (e.g. Rasperry Pis). ChaCha20Poly1305 is vulnerable to nonce reuse. Zff uses the respective chunk number as nonce, which is unique within a Zff container - a nonce reuse is therefore not intended, this vulnerability should not be present in Zff.
+
+##### Format options (flexibility) //TODO: Check if there is not a better heading for this...?
+
+The format is built to be streamable: The format is organized so that any headers do not need to be rewritten with information afterwards - so Zff files can be streamed directly when they are created. An example here would be to create a Zff file with a tool that streams the file to a client via HTTP during creation.
+The format can hold logical dumps (like filesystem extractions or logical folder structures) and physical dumps (like a dump of /dev/sda). You can store a single or multiple dumps in one zff container and - optionally - split the container in multiple files (like the format EWF).
+
+### Terminology //TODO: may needless ... remove this section?
 
 The appropriate terminology needed to understand how Zff works:
 
@@ -44,5 +111,7 @@ The appropriate terminology needed to understand how Zff works:
 
 - **chunk**: The input data is read in parts and also stored as such "parts". These "parts" are called "chunks" and can be stored compressed and/or encrypted, if necessary. The entire process is called "chunking" and will be discussed in detail in a later subsection.
 
+
 ## References
 
+[] https://facebook.github.io/zstd/

@@ -6,7 +6,7 @@ C> By [ph0llux](https://github.com/ph0llux)
 
 This chapter describes the structure and design of the very recent forensic file format Zff in a very detailed way.
 
-### What is a forensic file format? //TODO: Check Check if there is not a better heading for this...?
+### What is a forensic file format? //TODO: Check if there is not a better heading for this...?
 
 The most common physical objects of interest in digital forensics are probably data storage media by far.
 At the same time, the data on them also takes up most of the examination time in digital forensics.
@@ -67,7 +67,7 @@ Lz4 has very high speed decompression, in most cases several GB/s per CPU core, 
 Zstd is a newer compression algorithm to which meanwhile also a multiplicity of implementations in different programming languages exist. Zstd is used, for example, in the Btrfs file system for real-time compression of data, and there is also a native implementation in the Linux kernel.
 Zstd has a good decompression speed, although it does not come close to Lz4. However, Zstd has compression ratios that are equal to DEFLATE (at a much higher speed). So Zstd offers the slightly better overall package and is used by default by the Zff reference implementation.
 
-##### Integrity and authenticity
+##### Hash values and digital signatures (Integrity and authenticity)
 
 The most common way to ensure the integrity of the stored data is to generate hash values of the stored data (or of parts of the data) in purpose to compare them at a later point in time.
 Zff also offers the possibility to generate hash values of the stored data and stores them as metadata.
@@ -86,9 +86,12 @@ Zff offers the possibility to digitally sign the generated hash values or even t
 The ed25519 was chosen because it uses significantly smaller keys compared to the competing RSA method (the keys used can even be distributed as a QR code ;) ).
 It is also a public/private key method and is used in numerous applications (BSD's signify, GnuPG, openSSH, ...).
 
-##### Supported encryption
+##### Supported encryption (confidentiality)
 
-todo!()
+##### Format options (flexibility) //TODO: Check if there is not a better heading for this...?
+
+The format is built to be streamable: The format is organized so that any headers do not need to be rewritten with information afterwards - so Zff files can be streamed directly when they are created. An example here would be to create a Zff file with a tool that streams the file to a client via HTTP during creation.
+The format can hold logical dumps (like filesystem extractions or logical folder structures) and physical dumps (like a dump of /dev/sda). You can store a single or multiple dumps in one zff container and - optionally - split the container in multiple files (like the format EWF).
 
 ### Terminology //TODO: may needless ... remove this section?
 

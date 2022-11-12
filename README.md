@@ -39,3 +39,6 @@ After you add the book to your [library](https://leanpub.com/user_dashboard/libr
 
 ![image](https://user-images.githubusercontent.com/36825567/190553151-f6690ba6-8dce-4d81-b806-0556cac39b73.png)
 
+## Donation History
+
+Proceeds from this book will go to a good cause! So far, we've chosen [NCMEC](https://www.missingkids.org/) as a recipient of the royalties this book earns. Check [DONATIONS.md](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/blob/main/DONATIONS.md) for more information.

@@ -303,7 +303,7 @@ The values itself tell you more important information:
 
 In the context of `0x09 (Power On Hours Count)` you can conclude if the errors indicate a production-issue and that for likely a rapid degradation of the drive (little amount of hours) or the normal degradation over time in case the drive was in use for many hours.
 
-### The forensically importance of S.M.A.R.T. data
+### The forensic importance of S.M.A.R.T. data
 
 I recommend getting the `S.M.A.R.T.` values before and after imaging. As you have learned until now – the drive will reallocate bad sectors when it stays to long in idle. This can cause big issues when someone else calculate the checksum of the drive and it do not match up with the checksum in your report.
 

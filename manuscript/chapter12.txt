@@ -616,7 +616,7 @@ In the next step you are asked for a folder name of the case:
 
 ![12.25 - Setting the case name](resources/UnfinishedChapters/ChL/02_Case_name.PNG)
 
-I always name the folder with the case number and the prefix `DR` for  data recovery and `FI` for forensic investigation.
+I always name the folder with the case number and the prefix `DR` for data recovery and `FI` for forensic investigation.
 
 Here I use `DR_12345` as an example.
 
@@ -686,7 +686,7 @@ With a right click you get the context-menu again and then you need to select `R
 
 The dialog shown above allows you to select the reading mode. The `Direct reading mode` is only intended for testing the reading options and should therefore only be used in exceptional cases.
 
-Normally you select `Reading to file dump` to write the data from the chip to a file.  Then you confirm this with `Select`.
+Normally you select `Reading to file dump` to write the data from the chip to a file. Then you confirm this with `Select`.
 
 ![12.34 - Reading parameters dialog (normal)](resources/UnfinishedChapters/ChL/10_read_parameters_01_normal.PNG)
 
@@ -1014,7 +1014,7 @@ In order to get the data in the right order, you have two main options:
 - **Block number** in which a part within the service area is used to bring the data in the correct order and the use of a
 - **Translator**, which is the newer and more complex method to bring the data in the right order!
 
-To see if you are dealing with a `block number` algorithm, you can look at the service information of all sectors. To do this, you right-click on item `0` in the second line of the `transformation graph`  (Page conversion)  and select `Service information` from the context-menu.
+To see if you are dealing with a `block number` algorithm, you can look at the service information of all sectors. To do this, you right-click on item `0` in the second line of the `transformation graph` (Page conversion) and select `Service information` from the context-menu.
 
 After that, you will see the following window:
 
@@ -1046,7 +1046,7 @@ To do this, right-click again on the item `0` in the last line in the `transform
 
 ![12.63 - Try block number 0000](resources/UnfinishedChapters/ChL/36_Block_number_0000.PNG)
 
-The `Type 1 algorithm [0x0000] ` is usually quite universal and my first choice.  `Type 2` is for a different controller and `Type 4` would be for a Kingston SD card – so you can exclude that in this example.
+The `Type 1 algorithm [0x0000]` is usually quite universal and my first choice. `Type 2` is for a different controller and `Type 4` would be for a Kingston SD card – so you can exclude that in this example.
 
 If `Type 1` doesn't fit, you can try `Type 5`, `Type 7` and `Type 9` ...
 
@@ -1117,7 +1117,7 @@ Instead of offering a file system, the entry is not extendable!
 
 This indicates the wrong `block number` algorithm or the wrong parameters. Before I try other parameters, I try the other algorithms!
 
-If you right-click on the result, you can see with `View the first sector`  that this sector cannot possibly be the MBR:
+If you right-click on the result, you can see with `View the first sector` that this sector cannot possibly be the MBR:
 
 ![12.66 - First sector of block number result](resources/UnfinishedChapters/ChL/39_first_sector.PNG)
 

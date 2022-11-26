@@ -141,7 +141,7 @@ Some basic information can be found online as well as in firmware tool manuals. 
 
 As you already know the service area is divided into modules, of which certain modules are essential for the operation of the disk and others are not necessary.
 
-If a disk cannot read data from copy 0, then it will usually try to read from copy 1. It can therefore take a while before an HDD report that it is ready. The firmware often makes several read attempts before switching to the next copy. The more modules are damaged, the longer this can take. I've seen hard drives which needed several minutes to become ready.
+If a disk cannot read data from copy 0, then it will usually try to read from copy 1. It can therefore take a while before an HDD reports that it is ready. The firmware often makes several read attempts before switching to the next copy. The more modules are damaged, the longer this can take. I've seen hard drives which needed several minutes to become ready.
 
 Some modules are unique to each disk and other modules are the same for all disks with a specific firmware version, or even for all disks of an entire model range.
 
@@ -165,7 +165,7 @@ The growing defects list or `G-List` is a list of sectors that fail during opera
 
 If a read- or wite- error occurs, the sector is marked as defective and mapped out on the next opportunity when the disk is idle. This happens in so-called background-processes which start in most cases after 20 seconds of idle-time.
 
-That's why professional  data recovery labs disable unnecessary background activities in order not to corrupt data and save the disk unnecessary work. If you do not have that option, you need to pay attention to the drive and don't let it run when it is not in use.
+That's why professional data recovery labs disable unnecessary background activities in order not to corrupt data and save the disk unnecessary work. If you do not have that option, you need to pay attention to the drive and don't let it run when it is not in use.
 
 If the `G-List` is lost, data will be damaged because sectors mapped out during operation are reset to the old locations. However, this can also be used in a forensic investigation to recover old data fragments in the sectors which got mapped out, even after the disk has been wiped.
 

@@ -59,20 +59,20 @@ That is for sure an individual decision but going deeper into data recovery woul
 With the above-mentioned use cases in mind, we can have a look at the right tools to fit that need. These are my preference:
 
 - [Guardonix](https://guardonix.com/)
-- [Rapidspar](https://rapidspar.com/)
-- [Deepspar Disk Imager](https://www.deepspar.com/products-ds-disk-imager.html)
+- [RapidSpar](https://rapidspar.com/)
+- [DeepSpar Disk Imager](https://www.deepspar.com/products-ds-disk-imager.html)
 
 The **Guardonix** is a quite powerful writeblocker which allow you to handle instable drives by maintaining two independent connections - one to the PC which is maintained even when the drive is hanging or irresponsible and one to the drive itself. In this way the operating system is not aware of any issues the drive may have. With the professional edition of the tool the operator may even set a timeout to skip bad areas on the first pass.
 
-The **Rapidspar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
+The **RapidSpar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
 
-It's good to have that firmware-capabilities but Rapidspar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
+It's good to have that firmware-capabilities but RapidSpar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
 
-The **Deepspar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly instable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
+The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly instable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
 
 The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
 
-Deepspar Disk Imager and Rapidspar have another advantage over the Guradonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
+DeepSpar Disk Imager and RapidSpar have another advantage over the Guradonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
 
 {pagebreak}
 
@@ -115,7 +115,7 @@ These are not tools that can be learned by trial and error. Any incorrect use of
 
 Also, the options offered vary depending on the vendor and model of the hard drive, so you can only perform certain actions on certain models. The learning curve of these tools is extremely steep and a lot depends on the tool used. Mastering a firmware tool takes a lot of practice and experience, which you build up over the years working with other DR technicians, attending training courses and conferences, and working with support on specific cases.
 
-So, this area of data recovery requires the greatest learning effort and the purchase of the most expensive tools represents only a very small part of the cases. Therefore, there are quite a few laboratories that only treat these firmware problems to a small extent themselves and outsource harder cases. MRT offers, for example, that their technicians solve firmware problems via remote sessions and charges 50 USD in case of a successful data recovery. DFL offers its customers up to 5 support requests per month for free, just like Ace Labs.
+So, this area of data recovery requires the greatest learning effort and the purchase of the most expensive tools represents only a very small part of the cases. Therefore, there are quite a few laboratories that only treat these firmware problems to a small extent themselves and outsource harder cases. MRT offers, for example, that their technicians solve firmware problems via remote sessions and charges $50 USD in case of a successful data recovery. DFL offers its customers up to 5 support requests per month for free, just like Ace Labs.
 
 The possible causes of firmware problems are just as varied as the solutions:
 
@@ -354,7 +354,7 @@ The next possible setting may be the read-mode. You can use the faster UDME-Mode
 
 ![12.8 - DFL DE read mode selection for an imaging task](resources/UnfinishedChapters/ChL/DFL_DE_read_mode.JPG)
 
-The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exact what the name suggests and read the data and wite it to the image or target drive no matter if the checksum of the sector matches. DDI read the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of Deepspar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
+The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exact what the name suggests and read the data and wite it to the image or target drive no matter if the checksum of the sector matches. DDI read the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of DeepSpar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
 
 The idea behind using a slower read-mode is simple! An unstable drive can read maybe more stable in a slower speed. There are also cases where a firmware-part is damaged and the drive is highly unstable in UDMA for example but PIO would use another fully functional part of the firmware. Different read-commands also apply different procedures and, in some cases, you may be able to read bad sectors with another read-mode. That’s why I recommend using different Read-modes in different passes.
 
@@ -486,7 +486,7 @@ The imaging is occasionally painfully slow but I read basically most of the sect
 
 Finally, the USB Stabilizer and DMDE did image the first 10% of the drive in a bit more then 1,5 days and my 1 for 2 passes "hack" did cause a few more bad sectors then MRT delivered in almost exactly 1 day.
 
-The whole job would run approximately 16-17 instead of 10 days, which is really good for a tool like that. I still have maybe some room for improvement but I need to say I am impressed again by Deepspar's USB Stabilizer!
+The whole job would run approximately 16-17 instead of 10 days, which is really good for a tool like that. I still have maybe some room for improvement but I need to say I am impressed again by DeepSpar's USB Stabilizer!
 
 Last but not least I would recommend cooling of a drive which have to work 24h per day for multiple days to get imaged. An old case-fan and an old power-supply of a SATA to USB converter cable does this job in my lab.
 

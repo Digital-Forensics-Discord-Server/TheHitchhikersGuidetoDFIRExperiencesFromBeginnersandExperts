@@ -291,7 +291,7 @@ Another good indication are the `S.M.A.R.T.` values. The fact you can read the `
 
 The values itself tell you more important information:
 
-- `0x05  (Reallocated Sectors Count)` tells you how much bad sectors got reallocated
+- `0x05 (Reallocated Sectors Count)` tells you how much bad sectors got reallocated
 - `0x0A (Spin Retry Count)` tells you how often the drive trys to spin up multiple times till it reach the desired RPM. This can indicate a mechanical problem.
 - `0xBB (Reported uncorrectable Error)` tells you how many Errors could not be corrected by ECC. This can indicate fading of the magnetic load on the platters when the drive was long time not in use or degradation of the head or magnetic coating.
 - `0xBC (Command Timeout)` tells you how often a timeout occur while trying to execute a command. This can indicate sometimes problems with the electronics or oxidized data connections.

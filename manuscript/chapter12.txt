@@ -4,30 +4,32 @@ C> By [Mark B.](https://opensource-data-recovery-tools.com/) | [Website](https:/
 
 ### Types of data recovery
 
-When talking about data recovery one have to distinguish between:
+When talking about data recovery, it is important to distinguish between:
 
 - Logical data recovery
 - Physical data recovery
+
+Both topics will be covered in this chapter.
 
 {pagebreak}
 
 ## Logical data recovery
 
-This is the type of data recovery which is offered by most forensics-tools and a lot of specialized programs. A logical data recovery can mean
+This is the type of data recovery which is offered by most forensics-tools and a lot of specialized programs. A logical data recovery can mean:
 
 - to restore deleted files,
 - to deal with a damaged filesystem-catalogue or
 - to repair damaged files.
 
-As good as forensics tools are for conducting an investigation, the most tools fall very short when handling corrupted filesystems. On the other side there are really great logical recovery tools like
+As good as forensics tools are for conducting an investigation, most tools fall very short when handling corrupted filesystems. On the other side, there are really great logical recovery tools, including but not limited to:
 
 - [R-Studio](https://r-studio.com)
 - [UFS-Explorer](https://www.ufsexplorer.com)
 - [DMDE](https://dmde.com)
 
-which are able to handle even severe damaged filesystems very well. The problem with forensics is the way such tools work. So-called data recovery programs analyse the whole drive and try to "puzzle" a filesystem together based on the data which was found.
+These tools are able to handle even the most severe damaged filesystems very well. The problem with forensics is the way such tools work. So-called data recovery programs analyse the whole drive and try to "puzzle" a filesystem together based on the data which was found.
 
-That means that such a generated virtual filesystem is the interpretation of the data by the tool. It would be very hard in many and even impossible in some cases to follow along how the program got to the final result. As great as these tools are for recovering data and building a working folder-tree from corrupted filesystems as bad they are for forensics as the process which lead to the results are not always clear.
+That means that such a generated virtual filesystem is the interpretation of the data by the tool. It would be very hard, and even impossible, in some cases to fully understand how the program got to the final result. As great as these tools are for recovering data and building a working folder-tree from corrupted filesystems, they may not be ideal for forensics as the processes which lead to the results are not always clear.
 
 {pagebreak}
 
@@ -43,18 +45,18 @@ This category contains all kind of cases – for example:
 - broken read-write-heads and even
 - damaged or dirty platters.
 
-In case of flash-memory like memory-cards, pendrives or SSDs there are just
+In case of flash-memory like memory-cards, pendrives or SSDs there are just:
 
 - electronical problems and
 - firmware-issues, which made up the majority of the cases.
 
-So, first of all you need to come to a conclusion how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair but most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because windows will drop the drive after it become instable.
+So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair. Generally speaking, most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because Windows will drop the drive after it become instable.
 
 I guess many will also want to handle a PCB-swap without a data recovery lab.
 
 That is for sure an individual decision but going deeper into data recovery would need much more information than I could fit into one chapter. If you are interested in detailed introduction to professional data recovery, I would recommend you my book [`Getting started with professional data recovery`](https://www.amazon.com/dp/B09XBHFNXZ/) (ISBN 979-8800488753).
 
-With the above-mentioned usecases in mind can have a look at the right tools to fit that need. These are in my option:
+With the above-mentioned use cases in mind, we can have a look at the right tools to fit that need. These are my preference:
 
 - [Guardonix](https://guardonix.com/)
 - [Rapidspar](https://rapidspar.com/)
@@ -64,14 +66,13 @@ The **Guardonix** is a quite powerful writeblocker which allow you to handle ins
 
 The **Rapidspar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
 
-It's good to have that firmware-capabilities but Rapidspar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations is this tool a good choice but you may reach its limits quite fast because the tool support basically no manual control.
+It's good to have that firmware-capabilities but Rapidspar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
 
 The **Deepspar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly instable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
 
 The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
 
 Deepspar Disk Imager and Rapidspar have another advantage over the Guradonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
-
 
 {pagebreak}
 

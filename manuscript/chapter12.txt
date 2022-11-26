@@ -270,7 +270,7 @@ The abbreviations can differ hereby from tool to tool.
 
 ### Diagnosing the issue
 
-Till now you have learned how to get a better picture of the inner processes of an HDD so it's time to use that knowledge practically...
+Until now you have learned how to get a better picture of the inner processes of an HDD so it's time to use that knowledge practically...
 
 It would be hard to describe some of the sounds you may hear when a drive has a certain issue – luckily a data recovery lab has recorded a lot of sound samples and offer then on their homepage. You can find the files [here](https://datacent.com/failing_hard_drive_sounds).
 
@@ -282,18 +282,18 @@ If the head keeps clicking, it can sometimes indicate a firmware problem or the 
 
 The more experience you gain, the better you will be at assigning noises, status LEDs and other indications from the hard drive to a specific problem. You don't learn data recovery overnight!
 
-Before cloning the drive try to read the first sector, if that works, read the last sector and at least one sector in the middle of the disk. If you can read the drive till a specific `LBA` and sectors after this `LBA` are unreadable it could either be a defective head or the `translator` (sometimes also called the `address decoder`).
+Before cloning the drive try to read the first sector, if that works, read the last sector and at least one sector in the middle of the disk. If you can read the drive until a specific `LBA` and sectors after this `LBA` are unreadable it could either be a defective head or the `translator` (sometimes also called the `address decoder`).
 
-A defective head mean you can read till some point then you have a group of unreadable sectors and after the sectors of the defective head you can read again some data. If the translator is damaged you can't read after a certain LBA not a single sector.
+A defective head mean you can read until some point then you have a group of unreadable sectors and after the sectors of the defective head you can read again some data. If the translator is damaged you can't read after a certain LBA not a single sector.
 
 To test which issue you may face you can try to read more sectors (maybe 10 or 15) distributed across the entire surface.
 
-Another good indication are the `S.M.A.R.T.` values. The fact you can read the `S.M.A.R.T.` values itself mean that the heads are good and able to read at least the service area and it also mean that the firmware is loaded at least till the `S.M.A.R.T.` module which mean basically all the critical modules are loaded.
+Another good indication are the `S.M.A.R.T.` values. The fact you can read the `S.M.A.R.T.` values itself mean that the heads are good and able to read at least the service area and it also mean that the firmware is loaded at least until the `S.M.A.R.T.` module which mean basically all the critical modules are loaded.
 
 The values itself tell you more important information:
 
 - `0x05 (Reallocated Sectors Count)` tells you how much bad sectors got reallocated
-- `0x0A (Spin Retry Count)` tells you how often the drive trys to spin up multiple times till it reach the desired RPM. This can indicate a mechanical problem.
+- `0x0A (Spin Retry Count)` tells you how often the drive trys to spin up multiple times until it reach the desired RPM. This can indicate a mechanical problem.
 - `0xBB (Reported uncorrectable Error)` tells you how many Errors could not be corrected by ECC. This can indicate fading of the magnetic load on the platters when the drive was long time not in use or degradation of the head or magnetic coating.
 - `0xBC (Command Timeout)` tells you how often a timeout occur while trying to execute a command. This can indicate sometimes problems with the electronics or oxidized data connections.
 - `0xC4 (Reallocation Event Count)` tells you how many sector reallocations were done successfully and unsuccessfully.
@@ -305,7 +305,7 @@ In the context of `0x09 (Power On Hours Count)` you can conclude if the errors i
 
 ### The forensically importance of S.M.A.R.T. data
 
-I recommend getting the `S.M.A.R.T.` values before and after imaging. As you have learned till now – the drive will reallocate bad sectors when it stays to long in idle. This can cause big issues when someone else calculate the checksum of the drive and it do not match up with the checksum in your report.
+I recommend getting the `S.M.A.R.T.` values before and after imaging. As you have learned until now – the drive will reallocate bad sectors when it stays to long in idle. This can cause big issues when someone else calculate the checksum of the drive and it do not match up with the checksum in your report.
 
 Even if you pay attention that the drive will never be in idle some other investigator may let the drive idle for a few minutes before calculating the checksum and thus this person alter the data. In such cases it's wise to have the `S.M.A.R.T.` values reported before and after imaging that you can explain why the checksum don't match up anymore.
 
@@ -329,7 +329,7 @@ There are some drives which have bigger areas of bad sectors – in such cases i
 
 If you have read all good sectors with a short read timeout you can run the next imaging pass with a longer timeout and re-read all blocks which are skipped in the last pass.
 
-If there are mainly skipped blocks on one pass and just occasionally read blocks then you have to increase the timeout till you read at least 2/3 of blocks.
+If there are mainly skipped blocks on one pass and just occasionally read blocks then you have to increase the timeout until you read at least 2/3 of blocks.
 
 As you increase the read timeout with each pass, you should decrease the number of skipped sectors after a read timeout or read error with each pass.
 
@@ -425,7 +425,7 @@ So, you have the most important setting for imaging speed and stress-level of th
 
 With the `Commands`-button you can issue resets manually or you can log the `S.M.A.R.T.` data as I would suggest before and after forensic date acquisition.
 
-To sum that up so far, you are using here the lowest end data recovery tool with a cheap data recovery program on a medium till moderate difficult case for professional data recovery tools. A case which took a 5x more expensive and much more flexible tool over a week to image.
+To sum that up so far, you are using here the lowest end data recovery tool with a cheap data recovery program on a medium until moderate difficult case for professional data recovery tools. A case which took a 5x more expensive and much more flexible tool over a week to image.
 
 After you select the disk, you see the following initial scan dialog:
 
@@ -479,7 +479,7 @@ With MRT I had used 3 passes – one with 2560 sectors which got skipped and a 2
 
 Here I don't have PIO and I expect the 2nd pass to end in the middle of the night or early morning which would throw my time comparison with MRT totally off.
 
-I decided to go straight away with 2560 sectors skip, 10 seconds of read timeout and I read the skipped sectors in reverse. This will read till the next bad sector occurs and mark all between the first and first found bad sector in reverse reading as bad. This is not perfect but it will get the job somehow done.
+I decided to go straight away with 2560 sectors skip, 10 seconds of read timeout and I read the skipped sectors in reverse. This will read until the next bad sector occurs and mark all between the first and first found bad sector in reverse reading as bad. This is not perfect but it will get the job somehow done.
 
 The imaging is occasionally painfully slow but I read basically most of the sectors:
 
@@ -1151,7 +1151,7 @@ For `Block size in sectors`, I leave the proposed 256 sectors. However, you can 
 ![12.69 - Service informations ](resources/UnfinishedChapters/ChL/41_block_number_1001_manual_check_sa_data.PNG)
 
 Here you see the boundary between block 0 and block 1 (`B` = block). Block 0 consists of pages 0x00 – 0x3F (`P` = Pages). With this information you can use the Python shell to calculate:
-`0x00` till `0x3F` are in hexadecimal notation `0x40` pages:
+`0x00` until `0x3F` are in hexadecimal notation `0x40` pages:
 
 {line-numbers:false}
 ```python

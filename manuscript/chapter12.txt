@@ -232,6 +232,7 @@ Smaller 2.5" laptop drives often just shut down and don't try multiple times.
 PC-3000 recognizes this problem itself and shows us that a hard disk is in safe mode.
 
 You can also put the hard drive into safe mode on purpose. The hard disk then waits for suitable firmware to be uploaded to the RAM. This is also referred to as a "loader".
+
 Once the loader has successfully uploaded and is running, you can start repairing corrupted firmware modules.
 
 ### Status and error registers
@@ -275,7 +276,7 @@ It would be hard to describe some of the sounds you may hear when a drive has a 
 
 If a disk spins up but then gets stuck in the `BSY` state, this indicates that parts of the firmware are corrupt or unreadable. Or background processes are running on the hard disk that hangs or takes a long time to finish. It can be also due to issues reading the firmware from platters. If the drive sounds OK then wait a few minutes and see if the drive come ready. If a drive is not ready within 10-15 minutes, then it's highly unlikely it will become ready when you wait longer. Most likely you will need a firmware-tool and the proper knowledge to deal with that issue.
 
-If a disk reports readiness but reports unusual values - eg: `0 GB` or `3.86 GB` for the capacity. Then an essential part of the firmware may be corrupted or only the part from the ROM chip could be read. It's also possible that the ROM chip is wrong (eg an amateur attempting a data recovery and just swapped the PCB) or the head is damaged and can't read the data from the service area or an early loaded firmware module is corrupted.
+If a disk reports readiness but reports unusual values - eg: `0 GB` or `3.86 GB` for the capacity. Then an essential part of the firmware may be corrupted or only the part from the ROM chip could be read. It's also possible that the ROM chip is wrong (e.g. an amateur attempting a data recovery and just swapped the PCB) or the head is damaged and can't read the data from the service area or an early loaded firmware module is corrupted.
 
 If the head keeps clicking, it can sometimes indicate a firmware problem or the wrong ROM chip on the PCB. But much more likely the head could be defective and not find the service area because it can no longer read anything. I've also seen these symptoms when the ROM chip was defective.
 

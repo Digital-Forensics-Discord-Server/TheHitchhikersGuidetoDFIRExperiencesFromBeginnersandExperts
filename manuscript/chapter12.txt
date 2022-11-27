@@ -998,15 +998,15 @@ A `page conversion` would not even have been necessary for this example but this
 
 Click on the down arrow next to the play button in the toolbar and then on `Apply` to add the `page conversion` to the `transformation graph`
 
-![12.57 - xxxxxx](resources/UnfinishedChapters/ChL/32_apply_page_design.PNG)
+![12.57 - Apply page conversion](resources/UnfinishedChapters/ChL/32_apply_page_design.PNG)
 
 ... and the following message appears:
 
-![12.58 - xxxxxx](resources/UnfinishedChapters/ChL/33_apply_ok.PNG)
+![12.58 - Transformation successful messagebox](resources/UnfinishedChapters/ChL/33_apply_ok.PNG)
 
 Confirm that with `OK` and you find in `transformation graph` another line:
 
-![12.59 - xxxxxx](resources/UnfinishedChapters/ChL/34_service_infos.PNG)
+![12.59 - Transformation graph with newly added page conversion](resources/UnfinishedChapters/ChL/34_service_infos.PNG)
 
 The `transformation graph` is basically a list of all the conversion steps that are applied to the dump.
 
@@ -1110,7 +1110,7 @@ Sector was read successfully
 
 Apparently, the process worked – so check the result:
 
-![12.65 - xxxxxx](resources/UnfinishedChapters/ChL/38_dead_Block_number.PNG)
+![12.65 - Context-menu -> View first sector](resources/UnfinishedChapters/ChL/38_dead_Block_number.PNG)
 
 You can see here immediately, if you click on the new entry in the `Folders` pane, that the result does not work.
 
@@ -1198,4 +1198,3 @@ A flash chip-off case can get easily more complex:
 ![12.71 - Save user data](resources/UnfinishedChapters/ChL/PC_3k_flash_complex_transf_graph.PNG)
 
 Some cases have even more complex transformations then the one shown above! To get good at this type of data recovery requires time, training and research. This is the reason why I don't recommend beginners to start with flash data recovery but with HDDs. The success rate even with basic knowledge will be much higher.
-

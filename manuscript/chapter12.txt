@@ -1,37 +1,39 @@
-# Chapter L - Data recovery
+# Chapter 12 - Data recovery
 
 C> By [Mark B.](https://opensource-data-recovery-tools.com/) | [Website](https://data-recovery-prague.com/) | [Instagram](https://www.instagram.com/disk.doctor.prague/)
 
 ### Types of data recovery
 
-When talking about data recovery one have to distinguish between 
+When talking about data recovery, it is important to distinguish between:
 
 - Logical data recovery
 - Physical data recovery
+
+Both topics will be covered in this chapter.
 
 {pagebreak}
 
 ## Logical data recovery
 
-This is the type of data recovery which is offered by most forensics-tools and a lot of specialized programs. A logical data recovery can mean 
+This is the type of data recovery which is offered by most forensics-tools and a lot of specialized programs. A logical data recovery can mean:
 
 - to restore deleted files,
 - to deal with a damaged filesystem-catalogue or
 - to repair damaged files.
 
-As good as forensics tools are for conducting an investigation, the most tools fall very short when handling corrupted filesystems. On the other side there are really great logical recovery tools like 
+As good as forensics tools are for conducting an investigation, most tools fall very short when handling corrupted filesystems. On the other side, there are really great logical recovery tools, including but not limited to:
 
 - [R-Studio](https://r-studio.com)
 - [UFS-Explorer](https://www.ufsexplorer.com)
 - [DMDE](https://dmde.com)
 
-which are able to handle even severe damaged filesystems very well. The problem with forensics is the way such tools work. So-called data recovery programs analyse the whole drive and try to "puzzle" a filesystem together based on the data which was found.
+These tools are able to handle even the most severe damaged filesystems very well. The problem with forensics is the way such tools work. So-called data recovery programs analyse the whole drive and try to "puzzle" a filesystem together based on the data which was found.
 
-That means that such a generated virtual filesystem is the interpretation of the data by the tool. It would be very hard in many and even impossible in some cases to follow along how the program got to the final result. As great as these tools are for recovering data and building a working folder-tree from corrupted filesystems as bad they are for forensics as the process which lead to the results are not always clear.
+That means that such a generated virtual filesystem is the interpretation of the data by the tool. It would be very hard, and even impossible, in some cases to fully understand how the program got to the final result. As great as these tools are for recovering data and building a working folder-tree from corrupted filesystems, they may not be ideal for forensics as the processes which lead to the results are not always clear.
 
 {pagebreak}
 
-## Physical data recovery 
+## Physical data recovery
 
 This category contains all kind of cases – for example:
 
@@ -43,35 +45,34 @@ This category contains all kind of cases – for example:
 - broken read-write-heads and even
 - damaged or dirty platters.
 
-In case of flash-memory like memory-cards, pendrives or SSDs there are just 
+In case of flash-memory like memory-cards, pendrives or SSDs there are just:
 
 - electronical problems and
 - firmware-issues, which made up the majority of the cases.
 
-So, first of all you need to come to a conclusion how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair but most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because windows will drop the drive after it become unstable.
+So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair but most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because windows will drop the drive after it become instable.
 
 I guess many will also want to handle a PCB-swap without a data recovery lab.
 
 That is for sure an individual decision but going deeper into data recovery would need much more information than I could fit into one chapter. If you are interested in detailed introduction to professional data recovery, I would recommend you my book [`Getting started with professional data recovery`](https://www.amazon.com/dp/B09XBHFNXZ/) (ISBN 979-8800488753).
 
-With the above-mentioned usecases in mind can have a look at the right tools to fit that need. These are in my option:
+With the above-mentioned use cases in mind, we can have a look at the right tools to fit that need. These are my preference:
 
 - [Guardonix](https://guardonix.com/)
-- [Rapidspar](https://rapidspar.com/)
-- [Deepspar Disk Imager](https://www.deepspar.com/products-ds-disk-imager.html)
+- [RapidSpar](https://rapidspar.com/)
+- [DeepSpar Disk Imager](https://www.deepspar.com/products-ds-disk-imager.html)
 
 The **Guardonix** is a quite powerful writeblocker which allow you to handle unstable drives by maintaining two independent connections - one to the PC which is maintained even when the drive is hanging or irresponsible and one to the drive itself. In this way the operating system is not aware of any issues the drive may have. With the professional edition of the tool the operator may even set a timeout to skip bad areas on the first pass.
 
-The **Rapidspar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
+The **RapidSpar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
 
-It's good to have that firmware-capabilities but Rapidspar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations is this tool a good choice but you may reach its limits quite fast because the tool support basically no manual control.
+It's good to have that firmware-capabilities but RapidSpar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
 
-The **Deepspar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly unstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives. 
+The **Deepspar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly uinstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives. 
 
-The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
+The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware/error register).
 
-Deepspar Disk Imager and Rapidspar have another advantage over the Guradonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer. 
-
+DeepSpar Disk Imager and RapidSpar have another advantage over the Guardonix/USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
 
 {pagebreak}
 
@@ -79,13 +80,13 @@ Deepspar Disk Imager and Rapidspar have another advantage over the Guradonix / U
 
 Before thinking about a data recovery attempt you would have to understand what is the cause of the issue and how to deal with it. This is very important because a wrong approach can damage drives.
 
-That's why the first step is always the diagnosis! To properly diagnose an HDD, you need to understand the startup procedure, the firmware and the sounds a drive will make with certain issues. 
+That's why the first step is always the diagnosis! To properly diagnose an HDD, you need to understand the startup procedure, the firmware and the sounds a drive will make with certain issues.
 
-### HDD start-up process 
+### HDD start-up process
 
 Put simply, you can divide the boot process of the HDD into the following steps:
 
-1. The data from the ROM chip is loaded and the engine is started. 
+1. The data from the ROM chip is loaded and the engine is started.
 2. If the motor rotates fast enough for an air cushion to form, the read/write head is moved from the parking position (inside the spindle or outside the platters on a ramp) onto the platters.
 3. The first part of the firmware loaded from ROM contains the instructions on how the disk can load the remaining part of the firmware from the platters. This is located in an area on the platters, the so-called service area, which is not accessible by the user.
 4. If the firmware could be fully loaded, the disk reports that it is ready for use. Knowing about this boot process can help us a lot in diagnosing problems. If a disk spins up, it most likely means that the ROM, MCU, RAM and motor control are OK and PCB damage can be ruled out with a high degree of probability.
@@ -114,7 +115,7 @@ These are not tools that can be learned by trial and error. Any incorrect use of
 
 Also, the options offered vary depending on the vendor and model of the hard drive, so you can only perform certain actions on certain models. The learning curve of these tools is extremely steep and a lot depends on the tool used. Mastering a firmware tool takes a lot of practice and experience, which you build up over the years working with other DR technicians, attending training courses and conferences, and working with support on specific cases.
 
-So, this area of data recovery requires the greatest learning effort and the purchase of the most expensive tools represents only a very small part of the cases. Therefore, there are quite a few laboratories that only treat these firmware problems to a small extent themselves and outsource harder cases. MRT offers, for example, that their technicians solve firmware problems via remote sessions and charges 50 USD in case of a successful data recovery. DFL offers its customers up to 5 support requests per month for free, just like Ace Labs.
+So, this area of data recovery requires the greatest learning effort and the purchase of the most expensive tools represents only a very small part of the cases. Therefore, there are quite a few laboratories that only treat these firmware problems to a small extent themselves and outsource harder cases. MRT offers, for example, that their technicians solve firmware problems via remote sessions and charges $50 USD in case of a successful data recovery. DFL offers its customers up to 5 support requests per month for free, just like Ace Labs.
 
 The possible causes of firmware problems are just as varied as the solutions:
 
@@ -140,7 +141,7 @@ Some basic information can be found online as well as in firmware tool manuals. 
 
 As you already know the service area is divided into modules, of which certain modules are essential for the operation of the disk and others are not necessary.
 
-If a disk cannot read data from copy 0, then it will usually try to read from copy 1. It can therefore take a while before an HDD report that it is ready. The firmware often makes several read attempts before switching to the next copy. The more modules are damaged, the longer this can take. I've seen hard drives which needed several minutes to become ready.
+If a disk cannot read data from copy 0, then it will usually try to read from copy 1. It can therefore take a while before an HDD reports that it is ready. The firmware often makes several read attempts before switching to the next copy. The more modules are damaged, the longer this can take. I've seen hard drives which needed several minutes to become ready.
 
 Some modules are unique to each disk and other modules are the same for all disks with a specific firmware version, or even for all disks of an entire model range.
 
@@ -164,13 +165,13 @@ The growing defects list or `G-List` is a list of sectors that fail during opera
 
 If a read- or wite- error occurs, the sector is marked as defective and mapped out on the next opportunity when the disk is idle. This happens in so-called background-processes which start in most cases after 20 seconds of idle-time.
 
-That's why professional  data recovery labs disable unnecessary background activities in order not to corrupt data and save the disk unnecessary work. If you do not have that option, you need to pay attention to the drive and don't let it run when it is not in use.
+That's why professional data recovery labs disable unnecessary background activities in order not to corrupt data and save the disk unnecessary work. If you do not have that option, you need to pay attention to the drive and don't let it run when it is not in use.
 
 If the `G-List` is lost, data will be damaged because sectors mapped out during operation are reset to the old locations. However, this can also be used in a forensic investigation to recover old data fragments in the sectors which got mapped out, even after the disk has been wiped.
 
 However, this also means that a hard disk becomes slower and slower the more unmapped sectors there are because the more often the head has to make jumps to the new location of a `LBA` when reading the data.
 
-Depending on the manufacturer / model series, this is slightly different. Many disks have smaller reserve areas distributed over the platters to minimize any necessary jumps and the associated loss of performance. 
+Depending on the manufacturer/model series, this is slightly different. Many disks have smaller reserve areas distributed over the platters to minimize any necessary jumps and the associated loss of performance.
 
 **Translator**
 
@@ -188,17 +189,17 @@ Here is a simplified graphic representation for comparison:
 
 What is graphically displayed here is saved by the zone table in a form that can be used by the firmware. Without this data, it would not be possible to calculate the location of a specific `LBA` address is on the platters!
 
-**Servo parameters / Servo adaptive parameters**
+**Servo parameters/Servo adaptive parameters**
 
 This data is used to fine-tune the head and is unique to each hard drive. Incorrect data can lead to the head no longer reading or only reading with reduced performance.
 
 There are often different data sets for the service and user area.
 
-**Security-relevant data / passwords**
+**Security-relevant data/passwords**
 
 Some encryption methods save the passwords on the hard disk in the service area. In these cases, passwords can be easily read out or removed with access to the firmware modules.
 
-**Firmware / overlay code**
+**Firmware/overlay code**
 
 To put it simply, these are program instructions that are loaded into the main memory of the HDD when required.
 
@@ -231,6 +232,7 @@ Smaller 2.5" laptop drives often just shut down and don't try multiple times.
 PC-3000 recognizes this problem itself and shows us that a hard disk is in safe mode.
 
 You can also put the hard drive into safe mode on purpose. The hard disk then waits for suitable firmware to be uploaded to the RAM. This is also referred to as a "loader".
+
 Once the loader has successfully uploaded and is running, you can start repairing corrupted firmware modules.
 
 ### Status and error registers
@@ -247,7 +249,7 @@ These indicated status LEDs also help with diagnostics.
 
 `DSC` means "drive seek complete" and indicates that the head has moved to a specific position.
 
-`DWF` means "drive write fault" and should always be off. 
+`DWF` means "drive write fault" and should always be off.
 
 `DRQ` means "data request" and is set when the data carrier is ready to transfer data.
 
@@ -268,46 +270,46 @@ The abbreviations can differ hereby from tool to tool.
 
 ### Diagnosing the issue
 
-Till now you have learned how to get a better picture of the inner processes of an HDD so it's time to use that knowledge practically...
+Until now you have learned how to get a better picture of the inner processes of an HDD so it's time to use that knowledge practically...
 
 It would be hard to describe some of the sounds you may hear when a drive has a certain issue – luckily a data recovery lab has recorded a lot of sound samples and offer then on their homepage. You can find the files [here](https://datacent.com/failing_hard_drive_sounds).
 
 If a disk spins up but then gets stuck in the `BSY` state, this indicates that parts of the firmware are corrupt or unreadable. Or background processes are running on the hard disk that hangs or takes a long time to finish. It can be also due to issues reading the firmware from platters. If the drive sounds OK then wait a few minutes and see if the drive come ready. If a drive is not ready within 10-15 minutes, then it's highly unlikely it will become ready when you wait longer. Most likely you will need a firmware-tool and the proper knowledge to deal with that issue.
 
-If a disk reports readiness but reports unusual values - eg: `0 GB` or `3.86 GB` for the capacity. Then an essential part of the firmware may be corrupted or only the part from the ROM chip could be read. It's also possible that the ROM chip is wrong (eg an amateur attempting a data recovery and just swapped the PCB) or the head is damaged and can't read the data from the service area or an early loaded firmware module is corrupted.
+If a disk reports readiness but reports unusual values - eg: `0 GB` or `3.86 GB` for the capacity. Then an essential part of the firmware may be corrupted or only the part from the ROM chip could be read. It's also possible that the ROM chip is wrong (e.g. an amateur attempting a data recovery and just swapped the PCB) or the head is damaged and can't read the data from the service area or an early loaded firmware module is corrupted.
 
 If the head keeps clicking, it can sometimes indicate a firmware problem or the wrong ROM chip on the PCB. But much more likely the head could be defective and not find the service area because it can no longer read anything. I've also seen these symptoms when the ROM chip was defective.
 
 The more experience you gain, the better you will be at assigning noises, status LEDs and other indications from the hard drive to a specific problem. You don't learn data recovery overnight!
 
-Before cloning the drive try to read the first sector, if that works, read the last sector and at least one sector in the middle of the disk. If you can read the drive till a specific `LBA` and sectors after this `LBA` are unreadable it could either be a defective head or the `translator` (sometimes also called the `address decoder`).
+Before cloning the drive try to read the first sector, if that works, read the last sector and at least one sector in the middle of the disk. If you can read the drive until a specific `LBA` and sectors after this `LBA` are unreadable it could either be a defective head or the `translator` (sometimes also called the `address decoder`).
 
-A defective head mean you can read till some point then you have a group of unreadable sectors and after the sectors of the defective head you can read again some data. If the translator is damaged you can't read after a certain LBA not a single sector.
+A defective head mean you can read until some point then you have a group of unreadable sectors and after the sectors of the defective head you can read again some data. If the translator is damaged you can't read after a certain LBA not a single sector.
 
 To test which issue you may face you can try to read more sectors (maybe 10 or 15) distributed across the entire surface.
 
-Another good indication are the `S.M.A.R.T.` values. The fact you can read the `S.M.A.R.T.` values itself mean that the heads are good and able to read at least the service area and it also mean that the firmware is loaded at least till the `S.M.A.R.T.` module which mean basically all the critical modules are loaded.
+Another good indication are the `S.M.A.R.T.` values. The fact you can read the `S.M.A.R.T.` values itself mean that the heads are good and able to read at least the service area and it also mean that the firmware is loaded at least until the `S.M.A.R.T.` module which mean basically all the critical modules are loaded.
 
 The values itself tell you more important information:
 
-- `0x05  (Reallocated Sectors Count)` tells you how much bad sectors got reallocated
-- `0x0A (Spin Retry Count)` tells you how often the drive trys to spin up multiple times till it reach the desired RPM. This can indicate a mechanical problem.
+- `0x05 (Reallocated Sectors Count)` tells you how much bad sectors got reallocated
+- `0x0A (Spin Retry Count)` tells you how often the drive trys to spin up multiple times until it reach the desired RPM. This can indicate a mechanical problem.
 - `0xBB (Reported uncorrectable Error)` tells you how many Errors could not be corrected by ECC. This can indicate fading of the magnetic load on the platters when the drive was long time not in use or degradation of the head or magnetic coating.
 - `0xBC (Command Timeout)` tells you how often a timeout occur while trying to execute a command. This can indicate sometimes problems with the electronics or oxidized data connections.
-- `0xC4 (Reallocation Event Count)` tells you how many sector reallocations were done successfully and unsuccessfully.  
+- `0xC4 (Reallocation Event Count)` tells you how many sector reallocations were done successfully and unsuccessfully.
 - `0xC5 (Current Pending Sector Count)` tells you how many sectors are waiting for reallocation. This value is very important for forensics! In case the drive will be idle for longer than 20 seconds these sectors can get reallocated which could alter data.
 - `0xC6 (Uncorrectable Sector Count)` tells you how many sectors were not corrected by ECC. The same as for `0xBB` applies here.
 - `0xC9 (Soft Read Error Rate)` tells you how much not correctable software read errors occurred. The same as for `0xBB` applies here.
 
 In the context of `0x09 (Power On Hours Count)` you can conclude if the errors indicate a production-issue and that for likely a rapid degradation of the drive (little amount of hours) or the normal degradation over time in case the drive was in use for many hours.
 
-### The forensically importance of S.M.A.R.T. data
+### The forensic importance of S.M.A.R.T. data
 
-I recommend getting the `S.M.A.R.T.` values before and after imaging. As you have learned till now – the drive will reallocate bad sectors when it stays to long in idle. This can cause big issues when someone else calculate the checksum of the drive and it do not match up with the checksum in your report.
+I recommend getting the `S.M.A.R.T.` values before and after imaging. As you have learned until now – the drive will reallocate bad sectors when it stays to long in idle. This can cause big issues when someone else calculate the checksum of the drive and it do not match up with the checksum in your report.
 
 Even if you pay attention that the drive will never be in idle some other investigator may let the drive idle for a few minutes before calculating the checksum and thus this person alter the data. In such cases it's wise to have the `S.M.A.R.T.` values reported before and after imaging that you can explain why the checksum don't match up anymore.
 
-In a data recovery case, some drives may have troubles to boot up like a minor scratch in the service area which is very hard on the head when starting. So, you would not want to start the drive multiple times as you cannot know if the head or drive may survive the next start. If you are not able to deactivate background-processes like the reallocation of sectors, it's in some cases necessary to accept the smaller risk and rather lose a few sectors then the whole drive. Of course, it would be the best way to outsource such a case to a professional data recovery lab but this is not always an option.
+In a data recovery case, some drives may have trouble booting up due to a minor scratch in the service area which is very hard on the head when starting. So, you would not want to start the drive multiple times as you cannot know if the head or drive may survive the next start. If you are not able to deactivate background-processes like the reallocation of sectors, it's in some cases necessary to accept the smaller risk and rather lose a few sectors then the whole drive. Of course, it would be the best way to outsource such a case to a professional data recovery lab but this is not always an option.
 
 {pagebreak}
 
@@ -323,25 +325,25 @@ If the data is delivered by the drive before the read timeout occurs then you sa
 
 That is why the read timeout is the most important setting for handling unstable drives! As longer a head is trying to read bad sectors as more the head can get damaged over time.
 
-There are some drives which have bigger areas of bad sectors – in such cases it is wise to skip a certain number of sectors to overcome the bad areas faster. If you are not sure the drive has experienced a drop or head-crash you can't be sure there is no miner scratch on the surface. That's why I set in my first imaging passes always a high number of sectors to skip (e.g. 256000) after a read error. This ensures that you skip over bad areas or tiny scratches very fast.
+There are some drives which have bigger areas of bad sectors – in such cases it is wise to skip a certain number of sectors to overcome the bad areas faster. If you are not sure the drive has experienced a drop or head-crash you can't be sure there is no minor scratch on the surface. That's why I set in my first imaging passes always a high number of sectors to skip (e.g. 256000) after a read error. This ensures that you skip over bad areas or tiny scratches very fast.
 
 If you have read all good sectors with a short read timeout you can run the next imaging pass with a longer timeout and re-read all blocks which are skipped in the last pass.
 
-If there are mainly skipped blocks on one pass and just occasionally read blocks then you have to increase the timeout till you read at least 2/3 of blocks. 
+If there are mainly skipped blocks on one pass and just occasionally read blocks then you have to increase the timeout until you read at least 2/3 of blocks.
 
 As you increase the read timeout with each pass, you should decrease the number of skipped sectors after a read timeout or read error with each pass.
 
-If your tool allows to create a headmap I would strongly suggest to do that before imaging. So that you can see if there is a bad head or even a completely broken head so you can skip the sectors of that head in the first pass.
+If your tool allows to create a headmap I would strongly suggest to do that before imaging. That way, you can see if there is a bad head or even a completely broken head so you can skip the sectors of that head in the first pass.
 
-In case a drive will not be identified but got stuck in `BSY` it may be one of the commands used to initialize the drive which cause the drive to hang. That's why DDI allow to configure the commands used to initialize the drive. Sometimes a non-standard initialisation procedure will allow a drive to become ready:
+In case a drive will not be identified but got stuck in `BSY` it may be one of the commands used to initialize the drive which cause the drive to hang. That's why DDI allow to configure the commands used to initialize the drive. Sometimes a non-standard initialization procedure will allow a drive to become ready:
 
-![12.5 - DDI confoguration of drive initialisation command sequence](resources/UnfinishedChapters/ChL/DDI_Initialisation.JPG)
+![12.5 - DDI configuration of drive initialisation command sequence](resources/UnfinishedChapters/ChL/DDI_Initialisation.JPG)
 
 In case you change the identification procedure and the drive become ready but you cannot image a single sector you have to try another identification procedure so that the drive does not just become ready but also give you data access!
 
 Some imagers allow us to deactivate unnecessary functions of the drive like `S.M.A.R.T.`, caching, sector reallocation, etc.
 
-The deactivation of unnecessary things makes the imaging not just a bit faster but also much lighter for the drive. If `S.M.A.R.T.` is enabled, the drive will have to update the `S.M.A.R.T.` data each time it hits a bad sector. This force the head to jump to the service area and write data and that is not just more "stress" for the drive but also a risk. In case the drive would write bad data into the firmware module the drive can develop a firmware issue and don't boot anymore. Or the module can grow too big and damage the following module in the service area resulting in the same problem.
+The deactivation of unnecessary things makes the imaging not just a bit faster but also much lighter for the drive. If `S.M.A.R.T.` is enabled, the drive will have to update the `S.M.A.R.T.` data each time it hits a bad sector. This force the head to jump to the service area and write data and that is not just more "stress" for the drive but also a risk. In case the drive would write bad data into the firmware module the drive can develop a firmware issue and not boot anymore. That, or the module can grow too big and damage the following module in the service area resulting in the same problem.
 
 DDI has an option in the menu to deactivate such things (`Source -> Drive Preconfiguration`). This option deactivates things based on a preset from DDI but it doesn't allow you to select specific things. A fully fledged firmware-tool like MRT will allow you to do that:
 
@@ -353,7 +355,7 @@ The next possible setting may be the read-mode. You can use the faster UDME-Mode
 
 ![12.8 - DFL DE read mode selection for an imaging task](resources/UnfinishedChapters/ChL/DFL_DE_read_mode.JPG)
 
-The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exact what the name suggests and read the data and wite it to the image or target drive no matter if the checksum of the sector matches. DDI read the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of Deepspar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
+The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exactly what the name suggests and read the data and write it to the image or target drive no matter if the checksum of the sector matches. DDI reads the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of DeepSpar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
 
 The idea behind using a slower read-mode is simple! An unstable drive can read maybe more stable in a slower speed. There are also cases where a firmware-part is damaged and the drive is highly unstable in UDMA for example but PIO would use another fully functional part of the firmware. Different read-commands also apply different procedures and, in some cases, you may be able to read bad sectors with another read-mode. That’s why I recommend using different Read-modes in different passes.
 
@@ -365,25 +367,25 @@ You can also see that different Tools offer different levels of control and diff
 
 That's also why a full-blown data recovery operation need a lot of different tools to select the tool which fits best for each job.
 
-There are even more options to optimise the imaging. One of them would be the reset-commands. You may choose between hardware- and software-reset. Some drives may process one of that resets much better or faster than the other. I have even seen drives freezing when issuing the "wrong" reset command. 
+There are even more options to optimise the imaging. One of them would be the reset-commands. You may choose between hardware- and software-reset. Some drives may process one of that resets much better or faster than the other. I have even seen drives freezing when issuing the "wrong" reset command.
 
-### Practical example – imaging a WD40NMZW with the Guradonix writeblocker
+### Practical example – imaging a WD40NMZW with the Guardonix writeblocker
 
-This is a drive I have recently recovered and the drive is highly unstable and is has a lot of bad sectors with a very weak head because the local PC repair shop has tried to recover the data by scanning the drive with a data recovery program which took multiple days because of internal read-retries. Finally, the head got that much damaged that Windows start to hang when the drive is directly connected and after a while Windows just drops the HDD.
+This is a drive I have recently recovered and the drive is highly unstable and is has a lot of bad sectors with a very weak head because the local PC repair shop has tried to recover the data by scanning the drive with a data recovery program which took multiple days because of internal read-retries. Finally, the head got that much damaged that Windows started to hang when the drive was directly connected and after a while Windows just dropped the HDD.
 
 This is also a good example for the damage a wrong data recovery approach can cause. At least the head is not totally dead – so you have something to work with.
 
-I were thinking about that example for a while and I think the most useful tool for a forensics lab would be the USB stabilizer. This tool is the "bigger brother" of the Guradonix writeblocker and it allows you a bit more control. It can be also used with firmware-tools so if you are thinking about data recovery this would be my recommendation for the lowest you should go.
+I was thinking about that example for a while and I think the most useful tool for a forensics lab would be the USB stabilizer. This tool is the "bigger brother" of the Guardonix writeblocker and it allows you a bit more control. It can be also used with firmware-tools so if you are thinking about data recovery this would be my recommendation for the lowest you should go.
 
 If not used for data recovery the USB Stabilizer works as a USB-writeblocker and as you may know basically every storage device can be adapted to USB. So, it you are starting out in forensics this is the tool which gives you the most options.
 
 That makes this quite an extreme example – you have the lowest-end tool and a data recovery case which is at least a medium to a higher difficulty imaging job. So that will be also a good test to see what the USB Stabilizer can do!
 
-This case also gives me the opportunity to demonstrate another procedure in data recovery. A USB to SATA conversion for western digital drives. This is basically the same procedure as for a PCB-swap, you just swap a USB-PCB with a SATA-PCB.
+This case also gives me the opportunity to demonstrate another procedure in data recovery. A USB to SATA conversion for Western Digital drives. This is basically the same procedure as for a PCB-swap, you just swap a USB-PCB with a SATA-PCB.
 
 Before I explain how that's done, I want to show you what data is stored in the ROM-chip on the PCB:
 
-![12.9 - List of firmware module on a Western Digital ROM chip](resources/UnfinishedChapters/ChL/ROM_List.PNG)
+![12.9 - List of firmware modules on a Western Digital ROM chip](resources/UnfinishedChapters/ChL/ROM_List.PNG)
 
 As you see on the image the modules `0x30` and `0x47` contain the `service-area (SA) translator` and `SA adaptive parameters`. These two modules make each ROM-chip unique for each drive. That's why you have to transfer the ROM-chip from the original PCB to the new PCB.
 
@@ -391,13 +393,13 @@ That is not just valid for WD drives but for each manufacturer!
 
 To check which chip is the ROM-chip I usually search the PCB-Number (`2060-######-### Rev X` in terms of WD PCBs) + the word donor in Google Images. This brings usually images from specialized retailers of donor drives and PCBs. Some of them have marked the ROM-chips on their images.
 
-I validate this also by googling the datasheet of the marked component. If that is indeed a SPI flash chip or something like that you have confirmed that this component is the ROM chip. 
+I validate this also by searching on Google for the datasheet of the marked component. If that is indeed a SPI flash chip or something like that you have confirmed that this component is the ROM chip.
 
 There are some PCBs where you have an empty space for the ROM-chip. This mean the data is in the `MCU` (micro controller unit) and the ROM-chip gets used in later versions to patch the MCU with newer code.
 
 In that cases you have to transplant the MCU from the original PCB without a ROM-chip and remove the ROM-chip from the donor PCB if there is one. Usually, you have also another component on the PCB which act as a switch to activate the ROM-chip. This have to be also removed.
 
-In case the original PCB have a ROM-chip but the donor PCB don't, you have to transfer the ROM-chip and the 2nd component used as a switch.
+In case the original PCB has a ROM-chip but the donor PCB doesn't, you have to transfer the ROM-chip and the 2nd component used as a switch.
 
 ![12.10 - ROM-chip transfer for PCB-swap](resources/UnfinishedChapters/ChL/DSC_4390.JPG)
 
@@ -409,7 +411,7 @@ The first step is to get the drive to ID. To see if the drive is recognised, I o
 
 ![12.11 - USB Stabilizer Log-tab](resources/UnfinishedChapters/ChL/usb_stabi_log.PNG)
 
-If you have a 3,5" drive you can use a USB-dock. In that case you have to activate power first in the USB stabilizer and then power on the dock. 
+If you have a 3.5" drive you can use a USB-dock. In that case you have to activate power first in the USB stabilizer and then power on the dock.
 
 Then you have to select the drive in DMDE:
 
@@ -421,9 +423,9 @@ In the `Settings`-tab of the USB Stabilizer application are controls for the dev
 
 So, you have the most important setting for imaging speed and stress-level of the drive as well as resets which can cause instability issues. That means you have the most basic controls. The checkbox `Turn Off Drive if Inactive` is also helpful to prevent that the reallocation of bad sectors will damage data and the drive before you start another imaging pass. But that only work with 2.5" drives as they can be directly powered over USB and thus the USB Stabilizer can power them off.
 
-With the `Commands`-button you can issue resets manually or you can log the `S.M.A.R.T.` data as I would suggest before and after forensic date acquisition. 
+With the `Commands`-button you can issue resets manually or you can log the `S.M.A.R.T.` data as I would suggest before and after forensic date acquisition.
 
-To sum that up so far, you are using here the lowest end data recovery tool with a cheap data recovery program on a medium till moderate difficult case for professional data recovery tools. A case which took a 5x more expensive and much more flexible tool over a week to image.
+To sum that up so far, you are using here the lowest end data recovery tool with a cheap data recovery program on a medium until moderate difficult case for professional data recovery tools. A case which took a 5x more expensive and much more flexible tool over a week to image.
 
 After you select the disk, you see the following initial scan dialog:
 
@@ -431,7 +433,7 @@ After you select the disk, you see the following initial scan dialog:
 
 DMDE try to read the first sectors and this drive have a bad `LBA 0` (`MBR`) which can't be read. DMDE sees that because I have set the USB Stabilizer to report read errors back to the OS so that the Software can log them correctly.
 
-This is why DMDE display the following error:
+This is why DMDE displays the following error:
 
 ![12.14 - DMDE read error](resources/UnfinishedChapters/ChL/DMDE_error.PNG)
 
@@ -447,13 +449,13 @@ The next settings need to be done in the `Parameters`-tab:
 
 ![12.16 - DMDE imaging settings - Parameters and Source I/O Parameters](resources/UnfinishedChapters/ChL/DMDE_settings_2.PNG)
 
-First, you should create a log-file. This file stores an overview about read, unreadable and skipped sectors. You can also select to image in reverse in that dialog. I unchecked `Lock the source drive for copy` as the USB Stabilizer act as a writeblocker anyway. 
+First, you should create a log-file. This file stores an overview about read, unreadable and skipped sectors. You can also select to image in reverse in that dialog. I unchecked `Lock the source drive for copy` as the USB Stabilizer act as a writeblocker anyway.
 
 For the 2nd pass you can select here also to retry bad sectors. This make sense because many of the bad sectors will be retrieved with a longer read timeout.
 
 A click on the `Parameters`-button opens the 2nd window. Here you can select in the `Ignore I/O Errors`-tab which fill-pattern should be used for bad and skipped sectors and how many sectors will be skipped after a bad sector. This setting allows you to overcome bad areas quicker.
 
-From my experience with that drive, I choose 25600 for the first pass. In MRT I used 256000 in the first try but I realized that I skip too much sectors and I realised that there are bad areas all over the surface. So, I was pretty certain that I am not dealing with local issues like a minor scratch. That's why I lowered the skipped sectors on MRT after the 15 or 20% mark also to 25600.
+From my experience with that drive, I choose 25600 for the first pass. In MRT I used 256000 in the first try but I realized that I skip too much sectors and I realised that there are bad areas all over the surface. So, I was pretty certain that I am not dealing with local issues like a minor scratch. That's why I lowered the skipped sectors on MRT after the 15% or 20% mark also to 25600.
 
 I still keep it quite big for the first pass as I realized with a much smaller setting that the bad areas are 20000 – 80000 sectors wide – so 25600 was a good size to skip them in 1 to 4 steps. As I told - get the low hanging fruits first because you never know if the drive may die on you in the first pass!
 
@@ -467,7 +469,7 @@ The `Sector Map`-tab shows the imaging progress:
 
 ![12.18 - USB Stabilizer first imaging pass](resources/UnfinishedChapters/ChL/imaging_1.PNG)
 
-You see here very well how the imaging works – the spikes where the drive read with decent speed is broken up by bad areas which got skipped. 
+You see here very well how the imaging works – the spikes where the drive read with decent speed is broken up by bad areas which got skipped.
 
 For the 2nd pass I use the following settings:
 
@@ -477,18 +479,17 @@ With MRT I had used 3 passes – one with 2560 sectors which got skipped and a 2
 
 Here I don't have PIO and I expect the 2nd pass to end in the middle of the night or early morning which would throw my time comparison with MRT totally off.
 
-I decided to go straight away with 2560 sectors skip, 10 seconds of read timeout and I read the skipped sectors in reverse. This will read till the next bad sector occurs and mark all between the first and first found bad sector in reverse reading as bad. This is not perfect but it will get the job somehow done.
+I decided to go straight away with 2560 sectors skip, 10 seconds of read timeout and I read the skipped sectors in reverse. This will read until the next bad sector occurs and mark all between the first and first found bad sector in reverse reading as bad. This is not perfect but it will get the job somehow done.
 
 The imaging is occasionally painfully slow but I read basically most of the sectors:
 
 ![12.20 - USB Stabilizer second imaging pass](resources/UnfinishedChapters/ChL/imaging_2.PNG)
 
-Finally, the USB Stabilizer and DMDE did image the first 10% of the drive in a bit more then 1,5 days and my 1 for 2 passes "hack" did cause a few more bad sectors then MRT delivered in almost exactly 1 day. 
+Finally, the USB Stabilizer and DMDE did image the first 10% of the drive in a bit more then 1,5 days and my 1 for 2 passes "hack" did cause a few more bad sectors then MRT delivered in almost exactly 1 day.
 
-The whole job would run approximately 16-17 instead of 10 days, which is really good for a tool like that. I still have maybe some room for improvement but I need to say I am impressed again by Deepspar's USB Stabilizer!
+The whole job would run approximately 16-17 instead of 10 days, which is really good for a tool like that. I still have maybe some room for improvement but I need to say I am impressed again by DeepSpar's USB Stabilizer!
 
-Last but not least I would recommend cooling of a drive which have to work 24h per day for multiple days to get imaged. An old case-fan and an old power-supply of a SATA to USB converter cable does this job in my lab. 
-
+Last but not least I would recommend cooling of a drive which have to work 24h per day for multiple days to get imaged. An old case-fan and an old power-supply of a SATA to USB converter cable does this job in my lab.
 
 {pagebreak}
 
@@ -496,24 +497,25 @@ Last but not least I would recommend cooling of a drive which have to work 24h p
 
 Storage devices based on flash-memory need to be handled differently. To understand how data recovery for such devices works you need to understand how that devices function and how the manufacturers deal with certain limitations of that technology.
 
-Flash drives are faster because there are no moving parts and this also eliminates any kind of mechanical failure or mechanical degradation over time. The data is stored in memory-cells in form of an electric charge. These cells degrade as data is written to them. That means the vendors have to come up with some clever ideas to prevent flash-drives from failing too soon. Strongly generalized these measures are:
+Flash drives are faster because there are no moving parts and this also eliminates any kind of mechanical failure or mechanical degradation over time. The data is stored in memory-cells in the form of an electric charge. These cells degrade as data is written to them. That means the vendors have to come up with some clever ideas to prevent flash-drives from failing too soon. Strongly generalized these measures are:
 
-- **Wearleveling** which ensures that writes are distributed evenly across all memory cells
-- **Obfuscation / randomisation** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
+- **Wear leveling** which ensures that writes are distributed evenly across all memory cells
+- **Obfuscation/randomisation** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
 - A good supply of spare space to replace failing memory-cells, pages or blocks (a group of pages and the smallest unit which can get erased).
 
 ### Board-level repair
 
-First of all, you need to know if the issue is hardware- or firmware-related. The easiest approach is to repair a hardware defect like a broken connector or a blown / shorted capacitor. All you need for this is a soldering-station, tweezers and in the most cases a microscope.
+First of all, you need to know if the issue is hardware- or firmware-related. The easiest approach is to repair a hardware defect like a broken connector or a blown/shorted capacitor. All you need for this is a soldering-station, tweezers and in the most cases a microscope.
 
 ### Fully encrypted devices
 
 Then you need to distinguish between fully encrypted and obfuscated devices. Basically, all SSDs use a full hardware encryption to obfuscate and randomize data. This is also true for a tiny fraction of pendrives.
 
-To recover data from these devices you need professional data recovery tools like
-- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php) / Express with SSD plug-in (do not support NVMe SSDs)
-- [PC-3000 Portable III](https://www.acelab.eu.com/pc-3000-portable-iii-systems.php) with SSD plug-in (support also NVMe SSDs)
-- [MRT Express](http://en.mrtlab.com/mrt-pro) with SSD plug-in (support just a few SATA SSDs)
+To recover data from these devices you need professional data recovery tools like:
+
+- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php)/Express with SSD plug-in (does not support NVMe SSDs)
+- [PC-3000 Portable III](https://www.acelab.eu.com/pc-3000-portable-iii-systems.php) with SSD plug-in (also supports NVMe SSDs)
+- [MRT Express](http://en.mrtlab.com/mrt-pro) with SSD plug-in (supports just a few SATA SSDs)
 
 The process in a very generalized form is quite easy. You need to short some Pins on the SSD to put the device in so-called technology mode to allow the data recovery hardware to upload a so-called loader.
 
@@ -523,7 +525,7 @@ The good news is that many devices are nowadays based on the same controllers (e
 
 If the device is not supported an investigator could theoretically reverse-engineer the firmware of a working model and try to find the issue. This is basically what the vendors of data recovery tools do. To do that for a single case would be an enormous amount of work and this would not fit within the budget and/or time-frame for a normal investigation. So, if the device is not supported, you are usually out of luck.
 
-Without a somehow working firmware which handles decryption of date and the translation from `LBA` addresses to the correct memory location you are not able to get any data at all.
+Without a somehow working firmware which handles decryption of data and the translation from `LBA` addresses to the correct memory location you are not able to get any data at all.
 
 ### Chip-off data recovery
 
@@ -535,7 +537,7 @@ I will demonstrate the process with [PC-3000 Flash](https://www.acelab.eu.com/pc
 
 This makes it much easier to get started!
 
-The only available alternative is VNR from [Rusolut](https://rusolut.com/). This tool doesn't offer a database with already known solutions but the tool is very sophisticated and powerful. 
+The only available alternative is VNR from [Rusolut](https://rusolut.com/). This tool doesn't offer a database with already known solutions but the tool is very sophisticated and powerful.
 
 The third vendor (Flash extractor) went out of business and the tool is just available used and there is no professional support or further development anymore. That's why I would not recommend that at all.
 
@@ -565,7 +567,7 @@ I do not use an attachment for the hot air nozzle for larger components like thi
 
 The procedure I described is intended for BGA chips that do not have legs, but pads on the underside of the chip. But I also handle TSOP chips this way...
 
-Then I swing the hot air nozzle away and use the soldering iron with a little lead-containing solder to lower the melting point of the lead-free solder on the board. To do this, I quickly solder the contacts at a set temperature of 400°C with leded solder. 
+Then I swing the hot air nozzle away and use the soldering iron with a little lead-containing solder to lower the melting point of the lead-free solder on the board. To do this, I quickly solder the contacts at a set temperature of 400°C with leded solder.
 
 Then I swing the hot air nozzle back, I increase the temperature to about 380°C at my hot air station and I use a fairly low air flow to avoid blowing small components off the board!
 
@@ -593,9 +595,9 @@ If you have problems to detach the desoldering wick from the legs, don't use for
 
 With BGA chips, the desoldering wick can be easily pushed over the pads, if it has the right temperature. Do not apply force here either! The pads are torn off faster than you think! As soon as the right temperature is reached and enough flux is used, the piece of desoldering wick glides over the contacts as if by itself.
 
-After both sides of the legs are free of solder, I use a very soft toothbrush and a few drops of isopropyl alcohol to clean the chip roughly. Then I use cotton swabs dipped in IPA to clean the silicone mat and the chip. 
+After both sides of the legs are free of solder, I use a very soft toothbrush and a few drops of isopropyl alcohol to clean the chip roughly. Then I use cotton swabs dipped in IPA to clean the silicone mat and the chip.
 
-Afterwards the chip can be inserted into the reader. Alternatively, you can tin the matching adapter board and solder the chip. I always use lead-containing solder to keep the soldering temperature a little lower. 
+Afterwards the chip can be inserted into the reader. Alternatively, you can tin the matching adapter board and solder the chip. I always use lead-containing solder to keep the soldering temperature a little lower.
 
 If a TSOP48 chip is not detected in the corresponding adapter, this may be due to residues of rosin-containing fluxes or oxidation of the legs. In this case, it is often helpful to place the chip with the legs facing down on a hard surface and carefully clean the top of the leg with a scalpel:
 
@@ -615,7 +617,7 @@ In the next step you are asked for a folder name of the case:
 
 ![12.25 - Setting the case name](resources/UnfinishedChapters/ChL/02_Case_name.PNG)
 
-I always name the folder with the case number and the prefix `DR` for  data recovery and `FI` for forensic investigation. 
+I always name the folder with the case number and the prefix `DR` for data recovery and `FI` for forensic investigation.
 
 Here I use `DR_12345` as an example.
 
@@ -623,7 +625,7 @@ Then you have to determine where the data should be read from:
 
 ![12.26 - Device selection dialog](resources/UnfinishedChapters/ChL/03_device_selection.PNG)
 
-Here you can either select the PC-3000 Flash Reader (first line) or a USB device like the DeepSpar USB Sabilizer shown here. 
+Here you can either select the PC-3000 Flash Reader (first line) or a USB device like the DeepSpar USB Sabilizer shown here.
 
 So, you can easily use PC-3000 Flash also for a logical data recovery.
 
@@ -645,7 +647,7 @@ By clicking on `Next>` you confirm these entries.
 
 In the last step, you can enter more information for the case:
 
-![12.28 - Set additional informations / notes](resources/UnfinishedChapters/ChL/05_taskinfo.PNG)
+![12.28 - Set additional informations/notes](resources/UnfinishedChapters/ChL/05_taskinfo.PNG)
 
 By clicking `OK` you create the case and open it immediately:
 
@@ -655,9 +657,9 @@ In this case, you see only one chip as you stated before. If you had specified a
 
 PC-3000 Flash is very context-menu driven.
 
-The first step in creating the dump is to read the ID of the chip. Via the ID, PC-3000 Flash recognizes which settings are necessary for reading the chip. 
+The first step in creating the dump is to read the ID of the chip. Via the ID, PC-3000 Flash recognizes which settings are necessary for reading the chip.
 
-To do this, you right-click on `1 – Unknown chip`. This brings up the context-menu as shown above. 
+To do this, you right-click on `1 – Unknown chip`. This brings up the context-menu as shown above.
 
 In it you select the entry `Read chip ID` and then the following dialog appears:
 
@@ -665,7 +667,7 @@ In it you select the entry `Read chip ID` and then the following dialog appears:
 
 The appropriate values have already been set by the adapter you used and usually there is no need to activate further options.
 
-The read process starts automatically. All possible modes get tried. If the ID is read successfully, the window disappears. 
+The read process starts automatically. All possible modes get tried. If the ID is read successfully, the window disappears.
 
 If there are read errors, they are displayed as red lines. There are partial read errors in which some values are found and the full read errors shown below.
 
@@ -679,13 +681,13 @@ If the ID is recognized, the chip name changes:
 
 ![12.32 - Read chip](resources/UnfinishedChapters/ChL/08_read_chip.PNG)
 
-With a right click you get the context-menu again and then you need to select `Read chip` to start the first reading pass:
+With a right-click you get the context-menu again and then you need to select `Read chip` to start the first reading pass:
 
 ![12.33 - Reading mode selection dialog](resources/UnfinishedChapters/ChL/09_read_to_dump.PNG)
 
 The dialog shown above allows you to select the reading mode. The `Direct reading mode` is only intended for testing the reading options and should therefore only be used in exceptional cases.
 
-Normally you select `Reading to file dump` to write the data from the chip to a file.  Then you confirm this with `Select`.
+Normally you select `Reading to file dump` to write the data from the chip to a file. Then you confirm this with `Select`.
 
 ![12.34 - Reading parameters dialog (normal)](resources/UnfinishedChapters/ChL/10_read_parameters_01_normal.PNG)
 
@@ -695,7 +697,7 @@ You get the advanced settings by clicking on `Extended>>`:
 
 ![12.35 - Reading parameters dialog (extended)](resources/UnfinishedChapters/ChL/10_read_parameters_02_extended.PNG)
 
-Here you can already perform some analyses or verification of the data while reading or restart the chip with a power reset after a read error.
+Here you can already perform some analysis or verification of the data while reading or restart the chip with a power reset after a read error.
 
 I'm not a fan of running the analyses while copying the data. Auto-verification may make sense for some chips because the data is read several times and then the most likely result is stored.
 
@@ -717,15 +719,15 @@ To start the ECC correction you select `Data correction via ECC` -> `ECC autodet
 
 ![12.37 - Start ECC correction](resources/UnfinishedChapters/ChL/12_ecc_correction_start.PNG)
 
-This analysis may take some time depending on the size of the dump. 
+This analysis may take some time depending on the size of the dump.
 
-If the ECC data cannot be determined during the fast analysis, you will be asked whether a complete analysis should be performed. 
+If the ECC data cannot be determined during the fast analysis, you will be asked whether a complete analysis should be performed.
 
 Once ECC data is found, you see the following question:
 
 ![12.38 - ECC data found dialog](resources/UnfinishedChapters/ChL/13_ecc_found.PNG)
 
-After clicking the `Yes`-button, you see the following in the `Log` tab:
+After clicking the `Yes` button, you see the following in the `Log` tab:
 
 {line-numbers:false}
 ```console
@@ -750,7 +752,7 @@ After that, you get a list of possible read retry modes:
 
 ![12.40 - Re-read method list](resources/UnfinishedChapters/ChL/15_reread_modes_list.PNG)
 
-This list is sorted by probability. Here you can see on the rating of 1% that this very old chip does not support special re-reading commands or that the appropriate commands for this chip are not available in PC-3000 Flash. 
+This list is sorted by probability. Here you can see on the rating of 1% that this very old chip does not support special re-reading commands or that the appropriate commands for this chip are not available in PC-3000 Flash.
 
 In such a case, I then check how many sectors are faulty.
 
@@ -774,7 +776,7 @@ Then you get a graphical overview of the bad sectors:
 
 In this case, there are only 4 bad sectors or 1 page.
 
-In the next step, you have to check with such an old pendrive whether a scrambling of the data has taken place or not. 
+In the next step, you have to check with such an old pendrive whether a scrambling of the data has taken place or not.
 
 This scrambling can be done in the following three ways:
 
@@ -786,7 +788,7 @@ To check whether the data is scrambled, right-click on entry `0` under `Items` a
 
 ![12.45 - Start RAW recovery](resources/UnfinishedChapters/ChL/20_raw_recovery.PNG)
 
-The following window will appear. Here you can initiate the search for files by clicking on the play button in the toolbar. After that, you can look at the data sorted by file type: 
+The following window will appear. Here you can initiate the search for files by clicking on the play button in the toolbar. After that, you can look at the data sorted by file type:
 
 ![12.46 - RAW recovery results](resources/UnfinishedChapters/ChL/21_raw_result.PNG)
 
@@ -794,9 +796,9 @@ Since PC-3000 found some files, there is no scrambling. However, when you open a
 
 ![12.47 - Image-fragments in wrong order](resources/UnfinishedChapters/ChL/22_raw_image.PNG)
 
-The data is readable but the order of the data is completely wrong because of the wearleveling!
+The data is readable but the order of the data is completely wrong because of the wear leveling!
 
-Next, look at the entries under `FAT folder`. This is the data used to define a folder in the FAT file system. These entries are usually quite short and could fit into a page.
+Next, look at the entries under `FAT folder`. This is the data used to define a folder in the FAT filesystem. These entries are usually quite short and could fit into a page.
 
 This makes this data ideal for use in the `Page Designer`. To do this, right-click on the entries in the list and then select `Add to search results`:
 
@@ -822,9 +824,9 @@ Here you can see the content of a page in the left pane. To the right, you can d
 
 As soon as you click on one of the search results, you see the first page in which the data of this file is stored.
 
-A page contains a certain number (4, 8, 16, 32, ... ) of sectors in the so-called data area (`DA`) and some additional bytes. These additional bytes are called the service area (`SA`) and they contain ECC data and markers. 
+A page contains a certain number (4, 8, 16, 32, ... ) of sectors in the so-called data area (`DA`) and some additional bytes. These additional bytes are called the service area (`SA`) and they contain ECC data and markers.
 
-Each page conversion must consist of sectors with 512 bytes in the data area and at least 2 bytes in the service area. So, the smallest possible fragments are 514 bytes per sector. Of course, some data areas can also follow each other directly and the service areas for the individual sectors are located at the end of the page or in one block after 2 or 4 sectors. In addition, one of the service areas can be larger and contain both service data for the sector and the entire page. 
+Each page conversion must consist of sectors with 512 bytes in the data area and at least 2 bytes in the service area. So, the smallest possible fragments are 514 bytes per sector. Of course, some data areas can also follow each other directly and the service areas for the individual sectors are located at the end of the page or in one block after 2 or 4 sectors. In addition, one of the service areas can be larger and contain both service data for the sector and the entire page.
 
 However, the unequal division of the page into sectors with different service areas of different sizes is rather the exception. As a rule, the service areas of all sectors are the same size!
 
@@ -990,11 +992,11 @@ Then enter the length of the data area in bytes and confirm this with `Apply`:
 
 Once you have done this for all sectors, the `page conversion` looks like this:
 
-![12.56 - Finnished page conversion](resources/UnfinishedChapters/ChL/31_tree_view.PNG)
+![12.56 - Finished page conversion](resources/UnfinishedChapters/ChL/31_tree_view.PNG)
 
 A `page conversion` would not even have been necessary for this example but this rather manageable page conversion was ideal to show the process...
 
-Click on the down arrow next to the play button in the toolbar and then on `Apply` to add the `page conversion` to the `transformation graph` 
+Click on the down arrow next to the play button in the toolbar and then on `Apply` to add the `page conversion` to the `transformation graph`
 
 ![12.57 - xxxxxx](resources/UnfinishedChapters/ChL/32_apply_page_design.PNG)
 
@@ -1010,22 +1012,22 @@ The `transformation graph` is basically a list of all the conversion steps that 
 
 In order to get the data in the right order, you have two main options:
 
-- **Block number** in which a part within the service area is used to bring the data in the correct order and the use of a 
+- **Block number** in which a part within the service area is used to bring the data in the correct order and the use of a
 - **Translator**, which is the newer and more complex method to bring the data in the right order!
 
-To see if you are dealing with a `block number` algorithm, you can look at the service information of all sectors. To do this, you right-click on item `0` in the second line of the `transformation graph`  (Page conversion)  and select `Service information` from the context-menu.
+To see if you are dealing with a `block number` algorithm, you can look at the service information of all sectors. To do this, you right-click on item `0` in the second line of the `transformation graph` (Page conversion) and select `Service information` from the context-menu.
 
 After that, you will see the following window:
 
 ![12.60 - Service informations top sectors](resources/UnfinishedChapters/ChL/35_serv_infos_1.PNG)
 
-Here you see in each line the 16 bytes of the service area of all sectors. 
+Here you see in each line the 16 bytes of the service area of all sectors.
 
 Since in a `block number` algorithm the numbering of the blocks is at the beginning of the service area, you scroll through the data.
 
 While the rear data is constantly changing, you only see the value `0x00` on the first 6 bytes.
 
-So, I scroll down a little bit further and I see the following: 
+So, I scroll down a little bit further and I see the following:
 
 ![12.61 - Service informations later sectors](resources/UnfinishedChapters/ChL/35_serv_infos_2.PNG)
 
@@ -1033,7 +1035,7 @@ Here again the first 6 bytes remain the same and the other 10 bytes are constant
 
 ![12.62 - Service informations top sectors](resources/UnfinishedChapters/ChL/35_serv_infos_3.PNG)
 
-A bit further down you see the same picture. If you pay close attention to the transition from block `00138` to `00138`, you see that with the block, the first few bytes also change.  
+A bit further down you see the same picture. If you pay close attention to the transition from block `00138` to `00138`, you see that with the block, the first few bytes also change.
 
 So, you clearly have a pendrive that works based on one of the `block number` algorithms. Which exactly, you can determine by research or with the trial-and-error method.
 
@@ -1045,7 +1047,7 @@ To do this, right-click again on the item `0` in the last line in the `transform
 
 ![12.63 - Try block number 0000](resources/UnfinishedChapters/ChL/36_Block_number_0000.PNG)
 
-The `Type 1 algorithm [0x0000] ` is usually quite universal and my first choice.  `Type 2` is for a different controller and `Type 4` would be for a Kingston SD card – so you can exclude that in this example.
+The `Type 1 algorithm [0x0000]` is usually quite universal and my first choice. `Type 2` is for a different controller and `Type 4` would be for a Kingston SD card – so you can exclude that in this example.
 
 If `Type 1` doesn't fit, you can try `Type 5`, `Type 7` and `Type 9` ...
 
@@ -1112,11 +1114,11 @@ Apparently, the process worked – so check the result:
 
 You can see here immediately, if you click on the new entry in the `Folders` pane, that the result does not work.
 
-Instead of offering a file system, the entry is not extendable!
+Instead of offering a filesystem, the entry is not extendable!
 
 This indicates the wrong `block number` algorithm or the wrong parameters. Before I try other parameters, I try the other algorithms!
 
-If you right-click on the result, you can see with `View the first sector`  that this sector cannot possibly be the MBR:
+If you right-click on the result, you can see with `View the first sector` that this sector cannot possibly be the MBR:
 
 ![12.66 - First sector of block number result](resources/UnfinishedChapters/ChL/39_first_sector.PNG)
 
@@ -1142,14 +1144,14 @@ Therefore I call again the dialog for `Type 5` and remove the checkmark for `Aut
 
 ![12.68 - Block number type 5 with default values](resources/UnfinishedChapters/ChL/41_block_number_1001_manual.PNG)
 
-I leave the marker position at 512 bytes. This is also consistent with what you saw in `Page designer`. 
+I leave the marker position at 512 bytes. This is also consistent with what you saw in `Page designer`.
 
 For `Block size in sectors`, I leave the proposed 256 sectors. However, you can easily confirm this by viewing the service information:
 
 ![12.69 - Service informations ](resources/UnfinishedChapters/ChL/41_block_number_1001_manual_check_sa_data.PNG)
 
 Here you see the boundary between block 0 and block 1 (`B` = block). Block 0 consists of pages 0x00 – 0x3F (`P` = Pages). With this information you can use the Python shell to calculate:
-`0x00` till `0x3F` are in hexadecimal notation `0x40` pages: 
+`0x00` until `0x3F` are in hexadecimal notation `0x40` pages:
 
 {line-numbers:false}
 ```python
@@ -1159,7 +1161,7 @@ Here you see the boundary between block 0 and block 1 (`B` = block). Block 0 con
 
 So, you have the sectors 0 – 255 in block 0. This confirms the 256 sectors per block.
 
-As soon as you use these values to build a virtual block-device with the `Apply`-button, you see the following messages in the log tab: 
+As soon as you use these values to build a virtual block-device with the `Apply`-button, you see the following messages in the log tab:
 
 {line-numbers:false}
 ```console
@@ -1175,7 +1177,7 @@ This time you can expand the entry for `Type 5`:
 
 ![12.70 - Block number type 5 working](resources/UnfinishedChapters/ChL/42_block_number_1001_success.PNG)
 
-We can also see based on the green dots that the JPG files are valid based on the structure check of PC-3000. 
+We can also see based on the green dots that the JPG files are valid based on the structure check of PC-3000.
 
 If you want to view one of the images, you can right-click on the filename to open the context-menu and then select the entry `Open`. Here, the standard program, which is set in Windows for the respective file type, is used to open the file.
 
@@ -1185,7 +1187,7 @@ Of course, you can also back up the data:
 
 To do this, I set the check mark on the folder `Root` (root directory of the partition). Then I right-click `Root` in the `Folders` pane and select `Save marked... ` from the context-menu.
 
-After that, you only have to specify where the data should be stored and start the process. 
+After that, you only have to specify where the data should be stored and start the process.
 
 Reading the chips is always the same but there may be times when you need to do the de-scrambling with XOR before the ECC correction.
 

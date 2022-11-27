@@ -50,7 +50,7 @@ In case of flash-memory like memory-cards, pendrives or SSDs there are just:
 - electronical problems and
 - firmware-issues, which made up the majority of the cases.
 
-So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair but most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because windows will drop the drive after it become instable.
+So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair. Generally speaking, most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because Windows will drop the drive after it become unstable.
 
 I guess many will also want to handle a PCB-swap without a data recovery lab.
 
@@ -68,7 +68,7 @@ The **RapidSpar** is a highly automated solution for easier data recovery cases.
 
 It's good to have that firmware-capabilities but RapidSpar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
 
-The **Deepspar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly uinstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives. 
+The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly unstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
 
 The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware/error register).
 
@@ -998,15 +998,15 @@ A `page conversion` would not even have been necessary for this example but this
 
 Click on the down arrow next to the play button in the toolbar and then on `Apply` to add the `page conversion` to the `transformation graph`
 
-![12.57 - xxxxxx](resources/UnfinishedChapters/ChL/32_apply_page_design.PNG)
+![12.57 - Apply page conversion](resources/UnfinishedChapters/ChL/32_apply_page_design.PNG)
 
 ... and the following message appears:
 
-![12.58 - xxxxxx](resources/UnfinishedChapters/ChL/33_apply_ok.PNG)
+![12.58 - Transformation successful messagebox](resources/UnfinishedChapters/ChL/33_apply_ok.PNG)
 
 Confirm that with `OK` and you find in `transformation graph` another line:
 
-![12.59 - xxxxxx](resources/UnfinishedChapters/ChL/34_service_infos.PNG)
+![12.59 - Transformation graph with newly added page conversion](resources/UnfinishedChapters/ChL/34_service_infos.PNG)
 
 The `transformation graph` is basically a list of all the conversion steps that are applied to the dump.
 
@@ -1110,7 +1110,7 @@ Sector was read successfully
 
 Apparently, the process worked – so check the result:
 
-![12.65 - xxxxxx](resources/UnfinishedChapters/ChL/38_dead_Block_number.PNG)
+![12.65 - Context-menu -> View first sector](resources/UnfinishedChapters/ChL/38_dead_Block_number.PNG)
 
 You can see here immediately, if you click on the new entry in the `Folders` pane, that the result does not work.
 
@@ -1198,4 +1198,3 @@ A flash chip-off case can get easily more complex:
 ![12.71 - Save user data](resources/UnfinishedChapters/ChL/PC_3k_flash_complex_transf_graph.PNG)
 
 Some cases have even more complex transformations then the one shown above! To get good at this type of data recovery requires time, training and research. This is the reason why I don't recommend beginners to start with flash data recovery but with HDDs. The success rate even with basic knowledge will be much higher.
-

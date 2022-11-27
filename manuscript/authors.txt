@@ -61,3 +61,7 @@ s3raph has worked in DFIR, Threat Hunting, Penetration Testing, and Cyber Defens
 ### Tristram
 
 An avid blue team leader helping to secure the healthcare industry. Despite being blue team focused, Tristram brings the enemy mindset to the table through various offensive skillsets to identify gaps and validate existing controls.
+
+### Mark Berger
+
+Mark Berger is a data recovery professional, author and trainer which also holds several digital forensics related certifications, including but not limited to CDFE and CDFP. He is also involved in a few opensource-projects in the data recovery and digital forensics field.

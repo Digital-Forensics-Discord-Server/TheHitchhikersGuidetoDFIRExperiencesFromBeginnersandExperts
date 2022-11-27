@@ -511,10 +511,11 @@ First of all, you need to know if the issue is hardware- or firmware-related. Th
 
 Then you need to distinguish between fully encrypted and obfuscated devices. Basically, all SSDs use a full hardware encryption to obfuscate and randomize data. This is also true for a tiny fraction of pendrives.
 
-To recover data from these devices you need professional data recovery tools like
-- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php)/Express with SSD plug-in (do not support NVMe SSDs)
-- [PC-3000 Portable III](https://www.acelab.eu.com/pc-3000-portable-iii-systems.php) with SSD plug-in (support also NVMe SSDs)
-- [MRT Express](http://en.mrtlab.com/mrt-pro) with SSD plug-in (support just a few SATA SSDs)
+To recover data from these devices you need professional data recovery tools like:
+
+- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php)/Express with SSD plug-in (does not support NVMe SSDs)
+- [PC-3000 Portable III](https://www.acelab.eu.com/pc-3000-portable-iii-systems.php) with SSD plug-in (also supports NVMe SSDs)
+- [MRT Express](http://en.mrtlab.com/mrt-pro) with SSD plug-in (supports just a few SATA SSDs)
 
 The process in a very generalized form is quite easy. You need to short some Pins on the SSD to put the device in so-called technology mode to allow the data recovery hardware to upload a so-called loader.
 
@@ -524,7 +525,7 @@ The good news is that many devices are nowadays based on the same controllers (e
 
 If the device is not supported an investigator could theoretically reverse-engineer the firmware of a working model and try to find the issue. This is basically what the vendors of data recovery tools do. To do that for a single case would be an enormous amount of work and this would not fit within the budget and/or time-frame for a normal investigation. So, if the device is not supported, you are usually out of luck.
 
-Without a somehow working firmware which handles decryption of date and the translation from `LBA` addresses to the correct memory location you are not able to get any data at all.
+Without a somehow working firmware which handles decryption of data and the translation from `LBA` addresses to the correct memory location you are not able to get any data at all.
 
 ### Chip-off data recovery
 
@@ -680,7 +681,7 @@ If the ID is recognized, the chip name changes:
 
 ![12.32 - Read chip](resources/UnfinishedChapters/ChL/08_read_chip.PNG)
 
-With a right click you get the context-menu again and then you need to select `Read chip` to start the first reading pass:
+With a right-click you get the context-menu again and then you need to select `Read chip` to start the first reading pass:
 
 ![12.33 - Reading mode selection dialog](resources/UnfinishedChapters/ChL/09_read_to_dump.PNG)
 
@@ -696,7 +697,7 @@ You get the advanced settings by clicking on `Extended>>`:
 
 ![12.35 - Reading parameters dialog (extended)](resources/UnfinishedChapters/ChL/10_read_parameters_02_extended.PNG)
 
-Here you can already perform some analyses or verification of the data while reading or restart the chip with a power reset after a read error.
+Here you can already perform some analysis or verification of the data while reading or restart the chip with a power reset after a read error.
 
 I'm not a fan of running the analyses while copying the data. Auto-verification may make sense for some chips because the data is read several times and then the most likely result is stored.
 
@@ -726,7 +727,7 @@ Once ECC data is found, you see the following question:
 
 ![12.38 - ECC data found dialog](resources/UnfinishedChapters/ChL/13_ecc_found.PNG)
 
-After clicking the `Yes`-button, you see the following in the `Log` tab:
+After clicking the `Yes` button, you see the following in the `Log` tab:
 
 {line-numbers:false}
 ```console
@@ -795,9 +796,9 @@ Since PC-3000 found some files, there is no scrambling. However, when you open a
 
 ![12.47 - Image-fragments in wrong order](resources/UnfinishedChapters/ChL/22_raw_image.PNG)
 
-The data is readable but the order of the data is completely wrong because of the wearleveling!
+The data is readable but the order of the data is completely wrong because of the wear leveling!
 
-Next, look at the entries under `FAT folder`. This is the data used to define a folder in the FAT file system. These entries are usually quite short and could fit into a page.
+Next, look at the entries under `FAT folder`. This is the data used to define a folder in the FAT filesystem. These entries are usually quite short and could fit into a page.
 
 This makes this data ideal for use in the `Page Designer`. To do this, right-click on the entries in the list and then select `Add to search results`:
 
@@ -991,7 +992,7 @@ Then enter the length of the data area in bytes and confirm this with `Apply`:
 
 Once you have done this for all sectors, the `page conversion` looks like this:
 
-![12.56 - Finnished page conversion](resources/UnfinishedChapters/ChL/31_tree_view.PNG)
+![12.56 - Finished page conversion](resources/UnfinishedChapters/ChL/31_tree_view.PNG)
 
 A `page conversion` would not even have been necessary for this example but this rather manageable page conversion was ideal to show the process...
 
@@ -1113,7 +1114,7 @@ Apparently, the process worked – so check the result:
 
 You can see here immediately, if you click on the new entry in the `Folders` pane, that the result does not work.
 
-Instead of offering a file system, the entry is not extendable!
+Instead of offering a filesystem, the entry is not extendable!
 
 This indicates the wrong `block number` algorithm or the wrong parameters. Before I try other parameters, I try the other algorithms!
 

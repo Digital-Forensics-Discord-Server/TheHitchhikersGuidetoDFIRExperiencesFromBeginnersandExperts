@@ -37,7 +37,7 @@ That means that such a generated virtual filesystem is the interpretation of the
 
 This category contains all kind of cases – for example:
 
-- instable drives,
+- unstable drives,
 - damaged PCBs (printed circuit boards),
 - firmware-issues,
 - head stuck on platters,
@@ -50,7 +50,7 @@ In case of flash-memory like memory-cards, pendrives or SSDs there are just:
 - electronical problems and
 - firmware-issues, which made up the majority of the cases.
 
-So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair. Generally speaking, most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because Windows will drop the drive after it become instable.
+So, first of all you need to come to a conclusion as to how far does it make sense to go with data recovery when conducting a forensics investigation. I have thought about that for quite some time and I think the most forensics investigators will not want to build a fully-fledged data recovery operation and start with cleanroom data recovery or dive very deep into firmware-repair. Generally speaking, most forensic investigators probably don't want to outsource the imaging of a drive to a data recovery lab just because Windows will drop the drive after it become unstable.
 
 I guess many will also want to handle a PCB-swap without a data recovery lab.
 
@@ -62,13 +62,13 @@ With the above-mentioned use cases in mind, we can have a look at the right tool
 - [RapidSpar](https://rapidspar.com/)
 - [DeepSpar Disk Imager](https://www.deepspar.com/products-ds-disk-imager.html)
 
-The **Guardonix** is a quite powerful writeblocker which allow you to handle instable drives by maintaining two independent connections - one to the PC which is maintained even when the drive is hanging or irresponsible and one to the drive itself. In this way the operating system is not aware of any issues the drive may have. With the professional edition of the tool the operator may even set a timeout to skip bad areas on the first pass.
+The **Guardonix** is a quite powerful writeblocker which allow you to handle unstable drives by maintaining two independent connections - one to the PC which is maintained even when the drive is hanging or irresponsible and one to the drive itself. In this way the operating system is not aware of any issues the drive may have. With the professional edition of the tool the operator may even set a timeout to skip bad areas on the first pass.
 
 The **RapidSpar** is a highly automated solution for easier data recovery cases. It allows just for a basic level of control but it can handle even some firmware-cases automatically. The tool is mainly designed for PC repair shops to offer semi-professional data recovery services but with the data acquisition addon it would become a quite interesting tool for a forensics lab. Just a pity the tool lacks even the most basic forensic functions!
 
 It's good to have that firmware-capabilities but RapidSpar is not documenting anything it does and so it's absolutely a no-go for forensics. For entry-level data recovery operations this tool is a good choice but you may reach its limits quite fast because the tool supports basically no manual control.
 
-The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly instable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
+The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly unstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
 
 The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
 
@@ -323,7 +323,7 @@ In more technical terms you need multiple imaging passes. In the first pass you 
 
 If the data is delivered by the drive before the read timeout occurs then you save the data and continue to read the next block. If the timeout is reached the imaging device will send a reset command to cancel the internal read retries of the drive and then the imaging continue with the next block.
 
-That is why the read timeout is the most important setting for handling instable drives! As longer a head is trying to read bad sectors as more the head can get damaged over time.
+That is why the read timeout is the most important setting for handling unstable drives! As longer a head is trying to read bad sectors as more the head can get damaged over time.
 
 There are some drives which have bigger areas of bad sectors – in such cases it is wise to skip a certain number of sectors to overcome the bad areas faster. If you are not sure the drive has experienced a drop or head-crash you can't be sure there is no miner scratch on the surface. That's why I set in my first imaging passes always a high number of sectors to skip (e.g. 256000) after a read error. This ensures that you skip over bad areas or tiny scratches very fast.
 

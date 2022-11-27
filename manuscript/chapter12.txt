@@ -70,9 +70,9 @@ It's good to have that firmware-capabilities but RapidSpar is not documenting an
 
 The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the cloning of highly unstable drives and this tool is the most professional data recovery tool but strictly limited to imaging. It is also ready for forensic imaging and it can calculate checksums on the fly. The DDI is also know in the data recovery industry for its great handling of unstable drives.
 
-The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
+The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware/error register).
 
-DeepSpar Disk Imager and RapidSpar have another advantage over the Guardonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
+DeepSpar Disk Imager and RapidSpar have another advantage over the Guardonix/USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
 
 {pagebreak}
 
@@ -171,7 +171,7 @@ If the `G-List` is lost, data will be damaged because sectors mapped out during 
 
 However, this also means that a hard disk becomes slower and slower the more unmapped sectors there are because the more often the head has to make jumps to the new location of a `LBA` when reading the data.
 
-Depending on the manufacturer / model series, this is slightly different. Many disks have smaller reserve areas distributed over the platters to minimize any necessary jumps and the associated loss of performance.
+Depending on the manufacturer/model series, this is slightly different. Many disks have smaller reserve areas distributed over the platters to minimize any necessary jumps and the associated loss of performance.
 
 **Translator**
 
@@ -189,17 +189,17 @@ Here is a simplified graphic representation for comparison:
 
 What is graphically displayed here is saved by the zone table in a form that can be used by the firmware. Without this data, it would not be possible to calculate the location of a specific `LBA` address is on the platters!
 
-**Servo parameters / Servo adaptive parameters**
+**Servo parameters/Servo adaptive parameters**
 
 This data is used to fine-tune the head and is unique to each hard drive. Incorrect data can lead to the head no longer reading or only reading with reduced performance.
 
 There are often different data sets for the service and user area.
 
-**Security-relevant data / passwords**
+**Security-relevant data/passwords**
 
 Some encryption methods save the passwords on the hard disk in the service area. In these cases, passwords can be easily read out or removed with access to the firmware modules.
 
-**Firmware / overlay code**
+**Firmware/overlay code**
 
 To put it simply, these are program instructions that are loaded into the main memory of the HDD when required.
 
@@ -455,7 +455,7 @@ For the 2nd pass you can select here also to retry bad sectors. This make sense 
 
 A click on the `Parameters`-button opens the 2nd window. Here you can select in the `Ignore I/O Errors`-tab which fill-pattern should be used for bad and skipped sectors and how many sectors will be skipped after a bad sector. This setting allows you to overcome bad areas quicker.
 
-From my experience with that drive, I choose 25600 for the first pass. In MRT I used 256000 in the first try but I realized that I skip too much sectors and I realised that there are bad areas all over the surface. So, I was pretty certain that I am not dealing with local issues like a minor scratch. That's why I lowered the skipped sectors on MRT after the 15 or 20% mark also to 25600.
+From my experience with that drive, I choose 25600 for the first pass. In MRT I used 256000 in the first try but I realized that I skip too much sectors and I realised that there are bad areas all over the surface. So, I was pretty certain that I am not dealing with local issues like a minor scratch. That's why I lowered the skipped sectors on MRT after the 15% or 20% mark also to 25600.
 
 I still keep it quite big for the first pass as I realized with a much smaller setting that the bad areas are 20000 – 80000 sectors wide – so 25600 was a good size to skip them in 1 to 4 steps. As I told - get the low hanging fruits first because you never know if the drive may die on you in the first pass!
 
@@ -491,29 +491,28 @@ The whole job would run approximately 16-17 instead of 10 days, which is really 
 
 Last but not least I would recommend cooling of a drive which have to work 24h per day for multiple days to get imaged. An old case-fan and an old power-supply of a SATA to USB converter cable does this job in my lab.
 
-
 {pagebreak}
 
 ## Flash drive data recovery
 
 Storage devices based on flash-memory need to be handled differently. To understand how data recovery for such devices works you need to understand how that devices function and how the manufacturers deal with certain limitations of that technology.
 
-Flash drives are faster because there are no moving parts and this also eliminates any kind of mechanical failure or mechanical degradation over time. The data is stored in memory-cells in form of an electric charge. These cells degrade as data is written to them. That means the vendors have to come up with some clever ideas to prevent flash-drives from failing too soon. Strongly generalized these measures are:
+Flash drives are faster because there are no moving parts and this also eliminates any kind of mechanical failure or mechanical degradation over time. The data is stored in memory-cells in the form of an electric charge. These cells degrade as data is written to them. That means the vendors have to come up with some clever ideas to prevent flash-drives from failing too soon. Strongly generalized these measures are:
 
-- **Wearleveling** which ensures that writes are distributed evenly across all memory cells
-- **Obfuscation / randomisation** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
+- **Wear leveling** which ensures that writes are distributed evenly across all memory cells
+- **Obfuscation/randomisation** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
 - A good supply of spare space to replace failing memory-cells, pages or blocks (a group of pages and the smallest unit which can get erased).
 
 ### Board-level repair
 
-First of all, you need to know if the issue is hardware- or firmware-related. The easiest approach is to repair a hardware defect like a broken connector or a blown / shorted capacitor. All you need for this is a soldering-station, tweezers and in the most cases a microscope.
+First of all, you need to know if the issue is hardware- or firmware-related. The easiest approach is to repair a hardware defect like a broken connector or a blown/shorted capacitor. All you need for this is a soldering-station, tweezers and in the most cases a microscope.
 
 ### Fully encrypted devices
 
 Then you need to distinguish between fully encrypted and obfuscated devices. Basically, all SSDs use a full hardware encryption to obfuscate and randomize data. This is also true for a tiny fraction of pendrives.
 
 To recover data from these devices you need professional data recovery tools like
-- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php) / Express with SSD plug-in (do not support NVMe SSDs)
+- [PC-3000 UDMA](https://www.acelab.eu.com/pc3000.udma.php)/Express with SSD plug-in (do not support NVMe SSDs)
 - [PC-3000 Portable III](https://www.acelab.eu.com/pc-3000-portable-iii-systems.php) with SSD plug-in (support also NVMe SSDs)
 - [MRT Express](http://en.mrtlab.com/mrt-pro) with SSD plug-in (support just a few SATA SSDs)
 
@@ -647,7 +646,7 @@ By clicking on `Next>` you confirm these entries.
 
 In the last step, you can enter more information for the case:
 
-![12.28 - Set additional informations / notes](resources/UnfinishedChapters/ChL/05_taskinfo.PNG)
+![12.28 - Set additional informations/notes](resources/UnfinishedChapters/ChL/05_taskinfo.PNG)
 
 By clicking `OK` you create the case and open it immediately:
 

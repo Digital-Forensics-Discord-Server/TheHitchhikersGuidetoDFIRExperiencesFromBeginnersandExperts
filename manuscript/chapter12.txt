@@ -72,7 +72,7 @@ The **DeepSpar Disk Imager**, for short DDI, is a PCIe-card which can handle the
 
 The way a DDI reports errors is also great for diagnosis as the imaging progresses - errors are shown in the sector map as red letters. For example, an `I` means "sector ID not found" and if you just get reading errors with the letter `I` after a certain LBA the drive has most probably a translator issue (see firmware / error register).
 
-DeepSpar Disk Imager and RapidSpar have another advantage over the Guradonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
+DeepSpar Disk Imager and RapidSpar have another advantage over the Guardonix / USB Stabilizer. These tools can build a headmap and ignore all sectors which belong to a defective head. This also allow you to identify bad heads and image good heads first which is safer.
 
 {pagebreak}
 
@@ -309,7 +309,7 @@ I recommend getting the `S.M.A.R.T.` values before and after imaging. As you hav
 
 Even if you pay attention that the drive will never be in idle some other investigator may let the drive idle for a few minutes before calculating the checksum and thus this person alter the data. In such cases it's wise to have the `S.M.A.R.T.` values reported before and after imaging that you can explain why the checksum don't match up anymore.
 
-In a data recovery case, some drives may have troubles to boot up like a minor scratch in the service area which is very hard on the head when starting. So, you would not want to start the drive multiple times as you cannot know if the head or drive may survive the next start. If you are not able to deactivate background-processes like the reallocation of sectors, it's in some cases necessary to accept the smaller risk and rather lose a few sectors then the whole drive. Of course, it would be the best way to outsource such a case to a professional data recovery lab but this is not always an option.
+In a data recovery case, some drives may have trouble booting up due to a minor scratch in the service area which is very hard on the head when starting. So, you would not want to start the drive multiple times as you cannot know if the head or drive may survive the next start. If you are not able to deactivate background-processes like the reallocation of sectors, it's in some cases necessary to accept the smaller risk and rather lose a few sectors then the whole drive. Of course, it would be the best way to outsource such a case to a professional data recovery lab but this is not always an option.
 
 {pagebreak}
 
@@ -325,7 +325,7 @@ If the data is delivered by the drive before the read timeout occurs then you sa
 
 That is why the read timeout is the most important setting for handling unstable drives! As longer a head is trying to read bad sectors as more the head can get damaged over time.
 
-There are some drives which have bigger areas of bad sectors – in such cases it is wise to skip a certain number of sectors to overcome the bad areas faster. If you are not sure the drive has experienced a drop or head-crash you can't be sure there is no miner scratch on the surface. That's why I set in my first imaging passes always a high number of sectors to skip (e.g. 256000) after a read error. This ensures that you skip over bad areas or tiny scratches very fast.
+There are some drives which have bigger areas of bad sectors – in such cases it is wise to skip a certain number of sectors to overcome the bad areas faster. If you are not sure the drive has experienced a drop or head-crash you can't be sure there is no minor scratch on the surface. That's why I set in my first imaging passes always a high number of sectors to skip (e.g. 256000) after a read error. This ensures that you skip over bad areas or tiny scratches very fast.
 
 If you have read all good sectors with a short read timeout you can run the next imaging pass with a longer timeout and re-read all blocks which are skipped in the last pass.
 
@@ -333,17 +333,17 @@ If there are mainly skipped blocks on one pass and just occasionally read blocks
 
 As you increase the read timeout with each pass, you should decrease the number of skipped sectors after a read timeout or read error with each pass.
 
-If your tool allows to create a headmap I would strongly suggest to do that before imaging. So that you can see if there is a bad head or even a completely broken head so you can skip the sectors of that head in the first pass.
+If your tool allows to create a headmap I would strongly suggest to do that before imaging. That way, you can see if there is a bad head or even a completely broken head so you can skip the sectors of that head in the first pass.
 
-In case a drive will not be identified but got stuck in `BSY` it may be one of the commands used to initialize the drive which cause the drive to hang. That's why DDI allow to configure the commands used to initialize the drive. Sometimes a non-standard initialisation procedure will allow a drive to become ready:
+In case a drive will not be identified but got stuck in `BSY` it may be one of the commands used to initialize the drive which cause the drive to hang. That's why DDI allow to configure the commands used to initialize the drive. Sometimes a non-standard initialization procedure will allow a drive to become ready:
 
-![12.5 - DDI confoguration of drive initialisation command sequence](resources/UnfinishedChapters/ChL/DDI_Initialisation.JPG)
+![12.5 - DDI configuration of drive initialisation command sequence](resources/UnfinishedChapters/ChL/DDI_Initialisation.JPG)
 
 In case you change the identification procedure and the drive become ready but you cannot image a single sector you have to try another identification procedure so that the drive does not just become ready but also give you data access!
 
 Some imagers allow us to deactivate unnecessary functions of the drive like `S.M.A.R.T.`, caching, sector reallocation, etc.
 
-The deactivation of unnecessary things makes the imaging not just a bit faster but also much lighter for the drive. If `S.M.A.R.T.` is enabled, the drive will have to update the `S.M.A.R.T.` data each time it hits a bad sector. This force the head to jump to the service area and write data and that is not just more "stress" for the drive but also a risk. In case the drive would write bad data into the firmware module the drive can develop a firmware issue and don't boot anymore. Or the module can grow too big and damage the following module in the service area resulting in the same problem.
+The deactivation of unnecessary things makes the imaging not just a bit faster but also much lighter for the drive. If `S.M.A.R.T.` is enabled, the drive will have to update the `S.M.A.R.T.` data each time it hits a bad sector. This force the head to jump to the service area and write data and that is not just more "stress" for the drive but also a risk. In case the drive would write bad data into the firmware module the drive can develop a firmware issue and not boot anymore. That, or the module can grow too big and damage the following module in the service area resulting in the same problem.
 
 DDI has an option in the menu to deactivate such things (`Source -> Drive Preconfiguration`). This option deactivates things based on a preset from DDI but it doesn't allow you to select specific things. A fully fledged firmware-tool like MRT will allow you to do that:
 
@@ -355,7 +355,7 @@ The next possible setting may be the read-mode. You can use the faster UDME-Mode
 
 ![12.8 - DFL DE read mode selection for an imaging task](resources/UnfinishedChapters/ChL/DFL_DE_read_mode.JPG)
 
-The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exact what the name suggests and read the data and wite it to the image or target drive no matter if the checksum of the sector matches. DDI read the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of DeepSpar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
+The other modes like `Read, ignore CRC` are helpful in some cases – here does the DDI a fabulous job. MRT does exactly what the name suggests and read the data and write it to the image or target drive no matter if the checksum of the sector matches. DDI reads the sector in this mode multiple times and does a statistical analysis for each bit to get the most probable result instead of the first result the drive delivers. Each way is useful when the sector checksum is corrupted. In case a very weak head gives you bad data the statistical analysis of DeepSpar's DDI would ensure that you get the best possible result but the trade-off of this would be a longer imaging-duration and much more stress on the head. That's why this is not an option you should use on the first pass but rather on the last imaging pass!
 
 The idea behind using a slower read-mode is simple! An unstable drive can read maybe more stable in a slower speed. There are also cases where a firmware-part is damaged and the drive is highly unstable in UDMA for example but PIO would use another fully functional part of the firmware. Different read-commands also apply different procedures and, in some cases, you may be able to read bad sectors with another read-mode. That’s why I recommend using different Read-modes in different passes.
 
@@ -369,23 +369,23 @@ That's also why a full-blown data recovery operation need a lot of different too
 
 There are even more options to optimise the imaging. One of them would be the reset-commands. You may choose between hardware- and software-reset. Some drives may process one of that resets much better or faster than the other. I have even seen drives freezing when issuing the "wrong" reset command.
 
-### Practical example – imaging a WD40NMZW with the Guradonix writeblocker
+### Practical example – imaging a WD40NMZW with the Guardonix writeblocker
 
-This is a drive I have recently recovered and the drive is highly unstable and is has a lot of bad sectors with a very weak head because the local PC repair shop has tried to recover the data by scanning the drive with a data recovery program which took multiple days because of internal read-retries. Finally, the head got that much damaged that Windows start to hang when the drive is directly connected and after a while Windows just drops the HDD.
+This is a drive I have recently recovered and the drive is highly unstable and is has a lot of bad sectors with a very weak head because the local PC repair shop has tried to recover the data by scanning the drive with a data recovery program which took multiple days because of internal read-retries. Finally, the head got that much damaged that Windows started to hang when the drive was directly connected and after a while Windows just dropped the HDD.
 
 This is also a good example for the damage a wrong data recovery approach can cause. At least the head is not totally dead – so you have something to work with.
 
-I were thinking about that example for a while and I think the most useful tool for a forensics lab would be the USB stabilizer. This tool is the "bigger brother" of the Guradonix writeblocker and it allows you a bit more control. It can be also used with firmware-tools so if you are thinking about data recovery this would be my recommendation for the lowest you should go.
+I was thinking about that example for a while and I think the most useful tool for a forensics lab would be the USB stabilizer. This tool is the "bigger brother" of the Guardonix writeblocker and it allows you a bit more control. It can be also used with firmware-tools so if you are thinking about data recovery this would be my recommendation for the lowest you should go.
 
 If not used for data recovery the USB Stabilizer works as a USB-writeblocker and as you may know basically every storage device can be adapted to USB. So, it you are starting out in forensics this is the tool which gives you the most options.
 
 That makes this quite an extreme example – you have the lowest-end tool and a data recovery case which is at least a medium to a higher difficulty imaging job. So that will be also a good test to see what the USB Stabilizer can do!
 
-This case also gives me the opportunity to demonstrate another procedure in data recovery. A USB to SATA conversion for western digital drives. This is basically the same procedure as for a PCB-swap, you just swap a USB-PCB with a SATA-PCB.
+This case also gives me the opportunity to demonstrate another procedure in data recovery. A USB to SATA conversion for Western Digital drives. This is basically the same procedure as for a PCB-swap, you just swap a USB-PCB with a SATA-PCB.
 
 Before I explain how that's done, I want to show you what data is stored in the ROM-chip on the PCB:
 
-![12.9 - List of firmware module on a Western Digital ROM chip](resources/UnfinishedChapters/ChL/ROM_List.PNG)
+![12.9 - List of firmware modules on a Western Digital ROM chip](resources/UnfinishedChapters/ChL/ROM_List.PNG)
 
 As you see on the image the modules `0x30` and `0x47` contain the `service-area (SA) translator` and `SA adaptive parameters`. These two modules make each ROM-chip unique for each drive. That's why you have to transfer the ROM-chip from the original PCB to the new PCB.
 
@@ -393,13 +393,13 @@ That is not just valid for WD drives but for each manufacturer!
 
 To check which chip is the ROM-chip I usually search the PCB-Number (`2060-######-### Rev X` in terms of WD PCBs) + the word donor in Google Images. This brings usually images from specialized retailers of donor drives and PCBs. Some of them have marked the ROM-chips on their images.
 
-I validate this also by googling the datasheet of the marked component. If that is indeed a SPI flash chip or something like that you have confirmed that this component is the ROM chip.
+I validate this also by searching on Google for the datasheet of the marked component. If that is indeed a SPI flash chip or something like that you have confirmed that this component is the ROM chip.
 
 There are some PCBs where you have an empty space for the ROM-chip. This mean the data is in the `MCU` (micro controller unit) and the ROM-chip gets used in later versions to patch the MCU with newer code.
 
 In that cases you have to transplant the MCU from the original PCB without a ROM-chip and remove the ROM-chip from the donor PCB if there is one. Usually, you have also another component on the PCB which act as a switch to activate the ROM-chip. This have to be also removed.
 
-In case the original PCB have a ROM-chip but the donor PCB don't, you have to transfer the ROM-chip and the 2nd component used as a switch.
+In case the original PCB has a ROM-chip but the donor PCB doesn't, you have to transfer the ROM-chip and the 2nd component used as a switch.
 
 ![12.10 - ROM-chip transfer for PCB-swap](resources/UnfinishedChapters/ChL/DSC_4390.JPG)
 
@@ -411,7 +411,7 @@ The first step is to get the drive to ID. To see if the drive is recognised, I o
 
 ![12.11 - USB Stabilizer Log-tab](resources/UnfinishedChapters/ChL/usb_stabi_log.PNG)
 
-If you have a 3,5" drive you can use a USB-dock. In that case you have to activate power first in the USB stabilizer and then power on the dock.
+If you have a 3.5" drive you can use a USB-dock. In that case you have to activate power first in the USB stabilizer and then power on the dock.
 
 Then you have to select the drive in DMDE:
 
@@ -433,7 +433,7 @@ After you select the disk, you see the following initial scan dialog:
 
 DMDE try to read the first sectors and this drive have a bad `LBA 0` (`MBR`) which can't be read. DMDE sees that because I have set the USB Stabilizer to report read errors back to the OS so that the Software can log them correctly.
 
-This is why DMDE display the following error:
+This is why DMDE displays the following error:
 
 ![12.14 - DMDE read error](resources/UnfinishedChapters/ChL/DMDE_error.PNG)
 

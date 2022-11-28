@@ -107,7 +107,7 @@ In this section, I want to share some unique stories from people who have joined
 
 One of the earliest stories I can remember is from someone who identified themselves as a detective in Alaska. Specifically, this person stated they were a one-man digital forensics team at a police department in a remote part of Alaska. They did not have another tech-savvy person to run ideas past that was fewer than 3 hours away by car. Upon joining the Digital Forensics Discord Server, they said that the community provided exactly what they needed. Prior to joining the server, they were operating solo with no one to bounce ideas off when challenges arose in their investigations. When I was a detective, I always had at least 2 other people in my office to run ideas past or ensure I wasn't forgetting something simple when I ran into roadblocks in my analyses. I can only imagine the feeling of isolation of having my closest support being over 3 hours away from me. The Digital Forensics Discord Server was a game changer because it provided something this person desperately needed: support!
 
-More recently, someone joined the server from country for which I had never expected to have to assign a Law Enforcement role. Someone posted in the `#role-assignment` channel stating they were a police officer in Iraq. In a prior life, I was in the United State Marine Corps. I had actually served a combat tour in Iraq in the infantry back in 2006-2007. Never in a million years would I have imagined that someone from Iraq serving in Law Enforcement would join the Digital Forensics Discord Server. To this day, this person is the only one occupying the `Law Enforcement [Iraq]` role, but when this person joined the server I felt I had come full-circle. I engaged in conversation with this individual and asked for updates on how the country was doing. It really warmed my heart, in all honesty. I met so many wonderful people in that country during my 7-month deployment. To think that the country is in a place to join the 72 other countries who have roles within the server put a smile on my face and still does to this day.
+More recently, someone joined the server from country for which I had never expected to have to assign a Law Enforcement role. Someone posted in the `#role-assignment` channel stating they were a police officer in Iraq. In a prior life, I was in the United State Marine Corps. I had actually served a combat tour in Iraq in the infantry back in 2006-2007. Never in a million years would I have imagined that someone from Iraq serving in Law Enforcement would join the Digital Forensics Discord Server. To this day, this person is the only one occupying the `Law Enforcement [Iraq]` role, but when this person joined the server I felt I had come full-circle. I engaged in conversation with this individual and asked for updates on how the country was doing. It really warmed my heart, in all honesty. I met so many wonderful people in that country during my 7-month deployment. To think that the country is in a place to join the 73 other countries who have roles within the server put a smile on my face and still does to this day.
 
 {pagebreak}
 
@@ -118,32 +118,32 @@ Being former Law Enforcement myself, I understand the importance of jurisdiction
 | As of November 2022: |
 |--------------------|-------------|----------------------|
 | Albania            | Iran        | Peru                 |
-| Argentina          | Iraq        | Poland               |
-| Australia          | Ireland     | Portugal             |
-| Austria            | Israel      | Romania              |
-| Bangladesh         | Italy       | Royal Cayman Islands |
-| Belgium            | Jamaica     | Russia               |
-| Bosnia             | Japan       | Senegal              |
-| Brazil             | Korea       | Seychelles           |
-| Canada             | Latvia      | Singapore            |
-| Chile              | Lithuania   | Slovakia             |
-| China              | Luxembourg  | Slovenia             |
-| Columbia           | Malaysia    | Spain                |
-| Croatia            | Maldives    | Sweden               |
-| Cyprus             | Malta       | Switzerland          |
-| Czech Republic     | Mauritius   | Taiwan               |
-| Denmark            | Mexico      | Turkey               |
-| Dominican Republic | Monaco      | Ukraine              |
-| Estonia            | Mongolia    | United Arab Emirates |
-| Finland            | Myanmar     | United Kingdom       |
-| France             | Nepal       | Uruguay              |
-| Germany            | Netherlands | USA                  |
-| Greece             | New Zealand | Vietnam              |
-| Grenada            | Nigeria     |                      |
+| Argentina          | Iraq        | Philippines          |
+| Australia          | Ireland     | Poland               |
+| Austria            | Israel      | Portugal             |
+| Bangladesh         | Italy       | Romania              |
+| Belgium            | Jamaica     | Royal Cayman Islands |
+| Bosnia             | Japan       | Russia               |
+| Brazil             | Korea       | Senegal              |
+| Canada             | Latvia      | Seychelles           |
+| Chile              | Lithuania   | Singapore            |
+| China              | Luxembourg  | Slovakia             |
+| Columbia           | Malaysia    | Slovenia             |
+| Croatia            | Maldives    | Spain                |
+| Cyprus             | Malta       | Sweden               |
+| Czech Republic     | Mauritius   | Switzerland          |
+| Denmark            | Mexico      | Taiwan               |
+| Dominican Republic | Monaco      | Turkey               |
+| Estonia            | Mongolia    | Ukraine              |
+| Finland            | Myanmar     | United Arab Emirates |
+| France             | Nepal       | United Kingdom       |
+| Germany            | Netherlands | Uruguay              |
+| Greece             | New Zealand | USA                  |
+| Grenada            | Nigeria     | Vietnam              |
 | Iceland            | Norway      |                      |
 | India              | Pakistan    |                      |
 
-To save you from counting, that's 72 countries with a dedicated Law Enforcement role. This means at least one person who has identified themselves as working in Law Enforcement in each of these countries has joined the server and had this role assigned to them. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those!
+To save you from counting, that's 73 countries with a dedicated Law Enforcement role. This means at least one person who has identified themselves as working in Law Enforcement in each of these countries has joined the server and had this role assigned to them. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those!
 
 {pagebreak}
 

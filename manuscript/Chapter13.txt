@@ -1,10 +1,9 @@
 
 # Chapter 13 - Detecting Modified PCAP Files
 
-{width: 30%}
 ![](https://user-images.githubusercontent.com/46549513/162606300-527e8cff-8c23-43d6-b06b-8b43fd7c82f2.png)
 
-C> By [John Haynes](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) | [GitHub](https://github.com/FullTang) | [Discord](http://discordapp.com/users/167135713006059520)
+By [John Haynes](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) | [GitHub](https://github.com/FullTang) | [Discord](http://discordapp.com/users/167135713006059520)
 
 ## Overview
 
@@ -99,19 +98,19 @@ A big thank you to Milan Cermak as his post on the Digital Forensics and Inciden
 
 ## References
 
-[1]	  A. AfterAcademy, “What is ARP and how does it work?,” AfterAcademy, 07-Feb-2020. [Online]. Available: https://afteracademy.com/blog/what-is-arp-and-how-does-it-work/. [Accessed: 05-May-2023]. 
-[2]	  A. S. Gillis, B. Lutkevich, V.-L. Brunskill, P. Loshin, and M. Cobb, “What is a digital signature? I definition from TechTarget,” Security, 27-Feb-2023. [Online]. Available: https://www.techtarget.com/searchsecurity/definition/digital-signature. [Accessed: 05-May-2023]. 
-[3]	  Apple, “Wi-Fi Privacy,” Apple Support, 2023. [Online]. Available: https://support.apple.com/guide/security/wi-fi-privacy-secb9cb3140c/web. [Accessed: 05-May-2023]. 
-[4]	  Cloudflare, “What is a domain name? | domain name vs. URL | cloudflare,” Cloudflare, 2023. [Online]. Available: https://www.cloudflare.com/learning/dns/glossary/what-is-a-domain-name/. [Accessed: 05-May-2023]. 
-[5]	  “The history of IPv6 @ Arin,” American Registry for Internet Numbers. [Online]. Available: https://www.arin.net/resources/guide/ipv6/history/. [Accessed: 05-May-2023]. 
-[6]	  IBM, “Duplicate address detection,” IBM, 22-Mar-2021. [Online]. Available: https://www.ibm.com/docs/en/zos/2.2.0?topic=discovery-duplicate-address-detection. [Accessed: 05-May-2023]. 
-[7]	  “IPv6 Neighbor Discovery Protocol,” NetworkAcademy.io, 2023. [Online]. Available: https://www.networkacademy.io/ccna/ipv6/neighbor-discovery-protocol. [Accessed: 05-May-2023].
-[8]	  J. Hamdard, “Investigating DHCP and DNS Protocols Using Wireshark,” IOSR Journal of Computer Engineering, vol. 18, no. 3, pp. 1–8, 2016.
-[9]	  K. Koishigawa, “TCP vs. UDP - what's the difference and which protocol is faster?,” freeCodeCamp.org, 12-Jul-2021. [Online]. Available: https://www.freecodecamp.org/news/tcp-vs-udp/. [Accessed: 05-May-2023].
-[10]  M. Cermak and P. Velan, “How can network traffic lie?,” Institute of Computer Science, 14-Mar-2023. [Online]. Available: https://is.muni.cz/publication/2267297/2023-DFRWS-EU-how-can-network-traffic-lie-poster.pdf. [Accessed: 05-May-2023].
-[11]  ojasav kaim, “Firsthop redundancy protocol,” GeeksforGeeks, 07-Oct-2022. [Online]. Available: https://www.geeksforgeeks.org/firsthop-redundancy-protocol/#. [Accessed: 05-May-2023].
-[12]  Okta Updated: 02/14/2023 - 11:22 Time to read: 6 and Okta, “Hashing algorithm overview: Types, methodologies &amp; usage,” Okta, 14-Feb-2023. [Online]. Available: https://www.okta.com/identity-101/hashing-algorithms/. [Accessed: 05-May-2023].
-[13]  P. Team, “Internet protocol version 4(IPv4) history &amp; evolution: Prefixx News,” Prefixx, 16-Jan-2020. [Online]. Available: https://prefixx.net/news/ipv4-history. [Accessed: 05-May-2023].
-[14]  R. Niazi, “What is internet control message protocol (ICMP) &amp; how does it work?,” MUO, 05-Apr-2022. [Online]. Available: https://www.makeuseof.com/what-is-internet-control-message-protocol-icmp-how-does-it-work/. [Accessed: 05-May-2023].
-[15]  “What is a computer port? | ports in Networking | Cloudflare,” Cloudflare. [Online]. Available: https://www.cloudflare.com/learning/network-layer/what-is-a-computer-port/. [Accessed: 05-May-2023].
-[16]  Z. Paruch, “What is a top-level domain? tlds explained with examples,” Semrush Blog, 03-Feb-2023. [Online]. Available: https://www.semrush.com/blog/top-level-domains/?kw=&amp;cmp=US_SRCH_DSA_Blog_EN&amp;label=dsa_pagefeed&amp;Network=g&amp;Device=c&amp;utm_content=622080567012&amp;kwid=dsa-1753200725933&amp;cmpid=18348486859&amp;agpid=145169433550&amp;BU=Core&amp;extid=60162630024&amp;adpos=&amp;gad=1&amp;gclid=Cj0KCQjw0tKiBhC6ARIsAAOXutm_rNFet2n5xFmTZ2jpzl8qAUr9vcLjSumkG7djFjVkn539GNDeTTQaAoNxEALw_wcB. [Accessed: 05-May-2023].
+[1]	  A. AfterAcademy, “What is ARP and how does it work?,” AfterAcademy, 07-Feb-2020. [Online]. Available: https://afteracademy.com/blog/what-is-arp-and-how-does-it-work/. [Accessed: 05-May-2023].  
+[2]	  A. S. Gillis, B. Lutkevich, V.-L. Brunskill, P. Loshin, and M. Cobb, “What is a digital signature? I definition from TechTarget,” Security, 27-Feb-2023. [Online]. Available: https://www.techtarget.com/searchsecurity/definition/digital-signature. [Accessed: 05-May-2023].  
+[3]	  Apple, “Wi-Fi Privacy,” Apple Support, 2023. [Online]. Available: https://support.apple.com/guide/security/wi-fi-privacy-secb9cb3140c/web. [Accessed: 05-May-2023].  
+[4]	  Cloudflare, “What is a domain name? | domain name vs. URL | cloudflare,” Cloudflare, 2023. [Online]. Available: https://www.cloudflare.com/learning/dns/glossary/what-is-a-domain-name/. [Accessed: 05-May-2023].  
+[5]	  “The history of IPv6 @ Arin,” American Registry for Internet Numbers. [Online]. Available: https://www.arin.net/resources/guide/ipv6/history/. [Accessed: 05-May-2023].  
+[6]	  IBM, “Duplicate address detection,” IBM, 22-Mar-2021. [Online]. Available: https://www.ibm.com/docs/en/zos/2.2.0?topic=discovery-duplicate-address-detection. [Accessed: 05-May-2023].  
+[7]	  “IPv6 Neighbor Discovery Protocol,” NetworkAcademy.io, 2023. [Online]. Available: https://www.networkacademy.io/ccna/ipv6/neighbor-discovery-protocol. [Accessed: 05-May-2023].  
+[8]	  J. Hamdard, “Investigating DHCP and DNS Protocols Using Wireshark,” IOSR Journal of Computer Engineering, vol. 18, no. 3, pp. 1–8, 2016.  
+[9]	  K. Koishigawa, “TCP vs. UDP - what's the difference and which protocol is faster?,” freeCodeCamp.org, 12-Jul-2021. [Online]. Available: https://www.freecodecamp.org/news/tcp-vs-udp/. [Accessed: 05-May-2023].  
+[10]  M. Cermak and P. Velan, “How can network traffic lie?,” Institute of Computer Science, 14-Mar-2023. [Online]. Available: https://is.muni.cz/publication/2267297/2023-DFRWS-EU-how-can-network-traffic-lie-poster.pdf. [Accessed: 05-May-2023].  
+[11]  ojasav kaim, “Firsthop redundancy protocol,” GeeksforGeeks, 07-Oct-2022. [Online]. Available: https://www.geeksforgeeks.org/firsthop-redundancy-protocol/#. [Accessed: 05-May-2023].  
+[12]  Okta Updated: 02/14/2023 - 11:22 Time to read: 6 and Okta, “Hashing algorithm overview: Types, methodologies &amp; usage,” Okta, 14-Feb-2023. [Online]. Available: https://www.okta.com/identity-101/hashing-algorithms/. [Accessed: 05-May-2023].  
+[13]  P. Team, “Internet protocol version 4(IPv4) history &amp; evolution: Prefixx News,” Prefixx, 16-Jan-2020. [Online]. Available: https://prefixx.net/news/ipv4-history. [Accessed: 05-May-2023].  
+[14]  R. Niazi, “What is internet control message protocol (ICMP) &amp; how does it work?,” MUO, 05-Apr-2022. [Online]. Available: https://www.makeuseof.com/what-is-internet-control-message-protocol-icmp-how-does-it-work/. [Accessed: 05-May-2023].  
+[15]  “What is a computer port? | ports in Networking | Cloudflare,” Cloudflare. [Online]. Available: https://www.cloudflare.com/learning/network-layer/what-is-a-computer-port/. [Accessed: 05-May-2023].  
+[16]  Z. Paruch, “What is a top-level domain? tlds explained with examples,” Semrush Blog, 03-Feb-2023. [Online]. Available: https://www.semrush.com/blog/top-level-domains/?kw=&amp;cmp=US_SRCH_DSA_Blog_EN&amp;label=dsa_pagefeed&amp;Network=g&amp;Device=c&amp;utm_content=622080567012&amp;kwid=dsa-1753200725933&amp;cmpid=18348486859&amp;agpid=145169433550&amp;BU=Core&amp;extid=60162630024&amp;adpos=&amp;gad=1&amp;gclid=Cj0KCQjw0tKiBhC6ARIsAAOXutm_rNFet2n5xFmTZ2jpzl8qAUr9vcLjSumkG7djFjVkn539GNDeTTQaAoNxEALw_wcB. [Accessed: 05-May-2023].  

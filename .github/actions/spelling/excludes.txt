@@ -36,6 +36,7 @@ ignore$
 \.lib$
 \.lock$
 \.map$
+\.md$
 \.min\..
 \.mod$
 \.mp[34]$
@@ -58,6 +59,7 @@ ignore$
 \.webp$
 \.woff2?$
 \.xlsx?$
+\.yml$
 \.zip$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$

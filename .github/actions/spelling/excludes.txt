@@ -59,6 +59,7 @@ ignore$
 \.webp$
 \.woff2?$
 \.xlsx?$
+\.yml$
 \.zip$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$

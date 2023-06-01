@@ -36,6 +36,7 @@ ignore$
 \.lib$
 \.lock$
 \.map$
+\.md$
 \.min\..
 \.mod$
 \.mp[34]$

@@ -13,6 +13,7 @@ chapter8.txt
 chapter9.txt
 chapter10.txt
 chapter11.txt
-chapterL.txt
+chapter12.txt
+chapter13.txt
 errata.txt
 changelog.txt

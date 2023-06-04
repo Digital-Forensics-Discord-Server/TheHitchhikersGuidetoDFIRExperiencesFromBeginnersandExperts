@@ -20,12 +20,12 @@ Two of the most common information security types of CTF competitions are “**J
 “**Jeopardy**" style typically is a list of questions with varying difficulty and set defined answers. The player or team is given some sort of file or evidence to analyze and then has to find the flag to the question and input it in the proper format to get points.
 
 {width: 80%}
-![9.1 - Jeopardy style CTF](https://ctf.zone/img/jeopardy.png)
+![9.1 - Jeopardy style CTF](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch6/chapter4_001.png)
 
 “**Attack and Defense**" is more common in Red and Blue Team environments where the Red Team has to hack or attack a Blue Team server. The Blue Team subsequently has to try to protect themselves from the attack. Points can be given for time held or for acquiring specific files from the adversary.
 
 {width: 70%}
-![9.2 - Attack and Defense CTF](https://ctf.zone/img/attack_defense.png)
+![9.2 - Attack and Defense CTF](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/Ch6/chapter4_002.png)
 
 Depending on the CTF, you may see a combination of types, such as "Jeopardy"-style competitions with linear (story-based) elements that leave some questions hidden or locked until a certain prerequisite question is answered.
 

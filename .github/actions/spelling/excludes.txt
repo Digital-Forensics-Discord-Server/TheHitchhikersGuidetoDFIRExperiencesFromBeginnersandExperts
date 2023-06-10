@@ -8,7 +8,6 @@
 (?:^|/)pyproject.toml
 (?:^|/)requirements(?:-dev|-doc|-test|)\.txt$
 (?:^|/)vendor/
-ignore$
 \.a$
 \.ai$
 \.all-contributorsrc$
@@ -29,8 +28,8 @@ ignore$
 \.eps$
 \.exe$
 \.gif$
-\.git-blame-ignore-revs$
 \.gitattributes$
+\.git-blame-ignore-revs$
 \.gitkeep$
 \.graffle$
 \.gz$
@@ -79,5 +78,7 @@ ignore$
 \.xpm$
 \.xz$
 \.zip$
+^(?:.*\/)?chapter[A-Z]\.txt$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$
+ignore$

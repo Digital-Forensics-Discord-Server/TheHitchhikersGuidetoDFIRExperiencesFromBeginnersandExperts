@@ -1,4 +1,4 @@
-# Chapter 3 - Password Cracking for Beginners
+﻿# Chapter 3 - Password Cracking for Beginners
 
 {width: 30%}
 ![](https://user-images.githubusercontent.com/46549513/162606300-527e8cff-8c23-43d6-b06b-8b43fd7c82f2.png)
@@ -47,7 +47,7 @@ Other encryption methods include BitLocker, zipped or compressed files, password
 
 ## Hash Identification
 
-There may be times when a password hash has been located but the hash type is unknown. Hashcat has an entire wiki including example hashes that can aid in this process. The example hashes are located on the [Hashcat Wiki](https://hashcat.net/wiki/doku.php?id=example_hashes) and can help with the hash identification of an unknown hash. By searching the wiki for a unique aspect or signature of the hash it is possible to find the hash type. Installing and using Hashcat will be discussed later on in this chapter, but Hashcat itself is a great resouce for identifying possible hash types. One way of doing this is with the command `hashcat.exe <hash> --identify` and Hashcat will attempt to identify all possible hashes for the `<hash>`. This can result in multiple possible hash types depending on the type of hash, but it is a great place to start.
+There may be times when a password hash has been located but the hash type is unknown. Hashcat has an entire wiki including example hashes that can aid in this process. The example hashes are located on the [Hashcat Wiki](https://hashcat.net/wiki/doku.php?id=example_hashes) and can help with the hash identification of an unknown hash. By searching the wiki for a unique aspect or signature of the hash it is possible to find the hash type. Installing and using Hashcat will be discussed later on in this chapter, but Hashcat itself is a great resource for identifying possible hash types. One way of doing this is with the command `hashcat.exe <hash> --identify` and Hashcat will attempt to identify all possible hashes for the `<hash>`. This can result in multiple possible hash types depending on the type of hash, but it is a great place to start.
 
 Other methods include a simple Google search for "Hash Identification" that will result in multiple online tools that can help identify the type of hash, be it NTLM, SHA-256, or many others. Several websites include [Skerritt](https://nth.skerritt.blog/), [Hashes.com](https://hashes.com/en/tools/hash_identifier) or [Onlinehashcrack.com](https://www.onlinehashcrack.com/hash-identification.php). Be wary of using these or any other websites for sensitive hashes as the website now has the actual hash. For examiners who do not want to use an online tool or Hashcat, Kali Linux also has a tool called [Hash-Identifier](https://www.kali.org/tools/hash-identifier/) that can be downloaded and used locally so the hash is not shared.
 

@@ -1,4 +1,4 @@
-# Chapter 11 - Scaling, scaling, scaling, a tale of DFIR Triage
+﻿# Chapter 11 - Scaling, scaling, scaling, a tale of DFIR Triage
 
 {width: 30%}
 ![](Ch11/triangle.png)
@@ -71,15 +71,15 @@ macOS and Linux don't have similar tools but this shouldn't necessarily be be a 
 
 ## Scaling up to an entire network
 
-Individual hosts and small networks are discussed, what are the options when you deal with a massive network? A single tool can be used in that instance. Velociraptor is another additon to the open-source DFIR arsenal. Upon its arrival in 2018 it quickly gathered a following and it isn't difficult to see why. Velociraptor is one of the most powerful tools in the DFIR community. For starters, it supports all the major operating systems, Windows, macOS and Linux alike. What makes Velociraptor stand out is its distributed computing model along with a client/server approach.
+Individual hosts and small networks are discussed, what are the options when you deal with a massive network? A single tool can be used in that instance. Velociraptor is another addition to the open-source DFIR arsenal. Upon its arrival in 2018 it quickly gathered a following and it isn't difficult to see why. Velociraptor is one of the most powerful tools in the DFIR community. For starters, it supports all the major operating systems, Windows, macOS and Linux alike. What makes Velociraptor stand out is its distributed computing model along with a client/server approach.
 
-A Velociraptor instance consists of a server and a number of clients distrubuted through a (client) network. The agent creates a persistent connection to the server.
+A Velociraptor instance consists of a server and a number of clients distributed through a (client) network. The agent creates a persistent connection to the server.
 
 Analysts can use Velociraptor to:
 
 * Retrieve any file on a connected endpoint in a forensically sound manner
 * Retrieve forensic artifacts from all connected endpoints with the push of a button
-* Scan for IOCs utlizing both regex and YARA rules
+* Scan for IOCs utilizing both regex and YARA rules
 * Push and utilize third-party command line tools on all hosts running an agent
 
 It is not possible to do Velociraptor justice within a short section of this chapter. Rather then describe it, it is advised to see the tool in action. Eric Capuano recently gave a [rundown](https://www.youtube.com/watch?v=Q1IoGX--814) on Velociraptor using a small network. Furthermore, Michael Cohen also developed his own tutorial series which is currently available free of charge on this [link](https://docs.velociraptor.app/training/).

@@ -1,4 +1,4 @@
-# Chapter 4 - Large Scale Android Application Analysis
+﻿# Chapter 4 - Large Scale Android Application Analysis
 
 {width: 30%}
 ![](https://static.wixstatic.com/media/3b47d0_3ff0961d0c234c1dbc5998ec09ecbfcd~mv2_d_2425_2400_s_4_2.gif)
@@ -111,7 +111,7 @@ While the functions and information accessed appear malicious, validating any su
 
 ## Part 2 - Manual Analysis
 
-Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into readable decomplied code. The source code and compiled releases for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
+Now that we have done some initial analysis of an APK with an automate tool such as MobSF, let’s dive into doing some manual analysis using [JADX](https://github.com/skylot/jadx). JADX is an APK decompiler that converts compiled APKs and DEX files into readable decompiled code. The source code and compiled releases for JADX provides both a CLI and GUI based application that runs on Linux, macOS, and Windows. After opening one of the APKs within JADX a breakdown of the stored decompiled code, resources, and embedded files can be seen:
 
 ![](Ch5/16.png)
 
@@ -233,7 +233,7 @@ Beyond the simple JADX decompiling functionality, additional functions can be ad
 
 The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis. There are other regex solutions to map out potential URLs which helps mitigate missing aspects of URL crafting.
 
-Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning implmenetations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
+Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning imnplementations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
 
 ![](Ch5/40.png)
 

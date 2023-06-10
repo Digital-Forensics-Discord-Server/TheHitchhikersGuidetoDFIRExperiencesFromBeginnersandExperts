@@ -261,7 +261,7 @@ ___About:___
 
 ___Significance:___
 * Original timestamps for deleted files can be retrieved.
-* Useful in the detection of anti-forensic tools and timestamping as the timestamps are `$FILE_NAME` attribute timestamps which are not easily modifiable or accessible through the Windows API.
+* Useful in the detection of anti-forensic tools and timestomping as the timestamps are `$FILE_NAME` attribute timestamps which are not easily modifiable or accessible through the Windows API.
 * Important metadata like MACB timestamps can be obtained.
 
 ### $UsnJrnl

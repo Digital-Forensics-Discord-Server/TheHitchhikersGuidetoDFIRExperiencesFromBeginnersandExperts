@@ -83,3 +83,6 @@
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$
 ignore$
+# Ignore directories named `unfinished`
+(?:^|/)unfinished/
+

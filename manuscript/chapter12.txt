@@ -1138,7 +1138,7 @@ After that, I try `Type 5` as usual with the `Autodetect` option first. However,
 
 There is also a messagebox showing you that the process failed, which offers you to delete the failed result right away:
 
-![12.67 - Block number algotythm failed message](resources/UnfinishedChapters/ChL/40_Block_number_1001_failed_automatic.PNG)
+![12.67 - Block number algorithm failed message](resources/UnfinishedChapters/ChL/40_Block_number_1001_failed_automatic.PNG)
 
 Therefore I call again the dialog for `Type 5` and remove the checkmark for `Autodetect`:
 

@@ -105,12 +105,17 @@ jobs:
         use_sarif: ${{ (!github.event.pull_request || (github.event.pull_request.head.repo.full_name == github.repository)) && 1 }}
         extra_dictionary_limit: 20
         extra_dictionaries:
-          cspell:software-terms/dict/softwareTerms.txt
           cspell:aws/aws.txt
-          cspell:node/dict/node.txt
-          cspell:python/src/common/extra.txt
+          cspell:css/dict/css.txt
           cspell:filetypes/filetypes.txt
+          cspell:fullstack/dict/fullstack.txt
+          cspell:html/dict/html.txt
+          cspell:node/dict/node.txt
+          cspell:npm/dict/npm.txt
+          cspell:php/dict/php.txt
+          cspell:python/src/common/extra.txt
           cspell:python/src/python/python-lib.txt
+          cspell:software-terms/dict/softwareTerms.txt
 
   comment-push:
     name: Report (Push)

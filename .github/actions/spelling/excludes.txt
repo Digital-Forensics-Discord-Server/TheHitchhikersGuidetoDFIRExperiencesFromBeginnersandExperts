@@ -43,6 +43,7 @@
 \.lib$
 \.lock$
 \.map$
+\.md$
 \.min\..
 \.mo$
 \.mod$

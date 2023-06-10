@@ -30,3 +30,30 @@
 
 # base64 encoded content
 (['"])[-a-zA-Z=;:/0-9+]+=\g{-1}
+
+# While you could try to match `http://` and `https://` by using `s?` in `https?://`, sometimes there
+# YouTube url
+\b(?:(?:www\.|)youtube\.com|youtu.be)/(?:channel/|embed/|user/|playlist\?list=|watch\?v=|v/|)[-a-zA-Z0-9?&=_%]*
+
+# GitHub SHAs (api)
+\bapi.github\.com/repos(?:/[^/\s"]+){3}/[0-9a-f]+\b
+# GitHub SHAs (markdown)
+(?:\[`?[0-9a-f]+`?\]\(https:/|)/(?:www\.|)github\.com(?:/[^/\s"]+){2,}(?:/[^/\s")]+)(?:[0-9a-f]+(?:[-0-9a-zA-Z/#.]*|)\b|)
+# GitHub SHAs
+\bgithub\.com(?:/[^/\s"]+){2}[@#][0-9a-f]+\b
+# GitHub wiki
+\bgithub\.com/(?:[^/]+/){2}wiki/(?:(?:[^/]+/|)_history|[^/]+(?:/_compare|)/[0-9a-f.]{40,})\b
+# githubusercontent
+/[-a-z0-9]+\.githubusercontent\.com/[-a-zA-Z0-9?&=_\/.]*
+# githubassets
+\bgithubassets.com/[0-9a-f]+(?:[-/\w.]+)
+# gist github
+\bgist\.github\.com/[^/\s"]+/[0-9a-f]+
+# git.io
+\bgit\.io/[0-9a-zA-Z]+
+# GitHub JSON
+"node_id": "[-a-zA-Z=;:/0-9+]*"
+# Contributor
+\[[^\]]+\]\(https://github\.com/[^/\s"]+/?\)
+# GHSA
+GHSA(?:-[0-9a-z]{4}){3}

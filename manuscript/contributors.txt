@@ -6,6 +6,6 @@
 
 * [Oaker Min](https://github.com/brootware) | [Blog](https://brootware.github.io/) | [Twitter](https://twitter.com/brootware/) - For helping with the [dead link checker](https://github.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/issues/59)!
 
-* [Klavdii](https://github.com/lordicode) - For providing [multiple](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/pulls?q=is%3Apr+author%3Alordicode+is%3Aclosed) grammatical, spelling, and punctionation fixes as they were reading the book. 
+* [Klavdii](https://github.com/lordicode) - For providing [multiple](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/pulls?q=is%3Apr+author%3Alordicode+is%3Aclosed) grammatical, spelling, and punctuation fixes as they were reading the book. 
 
 * ...and all other [contributors](https://github.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/graphs/contributors) to the GitHub repository!

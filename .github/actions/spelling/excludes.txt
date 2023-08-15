@@ -8,6 +8,7 @@
 (?:^|/)pyproject.toml
 (?:^|/)requirements(?:-dev|-doc|-test|)\.txt$
 (?:^|/)vendor/
+# Ignore files ending in...
 \.a$
 \.ai$
 \.all-contributorsrc$
@@ -57,6 +58,7 @@
 \.pem$
 \.pfx$
 \.png$
+\.PNG$
 \.psd$
 \.pyc$
 \.pylintrc$

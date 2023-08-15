@@ -18,6 +18,7 @@ CCME
 CCPA
 CCPO
 Cellebrite
+certutil
 chainsaw
 CLEAPP
 dedupe
@@ -25,6 +26,7 @@ deepspar
 DFIR
 dfirmadness
 doubleblak
+esentutl
 forensicating
 Forensicator
 gentilkiwi

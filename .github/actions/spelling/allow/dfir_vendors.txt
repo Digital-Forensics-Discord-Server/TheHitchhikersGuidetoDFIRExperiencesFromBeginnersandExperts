@@ -1,0 +1,9 @@
+# please note, there's no need to add vendors here that consist of words in the English dictionary, i.e., Magnet Forensics. This is ONLY to add words/vendors that aren't already in the English dictionary
+AboutDFIR
+Belkasoft
+Cellebrite
+MSAB
+Nextron
+Rusolut
+Samsung
+Sumuri

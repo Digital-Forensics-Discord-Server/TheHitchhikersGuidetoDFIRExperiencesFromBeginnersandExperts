@@ -1,8 +1,6 @@
 apfs
 btrfs
 exfat
-fat16
-fat32
 hfs
 ntfs
 xfs

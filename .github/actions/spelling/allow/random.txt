@@ -34,3 +34,4 @@ kaim
 KDE
 lba
 leded
+rkiye

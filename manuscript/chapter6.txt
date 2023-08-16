@@ -1,4 +1,4 @@
-# Chapter 6 - Gamification of DFIR: Playing CTFs
+﻿# Chapter 6 - Gamification of DFIR: Playing CTFs
 
 {width: 30%}
 ![](https://user-images.githubusercontent.com/48143894/162533767-1d6eca8a-98c7-446b-a970-807bd3deb588.png)
@@ -168,7 +168,7 @@ We've all been there. You get to a point in the middle of a CTF where you start 
 
 Read the titles of the questions carefully. Often they are riddled with hints about where to look. "*Fetch* the run time of XXX application." Maybe you should analyze those Prefetch files over there? Questions will often also tell you how to format your answer submission. This may tell you that the timestamp you're hunting could be incorrect -- those pesky timezone offsets!
 
-Did you find a flag that appears to be a password? It's almost guaranteed that that evidence was placed in such a way that it will be reused. Emails and notes can be a treasure trove for passwords to encrypted containers or files.
+Did you find a flag that appears to be a password? It's almost guaranteed that evidence was placed in such a way that it will be reused. Emails and notes can be a treasure trove for passwords to encrypted containers or files.
 
 One thing that may seem silly but can help is to just ask questions. If you're stumped on a question, talk to the organizer if you can, they may lead you in a direction that you didn't think of when you set off on a path of destruction.
 

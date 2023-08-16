@@ -1,4 +1,4 @@
-# Chapter 5 - De-Obfuscating PowerShell Payloads
+﻿# Chapter 5 - De-Obfuscating PowerShell Payloads
 
 {width: 30%}
 ![](Ch8/chapter8001.jpg)
@@ -117,7 +117,7 @@ PS C:\> Write-Output "[*] Decoded Command >> $Command"
 [*] Decoded Command >> Write-Output "Obfuscated Payload"
 ```
 
-Running this method has revealed a simple payload, which was expected based on the size of the base 64 encoded string. If it was significantly larger, we could safely assume that that payload would be larger.
+Running this method has revealed a simple payload, which was expected based on the size of the base 64 encoded string. If it was significantly larger, we could safely assume that payload would be larger.
 
 You can replicate this obfuscation technique for decoding practice using this snippet to encode a simple one-liner, or even expand to more complex scripts.
 

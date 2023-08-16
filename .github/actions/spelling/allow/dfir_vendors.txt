@@ -2,8 +2,15 @@
 AboutDFIR
 Belkasoft
 Cellebrite
+DFRWS
+Exterro
+Guardonix
+Huawei
 MSAB
+NCFI
 Nextron
+Passware
+Qualcomm
 Rusolut
 Samsung
 Sumuri

@@ -319,7 +319,7 @@ The imaging of unstable HDDs follows an easy approach - first you want to get th
 
 In more technical terms you need multiple imaging passes. In the first pass you use a small read timeout (300 – 600ms) so that the head is not working to long on bad sectors. The reading-process will look then like that:
 
-![12.4 - Simplified graphical representation the the read process](resources/Ch12/Read_Timout.png)
+![12.4 - Simplified graphical representation of the read process](resources/Ch12/Read_Timeout.png)
 
 If the data is delivered by the drive before the read timeout occurs then you save the data and continue to read the next block. If the timeout is reached the imaging device will send a reset command to cancel the internal read retries of the drive and then the imaging continue with the next block.
 

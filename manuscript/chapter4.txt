@@ -233,7 +233,7 @@ Beyond the simple JADX decompiling functionality, additional functions can be ad
 
 The above code section attempts to find high confidence URLs within the code base and extract the information to a mapped log file for manual analysis. There are other regex solutions to map out potential URLs which helps mitigate missing aspects of URL crafting.
 
-Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning imnplementations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
+Besides JADX, to parse embedded certificates (for APK signature analysis and potential Certificate pinning implementations) the script incorporates Java keytool if Java JDK is present and some methods using OpenSSL if not:
 
 ![](Ch5/40.png)
 

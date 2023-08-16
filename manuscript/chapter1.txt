@@ -115,33 +115,35 @@ More recently, someone joined the server from country for which I had never expe
 
 Being former Law Enforcement myself, I understand the importance of jurisdiction and how laws can differ from one jurisdiction to another. As a result, Law Enforcement roles were separated by country from the early stages of the server for the purpose of delineating members from each other due to various legal considerations that may vary from one jurisdiction to another. Because of that, enumerating a list of the countries that a Law Enforcement role has been created for is likely the best way to establish the reach the Digital Forensics Discord Server has in the global DFIR community. Countries with roles assigned for Law Enforcement personnel are listed below:
 
-| As of November 2022: |
-|--------------------|-------------|----------------------|
-| Albania            | Iran        | Peru                 |
-| Argentina          | Iraq        | Philippines          |
-| Australia          | Ireland     | Poland               |
-| Austria            | Israel      | Portugal             |
-| Bangladesh         | Italy       | Romania              |
-| Belgium            | Jamaica     | Royal Cayman Islands |
-| Bosnia             | Japan       | Russia               |
-| Brazil             | Korea       | Senegal              |
-| Canada             | Latvia      | Seychelles           |
-| Chile              | Lithuania   | Singapore            |
-| China              | Luxembourg  | Slovakia             |
-| Columbia           | Malaysia    | Slovenia             |
-| Croatia            | Maldives    | Spain                |
-| Cyprus             | Malta       | Sweden               |
-| Czech Republic     | Mauritius   | Switzerland          |
-| Denmark            | Mexico      | Taiwan               |
-| Dominican Republic | Monaco      | Turkey               |
-| Estonia            | Mongolia    | Ukraine              |
-| Finland            | Myanmar     | United Arab Emirates |
-| France             | Nepal       | United Kingdom       |
-| Germany            | Netherlands | Uruguay              |
-| Greece             | New Zealand | USA                  |
-| Grenada            | Nigeria     | Vietnam              |
-| Iceland            | Norway      |                      |
-| India              | Pakistan    |                      |
+| As of August 2023 |
+|--------------------|---------------|--------------|
+| Albania            | Iran          | Pakistan     |
+| Argentina          | Iraq          | Peru         |
+| Australia          | Ireland       | Philippines  |
+| Austria            | Israel        | Poland       |
+| Bangladesh         | Italy         | Portugal     |
+| Belgium            | Jamaica       | Romania      |
+| Bosnia             | Japan         | Royal Cayman |
+| Brazil             | Korea         | Russia       |
+| Canada             | Kuwait        | Saudi Arabia |
+| Chile              | Latvia        | Senegal      |
+| China              | Lebanon       | Serbia       |
+| Colombia           | Liechtenstein | Seychelles   |
+| Croatia            | Lithuania     | Singapore    |
+| Cyprus             | Luxembourg    | Slovakia     |
+| Czech Republic     | Malaysia      | Slovenia     |
+| Denmark            | Maldives      | Spain        |
+| Dominican Republic | Malta         | Sweden       |
+| Estonia            | Mauritius     | Switzerland  |
+| Europe             | Mexico        | Taiwan       |
+| Finland            | Monaco        | Tûrkiye      |
+| France             | Mongolia      | UAE          |
+| Germany            | Myanmar       | UK           |
+| Greece             | Nepal         | Ukraine      |
+| Grenada            | Netherlands   | UN           |
+| Iceland            | New Zealand   | Uruguay      |
+| India              | Nigeria       | USA          |
+| Indonesia          | Norway        | Vietnam      |
 
 To save you from counting, that's 73 countries with a dedicated Law Enforcement role. This means at least one person who has identified themselves as working in Law Enforcement in each of these countries has joined the server and had this role assigned to them. With [195 countries](https://www.worldatlas.com/articles/how-many-countries-are-in-the-world.html) recognized in the world as of the writing of this book, the server has a reach into approximately 37% of those!
 

@@ -500,7 +500,7 @@ Storage devices based on flash-memory need to be handled differently. To underst
 Flash drives are faster because there are no moving parts and this also eliminates any kind of mechanical failure or mechanical degradation over time. The data is stored in memory-cells in the form of an electric charge. These cells degrade as data is written to them. That means the vendors have to come up with some clever ideas to prevent flash-drives from failing too soon. Strongly generalized these measures are:
 
 - **Wear leveling** which ensures that writes are distributed evenly across all memory cells
-- **Obfuscation/randomisation** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
+- **Obfuscation/randomization** of data to ensure there are no patterns which can cause an uneven wear within a memory-page (a group of memory-cells and the smallest unit which gets written to).
 - A good supply of spare space to replace failing memory-cells, pages or blocks (a group of pages and the smallest unit which can get erased).
 
 ### Board-level repair

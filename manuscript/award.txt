@@ -4,10 +4,10 @@
 
 During the 2023 Forensic 4:cast Awards, The Hitchhiker's Guide to DFIR: Experiences From Beginners and Experts was nominated for the DFIR Book of the Year category. The Hitchhiker's Guide to DFIR: Experiences From Beginners and Experts ultimately was voted as the winner for DFIR Book of the Year by members of the DFIR community. On August 4, 2023, in Austin, TX, co-authors Kevin Pagano and Andrew Rathbun were in attendance at the 2023 SANS DFIR Summit to accept the award.
 
-{width: 30%}
+{width: 50%}
 ![Forensic 4:cast Award - DFIR Book of the Year](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/award/dfirBookOfTheYearAward2023.jpg)
 
-{width: 30%}
+{width: 50%}
 ![Andrew Rathbun and Kevin Pagano](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/main/manuscript/resources/award/rathbunPaganoAward2023.jpg)
 
 Thank you to all who voted for this book! Without your support, this never would have been possible!

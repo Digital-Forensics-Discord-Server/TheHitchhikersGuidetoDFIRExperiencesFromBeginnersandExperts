@@ -1,4 +1,4 @@
-# Chapter 1 - History of the Digital Forensics Discord Server
+﻿# Chapter 1 - History of the Digital Forensics Discord Server
 
 {width: 30%}
 ![](Ch1/DFDSLogo.png)
@@ -168,7 +168,7 @@ All indications are that the server will continue to grow through coworker word-
 
 ### Administrator Contingency Plan
 
-This server has become such an important part of my life (and the DFIR community) that I’ve created a contingency plan. For those who are new to administering Discord servers, one important thing to know is that only the member who is assigned as the Server Owner can delete the server. Currently, that person is me, Andrew Rathbun. In the interest of ensuring the Digital Forensics Discord Server lives far beyond all of us (assuming Discord is still around by that time), I've established a paper trail for any other moderators to follow should anything happen to me and render me unable to log back in to Discord. This paper trail will require a lot of effort and coordination with family members/friends of mine to access my password vault and many other necessary items in order to [Transfer Ownership](https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership) so that the server can live on without any administrative hiccups. In the unfortunate event that I can no longer log back into Discord, a OneNote page has been shared with other moderators providing breadcrumbs to obtain the necessary information to transfer ownership to another moderator so the server can be properly taken care of.
+This server has become such an important part of my life (and the DFIR community) that I’ve created a contingency plan. For those who are new to administering Discord servers, one important thing to know is that only the member who is assigned as the Server Owner can delete the server. Currently, that person is me, Andrew Rathbun. In the interest of ensuring the Digital Forensics Discord Server lives far beyond all of us (assuming Discord is still around by that time), I've established a paper trail for any other moderators to follow should anything happen to me and render me unable to log back into Discord. This paper trail will require a lot of effort and coordination with family members/friends of mine to access my password vault and many other necessary items in order to [Transfer Ownership](https://support.discord.com/hc/en-us/articles/216273938-How-do-I-transfer-server-ownership) so that the server can live on without any administrative hiccups. In the unfortunate event that I can no longer log back into Discord, a OneNote page has been shared with other moderators providing breadcrumbs to obtain the necessary information to transfer ownership to another moderator so the server can be properly taken care of.
 
 ## Conclusion
 

@@ -11,7 +11,7 @@ This chapter will cover the basics of analyzing malware on an infected computer.
 
 The chapter starts with an introduction to basic malware analysis. It then covers some free tools to use in basic malware analysis. The chapter culminates with a walkthrough of a canned analysis on a piece of malware. The walkthrough wraps up with recommendations on where to go next to progress to intermediate or advanced malware analysis.
 
-I had numerous instances of friends and family asking me to figure out why their computer was acting weird long before moving in to cybersecurity and receiving formal training on malware analysis. I have had other cybersecurity professionals ask why it is not a waste of time to learn to build Microsoft Office macro-based payloads when Microsoft is making it harder for users to run the malicious code inside to which I always respond with "Never underestimate the users desire and ability to download and run anything sent to them." People are going to download and execute malware at some point and if you are the IT expert they will ask you to figure out what happened.
+I had numerous instances of friends and family asking me to figure out why their computer was acting weird long before moving into cybersecurity and receiving formal training on malware analysis. I have had other cybersecurity professionals ask why it is not a waste of time to learn to build Microsoft Office macro-based payloads when Microsoft is making it harder for users to run the malicious code inside to which I always respond with "Never underestimate the users desire and ability to download and run anything sent to them." People are going to download and execute malware at some point and if you are the IT expert they will ask you to figure out what happened.
 
 One of my first instances of basic malware analysis was when I was in a situation that required using a computer shared by multiple people to access the internet. I erred on the paranoid side before using it to access any of my personal accounts and ran a network packet capture using Microsoft`s NetMon, which is a packet capture tool similar to Wireshark. I noticed from the packet capture that the machine was communicating with a Chinese domain which appeared unusual. I then conducted a quick Google search on the domain and found that it was associated with a piece of malware.
 
@@ -49,7 +49,7 @@ Process Explorer also has a tab to review TCP/IP connections listing listening a
 
 ![](resources/Ch3/chapter3.009.png)
 
-The Strings tab is another great feature that allows you to list the strings embedded in the binary just like the strings command in Linux. This is useful for finding IOCs and determining some of the capabilities of the malware. You may be able to find IPs or domain names that are coded in to the application. Or you may find strings that point to dangerous Windows API calls that can hint at the executable being malicious. The Sysinternals Suite can be downloaded [here](https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite).
+The Strings tab is another great feature that allows you to list the strings embedded in the binary just like the strings command in Linux. This is useful for finding IOCs and determining some of the capabilities of the malware. You may be able to find IPs or domain names that are coded into the application. Or you may find strings that point to dangerous Windows API calls that can hint at the executable being malicious. The Sysinternals Suite can be downloaded [here](https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite).
 
 ![](resources/Ch3/chapter3.010.png)
 
@@ -97,7 +97,7 @@ Wireshark provides capabilities to conduct more advanced analysis of malware com
 
 The malware analysis walkthrough in this chapter will focus on using Wireshark to perform basic analysis tasks. This includes reviewing DNS queries to identify suspicious domain lookups and plaintext commands/passwords sent during malware communication. More advanced usage of Wireshark is out of scope of basic malware analysis and is saved for future writings on intermediate and advanced malware analysis. Wireshark can be downloaded [here](https://www.wireshark.org/). Microsoft's NetMon is an alternative to Wireshark, but is only available for download from [archive](https://www.microsoft.com/en-us/download/4865) and is no longer being developed.
 
-Regedit is another useful tool built in to Windows. Regedit gives the ability to view and edit the Windows registry. It can be used for basic malware analysis to search for persistence mechanism such as entries in `HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` or `HKEY\_CURRENT\_USER\Software\Microsoft\Windows\CurrentVersion\Run`. Applications listed in the run keys will auto start when a user logs in to the machine and is sometimes used by malware to establish persistence.
+Regedit is another useful tool built into Windows. Regedit gives the ability to view and edit the Windows registry. It can be used for basic malware analysis to search for persistence mechanism such as entries in `HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` or `HKEY\_CURRENT\_USER\Software\Microsoft\Windows\CurrentVersion\Run`. Applications listed in the run keys will auto start when a user logs into the machine and is sometimes used by malware to establish persistence.
 
 ![](resources/Ch3/chapter3.021.png)
 
@@ -105,7 +105,7 @@ Regshot is useful for determining what changes an application makes to the Windo
 
 ![](resources/Ch3/chapter3.022.png)
 
-Certutil is another tool built in to Windows that is useful for malware analysis. An analyst can use certutil to generate a hash of a file to compare it to a known malicious file hash. This can indicate if a file is malicious without having to execute it to investigate what it does. An analyst can use the hashes generated by certutil as IOCs once a suspicious file is determined to be malicious thru analysis.
+Certutil is another tool built into Windows that is useful for malware analysis. An analyst can use certutil to generate a hash of a file to compare it to a known malicious file hash. This can indicate if a file is malicious without having to execute it to investigate what it does. An analyst can use the hashes generated by certutil as IOCs once a suspicious file is determined to be malicious thru analysis.
 
 ![](resources/Ch3/chapter3.023.png)
 

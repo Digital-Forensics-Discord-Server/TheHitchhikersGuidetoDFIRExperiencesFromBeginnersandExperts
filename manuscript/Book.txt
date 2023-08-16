@@ -1,6 +1,7 @@
 authors.txt
 contributors.txt
 disclaimer.txt
+award.txt
 introduction.txt
 chapter1.txt
 chapter2.txt

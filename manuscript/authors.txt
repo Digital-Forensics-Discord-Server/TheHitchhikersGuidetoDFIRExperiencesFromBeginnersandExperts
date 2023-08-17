@@ -44,7 +44,7 @@ Nisarg Suthar is a lifelong student and learner of DFIR. He is an aspiring digit
 
 Nisarg is an independent researcher, a blue teamer, CTF player, and a [blogger](https://sutharnisarg.medium.com/). He likes to read material in DFIR; old and new, complete investigations on platforms like CyberDefenders and BTLO, and network with other forensicators to learn and grow mutually.
 
-He is also the developer of his most recent open-source project [Veritas](https://github.com/Nisarg12/Veritas), a validation purpose hex viewer for the people in DFIR. He is a big fan of all things FOSS.
+He is also the developer of his most recent open-source project [Veritas](https://github.com/nisargsuthar/Veritas), a validation purpose hex viewer for the people in DFIR. He is a big fan of all things FOSS.
 
 Nisarg started tinkering with the disassembly of machine code, computer data, and reverse engineering when he came across the world of modding, emulation, and ROM hacking. Making his favorite games do what he wanted was a full-time hobby of writing code and stories.
 

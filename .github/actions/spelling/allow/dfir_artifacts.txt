@@ -1,7 +1,7 @@
-$Boot
-$J
-$MFT
-$SDS
+\$Boot
+\$J
+\$MFT
+\$SDS
 Amcache
 autoruns
 evt

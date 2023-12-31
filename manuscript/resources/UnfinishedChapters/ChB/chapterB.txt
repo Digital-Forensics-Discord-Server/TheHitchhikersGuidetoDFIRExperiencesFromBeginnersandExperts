@@ -1,0 +1,244 @@
+# Chapter B - IoT Forensics
+
+{width: 30%}
+![](ChB/theAtropos4n6Logo.png)
+
+C> By Evangelos Dragonas, PhD | [Github](https://github.com/theAtropos4n6) | [Twitter](https://twitter.com/theAtropos4n6) | [Website](https://atropos4n6.com/) | [Discord](https://discordapp.com/user/708004364068978720)
+
+## 1. Introduction
+
+Internet of Things (IoT) devices are becoming increasingly common and are used in a wide range of applications, from smart homes to industrial control systems. Their interconnected nature and their widespread adoption are two of the reasons these appliances are inevitably associated with criminal activity. Typically, their involvement either stems from becoming the target of a cyberattack (e.g. [Mirai IoT botnet](https://blog.cloudflare.com/inside-mirai-the-infamous-iot-botnet-a-retrospective-analysis)) or playing the role of a "witness" to a crime (e.g. [smartwatch](https://www.bbc.com/news/technology-43629255)). Regardless, the digital investigation of such IoT products in pursuit of any evidentiary data they store is a process known as IoT Forensics. In particular, IoT Forensics involves the identification, collection/preservation, analysis/examination, and reporting/presentation of data originating from IoT devices to reconstruct events related to an incident or crime. This can include data from sensors, network logs, smartphones, cloud, and other sources.
+
+{width: 50%}
+![Forensic data sources of the smart city illustrated with weight of evidence stored.- Baig et al., 2017](ChB/SmartCity.jpg)
+{pagebreak}
+
+
+The ever-growing world of IoT is crowded with a plethora of manufacturers, products, communication protocols, proprietary file systems, undocumented APIs, and more. This heterogeneity poses a great number of challenges to the application of IoT Forensics. Practitioners are often puzzled about the location of the data of interest, how to collect and analyze them, etc.. This chapter will elaborate on some of the aforementioned concepts to enable readers to embark on their journey in this relatively new field of Digital Forensics. 
+
+The rest of this chapter is organized as follows: Section 2 provides an overview of the challenges related to IoT Forensics. In Section 3, some of the skills practitioners should develop to effectively conduct IoT Forensics are presented. Concerns to consider while locating data of interest in the IoT landscape are discussed in Section 4. In Section 5, resources to assist readers in beginning their exploration of IoT Forensics are shared. Finally, Section 6 concludes this chapter.
+
+{pagebreak}
+
+## 2. Challenges related to IoT Forensics
+
+There are more than 20 studies (Alabdulsalam, et al., 2018), (Alenezi, et al., 2019), (Almolhis & Haney, 2019), (Atlam, et al., 2020), (Baig, et al., 2017), (Bouchaud, et al., 2019), (Conti, et al., 2018), (Hegarty, et al., 2014),(Karabiyik & Akkaya, 2018), (Lutta, et al., 2020), (MacDermott, et al., 2018), (MacDermott, et al., 2020), (Montasari & Hill, 2019), (Oriwoh, et al., 2013), (Servida & Casey, 2019), (Stoyanova, et al., 2020), (Tok, et al., 2020), (Wu, et al., 2019), (Yaacoub, et al., 2022), (Yang, et al., 2020), (Yaqoob, et al., 2017), (Yaqoob, et al., 2019), (Zawoad & Hasan, 2015), (Zulkipli, et al., 2017) in the literature that document diverse challenges related to IoT Forensics. These challenges vary and encompass technical, security, and legal aspects. Some of the most common challenges identified among the aforementioned studies are summarized below (this section is partly adapted from the author's [doctoral dissertation](https://dione.lib.unipi.gr/xmlui/handle/unipi/15806) in IoT Forensics):
+
+### 2.1 Forensic Challenges
+
+- **Data Location**: Determining the location of evidentiary data within an IoT crime scene can be daunting for the on-site examiner. Vital information may be dispersed across several local sources (such as companion mobile apps or IoT devices), remote locations (e.g., servers in other countries), or a combination of them. 
+- **Device Type**: An equally challenging task for investigators involves assessing the significance of the mixed IoT products that may be found at a crime scene, ranging from smart refrigerators to vehicles and beyond. Consequently, securing, confiscating, and transporting all these devices to the lab for in-depth forensic analysis can pose considerable difficulties.
+- **IoT Device Characteristics**: IoT products have typically limited storage, finite power, lightweight CPU, and restricted networking capabilities. These attributes differ depending on the specific functions each device performs, how frequently it interacts with its surroundings, and similar factors. For example, a motion sensor which only detects movement and transmits this information to its smart hub would normally require less advanced features compared to the hub which is responsible for gathering information from multiple deployed sensors, processing it, and uploading it to the cloud. The diversity in their capabilities inevitably impacts both the collection and preservation of data.
+- **Lifespan of Evidentiary Data**: IoT appliances have limited storage capabilities; hence, the lifespan of the data stored within them is relatively brief and subject to frequent overwriting. Before overwriting occurs, the majority of this information is uploaded to the cloud. Therefore, certain implications related to the acquisition of cloud-based evidence, such as the absence of physical access to cloud servers, are also applicable in this context.
+- **Crime Scene Contamination**: Another point of consideration stemming from the storage limitations of IoT devices, is the possibility that any actions initiated by the first responders on the scene could exhaust the device's memory, leading to the overwrite of older pertinent events. Subsequently, these events are likely to be transferred to the cloud, resulting in the appliance's memory being tainted with data generated during the intervention at the crime scene. In instances where the collection of cloud-based evidence is restricted, this process could compromise the investigation.
+- **Securing the Chain of Custody**: Maintaining the chain of custody is arduous in IoT Forensics. It is nearly impossible to avoid contamination of the crime scene during evidence collection. While this step is essential, it is imperative to justify such actions in court for the acceptance of the collected evidence as legitimate. Additionally, determining appropriate handling procedures in such scenarios is a complex task. Moreover, preserving the integrity of seized IoT products is formidable due to their dynamic nature and the absence of forensic tools capable of preventing inadvertent modifications.
+
+{pagebreak}
+
+- **Data Storage Period in the Cloud**: Given that a significant portion of evidentiary data resides in the cloud, acquiring this evidence is crucial for an investigation. However, the period of time for which this information is stored depends on the data retention policies of each cloud service provider (CSP) and the legislation of the countries where the CSP operates. The varying storage periods, typically ranging between 6 months and up to 1 year in most cases, can severely affect the retrieval of this evidence source. 
+- **Data Format**: IoT appliances store information in diverse file formats, including databases, JSON, and logs. Furthermore, data related to a specific IoT device can be obtained from various evidence sources, including companion mobile applications, internal storage, and cloud servers. This segmentation of data requires rigorous effort for the comprehensive examination of all available evidence.
+- **Lack of Standardization**: The variety of log records (user events, network logs, application logs, etc.) and other data that are generated by IoT devices do not meet specific standards. Manufacturers selectively record information according to their preferences, occasionally in proprietary formats, and may even use their own operating/file systems. Due to the lack of standardization and uniformity, analyzing this type of evidence is a demanding assignment.
+- **Limitations in the Currently Available Forensic Tools/Lack of IoT Forensic Tools**: The existing forensic tools encounter substantial challenges in efficiently collecting and parsing evidence related to IoT devices. These limitations originate from either the swift and continual evolution of IoT products, which outpaces the capabilities of current tools, or the fact that these tools were not initially designed for the examination of IoT appliances. The complexity and diversity of IoT devices, along with their extensive range and volume of data, present distinctive obstacles for current forensic software. This underscores the necessity to create new tools tailored specifically for such systems.
+- **Lack of Knowledge and Training**: Many investigators lack the knowledge of how to effectively manage an IoT crime scene. They are not trained to address the challenges posed by such a dynamic environment. For instance, first responders may grapple with whether to shut down an IoT device before collection or attempt to acquire it while it's still operational. The knowledge required to make informed decisions in such scenarios is only obtained through specialized training, which would guide responders on the proper procedures for seizing and securing various types of IoT appliances. Additionally, examiners need training on how to analyze the evidence collected.
+- **Interpreting Data Correctly**: Data extracted from IoT devices come in a variety of formats and are based on distinct operating/file systems, contingent upon the manufacturer and the device type. Misinterpreting such data could result in drawing inaccurate conclusions.
+- **Technical Expertise**: Communicating technical findings to non-technical stakeholders, such as juries and judges, demands a combination of in-depth technical and legal expertise, along with the ability to convey complex technicalities of IoT technology in an accessible and comprehensible way. This task can be particularly challenging, especially in this swiftly advancing field.
+
+{pagebreak}
+
+### 2.2 Security Challenges
+
+- **Lightweight Security Measures**: IoT products face constraints in terms of CPU, storage, and power resources, which makes it challenging to implement robust security measures. What is more, many manufacturers neglect to patch the vulnerabilities of their IoT devices regularly or at all. Thus, these appliances are often vulnerable to hacking and data manipulation.
+- **Lack of Standardization**: The absence of standardization in IoT, in terms of device specifications, data formats, and network protocols, can intensify security vulnerabilities and impede digital investigations.
+- **Attack Surface**: The wide security attack surface in IoT arises from the continual introduction of new and diverse products, each with different specifications, and supporting multiple communication protocols. Potential security incidents may include DDoS attacks carried out with compromised IoT appliances, unauthorized access to CCTV and IP cameras, and more.
+
+### 2.3 Legal Challenges
+
+- **Data Privacy**: In the dynamic landscape of IoT, multiple interconnected devices frequently gather personal and sensitive information without user awareness or consent, raising serious concerns regarding user privacy. For example, IoT appliances like fitness trackers monitor sensitive data such as users' steps, geolocation, health status, or even medical records which are eventually transmitted to the manufacturer's cloud. Legislation, such as the General Data Protection Regulation (GDPR), imposes legal requirements stipulating that the processing of such personal data must adhere to principles of lawfulness, fairness, and transparency. However, applying data protection regulations to this kind of information poses substantial obstacles due to the rapid evolution and expansion of the IoT environment. Forensic investigations in this context further complicate matters, as investigators must delicately navigate legal complexities to avoid violating privacy laws.
+
+{pagebreak}
+
+- **Multijurisdictional Issues**: IoT products store and exchange their data employing multiple cloud servers scattered across several geographical locations and legal jurisdictions. Identifying the relevant legal framework for each situation and ensuring lawful access to the data can be complex and, at times, even impossible. For instance, when tackling an incident involving IoT devices, a primary problem is determining the appropriate jurisdiction for legal proceedings. Decisions must be made regarding whether the case falls under the jurisdiction related to the data storage location, the location of the IoT device in question, or the location of the perpetrator.
+- **Admissibility of Evidence**: Another important legal consideration involves establishing the admissibility of digital evidence obtained from IoT appliances in court. Within the IoT domain, it becomes challenging to demonstrate that the evidence was acquired and examined using reliable forensic methods, primarily due to the obstacles discussed above. Likewise, the task of ensuring and proving that the chain of custody was properly maintained to preserve the integrity of the evidence presents considerable hurdles.
+
+{pagebreak}
+
+## 3. IoT Forensics Competencies
+
+Now that the reader has an understanding of the challenges associated with IoT Forensics, it is time to explore some of the skills required for conducting digital investigations of IoT products. As identified by Stoyanova et al., (2020) (See Fig. 1), IoT Forensics is divided into IoT device-level forensics, network forensics, and cloud forensics. One can be really proficient in one of these three disciplines and lack expertise in the other two, or any other possible combination may apply. A metaphor for an investigator in IoT forensics might be a [UFC](https://www.ufc.com/) fighter. Of course, this doesn't mean one should punch sensors and devices out of the way, nor grapple with the refrigerator. However, it implies that one needs develop and combine cross-disciplined investigative competencies to succeed in this field of digital forensics, similar to how a UFC fighter practices different fighting disciplines to enhance competitiveness. Each of the three categories, along with some of the skills that a practitioner needs to develop while diving into this field, are presented below:
+
+{width: 50%}
+![Components of the IoT Forensics - Stoyanova et al., 2020](ChB/Stoyanova.PNG)
+
+{pagebreak}
+
+### 3.1 IoT Device Level Forensics
+
+This category encompasses the actual IoT devices that may require digital investigation, such as vehicles (e.g., their infotainment systems), drones, smart home appliances, surveillance systems (CCTV, IP cameras, etc.), as well as the computer systems and mobile devices that host the companion applications needed to operate some of them. A non-exhaustive list of the skills that will benefit practitioners in this category includes:
+
+- **ISP/JTAG/Chip-Off**: A great number of IoT products store their data within non-volatile memory chips (e.g., eMMC). Most of the time, however, these chips are only accessible after one disassembles the IoT device and uncovers its PCB board. The bad news is that these chips cannot be read as easily as hard disks, which you can plug into the write blocker and acquire their contents. Instead, extracting the data stored within these chips requires specific hardware (flasher box, chip-off machine, soldering station, etc.) and relative software. Furthermore, one has to be familiar with and be able to apply advanced extraction techniques like ISP, JTAG, Chip-Off, which are often utilized to acquire those embedded memory chips. The Chip-off technique involves removing the memory chip from the PCB board and extracting its data. This method is considered costly, as it requires expensive equipment, and it is characterized as a destructive method since the memory chip cannot be typically soldered back to the PCB after acquiring its data. The ISP and JTAG techniques are non-destructive and less expensive methods that make use of certain communication protocols like SPI and UART to extract data from such chips. Be advised that special equipment is also needed when applying these methods.
+- **Mobile Forensics**: Some of the IoT appliances out there come with companion applications that can be used to operate them. These applications are most frequently installed on the mobile devices of their owners. Many of these companion applications are not parsed by commercial tools. As a result, it is up to the examiner to identify, parse, and interpret the data stored within these applications. This is where knowledge of the mobile forensics discipline could come in handy.
+- **Computer Forensics**: Some companion applications can also be installed on computer systems. For this purpose, a practitioner experienced in computer forensics may be able to locate and interpret the information stored by these apps.
+- **Operating System Knowledge**: A plethora of IoT products make use of custom Linux-based or other operating systems. Having an understanding of how these operating systems work may assist practitioners in identifying where important artifacts may reside.
+- **File System Knowledge**: Apart from using undocumented operating systems, many of these IoT appliances use proprietary file systems (e.g., HIKVISION/DHFS file systems in CCTV systems) to store their information. Understanding how these file systems store, organize, and retrieve data can be really helpful when investigating such devices.
+- **Programming and Scripting**: Programming and scripting skills can prove useful in every aspect of IoT Forensics. From parsing companion apps' data, unknown logs, and databases to contributing parsers to open-source tools, having such skills can benefit the whole DFIR community.
+- **Reverse Engineering**: Reverse engineering the firmware of IoT products can sometimes reveal information about them, including root credentials and security vulnerabilities that one can lawfully disclose to their manufacturers. In the case of a compromised IoT device, its rogue firmware can reveal the IP of the C2C server and more.
+
+{pagebreak}
+
+### 3.2 Network Forensics
+
+Except for individual IoT appliances, digital evidence can also be obtained from the network (e.g., router) where these products were connected. This category involves the investigation of the network communication of these IoT products. An indicative list of the competencies that practitioners in this category should develop follows:
+
+- **Network Protocols**: Appreciation of common networking protocols (TCP/IP, UDP, HTTP, etc.) and familiarity with typical IoT communication protocols such as MQTT, ZigBee, and mDNS. Having a grasp of how data gets transmitted over networks and the role of each protocol in communication can be really helpful.
+- **Network Architecture**: Understanding different network architectures (LAN, WAN, etc.) and possessing basic knowledge of subnetting and other network segmentation techniques. IoT products are sometimes set to use their own subnet for security reasons, so being able to navigate through the employed subnets can be a plus.
+- **Packet/Log Analysis**: IoT devices frequently fall victim to cyber attacks. Having the ability to capture, analyze, and interpret network traffic to identify anomalies or suspicious activities can assist in potentially tracing these attacks back to their perpetrators. Likewise, knowing how to examine logs from network devices like firewalls and routers may provide fruitful findings like tracking the timeline of events.
+
+{pagebreak}
+
+### 3.3 Cloud Forensics
+
+The last category includes the data which are generated and/or processed by IoT appliances and are eventually stored in cloud services. Some of the abilities one needs to harness while entering this field are listed here:
+
+- **Cloud Architecture**: Understanding the underlying architectures of these cloud services (remote servers, virtual machines, etc.) can help the practitioner think of different collection strategies.
+- **Warrant Returns**: The most prominent evidence data source related to cloud forensics is obtained through warrant returns. Warrant returns can provide a wealth of data related to the IoT appliances under investigation. The practitioner should know what warrant returns are, how to obtain data from them, and how to file requests for warrant returns. It should be noted, though, that obtaining a warrant return is typically limited to law enforcement agencies (LEAs) and prosecution authorities. 
+- **Programming and Scripting**: As mentioned before, having programming and scripting skills can help the practitioner in every category of IoT Forensics. In this category, these skills can come in handy in several cases, such as when the manufacturer of the IoT product does not offer a direct method to obtain its cloud data, and the warrant return option is not applicable. Therefore, the practitioner has to figure out the API communication between the device and the cloud and develop software that can retrieve its cloud data. This is a rather laborious task, especially when such manufacturers do not provide documentation for their APIs. In addition, parsing data acquired through this API communication, warrant returns, or other methods (e.g., "Copy of your data" exports) is another important area on which one can focus to build their expertise.
+
+Last but not least, being able to communicate all the aforementioned concepts to non-technical stakeholders is another worthy skill to develop. All things considered, this rapidly evolving field requires a genuine interest for continual learning. 
+
+{pagebreak}
+
+## 4. Location of data
+
+Up to this point, the reader should have a basic understanding of where forensic data can be found in the IoT landscape. However, the exact volume of information that can be collected from each evidence source (device-level, network, and cloud) varies a lot and depends on the technicalities of each scenario. For example, a compromised IoT device that is connected to a company's corporate network where both logging and security mechanisms (e.g., advanced firewalls) have been employed, would provide a larger amount of network data than a similarly compromised appliance of a home network. Clearly, these details have a big impact on each digital investigation. The more experience the practitioners have, the more easily they will be able to identify, secure, and collect evidentiary data in this dynamic environment.
+
+But how can practitioners know beforehand where they should focus during their examinations? A comparison of each evidence source might be helpful. So, let's start by comparing the data that can be extracted from an IoT device with that which can be retrieved from the cloud for it. Take it with a pinch of salt, but as a rule of thumb, the less storage capacity an IoT device has, the more likely it is for its data to end up in the cloud. For instance, sensors of all types have limited storage and hence tend to push their data to hubs, from where this information is further transmitted to the cloud. Another example is CCTV systems equipped with hard drives; they primarily store the majority of their information (videos, logs, etc.) locally and transmit less information to the cloud. As far as the amount of network data is concerned, it will most frequently depend on the network infrastructure to which the IoT devices are connected. A corporate environment is usually a more favorable scenario than a home network. This is due to the fact that corporate networks typically collect and analyze network traffic proactively, whereas when dealing with an incident in a home network, responders have to collect usable network data reactively, which is a really difficult task to do while on the scene. 
+
+The aforementioned comparison might be helpful, but practitioners should be advised not to omit any evidence source since they are interconnected. The key point here is that findings from the analysis of one evidence source might be used for the examination of another source. For example, even though IoT products have limited storage, examining them may reveal account credentials, which can then be used to obtain data from the cloud. This is extremely important. Another factor that will greatly affect both the amount of available evidentiary data for each source and their digital investigation is the time that has passed between the incident and the time the digital evidence was collected. For instance, responding to an incident and collecting evidence the same day it occurred, as opposed to after one month, would certainly influence the evidence acquired. Determining the location of evidentiary data is a complex assignment in IoT Forensics, and this section aims to raise some concerns that practitioners should consider before beginning their investigations.
+
+{pagebreak}
+
+## 5. Resources on how to get started
+
+In this section, a curated list of resources is shared to help both beginners and seasoned professionals kick-start their exploration of the multifaceted landscape of IoT Forensics. It goes without saying that the author has no affiliations or financial arrangements with any entity mentioned in the list. Additionally, the list is specifically tailored to the DFIR aspect of IoT Forensics and does not encompass resources related to red team activities, such as the penetration of IoT devices.
+
+### 5.1 Best practises
+
+Establishing a new workflow or updating an old one according to widely accepted best practices is something that many agencies and practitioners around the globe usually do whenever it is deemed necessary. IoT Forensics requires the introduction or update of such procedures. Scientific Working Group on Digital Evidence ([SWGDE](https://www.swgde.org/home)) is a non-profit corporation that develops consensus-based standards, best practices, and more for use in digital investigations. SWGDE has [published](https://www.swgde.org/documents/published-complete-listing) both [best practices](https://drive.google.com/file/d/15rh-anGu_LeW0oYln_TrfzpVjA8rGwHH/view) and [technical notes](https://drive.google.com/file/d/1zcDxCLSrwTbwFlTAtjwB6UxMgMHOj3GY/view) documents on IoT Forensics. These documents can assist those who may be uncertain about which actions to take when approaching an IoT crime scene.
+
+{pagebreak}
+
+### 5.2 Trainings and Courses
+
+There is a great number of trainings and courses offered for various aspects of IoT Forensics. Some of them are costly while others are free. Investing in certain trainings may facilitate the acquisition of practical experience with IoT devices, an aspect that could be challenging to attain otherwise. Below, you can find some of those that focus on IoT Forensics, listed in random order:
+
+- **Teel Tech**: [Teel Tech](https://www.teeltech.com/) offers courses on [vehicles forensics](https://www.teeltech.com/mobile-device-forensics-training/automobile-forensics-course/), [embedded hardware acquisition](https://www.teeltech.com/mobile-device-forensics-training/embedded-hardware-acquisition-analysis-training/), and [more](https://teeltech.com/mobile-device-forensics-training/). Some of them are restricted to Law Enforcement and some are available for everyone.
+- **VTO Labs**: [VTO Labs](https://www.vtolabs.com/) specializes in IoT Forensics. Their [training programs](https://www.vtolabs.com/training) cover topics such as drones, chip-off, and more.
+- **Berla**: [Berla](https://berla.co/) provides a [course](https://berla.co/training-courses/) on vehicle system forensics.
+- **Oxygen Forensics**: [Oxygen Forensics](https://oxygenforensics.com/en/) offers a course on the forensic examination of [drones](https://oxygenforensics.com/en/events/ofda-on-demand/).
+- **Hexordia**: [Hexordia](https://www.hexordia.com) lists a [course](https://www.hexordia.com/courses) on the examination of IoT devices.
+- **Spyder Forensics**: [Spyder Forensics](https://www.spyderforensics.com/) delivers a [course](https://www.spyderforensics.com/drone-forensic-analysis/) on drone forensics. 
+- **Cyber5w**: [Cyber5w](https://academy.cyber5w.com/) offers a [free course](https://academy.cyber5w.com/courses/iot-forensics-fundamentals) on the fundamentals of IoT Forensics.
+- **Gmdsoft**: [Gmdsoft](https://www.gmdsoft.com/) provides a [course](https://www.gmdsoft.com/training/drone-forensic-training/#gcdp) on drone forensics.
+- **MOBILedit**: [MOBILedit](https://www.mobiledit.com/) hosts a [free webinar](https://www.mobiledit.com/webinars) on smartwatch forensics.
+- **Jean Costello**: Jean Costello has assembled a [free course](https://github.com/RJC497/IoT-Digital-Forensics-Course) on IoT Forensics hosted on Github.
+- **Paraben Corporation**: [Paraben Corporation](https://paraben.com) is preparing to launch a new course on [IoT investigations](https://paraben.com/digital-investigation-training-courses/) in 2024.
+
+### 5.3 Blogs 
+
+Out of a wide range of available blogs on digital forensics, the author could find two that had hosted several posts related to IoT Forensics. These are [zena forensics](https://blog.digital-forensics.it/) by [Mattia Epifani]((https://twitter.com/mattiaep)) and [elcomsoft](https://blog.elcomsoft.com/), the official blog of the company Elcomsoft. By no means does this imply that there aren't others out there. Here are two indicative posts from the [first one](https://blog.digital-forensics.it/2020/12/a-journey-into-iot-forensics-episode-4.html) and the [latter one](https://blog.elcomsoft.com/2022/02/iot-forensics-analyzing-apple-watch-3-file-system/).
+
+{pagebreak}
+
+### 5.4 Presentations and Interviews on IoT Forensics
+
+There have been many presentations and interviews on IoT Forensics. Some are still available online, others cannot be accessed directly, and others are no longer available. A list of some talks that are still available and accessible online is mentioned below (in random order):
+
+- [**Investigating Rebel Scum’s Google Home Data**](https://www.youtube.com/watch?v=dLQLJP0Cu7c) by Phill Moore
+- [**Amazon Alexa, Are You Skynet?**](https://www.youtube.com/watch?v=efkGuioeI74) by Jessica Hyde & Brian Moran
+- [**Linux Forensics for IoT: Hello World**](https://www.youtube.com/watch?v=qBZ-JSFA314) by Joseph Mccormack, Austin Grupposo & Ali Hadi
+- [**Forensic Analysis of Xiaomi IoT Ecosystem**](https://www.youtube.com/watch?v=4oVfHinPIz0) by Evangelos Dragonas (the author)
+- [**Coffee Forensics: Reconstructing Data in IoT Devices Running Contiki OS**](https://www.youtube.com/watch?v=tAVDibyePEw) by Jens-Petter Sandvik, Katrin Franke, Habtamu Abie & Andre Årnes
+- [**BSides Rochester 2018 - IoT 4n6: The Growing Impact of the Internet of Things on Digital Forensics**](https://www.youtube.com/watch?v=N280pSyGB_4) by Jessica Hyde
+- [**Forensic Analysis of Apple HomePod & Apple HomeKit Environment**](https://www.youtube.com/watch?v=D8AOXCBkaTY) by Mattia Epifani
+- [**Forensic Analysis for AI Speaker with Display Echo Show 2nd Generation As A Case Study**](https://www.youtube.com/watch?v=zaVpTqxJHcU) by Min-A Youn, Yirang Lim, Kangyoun Seo, Hyunji Chung & Sangjin Lee
+- [**Magnet Forensics Presents: Cache Up - Ep.47 - Steve Watson**](https://www.youtube.com/watch?v=jNNPybmhKQc) with Jessica Hyde and Steve Watson
+
+### 5.5 Software
+
+The majority of commercial companies, such as [Magnet Forensics](https://www.magnetforensics.com/), [Oxygen Forensics](https://oxygenforensics.com/en/), [Cellebrite](https://cellebrite.com/en/home/), provide tools capable of parsing data from certain IoT companion apps and retrieving/parsing data from cloud sources.
+
+The same holds true for certain FOSS projects, like the [xLEAPP](https://github.com/abrignoni) project. However, there is currently no widely used software designed exclusively for IoT Forensics. In many cases, low-level forensic software, such as [X-WAYS Forensics](https://www.x-ways.net/forensics/index-m.html), appears more useful for analyzing these diverse evidence sources.
+
+### 5.6 Datasets
+
+Finally, for those who want to practice and analyze evidence already collected from IoT devices, there are publicly available datasets, thanks to their contributors:
+
+- [**DFRWS 2017 Challenge**](https://github.com/dfrws/dfrws2017-challenge)
+- [**DFRWS 2018 Challenge**](https://github.com/dfrws/dfrws2018-challenge)
+- [**VTO Labs datasets**](https://www.vtolabs.com/iot-forensics)
+- [**Jean Costello**](https://github.com/RJC497/IoT-Digital-Forensics-Course)
+- [**THE LEAHY CENTER**](https://drive.google.com/drive/folders/1GNsVF8j3pGXLQ5LyjPPdmP-aegzeOwHu)
+
+### 5.7 Social 
+
+Be aware that there is dedicated channel in the Digital Forensics Discord Server specifically to [IoT Forensics](https://discord.com/channels/427876741990711298/735956575151194233). If you want to learn more about IoT Forensics, make sure to join.
+
+{pagebreak}
+
+## 6. Conclusion
+
+To conclude, this chapter explored the realm of IoT Forensics, shedding light on the challenges and intricacies of digitally investigating IoT appliances. Forensic considerations related to this heterogeneous landscape were demonstrated, and various evidence sources were discussed in detail. Furthermore, a list of useful competences practitioners should acquire upon entering this field of Digital Forensics was presented, along with a curated list of resources that may assist anyone interested in learning more about IoT Forensics. In summary, this chapter serves as a comprehensive guide, providing insights into the complexities of IoT Forensics and equipping forensic practitioners with the foundational knowledge necessary to navigate in this rapidly evolving field.
+
+{pagebreak}
+
+## References
+
+S. Alabdulsalam, K. Schaefer, T. Kechadi and N.-A. Le-Khac, "Internet of Things Forensics – Challenges and a Case Study," in Advances in Digital Forensics XIV, vol. 532, G. Peterson and S. Shenoi, Eds., Cham, Springer International Publishing, 2018, p. 35–48. doi: 10.1007/978-3-319-99277-8_3.
+
+A. Alenezi, H. Atlam, R. Alsagri, M. Alassafi and G. Wills, "IoT Forensics: A State-of-the-Art Review, Challenges and Future Directions:," in Proceedings of the 4th International Conference on Complexity, Future Information Systems and Risk, Heraklion, 2019. doi: 10.5220/0007905401060115.
+
+N. Almolhis and M. Haney, "IoT Forensics Pitfalls for Privacy and a Model for Providing Safeguards," in 2019 International Conference on Computational Science and Computational Intelligence (CSCI), Las Vegas, NV, USA, 2019. doi: 10.1109/CSCI49370.2019.00036.
+
+H. F. Atlam, E. El-Din Hemdan, A. Alenezi, M. O. Alassafi and G. B. Wills, "Internet of Things Forensics: A Review," Internet of Things, vol. 11, pp. 100-220, September 2020. doi: 10.1016/j.iot.2020.100220.
+
+Z. A. Baig, P. Szewczyk, C. Valli, P. Rabadia, P. Hannay, M. Chernyshev, M. Johnstone, P. Kerai, A. Ibrahim, K. Sansurooah, N. Syed and M. Peacock, "Future challenges for smart cities: Cyber-security and digital forensics," Digital Investigation, vol. 22, p. 3–13, September 2017. doi: 10.1016/j.diin.2017.06.015.
+
+F. Bouchaud, G. Grimaud, T. Vantroys and P. Buret, "Digital Investigation of IoT Devices in the Criminal Scene,"Journal of Universal Computer Science, vol. 25, p. 1199–1218, 2019. hal-02432740.
+
+M. Conti, A. Dehghantanha, K. Franke and S. Watson, "Internet of Things security and forensics: Challenges and opportunities," Future Generation Computer Systems, vol. 78, p. 544–546, January 2018. doi: 10.1016/j.future.2017.07.060.
+
+R. C. Hegarty, D. J. Lamb and A. Attwood, "Digital Evidence Challenges in the Internet of Things," 2014.
+
+U. Karabiyik and K. Akkaya, Digital Forensics for IoT and WSNs, 2018.
+
+P. Lutta, M. Sedky and M. Hassan, P. Lutta, M. Sedky and M. Hassan, "The Forensic Swing of Things: The Current Legal and Technical Challenges of IoT Forensics," vol. 14, 2020.
+
+A. MacDermott, T. Baker, P. Buck, F. Iqbal and Q. Shi, "The Internet of Things: Challenges and Considerations for Cybercrime Investigations and Digital Forensics:," International Journal of Digital Crime and Forensics, vol. 12, p. 1–13, January 2020. doi: 10.4018/IJDCF.2020010101.
+
+A. MacDermott, T. Baker and Q. Shi, "Iot Forensics: Challenges for the Ioa Era," in 2018 9th IFIP International Conference on New Technologies, Mobility and Security (NTMS), Paris, 2018. doi: 10.1109/NTMS.2018.8328748.
+
+R. Montasari and R. Hill, "Next-Generation Digital Forensics: Challenges and Future Paradigms," in 2019 IEEE 12th International Conference on Global Security, Safety and Sustainability (ICGS3), London, 2019. doi: 10.1109/ICGS3.2019.8688020.
+
+E. Oriwoh, D. Jazani, G. Epiphaniou and P. Sant, "Internet of Things Forensics: Challenges and Approaches," in Proceedings of the 9th IEEE International Conference on Collaborative Computing: Networking, Applications and Worksharing, Austin, 2013. doi: 10.4108/icst.collaboratecom.2013.254159.
+
+F. Servida and E. Casey, "IoT forensic challenges and opportunities for digital traces," Digital Investigation, vol. 28, p. S22–S29, April 2019. doi: 10.1016/j.diin.2019.01.012.
+
+M. Stoyanova, Y. Nikoloudakis, S. Panagiotakis, E. Pallis and E. K. Markakis, "A Survey on the Internet of Things (IoT) Forensics: Challenges, Approaches, and Open Issues," IEEE Communications Surveys Tutorials, vol. 22, p. 1191–1221, 2020. doi:10.1109/COMST.2019.2962586.
+
+Y. C. Tok, C. Wang and S. Chattopadhyay, "Stitcher: Correlating digital forensic evidence on internet-of-things devices," Forensic Science International: Digital Investigation, vol. 35, p. 301071, December 2020. doi: 10.1016/j.fsidi.2020.301071.
+
+T. Wu, F. Breitinger and I. Baggili, "IoT Ignorance is Digital Forensics Research Bliss: A Survey to Understand IoT Forensics Definitions, Challenges and Future Research Directions," in Proceedings of the 14th International Conference on Availability, Reliability and Security, Canterbury CA United Kingdom, 2019. doi: 10.1145/3339252.3340504.
+
+J.-P. A. Yaacoub, H. N. Noura, O. Salman and A. Chehab, "Advanced digital forensics and anti-digital forensics for IoT systems: Techniques, limitations and recommendations," Internet of Things, vol. 19, p. 100544, 1 August 2022. doi: 10.1016/j.iot.2022.100544.
+
+W. Yang, M. N. Johnstone, L. F. Sikos and S. Wang, "Security and Forensics in the Internet of Things: Research Advances and Challenges," in 2020 Workshop on Emerging Technologies for Security in IoT (ETSecIoT), Sydney, 2020. doi: 10.1109/ETSecIoT50046.2020.00007.
+
+I. Yaqoob, I. A. T. Hashem, A. Ahmed, S. M. A. Kazmi and C. S. Hong, "Internet of things forensics: Recent advances, taxonomy, requirements, and open challenges," Future Generation Computer Systems, vol. 92, p. 265–275, March 2019. doi: 10.1016/j.future.2018.09.058.
+
+I. Yaqoob, E. Ahmed, M. H. U. Rehman, A. I. A. Ahmed, M. A. Al-garadi, M. Imran and M. Guizani, "The rise of ransomware and emerging security challenges in the Internet of Things," Computer Networks, vol. 129, p. 444–458, December 2017. doi: 10.1016/j.comnet.2017.09.003.
+
+S. Zawoad and R. Hasan, "FAIoT: Towards Building a Forensics Aware Eco System for the Internet of Things," in 2015 IEEE International Conference on Services Computing, New York City, NY, USA, 2015. doi: 10.1109/SCC.2015.46.
+
+N. Zulkipli, A. Alenezi and G. B. Wills, "IoT Forensic: Bridging the Challenges in Digital Forensic and the Internet of Things:," in Proceedings of the 2nd International Conference on Internet of Things, Big Data and Security, Porto, 2017. doi: 10.5220/0006308703150324.
+
+* * *

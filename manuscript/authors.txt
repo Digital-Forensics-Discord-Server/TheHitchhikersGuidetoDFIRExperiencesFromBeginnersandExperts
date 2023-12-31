@@ -65,3 +65,7 @@ An avid blue team leader helping to secure the healthcare industry. Despite bein
 ### Mark Berger
 
 Mark Berger is a data recovery professional, author and trainer which also holds several digital forensics related certifications, including but not limited to CDFE and CDFP. He is also involved in a few open-source projects in the data recovery and digital forensics field.
+
+### Evangelos Dragonas
+
+Evangelos Dragonas is currently a postdoctoral researcher at the University of Piraeus, Greece. His research focuses on applied Digital Forensics. He also works as a full-time Digital Forensic Examiner and holds CFCE, MCFE, and MCME certifications. Evangelos shares his findings at conferences, through research articles, on his blog, and by contributing to FOSS.

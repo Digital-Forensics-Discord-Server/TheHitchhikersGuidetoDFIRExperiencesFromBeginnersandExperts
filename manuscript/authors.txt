@@ -24,9 +24,9 @@ After serving in the US Navy for five years, Jason Wilkins began a career in fir
 
 ### John Haynes
 
-John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and Magnet Certified Forensics Examiner (MCFE) and also holds the networking Cisco Certified Network Associate (CCNA) certification. Having only been active in digital forensics since 2020, his background as a curious nerd has served him well as he has just started exploring what digital forensics has to offer.
+John Haynes works in law enforcement with a focus on digital forensics. John holds several digital forensics certs including Cellebrite Certified Mobile Examiner (CCME) and the IACIS Certified Computer Forensic Examiner (CFCE). He also holds CompTIA's Security+ and Cisco's Certified Network Associate (CCNA) certifications.
 
-John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. You can find a few of his videos on password cracking on [YouTube](https://www.youtube.com/channel/UCJVXolxwB4x3EsBAzSACCTg) or find him learning what he can on the [DFIR Discord](http://discordapp.com/users/167135713006059520).
+John has taken a keen interest in password cracking after being introduced to the basics of Hashcat at the NCFI. This started the foundation for the password-cracking chapter in this book. His formal schooling has served as the foundation for the packet capture chapter of this book.
 
 ### Kevin Pagano
 

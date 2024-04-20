@@ -1,7 +1,7 @@
 # Chapter B - IoT Forensics
 
 {width: 30%}
-![](ChB/theAtropos4n6Logo.png)
+![](resources/Ch14/theAtropos4n6Logo.png)
 
 C> By Evangelos Dragonas, PhD | [Github](https://github.com/theAtropos4n6) | [Twitter](https://twitter.com/theAtropos4n6) | [Website](https://atropos4n6.com/) | [Discord](https://discordapp.com/user/708004364068978720)
 
@@ -10,7 +10,7 @@ C> By Evangelos Dragonas, PhD | [Github](https://github.com/theAtropos4n6) | [Tw
 Internet of Things (IoT) devices are becoming increasingly common and are used in a wide range of applications, from smart homes to industrial control systems. Their interconnected nature and their widespread adoption are two of the reasons these appliances are inevitably associated with criminal activity. Typically, their involvement either stems from becoming the target of a cyberattack (e.g. [Mirai IoT botnet](https://blog.cloudflare.com/inside-mirai-the-infamous-iot-botnet-a-retrospective-analysis)) or playing the role of a "witness" to a crime (e.g. [smartwatch](https://www.bbc.com/news/technology-43629255)). Regardless, the digital investigation of such IoT products in pursuit of any evidentiary data they store is a process known as IoT Forensics. In particular, IoT Forensics involves the identification, collection/preservation, analysis/examination, and reporting/presentation of data originating from IoT devices to reconstruct events related to an incident or crime. This can include data from sensors, network logs, smartphones, cloud, and other sources.
 
 {width: 50%}
-![Forensic data sources of the smart city illustrated with weight of evidence stored.- Baig et al., 2017](ChB/SmartCity.jpg)
+![Forensic data sources of the smart city illustrated with weight of evidence stored.- Baig et al., 2017](resources/Ch14/SmartCity.jpg)
 {pagebreak}
 
 
@@ -67,7 +67,7 @@ There are more than 20 studies (Alabdulsalam, et al., 2018), (Alenezi, et al., 2
 Now that the reader has an understanding of the challenges associated with IoT Forensics, it is time to explore some of the skills required for conducting digital investigations of IoT products. As identified by Stoyanova et al., (2020) (See Fig. 1), IoT Forensics is divided into IoT device-level forensics, network forensics, and cloud forensics. One can be really proficient in one of these three disciplines and lack expertise in the other two, or any other possible combination may apply. A metaphor for an investigator in IoT forensics might be a [UFC](https://www.ufc.com/) fighter. Of course, this doesn't mean one should punch sensors and devices out of the way, nor grapple with the refrigerator. However, it implies that one needs develop and combine cross-disciplined investigative competencies to succeed in this field of digital forensics, similar to how a UFC fighter practices different fighting disciplines to enhance competitiveness. Each of the three categories, along with some of the skills that a practitioner needs to develop while diving into this field, are presented below:
 
 {width: 50%}
-![Components of the IoT Forensics - Stoyanova et al., 2020](ChB/Stoyanova.PNG)
+![Components of the IoT Forensics - Stoyanova et al., 2020](resources/Ch14/Stoyanova.PNG)
 
 {pagebreak}
 

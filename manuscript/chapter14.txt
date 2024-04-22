@@ -59,6 +59,7 @@ Now that the reader has an understanding of the challenges associated with IoT F
 
 {width: 50%}
 ![Components of the IoT Forensics - Stoyanova et al., 2020](resources/Ch14/Stoyanova.PNG)
+
 {pagebreak}
 
 ### 3.1 IoT Device Level Forensics

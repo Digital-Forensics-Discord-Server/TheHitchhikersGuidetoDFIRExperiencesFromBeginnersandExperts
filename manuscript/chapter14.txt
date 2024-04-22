@@ -1,4 +1,5 @@
 # Chapter 14 - IoT Forensics
+Last updated: Dec-2023
 
 {width: 30%}
 ![](resources/Ch14/theAtropos4n6Logo.png)
@@ -58,7 +59,7 @@ There are more than 20 studies (Alabdulsalam, et al., 2018), (Alenezi, et al., 2
 Now that the reader has an understanding of the challenges associated with IoT Forensics, it is time to explore some of the skills required for conducting digital investigations of IoT products. As identified by Stoyanova et al., (2020) (See Fig. 1), IoT Forensics is divided into IoT device-level forensics, network forensics, and cloud forensics. One can be really proficient in one of these three disciplines and lack expertise in the other two, or any other possible combination may apply. A metaphor for an investigator in IoT forensics might be a [UFC](https://www.ufc.com/) fighter. Of course, this doesn't mean one should punch sensors and devices out of the way, nor grapple with the refrigerator. However, it implies that one needs develop and combine cross-disciplined investigative competencies to succeed in this field of digital forensics, similar to how a UFC fighter practices different fighting disciplines to enhance competitiveness. Each of the three categories, along with some of the skills that a practitioner needs to develop while diving into this field, are presented below:
 
 {width: 50%}
-![Components of the IoT Forensics - Stoyanova et al., 2020](resources/Ch14/Stoyanova.PNG)
+![Components of the IoT Forensics - Stoyanova et al., 2020](resources/Ch14/Stoyanova.png)
 
 {pagebreak}
 

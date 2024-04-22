@@ -68,4 +68,4 @@ Mark Berger is a data recovery professional, author and trainer which also holds
 
 ### Evangelos Dragonas
 
-Evangelos Dragonas is currently a postdoctoral researcher at the University of Piraeus, Greece. His research focuses on applied Digital Forensics. He also works as a full-time Digital Forensic Examiner and holds CFCE, MCFE, and MCME certifications. Evangelos shares his findings at conferences, through research articles, on his blog, and by contributing to FOSS.
+Evangelos Dragonas is currently a postdoctoral researcher at the University of Piraeus, Greece. His research focuses on applied Digital Forensics. He also works as a full-time Digital Forensic Examiner and holds CFCE, MCFE, MCCE and MCME certifications. Evangelos shares his findings at conferences, through research articles, on his blog, and by contributing to FOSS.

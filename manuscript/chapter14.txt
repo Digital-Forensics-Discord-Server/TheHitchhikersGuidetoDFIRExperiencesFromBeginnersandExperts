@@ -130,7 +130,7 @@ There is a great number of trainings and courses offered for various aspects of 
 
 ### 5.3 Blogs 
 
-Out of a wide range of available blogs on digital forensics, the author could find two that had hosted several posts related to IoT Forensics. These are [zena forensics](https://blog.digital-forensics.it/) by [Mattia Epifani]((https://twitter.com/mattiaep)) and [elcomsoft](https://blog.elcomsoft.com/), the official blog of the company Elcomsoft. By no means does this imply that there aren't others out there. Here are two indicative posts from the [first one](https://blog.digital-forensics.it/2020/12/a-journey-into-iot-forensics-episode-4.html) and the [latter one](https://blog.elcomsoft.com/2022/02/iot-forensics-analyzing-apple-watch-3-file-system/).
+Out of a wide range of available blogs on digital forensics, the author could find two that had hosted several posts related to IoT Forensics. These are [zena forensics](https://blog.digital-forensics.it/) by [Mattia Epifani](https://twitter.com/mattiaep) and [elcomsoft](https://blog.elcomsoft.com/), the official blog of the company Elcomsoft. By no means does this imply that there aren't others out there. Here are two indicative posts from the [first one](https://blog.digital-forensics.it/2020/12/a-journey-into-iot-forensics-episode-4.html) and the [latter one](https://blog.elcomsoft.com/2022/02/iot-forensics-analyzing-apple-watch-3-file-system/).
 
 ### 5.4 Presentations and Interviews on IoT Forensics
 

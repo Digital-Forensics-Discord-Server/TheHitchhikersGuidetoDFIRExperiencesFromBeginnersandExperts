@@ -23,7 +23,11 @@ The rest of this chapter is organized as follows: Section 2 provides an overview
 
 ## 2. Challenges related to IoT Forensics
 
-There are more than 20 studies (Alabdulsalam, et al., 2018), (Alenezi, et al., 2019), (Almolhis & Haney, 2019), (Atlam, et al., 2020), (Baig, et al., 2017), (Bouchaud, et al., 2019), (Conti, et al., 2018), (Hegarty, et al., 2014),(Karabiyik & Akkaya, 2018), (Lutta, et al., 2020), (MacDermott, et al., 2018), (MacDermott, et al., 2020), (Montasari & Hill, 2019), (Oriwoh, et al., 2013), (Servida & Casey, 2019), (Stoyanova, et al., 2020), (Tok, et al., 2020), (Wu, et al., 2019), (Yaacoub, et al., 2022), (Yang, et al., 2020), (Yaqoob, et al., 2017), (Yaqoob, et al., 2019), (Zawoad & Hasan, 2015), (Zulkipli, et al., 2017) in the literature that document diverse challenges related to IoT Forensics. These challenges vary and encompass technical, security, and legal aspects. Some of the most common challenges identified among the aforementioned studies are summarized below (this section is partly adapted from the author's [doctoral dissertation](https://dione.lib.unipi.gr/xmlui/handle/unipi/15806) in IoT Forensics):
+There are more than 20 studies (Alabdulsalam, et al., 2018), (Alenezi, et al., 2019), (Almolhis & Haney, 2019), (Atlam, et al., 2020), (Baig, et al., 2017), (Bouchaud, et al., 2019), (Conti, et al., 2018), (Hegarty, et al., 2014),(Karabiyik & Akkaya, 2018), (Lutta, et al., 2020), (MacDermott, et al., 2018), (MacDermott, et al., 2020), (Montasari & Hill, 2019), (Oriwoh, et al., 2013), (Servida & Casey, 2019), (Stoyanova, et al., 2020), (Tok, et al., 2020), (Wu, et al., 2019), (Yaacoub, et al., 2022), (Yang, et al., 2020), (Yaqoob, et al., 2017), (Yaqoob, et al., 2019), (Zawoad & Hasan, 2015), (Zulkipli, et al., 2017) in the literature that document diverse challenges related to IoT Forensics. These challenges vary and encompass technical, security, and legal aspects. Some of the most common challenges identified among the aforementioned studies are summarized below (this section is partly adapted from the author's [doctoral dissertation](
+
+
+
+://dione.lib.unipi.gr/xmlui/handle/unipi/15806) in IoT Forensics):
 
 ### 2.1 Forensic Challenges
 
@@ -119,15 +123,12 @@ Establishing a new workflow or updating an old one according to widely accepted 
 There is a great number of trainings and courses offered for various aspects of IoT Forensics. Some of them are costly while others are free. Investing in certain trainings may facilitate the acquisition of practical experience with IoT devices, an aspect that could be challenging to attain otherwise. Below, you can find some of those that focus on IoT Forensics, listed in random order:
 
 - **Teel Tech**: [Teel Tech](https://www.teeltech.com/) offers courses on [vehicles forensics](https://www.teeltech.com/mobile-device-forensics-training/automobile-forensics-course/), [embedded hardware acquisition](https://www.teeltech.com/mobile-device-forensics-training/embedded-hardware-acquisition-analysis-training/), and [more](https://teeltech.com/mobile-device-forensics-training/). Some of them are restricted to Law Enforcement and some are available for everyone.
-- **VTO Labs**: [VTO Labs](https://www.vtolabs.com/) specializes in IoT Forensics. Their [training programs](https://www.vtolabs.com/training) cover topics such as drones, chip-off, and more.
 - **Berla**: [Berla](https://berla.co/) provides a [course](https://berla.co/training-courses/) on vehicle system forensics.
-- **Oxygen Forensics**: [Oxygen Forensics](https://oxygenforensics.com/en/) offers a course on the forensic examination of [drones](https://oxygenforensics.com/en/events/ofda-on-demand/).
+- **Oxygen Forensics**: [Oxygen Forensics](https://oxygenforensics.com/en/) offers a course on the forensic examination of [drones](https://oxygenforensics.com/en/training/course-descriptions/).
 - **Hexordia**: [Hexordia](https://www.hexordia.com) lists a [course](https://www.hexordia.com/courses) on the examination of IoT devices.
 - **Spyder Forensics**: [Spyder Forensics](https://www.spyderforensics.com/) delivers a [course](https://www.spyderforensics.com/drone-forensic-analysis/) on drone forensics. 
-- **Cyber5w**: [Cyber5w](https://academy.cyber5w.com/) offers a [free course](https://academy.cyber5w.com/courses/iot-forensics-fundamentals) on the fundamentals of IoT Forensics.
 - **Gmdsoft**: [Gmdsoft](https://www.gmdsoft.com/) provides a [course](https://www.gmdsoft.com/training/drone-forensic-training/#gcdp) on drone forensics.
 - **MOBILedit**: [MOBILedit](https://www.mobiledit.com/) hosts a [free webinar](https://www.mobiledit.com/webinars) on smartwatch forensics.
-- **Jean Costello**: Jean Costello has assembled a [free course](https://github.com/RJC497/IoT-Digital-Forensics-Course) on IoT Forensics hosted on Github.
 - **Paraben Corporation**: [Paraben Corporation](https://paraben.com) is preparing to launch a new course on [IoT investigations](https://paraben.com/digital-investigation-training-courses/) in 2024.
 
 ### 5.3 Blogs 
@@ -160,8 +161,6 @@ Finally, for those who want to practice and analyze evidence already collected f
 
 - [**DFRWS 2017 Challenge**](https://github.com/dfrws/dfrws2017-challenge)
 - [**DFRWS 2018 Challenge**](https://github.com/dfrws/dfrws2018-challenge)
-- [**VTO Labs datasets**](https://www.vtolabs.com/iot-forensics)
-- [**Jean Costello**](https://github.com/RJC497/IoT-Digital-Forensics-Course)
 - [**THE LEAHY CENTER**](https://drive.google.com/drive/folders/1GNsVF8j3pGXLQ5LyjPPdmP-aegzeOwHu)
 
 ### 5.7 Social 

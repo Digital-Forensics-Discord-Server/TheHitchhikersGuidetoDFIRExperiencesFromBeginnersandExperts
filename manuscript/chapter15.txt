@@ -1,0 +1,74 @@
+# Chapter 15 - 2023 from a Cyber Threat Intelligence Perspective
+
+C> By [Elijah Woodward, AKA Eli Woodward] [LinkedIn](https://www.linkedin.com/in/eliwood/)
+
+## Foreword
+
+I would like to start this chapter off by extending my sincerest thanks to Andrew Rathbun for the invite to participate in this project. Shamefully, I am finally getting around to this two years after he first extended the invite. In that time I've stayed busy, finishing up a Master's Degree in intelligence studies. I appreciate the opportunity to participate in this project and am deeply humbled by the invite. 
+
+Plenty exists about the CTI space from writers more eloquent than myself, so I wanted to take this chapter to offer a review of 2023 from the CTI perspective, and touch on some deeper issues that are worth mentioning. Some of this is drawn from my academic studies and includes some analysis from that avenue. I find practitioners and academics don't always meet together, but there is value both can offer each other, though sometimes that value isn't realized. I hope to change that a little. 
+
+## Introduction
+
+The year 2023 was a pivotal one for cybersecurity, marked by significant developments that reshaped our understanding of digital threats and the defenses against them. This chapter offers a comprehensive analysis of the key themes that emerged, focusing on the sophisticated methods of cyber intrusions, the discrepancies in breach reporting, the landmark takedown of the LockBit ransomware group, and the intricate interplay between cybercrime and state interests, particularly concerning Russia. By examining these elements, we aim to provide a detailed narrative that highlights the challenges and insights of the past year, setting the stage for future advancements in cybersecurity.
+
+## Initial Entry Vectors: Learning from 2023
+
+One of the most critical aspects of cybersecurity is understanding how attackers gain initial access to systems. In 2023, this question was at the forefront of cybersecurity practitioners’ minds, with varied reports from leading firms offering insights into the tactics of threat actors. The annual reports from companies such as Mandiant, Unit 42, and CrowdStrike revealed a diversity of opinions on the most common initial entry vectors.
+
+According to Mandiant, software and API vulnerabilities were the leading cause of breaches in 2023, pushing phishing down to the third spot. This finding was echoed by Unit 42, which reported that exploits had taken the top position, with phishing closely following. In contrast, CrowdStrike's analysis highlighted the role of edge device exploits, areas notoriously difficult to secure due to the challenges in deploying endpoint detection and response (EDR) solutions.
+
+However, a stark contradiction came from Verizon, whose report placed credential use as the primary intrusion vector, suggesting a different narrative. This discrepancy in data highlights a significant issue within the cybersecurity community: the lack of standardization in reporting and data analysis. Each vendor’s report reflects its own methodologies and customer base, leading to a fragmented understanding of the threat landscape. This inconsistency is reminiscent of the parable of the blind men and the elephant, where each person's perception is limited to their own experience and perspective.
+
+The challenge of inconsistent reporting is exacerbated by the absence of a centralized authority to collect and analyze cyber intrusion data comprehensively. In the physical world, traffic safety is monitored and regulated by standardized reporting from law enforcement and insurance agencies. In cybersecurity, however, the data is often siloed within individual organizations, leading to varied interpretations and conclusions. This fragmentation necessitates a call for a more unified approach to cyber threat intelligence, one that can provide a clearer picture of the evolving threat landscape.
+
+## The Power and Limits of Incident Response
+
+At the heart of cybersecurity intelligence is incident response, a field that offers unparalleled insights into the tactics and tools of cybercriminals. Being on the front lines of cyber defense allows responders to witness firsthand the methods employed by attackers, from zero-day vulnerabilities to sophisticated state-sponsored operations. The knowledge gained from these experiences is invaluable, offering a depth of understanding that informs both defensive strategies and broader security policies.
+
+Incident response teams act as detectives, piecing together clues left by cybercriminals to uncover how breaches occur. This process is vital for developing effective countermeasures and strengthening defenses against future attacks. However, the true power of incident response lies not just in reacting to incidents but in using the intelligence gathered to preemptively address vulnerabilities and enhance overall security posture.
+
+Despite its critical role, incident response faces significant challenges, particularly in terms of data sharing and standardization. The lack of a unified framework for reporting and analyzing incidents means that valuable insights are often confined to individual organizations, limiting the broader cybersecurity community’s ability to learn from each event. This issue underscores the need for more collaborative approaches to threat intelligence, where data can be shared securely and effectively to bolster collective defense efforts.
+
+## The Takedown of LockBit: A Case Study in Cybercrime Disruption
+
+In 2023, the cybersecurity community witnessed one of its most successful operations against cybercrime with the takedown of the LockBit ransomware group. This operation marked a significant victory for law enforcement and demonstrated the potential for effective action against even the most entrenched cybercriminal organizations.
+
+LockBit had long been a thorn in the side of businesses and governments alike, conducting numerous high-profile ransomware attacks. Their takedown was not only a technical and logistical achievement but also a strategic win in the broader fight against ransomware. Unlike previous efforts, which sometimes ended in taunts and further provocations from cybercriminals, the LockBit operation was thorough and definitive. The law enforcement agencies involved managed to dismantle the group’s infrastructure completely, leaving no room for resurgence.
+
+This successful operation highlighted the critical importance of international cooperation in combating cybercrime. It also underscored the vulnerabilities of critical sectors, particularly the financial industry, which was a primary target of LockBit. The attack on the Industrial and Commercial Bank of China (ICBC) was a tipping point, demonstrating the potential for cyber activities to threaten national security and economic stability.
+
+The LockBit takedown serves as a case study in the complexities and challenges of disrupting organized cybercrime. It illustrates the necessity of cross-border collaboration and the need for robust legal frameworks to prosecute cybercriminals effectively. Moreover, it emphasizes the importance of persistent and coordinated efforts to dismantle the infrastructure that supports ransomware operations.
+
+## The Russian Nexus: Cybercrime and State Interests
+
+An enduring theme in cybersecurity is the relationship between cybercrime and state interests, particularly concerning Russia. Over the years, numerous reports and investigations have suggested that Russian cybercriminals operate with a degree of impunity, often under the tacit approval or direct cooperation of state authorities. This relationship complicates efforts to combat cybercrime and raises significant geopolitical concerns.
+
+In 2023, this nexus was further illuminated by the actions of the Conti ransomware gang. Following Russia's invasion of Ukraine, Conti publicly declared its support for the Russian government, threatening to retaliate against any nation opposing Russia's actions. This move was not only a strategic miscalculation but also exposed the extent of cooperation between cybercriminals and the Russian state. Internal leaks from the group revealed evidence of collaboration with Russian authorities, suggesting a level of state involvement that goes beyond mere negligence.
+
+Russia's selective enforcement of cybercrime laws adds another layer of complexity. While Russian authorities have occasionally arrested cybercriminals, such as members of the REvil gang, these actions often appear motivated by political considerations rather than a genuine commitment to curbing cybercrime. This selective approach raises questions about Russia's responsibility to exercise due diligence in preventing trans-boundary cybercrime, a principle rooted in international law.
+
+The situation is further complicated by the lack of an internationally accepted standard for addressing cybercrime. Without a unified framework, nations struggle to hold states accountable for cyber activities originating within their borders. This gap in international governance underscores the need for collaborative efforts to establish norms and agreements that can effectively address the challenges of state-sponsored and state-tolerated cybercrime.
+
+## Conclusion
+
+Reflecting on the cybersecurity landscape of 2023, it is evident that the field is fraught with complexity and rapid evolution. The insights gained from incident responses, the challenges of inconsistent reporting, the successful takedown of LockBit, and the intricate relationship between Russian cybercrime and state interests all highlight the multifaceted nature of cybersecurity threats.
+
+As we move forward, the need for comprehensive intelligence, standardized reporting, and international collaboration becomes increasingly urgent. The lessons of 2023 call for a unified approach to understanding and mitigating cyber threats, emphasizing the importance of cooperation between industry, law enforcement, and global entities. Only through such concerted efforts can we hope to safeguard against the ever-present and escalating threats posed by cybercriminals and state-sponsored actors alike.
+
+This chapter has sought to provide a detailed narrative that not only captures the events of 2023 but also offers insights and recommendations for future strategies. By learning from the past and anticipating future challenges, the cybersecurity community can enhance its resilience and better protect the digital world upon which we all depend.
+
+## References: 
+
+* Burgess, Matt. 2022. "Leaked Ransomware Docs Show Conti Helping Putin from the Shadows." Wired. March 18, 2022. Retrieved from https://www.wired.com/story/conti-ransomware-russia/.
+* CrowdStrike. 2024. CrowdStrike Global Threat Report. Austin, TX: CrowdStrike, Inc. Retrieved from https://www.crowdstrike.com/global-threat-report/.
+* Deutscher, Maria. 2023. "ALPHV Claims to Reactivate Ransomware Data Leak Website after FBI-Led Takedown." SiliconANGLE. December 20, 2023. Retrieved from https://siliconangle.com/2023/12/20/alphv-claims-reactivate-ransomware-data-leak-website-fbi-led-takedown/.
+* Dixon, Robyn and Ellen Nakashima. 2022. "Russia Arrests 14 Alleged Members of REvil Ransomware Gang, Including Hacker U.S. Says Conducted Colonial Pipeline Attack." Washington Post. Retrieved from https://www.washingtonpost.com/world/2022/01/14/russia-hacker-revil/.
+* Google Cloud Blog. 2024. "M-Trends 2024: Our View from the Frontlines." April 23, 2024. Accessed May 18, 2024. Retrieved from https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2024.
+* Jones, Sydney and Elizabeth McAlpine Geary. 2024. "How an Info Sharing Analysis Center Works W/ Its Members to Improve Cyber Defenses for Their Sector." Accessed February 22, 2024. Retrieved from https://www.youtube.com/watch?v=Rx0npcXC-Bo.
+* Legare, Robert. 2024. "Notorious Ransomware Provider Lockbit Taken over by Law Enforcement - CBS News." February 20, 2024. Retrieved from https://www.cbsnews.com/news/lockbit-law-enforcement-takeover-ransomware/.
+* Ortner, Daniel. 2015. "Cybercrime and Punishment: The Russian Mafia and Russian Responsibility to Exercise Due Diligence to Prevent Trans-Boundary Cybercrime." Brigham Young University Law Review, 2015, no. 1, pp. 177-.
+* Pipyros, Kosmas; Mitrou, Lilian; Gritzalis, Dimitris; Apostolopoulos, Theodoros. 2016. "Cyberoperations and international humanitarian law: A review of obstacles in applying international law rules in cyberwarfare." Information and Computer Security, Vol. 24, Issue 1, pp. 38-52.
+* U.S. Department of the Treasury. 2024. "United States Sanctions Affiliates of Russia-Based LockBit Ransomware Group." February 20, 2024. Retrieved from https://home.treasury.gov/news/press-releases/jy2114.
+* Unit 42. 2024. "2024 Unit 42 Incident Response Report: Navigating the Shift in Cybersecurity Threat Tactics." February 20, 2024. Retrieved from https://unit42.paloaltonetworks.com/unit42-incident-response-report-2024-threat-guide/.
+* Verizon. 2024. Data Breach Investigations Report. Basking Ridge, NJ: Verizon Business. Retrieved from https://www.verizon.com/business/resources/reports/dbir/.

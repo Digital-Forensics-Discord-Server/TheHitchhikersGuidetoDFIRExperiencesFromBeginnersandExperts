@@ -8,7 +8,7 @@ Online presence: [https://linqapp.com/abrignoni](https://linqapp.com/abrignoni)
 
 ## The Artisanal Approach
 
-Most mobile forenisc examinations involve the use of third party tools to extract and decode information stored whitin targeted devices. What happens when the tool presents little to nothing of what is expected? What to do when the targeted app seems to not exist as far as the tool is concerned?
+Most mobile forensic examinations involve the use of third party tools to extract and decode information stored whitin targeted devices. What happens when the tool presents little to nothing of what is expected? What to do when the targeted app seems to not exist as far as the tool is concerned?
 
 A big part of digital forensics involves what I call The Artisanal Approach. The Oxford Languages dictionary defines artisanal as: 
 		
@@ -32,7 +32,7 @@ On this chapter we will focus mostly on step number two. We will discuss what ty
 
 The mobile forensics world is divided, mainly, between two dominant operating systems. These are Google's Android and Apple's iOS operating systems. As such both will organize things in vastly different ways within their file systems. This chapter will present examples from a full file system extraction view of Android and iOS devices. Even when working from a different type of extraction the main concepts, and the handling of data stores, will be the same. For details on mobile extraction types and their differences see here: [https://privacyinternational.org/long-read/3256/technical-look-phone-extraction](https://privacyinternational.org/long-read/3256/technical-look-phone-extraction)
 
-Is is important to note that this chapter will touch on the most common locations and types of data needed for analysis. It is not an all encompasing guide to mobile forensics nor does it intend to be so. Without further ado let's dive in.
+Is is important to note that this chapter will touch on the most common locations and types of data needed for analysis. It is not an all encompassing guide to mobile forensics nor does it intend to be so. Without further ado let's dive in.
 
 ### Relevant Apps in Android
 In Android devices the apps keep most user generated data in the following directory:
@@ -61,7 +61,7 @@ Notice how the bundle ID for TikTok, com.zhiliaoapp.musically makes no obvious r
 	
 By changing the Google Play store URLs to the possibly unknown bundle IDs found on the target extraction one can determine the common app name for it.
 
-It is of note that apps also save data to additional locations within the Android device. Look for targeted bundle ID direcotries in the following locations:
+It is of note that apps also save data to additional locations within the Android device. Look for targeted bundle ID directories in the following locations:
 
 	/data/media/
 	/MNT/ or /NONAME/
@@ -87,7 +87,7 @@ These values can change constantly due to app installs, updates, and uninstalls.
 How can then we take these GUID named directories and linked them to the corresponding bundle IDs?
 
 ### Option 1: applicationState.db
-This data store is a SQLite database that contains information for all currently installed appications. We will discuss SQLite databases in the next section. The database is located here:
+This data store is a SQLite database that contains information for all currently installed applications. We will discuss SQLite databases in the next section. The database is located here:
 
 	/private/var/mobile/Library/FrontBoard/applicationState.db
 	
@@ -141,7 +141,7 @@ Addresses Table
 
 These tables record the customer's names and addresses. A customer can have one or more addresses in the addresses table. How to we know what addresses correspond to what customer? Notice how the customerID column in the Customers table identifies each customer uniquely. This is called a Primary Key. These same values can be found in the Addresses table under AddressID. When that is the case they are know as a Foreign Keys. The purpose of a foreign key is to identify that row of data as being part of (relational) to the primary key. We can match the customer with the correct address by finding tprimary key in the Customers table and match it with the same foreign key in the Addresses table.
 
-To tell the database to match customers to addresses we use a set of commmands called Structured Query Language (SQL). We will tell the database to gives us all columns from both tables where the CustomerID in the customer's table is the same as the AddressID in the addresses table.
+To tell the database to match customers to addresses we use a set of commands called Structured Query Language (SQL). We will tell the database to gives us all columns from both tables where the CustomerID in the customer's table is the same as the AddressID in the addresses table.
 
 `SELECT * 
 FROM Customers, Addresses
@@ -149,7 +149,7 @@ where CustomerID = AddressID`
 
 <img width="913" alt="2.11" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot11.png">
 
-Each customer has been match with the proper address or addresses. Notice the asterisk after the SELECT command, it means we want all columns that are responsive to the query. SQL allows us to really narrow down how much data we want from the database. If I want obtain only the addresses that are related to Alexis Brignoni we would query the database the followingt way:
+Each customer has been match with the proper address or addresses. Notice the asterisk after the SELECT command, it means we want all columns that are responsive to the query. SQL allows us to really narrow down how much data we want from the database. If I want obtain only the addresses that are related to Alexis Brignoni we would query the database the following way:
 
 `SELECT *
 FROM Addresses
@@ -167,7 +167,7 @@ As we examine these databases we have to take into account temporary files SQLit
 
 <img width="913" alt="2.13" src="https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/CrowdsourcedDFIRBook/main/manuscript/resources/Ch2/Screenshot13.png">
 
-These temporary files might contain data not found in the database and will require examination with tools that support their forensic review. An athoritative book on the subject can be found here: [SQLite Forensics by Paul Anderson](https://www.amazon.com/SQLite-Forensics-Paul-Sanderson/dp/1980293074)
+These temporary files might contain data not found in the database and will require examination with tools that support their forensic review. An authoritative book on the subject can be found here: [SQLite Forensics by Paul Anderson](https://www.amazon.com/SQLite-Forensics-Paul-Sanderson/dp/1980293074)
 
 
 

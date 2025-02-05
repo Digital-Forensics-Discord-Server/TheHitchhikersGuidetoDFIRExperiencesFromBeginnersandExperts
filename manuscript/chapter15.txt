@@ -4,9 +4,9 @@ C> By [Elijah Woodward, AKA Eli Woodward] [LinkedIn](https://www.linkedin.com/in
 
 ## Foreword
 
-I would like to start this chapter off by extending my sincerest thanks to Andrew Rathbun for the invite to participate in this project. Shamefully, I am finally getting around to this two years after he first extended the invite. In that time I've stayed busy, finishing up a Master's Degree in intelligence studies. I appreciate the opportunity to participate in this project and am deeply humbled by the invite. 
+I would like to start this chapter off by extending my sincerest thanks to Andrew Rathbun for the invite to participate in this project. Shamefully, I am finally getting around to this two years after he first extended the invite. In that time I've stayed busy, finishing up a Master's Degree in intelligence studies. I appreciate the opportunity to participate in this project and am deeply humbled by the invite.
 
-Plenty exists about the CTI space from writers more eloquent than myself, so I wanted to take this chapter to offer a review of 2023 from the CTI perspective, and touch on some deeper issues that are worth mentioning. Some of this is drawn from my academic studies and includes some analysis from that avenue. I find practitioners and academics don't always meet together, but there is value both can offer each other, though sometimes that value isn't realized. I hope to change that a little. 
+Plenty exists about the CTI space from writers more eloquent than myself, so I wanted to take this chapter to offer a review of 2023 from the CTI perspective, and touch on some deeper issues that are worth mentioning. Some of this is drawn from my academic studies and includes some analysis from that avenue. I find practitioners and academics don't always meet together, but there is value both can offer each other, though sometimes that value isn't realized. I hope to change that a little.
 
 ## Introduction
 
@@ -58,7 +58,7 @@ As we move forward, the need for comprehensive intelligence, standardized report
 
 This chapter has sought to provide a detailed narrative that not only captures the events of 2023 but also offers insights and recommendations for future strategies. By learning from the past and anticipating future challenges, the cybersecurity community can enhance its resilience and better protect the digital world upon which we all depend.
 
-## References: 
+## References
 
 * Burgess, Matt. 2022. "Leaked Ransomware Docs Show Conti Helping Putin from the Shadows." Wired. March 18, 2022. Retrieved from https://www.wired.com/story/conti-ransomware-russia/.
 * CrowdStrike. 2024. CrowdStrike Global Threat Report. Austin, TX: CrowdStrike, Inc. Retrieved from https://www.crowdstrike.com/global-threat-report/.

@@ -5,7 +5,7 @@
 
 C> By [Andrew Rathbun](https://github.com/AndrewRathbun) | [Twitter](https://twitter.com/bunsofwrath12) | [Discord](http://discordapp.com/users/223211621185617920)
 
-Special thanks to Kevin Pagano for creating the Digital Forensics Discord Server logo!
+Special thanks to *Kevin Pagano* for creating the Digital Forensics Discord Server logo!
 
 ## Introduction
 

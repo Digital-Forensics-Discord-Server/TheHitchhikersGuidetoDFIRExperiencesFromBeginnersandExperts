@@ -11,3 +11,7 @@
 ### August 2024
 
 ![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/refs/heads/main/manuscript/resources/Donation3.jpg)
+
+### December 2025
+
+![](https://raw.githubusercontent.com/Digital-Forensics-Discord-Server/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts/refs/heads/main/manuscript/resources/Donation4.jpg)
